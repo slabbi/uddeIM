@@ -1,0 +1,1106 @@
+Changelog of uddeIM 4.1
+
+=== THERE IS A COMPREHENSIVE FAQ AVAILABLE - PLEASE HAVE A LOOK ===
+
+
+Following features are new 4.1:
+===============================
+ 1.) Improvement: Protected downloads use absolute paths to avoid
+     SEF/URL rewrite problems
+ 2.) Bugfix: PHP Deprecated: The each() function is deprecated
+
+
+Following features are new 4.0:
+===============================
+ 1.) Bugfix: Autocompleter works again with Joomla 3.6+
+ 2.) Bugfix: PHP7 compatibility improved ("ereg_replace" is 
+     deprecated in PHP7)
+
+
+
+Following features are new 3.9:
+===============================
+ 1.) Improved: The Joomla table prefix can start with a number, now
+ 2.) Bugfix: Field name was improperly quoted in plug_uddeim_inbox
+ 3.) PHP 7 compatibility
+
+
+
+Following features are new 3.8:
+===============================
+ 1.) Bugfix: uddeIM PMS plugin returns wrong unread message count.
+ 2.) ReCaptcha 2.0 support.
+ 3.) Improved: Community Builder 2.0 support
+
+
+
+Following features are new 3.7:
+===============================
+ 1.) New setting: Show additional menu link.
+ 2.) Link to Kunena forum fixed.
+ 3.) Bugfix: uddeim_hooks plugin
+ 4.) Bugfix: Broken links in uddeIM backend "User settings" (J3.3+)
+ 5.) Bugfix: "Check all" checkbox (J3.2+)
+ 6.) Bugfix: "static call" with AJAX request from uddeIM module
+ 7.) Bugfix: UTF8 strings were not correctly created in mod_uddeim
+ 8.) Change: UddeIM does not longer use CB language strings
+
+
+
+Following features are new 3.6:
+===============================
+ 1.) Work-around for "</br>" in non-uddeIM language files.
+ 2.) When a message is trashed it is not marked read automatically.
+ 3.) CB 2.0 compatibilty: uddeIM Profilelink
+ 4.) "MORE" link for more smileys is only shown when these smileys exist.
+ 5.) XML installer file for CB 2.x added to avoid CB compatibility warning.
+
+
+ 
+Following features are new 3.5:
+===============================
+ 1.) MEIO Autocompleter CSS Fix: "z-index" added.
+ 2.) Community Builder 2.0 support.
+ 3.) Additional Admin and Special groups can be specified.
+ 4.) Changed the behavior uddeIM loads its libraries.
+ 5.) Banned users except admins (previously: only banned registered users) cannot send PMs.
+
+ 
+ 
+Following features are new 3.4:
+===============================
+ 1.) Listbox view for connections can also be enabled when CB is not installed
+     (this setting is also used for userlists).
+ 2.) Libraries updated for Joomla 3.3
+
+ 
+ 
+Following features are new 3.3:
+===============================
+ 1.) CSS bug fixed (submenu was not displayed correctly on some admin templates)
+ 2.) Settings menu is displayed when RSS feed is enabled.
+ 3.) Settings menu displayed an SQL error when RSS was enabled on Joomla 3.x.
+ 4.) Fixed a problem with the Auto Responder when message obfuscating or
+     encryption was _not_ used.
+
+
+
+Following features are new 3.2:
+===============================
+ 1.) "Filter flagged" will only be shown when flagging is enabled.
+ 2.) uddeIM provides Hooks for 3rd party components. More information can be found in the FAQ.
+ 3.) Minor Javascript error in mod_uddeim fixed.
+ 4.) Fixed a bug in API (system messages were empty when sent).
+
+
+ 
+Following features are new 3.1:
+===============================
+ 1.) Badwords filter added.
+ 2.) Fixed a problem with Joomla 3.1
+     http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&tracker_item_id=30599
+	 http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&tracker_item_id=29786
+ 3.) Compatibility with PHP >=5.3.
+ 4.) Compatibility with Joomla 3.0, 3.1 improved.
+ 5.) Default setting for Autocompleter under Joomla 3.1 corrected.
+
+
+
+Following features are new 3.0:
+===============================
+ 1.) Joomla 3.1 compatibility added.
+ 2.) Joomla 3.0 compatibility improved.
+ 3.) Bugfix: CB PMS uddeIM profilelink works on Joomla 3.0.
+ 4.) Bugfix: Joomla displayed an error because component title was not set.
+ 5.) New option to enable/disable reply text.
+ 6.) ACL support for Joomla >=2.5.
+ 7.) Fixed a SEF problem with CB Profilelink Plugin.
+
+
+
+ Following features are new 2.9:
+===============================
+ 1.) BBcode "[file]" added.
+ 2.) Kunena 2.0 integration added.
+ 3.) Two new options for the Postbox plugin.
+ 4.) Joomla update mechanism added. When you install uddeIM with the
+     component manager, you should be able to upgrade to the next version 
+	 including all SQL updates by installing the new version with the 
+	 Joomla component installer.
+ 5.) Some bugfixes in Postbox plugin.
+ 6.) Joomla 3.0 compatibility (experimental).
+ 7.) Fixed a cosmetic bug in the userlist form.
+ 8.) Fixed a warning when the version check was called.
+ 9.) Multi-site improvement (thanks to Yann Praud)
+10.) Bulgarian language file added.
+11.) A few minor bugfixes
+
+
+
+Following features are new 2.8:
+===============================
+ 1.) Lithuanian language added.
+ 2.) MEIO Autocompleter fixed (shows garbage when UTF-8 was used as charset).
+ 3.) Fixed a problem with the Autocompleter on Joomla 1.6+ when group 
+     blocking was used.
+ 4.) mod_uddeim: sound notifications can be played without displaying a
+     popup or floating box.
+ 5.) Some code changes for upcoming Postbox plugin.
+ 6.) A few minor bugfixes
+
+
+
+Following features are new 2.7:
+===============================
+ 1.) New option in cb_plug_pms_uddeim: "Unescape '\\n'" should fix a 
+     problem when notification contain "\\n" characters.
+ 2.) New option in cb_plug_pms_uddeim: "Double escape" should fix a 
+     problem when notification contain "\n" characters.
+ 3.) New option in mod_uddeim: Sound notification (DOM or HTML5). Works only
+     with the "Floating box".
+ 4.) Added a new Autocompleter (Meio-Autocompleter) that works with Joomla 2.5
+     (and hopefully on newer versions, too). You can still use the old one
+	 when your plattform is Joomla 1.0, 1.5, 1.6, or 1.7.
+ 5.) On new Joomla versions uddeIM should automatically use the newest 
+     compatibility layer instead of the older layer for Joomla 1.5.
+ 6.) plug_uddeim_searchbot and plug_uddeim_contentlink are Joomla 2.5
+     compatible now.
+ 7.) Option "obfuscate text" removed from cb_plug_pms_uddeim. This option is
+     taken from uddeIM configuration, now. Note: Encryption is still not
+     possible and uddeIM falls back to obfuscating for messages sent from the 
+     profile.
+ 8.) Recaptcha library updated to version 1.11.
+ 9.) Some options in cb_plug_pms_uddeim have been moved from Tab Management to
+     the Plugin Management.
+10.) Some improvements for multilingual sites (cb_plug_pms_uddeim_inbox,
+     com_uddeim, mod_uddeim, uddeim_api).
+11.) Small bugfix in cb_plug_pms_uddeim.
+12.) Fixed a warning when editing a userlist and no user has been found.
+
+
+
+Following features are new 2.6:
+===============================
+ 1.) Indonesian language file added (uddeIM supports 34 languages, now).
+ 2.) You can select "forward message" in inbox and outbox message view.
+ 3.) You can select "recall message" in oubox message view.
+ 4.) Bugfix: Autoresponder works with message obfuscating.
+ 5.) mod_uddeim cooperates with other modules that use window.onload, now.
+ 6.) Users which can be added to a contact list can be restricted to CB/CBE/JS connections.
+ 7.) The Persian calendar can be used on sites using the Farsi language file.
+ 8.) SEF can be switched of for %msglink% placeholder in email notifications.
+ 9.) mod_uddeim can be configured to display the new message headline only.
+10.) Joomla 2.5 compatibility (experimental).
+
+
+
+Following features are new 2.5:
+===============================
+ 1.) UddeIM API returns the version correctly.
+ 2.) Fixed a Undefined variable in cb_plug_uddeimblocking.
+ 3.) Indonesian language is supported now.
+ 4.) Search plugin loads the correct library when used on Joomla 1.7.
+ 5.) Minor template update.
+
+
+
+Following features are new 2.5beta:
+===================================
+ 1.) J1.6: RSS plugin "Admin only" option works again.
+ 2.) J1.6: Public Frontend plugin "Forward message for admins only" works again.
+ 3.) "Ticks" are shown again in User settings dialog.
+ 4.) Joomla 1.7 compatibility.
+ 5.) Autoresponder messages have not been encrypted.
+
+
+
+Following features are new 2.4:
+===============================
+ 1.) Autocompleter works with Firefox 4.0rc.
+ 2.) J1.6: Edit userlist was broken on Joomla 1.6.
+ 3.) Fixed a function redeclaration error when mod_uddeim was loaded before com_uddeim.
+ 4.) J1.6: Icons (ticks) in User settings manager were missing.
+ 5.) J1.6: plug_uddeim_contentlink fixed.
+ 6.) J1.6: Online status of users corrected (actually this is a Joomla bug).
+ 7.) J1.6: Link to RSS feed is displayed correctly.
+ 8.) RSS plugin recognizes "delayed" messages.
+ 9.) J1.6: cb_plug_pms_uddeim_profilelink recognizes blocked and banned users.
+10.) J1.6: cb_plug_pms_uddeim recognizes blocked and banned users.
+11.) J1.6: mod_uddeim_mailbox fixed.
+
+
+
+Following features are new 2.3:
+===============================
+ 1.) J1.6: Group blocking feature was broken in 2.3rc due to Joomla 1.6 changes. Fixed.
+ 2.) Installer issue: creating tables works on MySQL 5.5.
+ 3.) Time stamp in CB PMS plugin fixed.
+ 4.) J1.6: Search plugin works
+ 5.) J1.6: Userlist was broken when user blocking has been used and no user has 
+           been hidden.
+
+
+
+Following features are new 2.3rc:
+=================================
+ 1.) J1.6: Search and Contentlink plugins are working
+ 2.) J1.6: Errors fixed when users were members in two or more groups
+ 3.) J1.6: Some hardcoded "jos_" prefix in SQL statements (J1.6 related bug only) fixed
+ 4.) J1.6: Double notifications bug fixed when users are members in multiple groups
+ 5.) J1.6: uddeIM recognizes more ISO language codes
+ 6.) J1.6: CSS files fixed: default, default_ex, default_ex_pink, monoblue, monogram, 
+           monopink, monorange, noir, modernblue, tcplc
+ 7.) J1.6: Some minor Joomla 1.6 issues fixed.
+ 8.) BBcodes [ol][/ol], [ul][/ul], [li][/li] added (though they are no buttons for
+     these codes).
+ 9.) uddeIM menu favicon will be added when fix database (Maintenance) is used
+     (older uddeIM versions do not have this icon, so uddeIM 2.3 fixes this).
+10.) Path to Kunena 1.6 default avatar fixed.
+11.) Importer added for Messaging 1.x
+12.) Importer added for CD Pure Messenger 1.x
+13.) "Add CC: line" can be disabled in backend (was displayed automatically when
+     multiple recipients were enabled).
+14.) Premium plugin: Message Control Center. This plugin allows admins to moderate 
+     selected accounts.
+15.) J1.6: uddeIM Notifier fixed.
+16.) J1.6: It is possible to select the destination box (inbox, outbox, etc) in the
+           Joomla 1.6 menu options when creating a new menu link.
+17.) Frontend menu can be switched off (in case you wish to create own links to uddeIM).
+18.) "Timedelay" between posts is evaluated for registered users only.
+19.) Separate Joomla 1.0/1.5 and Joomla 1.6 installer archives.
+20.) Autocompleter has hidden blocked groups for non-admins and not for 
+     registered users.
+21.) Autocompleter has shown 'hidden' users for non-admins.
+22.) A few minor bugfixes
+
+
+
+Following features are new 2.3beta:
+===================================
+ 1.) Joomla 1.6alpha compatibility improved (e.g. uddeIM plugins are working).
+ 2.) uddeIM search plugin improved.
+ 3.) Menu icon added.
+
+
+
+Following features are new 2.2:
+===============================
+ 1.) "Send button" will be disabled to avoid double posts
+ 2.) Autocompleter displays "@" correctly
+ 3.) Attachment plugin: plugin recognizes lots of more MIME types
+ 4.) Polish language file added
+ 5.) uddeim API imports 'joomla.version'
+ 6.) Added function to API that allows getting the main version of uddeIM component
+ 7.) The user can force uddeIM not to send email notifications for system and 
+     general messages.
+ 8.) Autocompleter fix for Chrome-Browser (thanks to boraa@joomlapolis).
+ 9.) User timezone should be recognized (Joomla 1.5+).
+10.) Bugfix: You can specify a time period a user has to wait until he can send messages.
+11.) You can specify the display size of an avatar (width and height) in uddeIM backend.
+     If a size of "0" is given uddeIM ignores this value and does not modify the image.
+     Example: "0/0" leaves the original size of the avatar unchanged, "50/0" scales to a
+     width of 50 pixels.
+12.) Button "Send" in "Create userlist" changed to "Save".
+13.) Searchbot does not longer display trashed messages.
+14.) Importer added for JomSocial 1.x
+15.) Kunena 1.6 integration added.
+16.) Ninjaboard integration added.
+17.) gravatar (http://gravatar.com) integration added.
+     Note: gravatars are not supported for JomSocial and AUP.
+18.) Setting/Resetting stars and setting read/unread flags does not display first 
+     page afterwards.
+19.) Filtering improved.
+20.) UddeIM modules load CSS files W3 compliant, now.
+21.) Premium Plugins updated.
+
+
+
+Following features are new 2.1:
+===============================
+ 1.) Added Joo!CM support
+ 2.) Japanese language file added
+ 3.) JIM importer fixed
+ 4.) Attachment plugin: certain files are blocked by default (e.g. php, cgi)
+ 5.) Attachment plugin: allowed extensions can be specified
+ 6.) Public frontend: Option "Email required" added
+ 7.) You can specify a time period a user has to wait until he can send messages
+ 8.) Internal reconstructions regarding system messages and copy2me messages
+     (performance boost for very large sites, e.g. >100000 members)
+ 9.) uddeIM API does not try to load language files multiple times
+10.) Bugfix regarding message linking (warning when PHP >5.0.4 was used)
+11.) Managers do not longer have access to uddeIM backend
+12.) When a user reports a message a notification is sent to all admins
+13.) A few minor bugfixes
+
+
+
+Following features are new 2.0:
+===============================
+ 1.) Notification for system messages were not sent to all users. Fixed.
+
+
+
+Following features are new 2.0rc:
+=================================
+ 1.) reCaptcha service added (see http://recaptcha.net/ for more information).
+ 2.) Installer checks if folder "uddeimfiles" already exists before it tries 
+     to create one.
+ 3.) The sender's name in notification emails will also be base64 encrypted 
+     when neccessary.
+ 4.) uddeIM API is now stable and part of the package, so other components
+     can use it to send PMs with email notifications.
+ 5.) New templates: default_ex and default_ex_pink.
+     Thanks to Matias Griese for this really great work!
+ 6.) Import from JAM improved.
+ 7.) Support for AlphaUserPoints added.
+ 8.) Length of teaser text should be correct when UTF-8 encoding is used.
+     Do not forget to update uddeIM modules, mambots/plugins and CB plugins.
+ 9.) "/uddeimfiles" moved to "/images/uddeimfiles".
+10.) A few hardcoded table prefixes ("jos_attachments") fixed.
+11.) Strong encryption can be enabled (3DES).
+12.) Messages where shown n-times when n attachments have been added and
+     "Show attachment icon" was enabled.
+13.) System messages can be send by admins and optionally by managers now.
+14.) cb_plug_pms_uddeim_inbox updated.
+15.) A few minor XHTML fixes.
+16.) Started making uddeIM Joomla 1.6 compatible. Even when there are still a 
+     few minor issues to make it run perfectly it should work.
+
+
+
+Following features are new 1.9:
+===============================
+ 1.) Premium plugin: File attachments. This plugin allows users to send 
+     small files to each other.
+ 2.) Premium Plugin: Public Frontend always included the whole message in
+     notification email. Fixed.
+ 3.) MooTools updated (v1.2.3)
+ 4.) Bugfix: send system message shows all available groups again
+ 5.) Message counters can be shown in the menu bar.
+ 6.) SQL error when "'" was used in names fixed.
+ 7.) Change: When a system/general message is send the sender will receive
+     this message, too.
+ 8.) Bugfix: Include message with notification now works with system messages.
+ 9.) FTP layer support improved (e.g. for accessing the configuration file and
+     creating missing files).
+10.) There is a new backend option to send email headers (like the subject) 
+     encoded (see rfc 2047). This should solve some problems with non ISO 
+	 character codes and Outlook message readers.
+11.) A small bug in some language files fixed. Translators should check
+     following language strings (these have been fixed):
+       _UDDEADM_MAINTENANCE_NOTFOUND
+       _UDDEADM_MAINTENANCE_MT2
+       _UDDEADM_MAINTENANCE_MT3
+       _UDDEADM_MAINTENANCE_MT4
+       _UDDEADM_MAINTENANCE_MT5
+12.) Inbox, outbox and archive message lists can be sorted.
+13.) JomSocial friends are listed in the connections list.
+14.) Small bugfixes.
+
+
+
+Following features are new 1.8:
+===============================
+ 1.) "CC:" will not contain BBcode when BBcodes are disabled.
+ 2.) JACLplus support: Blocking groups for public and registered users.
+ 3.) New CSS style added: uddeim-smileybox-popup (now used for the 
+     extended smiley box).
+ 4.) "Report Message" link was shown even when the function was disabled.
+ 5.) Fixed some CSS issues.
+ 6.) When BBcodes are disabled uddeIM does not longer use BBcodes in
+     message forwards.
+ 7.) The cursor does not longer jump to the beginning of the text when
+     smileys or BBcodes are inserted.
+ 8.) Warning fixed when uddeIM was used without CB.
+ 9.) Bug regarding sending system/general messages to certain usergroups fixed.
+10.) Fixed a XSS vulnerability that works in IE6/7 only.
+11.) Fixed a small problem in sh404SEF plugin
+12.) SQL error when "Add CC: line" was selected and "'" was used in names fixed.
+13.) Small bugfixes.
+
+
+
+Following features are new 1.7:
+===============================
+ 1.) New setting in backend: Admins can choose if the message text is included
+     in the email notification or not.
+ 2.) Maximum number of allowed recipients on a userlist is displayed in the 
+     footer.
+ 3.) Appearance of menu bar can be chosen: text only, icons only, text and icons
+ 4.) New maintenance function: uddeIM uses two XML files to ensure that it can be 
+     installed on Joomla 1.0 and 1.5. On Joomla 1.5 one XML file is not required 
+     and this makes the extension manager to show an incompatibilty warning (which 
+     is wrong). This removes the unnecessary files, so the warning is not longer 
+     displayed.
+ 5.) A message can be directly trashed after sending.
+ 6.) English and german language files cleaned up (removed approx. 50 strings)
+ 7.) "Add CC: line" is checked by default now.
+ 8.) Javascript popup notification removed from mod_uddeIM (this mode was useless).
+ 9.) Some code optimizations (e.g. code for backend is 80kb(!) smaller).
+10.) Bugfix "nouserlist"-parameter. uddeIM disabled the "To:"-field, so the recipient
+     was not sent. This results in that pms_uddeim_contentlink has not worked.
+11.) Support for forum component Kunena added.
+12.) Support for community component JomSocial added.
+13.) Premium plugin for donators: Spamcontrol System added in backend (allows 
+     users to report spam, so the admin can take appropriate actions).
+14.) New icon added to uddeIM standard templates.
+15.) Some minor bugs removed from CSS template files and new style class added.
+16.) New plugin: uddeIM Search Bot for Joomla, integrates Message Search in
+     Joomla Search (note it is not possible to search inside messages when
+     message obfuscating, encryption or base64 encoding is used).
+17.) Registered users cannot send messages to CB/CBE banned users (special users can).
+18.) CB/CBE banned users cannot use uddeIM.
+19.) Due to some optimizations, several SQL queries removed.
+20.) mod_uddeim did not display any notifications when "No output" was set to "Yes".
+21.) Accounts can be locked in the backend. Locked accounts cannot be accessed but
+     messages can still be received.
+22.) Fixed a variable not found bug in cb_plug_pms_uddeim_profilelink.
+23.) Following logic has been changed when uddeIM is in realname mode:
+     When uddeIM 1.6 was called with parameter "recip=<id>" the realname was read 
+     and used as recipient in the compose message dialog. The problem was that the
+     message was send to the first user found when the realname was used by
+     several people.
+     uddeIM 1.7 does read the realname but the username when the realname is not
+     unique. So the compose message dialog shows the username instead even when
+     uddeIM uses realnames.
+24.) The Itemid is requested for profile links, so problems with 3rd party SEF
+     should be fixed.
+25.) A notification is displayed when "email stopp" is active.
+26.) Path to captcha font added (a very few systems had problems without).
+27.) Only users logged into the frontend are shown online.
+28.) When a name starts with a "#", uddeIM first checks if a corresponding userlist 
+     exists and if not it checks for the username.
+29.) Some minor bugfixes.
+
+
+
+Following features are new 1.6:
+===============================
+ 1.) Usersettings in admin backend allows deleting of messages of certain users.
+ 2.) Message navigation can be enabled (when enabled uddeIM displays if responses
+     to a message and the original message is available).
+ 3.) Statistics in backend improved.
+ 4.) mod_uddeIM improved (when AJAX is enabled, the floating box is shown when a 
+     new message arrives).
+ 5.) Premium plugin for donators: Access to inbox via RSS Feed.
+ 6.) iGoogle gadget to access RSS Message Feed.
+ 7.) Premium plugin for donators: Public Frontend
+ 8.) You can force uddeIM not to load MooTools. In uddeIM 1.5 it was assumed that 
+     MooTools 1.1 is loaded by the template, in uddeIM 1.6 you can select if 
+     MooTools 1.1 or 1.2 is used.
+ 9.) Some security related improvements.
+10.) Language file for Arabic added.
+11.) Separator for multiple recipients can be selected (comma or semicolon).
+12.) Autoforward can be enabled only for special users.
+13.) Some code improvements (avoiding some redirection loops when called from 3rd
+     party components and modules).
+14.) "All users" list can be restricted to special users and admins only.
+15.) Though there is a notice after uddeIM has been installed and there are a 
+     README and a FAQ available, some users persistently ignore these documents.
+     Now a red colored warning line will be shown when the database has not been 
+     updated. I bet there are still some users who won't make it.
+16.) Messages can be imported in parts. This might be necessary when you want to
+     import lots of messages and the importer dies before finishing the import.
+17.) A new CB plugin has been added: cb_plug_pms_uddeim_blocking. This plugin 
+     adds a "Blocking" tab so you can block and unblock users quite easy.
+18.) A small bug in plug_uddeim_pms_contentlink has been fixed.
+19.) Character set was not converted for Autoresponder text when UTF-8 was used.
+20.) Backend buttons use translated language strings.
+21.) Vietnamese and Czech language file added.
+22.) Global contact lists added (a global contact list is visible to all users).
+23.) Restricted contact lists added (a restricted contact list can be accessed 
+     by members only).
+     Note: Even when the sender in on the contactlist (required when dealing with
+	       restricted or global contact lists which can be used by other users), 
+           the sender will not receive a message.
+24.) Multiple selection from contact lists possible.
+25.) A new CB plugin has been added: cb_plug_pms_uddeim_profilelink. This plugin 
+     adds a simple link that points to the uddeIM compose page.
+26.) Restriction of max. members on userlist was not enforced.
+27.) Creating of userlists improved.
+28.) Modernblue template fixed for IE.
+29.) Some minor bugfixes.
+
+
+
+Following features are new 1.5 Hotfix 2:
+========================================
+1.) updated language files for Finnish and Spanish
+2.) Character set was not converted for Autoresponder text when UTF-8 was used.
+3.) Vietnamese language added.
+4.) Bugfix: Unknown variable in includes.php
+
+
+
+Following features are new 1.5 Hotfix 1:
+========================================
+1.) Updated language files for Brazilian-Portuguese, Italian, Serbian, 
+    Simplified Chinese, and Turkish
+2.) Bugfix: Unknown variable in inbox.php, outbox.php, archive.php
+
+
+
+Following features are new 1.5:
+===============================
+ 1.) Autoresponder added (works for local users and public users).
+ 2.) When filtering users in the usersettings the boundaries where not checked correctly, so
+     sometimes the filter does not show any result.
+ 3.) Autoforwarding added (users can forward new emails automatically to other users).
+ 4.) Some special characters have been sent encoded in email notifications (hope that this
+     issue is fixed now).
+ 5.) You can specify the width, columns and rows of the message box in the backend.
+ 6.) Community Builder Enhanced for Joomla 1.5 is supported now.
+ 7.) Loading of javascript and style sheets is done in the header now (XHTML compatibility).
+ 8.) Language string "_UDDEIM_EMN_BODY_PUBLICWITHMESSAGE": meaning of %you% and %user% switched
+     (it was not a bug but now it is consistent with other language strings).
+ 9.) Lots of improvements (e.g. improved layout in admin usersettings).
+10.) New module: mod_uddeim_statistics (displays some statistics)
+11.) New plugin: plug_uddeim_pms_contentlink (creates a link to uddeIM in articles)
+        {pmslink:id=123}
+        {pmslink:username=slabbi}
+        {pmslink:realname=Stephan Slabihoud}
+     Additionally you can enter a text which is displayed instead of the icon, e.g.
+        {pmslink:realname=Stephan Slabihoud,Send Stephan a message}
+12.) Filter for inbox, outbox and archive added.
+13.) New CSS tag added: "uddeim-filter". This is used to style the extra line used by the filter.
+14.) Trashcan performance improved for very large sites (messages are not longer sorted by 
+     trash date but by creation date -> removes a "filesort" in the SQL query).
+15.) Removed depricated mosMail in cb_plug_pms_uddeim on Joomla 1.5.
+16.) mod_uddeim_mailbox did not load the CSS file when user was not logged in.
+17.) Added a link to unarchive a message when the message is displayed.
+18.) New icon added (so read the update instructions carefully).
+19.) Most icons have "title" tag, now.
+20.) Forgetmenot messages improved and bugfixed (less server load, sends messages to
+     unblocked users only).
+
+
+
+Following features are new 1.4:
+===============================
+ 1.) Language file: You can use "%msglink%" in
+       _UDDEIM_EMN_BODY_NOMESSAGE, _UDDEIM_EMN_BODY_WITHMESSAGE, _UDDEIM_EMN_FORGETMENOT.
+     This displays a link which directly jumps to the received message. When you use
+     this variable please pay attention to following notes:
+      i) The user must be logged on (or must be remembered by Joomla) otherwise the user
+         will see an error message (you are not allowed...).
+     ii) When the user is not logged on and the public frontend is enabled the user
+         will see the public front end instead off the received message.
+ 2.) Importer improved (shows all installed PMS now, not only one).
+ 3.) Bugfix: uddeIM did not send email notification on some Joomla installations.
+ 4.) Bugfix: Multiple messages could not be deleted when site was installed in a subdomain.
+ 5.) "Overwrite Itemid" is also regocognized by the main component and not only by the modules. 
+ 6.) mod_uddeim_mailbox shows link to contacts.
+ 7.) Renamed all functions and variables used to avoid conflicts with other modules.
+ 8.) Fixed a small problem with plug_pms_uddeim which has appeared on one system only.
+ 9.) Fixed a variable not initialized bug in modules and plugins.
+10.) Updated Autocompleter for MooTools 1.2 to v1.2.1.
+11.) Bugfix: Agora Avatars have not been displayed.
+
+
+
+Following features are new 1.3:
+===============================
+ 1.) uddeIM 1.3 runs on Joomla 1.x, J1.5 legacy and J1.5 native.
+ 2.) The text counter was not working when message length was set to zero. The bugfix 
+     ensures that the text counter is not shown when the text length is set to zero, now.
+ 3.) Added check if iconv() is available (usually it should).
+ 4.) The Autocompleter can use MooTools 1.2, which supports multiple selections. You can
+     specify the version of MooTools which uddeIM should use in the admin backend:
+        "do not load MooTools":
+            MooTools is NOT loaded by uddeIM (so when your template loads MooTools, 
+            uddeIM does not load it twice).
+        "auto":
+            Same behavior as in uddeIM 1.2. uddeIM loads MooTools 1.11 when running under
+            Joomla 1.0 and uses the internal MooTools library when running under Joomla 1.5.
+        "force loading MooTools 1.1":
+            Loads MooTools 1.11 library.
+            Note that there is no check if MooTools is already loaded!
+        "force loading MooTools 1.2":
+            Loads MooTools 1.2 library.
+            Note that there is no check if MooTools is already loaded!
+     Joomla 1.5 users cannot use "MooTools 1.2" setting since Joomla 1.5 always loads 
+     MooTools 1.11. Joomla 1.5 users have to use "auto" or "do not load MooTools".
+ 5.) uddeIM supports Agora Avatars and Profiles.
+ 6.) J1.5 XML installer added.
+ 7.) New uddeIM logo in backend.
+ 8.) Default values are shown in usersettings list in backend.
+ 9.) Annoying bug fixed which appeared when two or more menu entries with different access
+     levels were used to call uddeIM.
+10.) Pagination was broken in "uddeIM 1.3 experimental" on Joomla 1.0. This should be fixed.
+11.) When your site was accessible in a sub folder the Autocompleter did not work because
+     a absolute path was used in autocompleter.css.
+     You can fix your own template when you replace
+	   url(/components/com_uddeim/templates/<template>/images/spinner16.gif)
+	 with
+	   url(../images/spinner16.gif)
+12.) Added an additional check so that json.php is not loaded twice on some systems.
+13.) "No photo" avatar should be displayed with CBE now.
+
+
+
+Following features are new 1.2:
+===============================
+ 1.) A few minor changes.
+
+
+Following features are new 1.2beta2:
+====================================
+ 1.) FB requires an Itemid in order to show user profiles.
+ 2.) Trashcan queries optimized: querying the message list is only done when there are
+     messages stored in the trashcan.
+ 3.) Added a fix that allows to store messages in base64 format in the database (so people
+     with character encoding problems because of a wrong database setting have full UTF-8
+     support).
+ 4.) When forwarding copy2me messages it looked like that sender and receiver have been 
+     switched. Now these messages are handled in a special way, so the sender and receiver
+	 are shown correctly.
+ 5.) Bugfix: forgetmenot emails were not sent in 1.1 and 1.2beta.
+ 6.) Language file contains "To" in upper case (used in captions) and lower case (used in
+     "to Username").
+ 7.) Error fixed in plug_pms_uddeim when group blocking was used.
+ 8.) Importer added for myPMS OS 2.x
+ 9.) Importer added for myPMS Pro 1.x
+10.) Importer added for JIM Reloaded 1.x
+11.) Importer added for myPMS Enhanced 1.x
+12.) JIM importer improved (already deleted messages are not undeleted)
+13.) myPMS Enhanced importer improved (already deleted messages are not undeleted)
+
+
+Following features are new 1.2beta:
+===================================
+ 1.) plug_uddeim_mailbox uses language file of uddeIM.
+ 2.) "runame" parameter accepts multiple names.
+ 3.) Bug in cb_extra.php fixed.
+ 4.) CB "nophoto" was not shown when CB Gallery was enabled and gallery photo was specified 
+     before.
+ 5.) Creating of new userlists failed when Joomla was not installed in the root directory.
+ 6.) Changed the Autocompleter behavior according Character encoding.
+ 7.) User settings navigation in backend failed on Joomla 1.5.
+ 8.) When using the maintenance function in backend an error was shown when a forgotmenot 
+     email was send.
+ 9.) Some minor language file related bugs fixed in plug_uddeim_inbox plugin.
+10.) A few layout bugs fixed.
+11.) Several SQL queries speed optimized
+12.) When downloading messages from the archive and a message was written by a public user 
+     the sender's name was empty.
+13.) UTF-8 characters were not displayed correctly when uddeIM was called from 3rd party 
+     component.
+14.) Replies can be truncated automatically when the max text length is exceeded.
+15.) When recalling a message the old recipient of the message is now used as default in the 
+     recipient field.
+16.) A checkbox allows adding a CC-lines when "Multi users" features is enabled. uddeIM does 
+     only add this line below the message when two or more recipients have been entered.
+17.) Forwarding a message does not display the full message on top of the text input field.
+18.) mod_uddeim supports AJAX requests, so it shows new incoming messages immediately 
+     (the floater and popup will currently NOT appear when a new message arrives).
+19.) Greek translation (frontend only) added.
+20.) Since a few people do not check the README before they update, I added a reminder in 
+     the installation routine.
+21.) Important messages can be tagged (or flagged). You can enable this in the backend.
+22.) uddeIM supports Fireboard avatars, now.
+23.) You can select if a username and avatar links to the CB profile or FB profile.
+24.) You can select if an avatar is taken from the CB profile or FB profile.
+25.) Some language file strings fixed.
+26.) System/General messages are sent to unblocked users only.
+27.) It is possible to overwrite the automatically detected Itemid in backend (also works in 
+     mod_uddeim, plug_pms_uddeim, and plug_pms_uddeim_inbox
+28.) Registered users can be blocked to send PMs to other registered users.
+29.) Blocked groups will not longer be listed in the all user lists.
+30.) mod_uddeim_mailbox shows menu icons optionally.
+31.) You can display some statistics in the backend.
+32.) Some security related improvements.
+33.) You can adjust the timezone in uddeIM backend, now. The adjustment does not effect 
+     existing messages.
+34.) Message teaser in mod_uddeim is optionally, now.
+35.) Autocompleter can be used on public frontend (I don't recommend to use it on the public
+     frontend).
+36.) Members of blocked groups will not be listed in autocompleter.
+37.) Automatic login problem fixed on Joomla 1.5. uddeIM modules said "You are not logged in"
+     when a user re-visited a site (nevertheless it was working fine after a page reload).
+
+
+Following features are new 1.1:
+===============================
+ 1.) Public frontend implemented, so unregistered users can send messages to registered users.
+ 2.) Captcha spam protection for public user frontend (optional).
+ 3.) Captcha spam protection for registered users (optional).
+ 4.) The full editor (with smiley support etc.) is available when messages are recalled.
+ 5.) Registered users can choose in their settings if public users are allowed to send messages
+     or not.
+ 6.) "Show userlist" can be set for Public frontend.
+ 7.) You can hide certain groups to be listed in "All users" list (Admins will always see the 
+     complete list).
+ 8.) You can hide certain groups to be listed in public "All users" list.
+ 9.) "Forward message" available in outbox.
+10.) Messages to certain groups can be blocked for registered users.
+11.) Recipients which are on a users connection list can be unblocked.
+12.) Avatars from the CB avatar gallery are displayed (when enabled).
+13.) Browser check reordered.
+14.) Alt and Title tags for read/unread/online/offline status.
+15.) Captcha length can be configured.
+16.) mod_uddeim redirects to "Enter password" page when message is encrypted.
+17.) Double sefRelToAbs in mod_uddeim fixed.
+18.) Workaround for wrong encoded characters in CB connection messages when sent over 
+     plug_pms_uddeim plugin. Note: Language files should not use hmtl entities, so you should check
+     CBs language file first when you have problems with messages created by the Community      Builder.
+19.) Obfuscating can be configured in plug_pms_uddeim (it does not longer use the component setting).
+20.) Problem with Autocompleter on J!1.5 installations fixed.
+21.) Fixed a small bug in bbparser which matches sometimes two links instead of one.
+22.) Contact lists can be entered in recipients field using "#listname".
+23.) Contact lists can be enabled for all registered users, for special users or for admins only.
+24.) Contacts and CB connections can be chosen from the same combo box.
+25.) Captcha works in Joomla 1.5.
+26.) Systemmessages are protected by Captcha code.
+27.) Encryption has not worked with systemmessages (they were always obfuscated).
+28.) The height of the "More" smileys window is now calculated using the number of smileys found.
+29.) Backend toolbar improved.
+30.) Version update check in backend.
+31.) Minor bugfixes in mod_uddeim and mod_uddeim_mailbox (sefRelToAbs).
+32.) Public users can enter their username and email.
+33.) Click on email address in full message view (PM from public user only) opens 
+     the email client.
+34.) You can specify after how many seconds a user is allowed to send the next message (flood      protection).
+35.) Realname/Username can be chosen for public frontend.
+36.) Bugfix: Reply-To line in email notifications contains the correct email address
+37.) You can reply to messages from public users.
+38.) Default charset for messages is UTF-8 on Joomla 1.5 sites.
+39.) Enable/Disable "Allow replies to messages from public users" in backend.
+40.) Forwarding of messages in outbox works when receiver has already trashed the message.
+41.) You cannot reply to archived messages (you have to unarchive these messages before writing
+     a reply).
+42.) Bugfix: Trashdays in backend can be a decimal number in Joomla 1.0 (worked in J1.5)
+43.) Removed "noir" and "monoblue" from the standard templates delivered with uddeIM to save some
+     space in the archive.
+44.) Protection against Cross-Site Request Forgery (CSRF) attacks.
+45.) Hide certain user IDs from the (public) "All users" list.
+46.) pms_uddeim plugin checks blocking (quick message box is not shown when user is blocked)
+47.) Access to trashcan can be restricted to certain usergroups.
+48.) Several CSS and XHTML fixes.
+49.) Works with JPromoter (build-in), sh404SEF (plugin available) and other SEF components
+50.) Email header for notifications changes.
+51.) Additional parameter added: 'nouserlist=x' suppresses user and/or connection lists and allows to 
+     disable the TO field.
+52.) Minor problem with teaser messsage fixed when language is UTF-8
+
+
+
+Following features are new 1.0:
+===============================
+1.0rc1:
+ 1.) Forwarding of messages from inbox and archive implemented (switchable in backend).
+ 2.) Active tab is remembered in backend.
+ 3.) Usage of mosMail or phpMail switchable in backend.
+ 4.) Joomla groups can be shown in general message form.
+ 5.) Hebrew language support.
+ 6.) "Number of message" text displayed in archive was not correct when inbox was included
+     in message count.
+ 7.) Navigation bug fixed for inbox, outbox and archive (under certain conditions the 
+     navigation bar disappered).
+ 8.) "Copy to me" messages where displayed in trash with from date.
+ 9.) Maintanance function improved (it should find all orphaned users now).
+10.) "Show all" links in inbox, outbox and trashcan.
+11.) uddeIM displays the number of general messages which will be send.
+12.) Fixed a few bugs in mod_uddeim.
+13.) mod_uddeim shows "you are not logged in" when the user is currently not logged in.
+14.) Module Class Suffix added for mod_uddeim.
+15.) Fixed a few minor layout issues.
+16.) New module uddeIM Popup (mod_uddeimpopup). You can use this module to display notification
+     popups when uddeIM Notifier module nor cblogin module (patched) cannot be used on your site.
+     Change your CSS file so that the module encapsulating in your template is not visible for 
+     uddeIM Popup. Show title should be switched off.
+17.) The behaviour of the "All Users" link can be changed: suppress link, show link, show all users
+18.) Some css fixes
+19.) "cellspacing" in tables removed.
+20.) Width for "checkbox" cell, "from" cell and "action icons" cell added.
+21.) Width of "from" cell is calculated from CB thumbnail size.
+22.) Warning when no message is selected and trash is selected.
+23.) Import from "myPMS Enhanced 2.x" improved (deleted/trashed messages are imported in trash now).
+24.) uddeIM supports SEF (search engine friendly) links now (don't know why this is important for
+     an PMS but it was requested by some persons).
+25.) The import works when table prefix is not "jos_".
+26.) New option for Autocompleter: prefix or infix search.
+27.) uddeIM uses absolute URLs for all icons and pictures now.
+28.) E-Mail could not be stopped in backend for testing purpose.
+29.) Some minor optimizations.
+30.) Max. number of recipients can be specified in backend.
+31.) User settings can be edited in backend (you can create/edit/remove the user settings for a certain 
+     user; nevertheless this entry is created automatically when the users accesses uddeIM the first 
+	 time or another user sends him a PM).
+32.) "Special users" group for system messages added.
+33.) You can specify the lifespan of messages stored in the outbox.
+34.) Archived messages are not longer trashed automatically (message lifespan for read/unread messages).
+35.) A user note for message lifespan (inbox, outbox, trashcan) can be switched on/off.
+36.) You can choose to use UTF-8 language files in backend (e.g. when using uddeIM on Joomla 1.5).
+
+1.0rc2:
+37.) The default time/date settings for german(f/i) were not correct (first time installations only).
+38.) Messages cannot be sent to blocked users.
+39.) Blocked users are not listed in "all users" list and "connections list".
+40.) Configuration can be saved and restored from the database (usefull when upgrading uddeIM or testing 
+     new settings).
+41.) New formats for time/date in backend.
+42.) Debug code in mod_uddeim removed so it is possible to switch of notifications.
+43.) mod_uddeim allows to switch off text output, so the module is suppports notifications only.
+44.) Floating box message notification implemmented in mod_uddeim.
+45.) Import from "Clexus 2.0" possible.
+46.) Admin backend improved (nicer layout).
+47.) Welcome message on UTF-8 systems should be displayed correctly.
+
+1.0rc2hotfix1:
+48.) Sometimes the thumbnail width is missing in the Community Builder configuration. uddeIM checks if the 
+     variable exists before it is read.
+49.) Smilys could not be inserted when BB codes were switched off.
+
+1.0rc3:
+50.) Changed warnings for inbox/archive limit.
+51.) Archive/Inbox limit was not calculated correctly.
+52.) Fixed some layout issues (warning messages).
+53.) CSS fixes in mod_uddeim.
+54.) Import of Missus 1.1 added.
+55.) Choose between Realname, Username and Firstname in mod_uddeim.
+56.) About dialog updated.
+57.) New module "mod_uddeim_mailbox" shows some statistics and links to mailboxes.
+58.) Import of Primezilla 1.0 added.
+
+1.0final:
+59.) Minor cosmetic fixes.
+60.) CSS fix: removed "clear: both;" in div.uddeim-messagebody
+61.) Select users from CB Connections list fixed.
+62.) Fixed: importer shows "jos_pms not found" error message on some installations.
+63.) Problem fixed when configuration of CB is loaded.
+
+
+Important custom links:
+-----------------------
+- Call settings dialog when "show settings" is off in backend (no menu link is shown in uddeIM).
+  http://yoursite/index.php?option=com_uddeim&task=settings
+- Open new message dialog to user with userid XX:
+  http://yoursite/index.php?option=com_uddeim&task=new&recip=XX
+- Open new message dialog to user with username XX (this is independent from realname/username setting):
+  http://yoursite/index.php?option=com_uddeim&task=new&runame=XX
+
+
+Following features are new 0.9:
+===============================
+ 1.) uddeIM should be compatible with J!1.5 in lagacy mode. This is still "experimental".
+ 2.) New configuration file. The configuration is stored in "config.class.php" now. 
+     The old configuration is not migrated automatically, you have to review your settings after 
+     updating to uddeIM 0.9. Newer versions will convert the configuration file automatically. 
+ 3.) When switching off the message archive uddeIM asks if archived messages should be kept in the 
+     archive (they are not longer accessable by the user) or if the archived messages should be 
+     moved back to the inbox.
+ 4.) The width of the message box in the default template is now 450px (was 300px).
+ 5.) Itemid will be preserved in uddeIM.
+ 6.) Some database performance improvements.
+ 7.) Recipient autocomplete feature.
+ 8.) uddeIM imports messages from myPMS II, myPMS Enhanced 2.x, JAM 1.x, Archaic Binary Private 
+     Messages 1.x, and JIM 1.x.
+ 9.) uddeIM shows a statusline which is green when the configuration file is writeable and red
+     otherwise.
+10.) Import function for other PMS improved.
+11.) Entering an unknown username or leaving the message field blank shows the corresponding field 
+     in red color.
+12.) Error handling improved (empty message, empty receiver, unknown receiver).
+13.) Some CSS fixes (e.g. "Connections" in "New message" form was always printed in bold, now 
+     you specify this in your CSS file).
+14.) Multiple recipients can be enabled and disabled.
+15.) You can select multiple recipients from the "All users" and "Connections" lists (switchable 
+     in the backend).
+16.) Text counter to avoid truncated messages (switchable in backend).
+17.) Configuration settings in backend which are not available are printed in gray now.
+18.) Inbox listing allows archiving of messages.
+19.) Messages can be unarchived from archive.
+20.) Some minor bugfixes.
+
+
+Following features are new 0.8:
+===============================
+ 1.) Cleaned up the code a little bit again.
+ 2.) When a message is recalled and send again, uddeIM does not longer send an additional 
+     notification email.
+ 3.) Import tab in admin backend was shown again when settings were saved.
+ 4.) New emoticons from KOLOBOK.us.
+
+     Note:
+     a) Animated emoticons are available for all themes exept "noir" now (maybe someone can
+        convert all emoticons in "/templates/~~~theme~~~/animated"?).
+     b) Extended emoticons can be stored in a folder "/templates/~~~theme~~~/animated-extended".
+        For the default template about 32 animated emoticons are provided. If you need more you
+        can copy as many emoticons in this folder as you like. The filename is used to identify
+        an emoticon in the pm (e.g. "cry.gif" will be entered as ":cry:").
+
+ 5.) Switch between static and animated emoticons.
+ 6.) Delete link is available when a message is read from the outbox folder.
+ 7.) "uddeIM Notify" module for people who do not use Community Builder (this module also
+     supports popups).
+ 8.) Notifications to a new users will be sent even when these users have not used uddeIM before 
+     and default for notifications is set to always in backend.
+
+ 9.) "Message Encryption" has been implemented. When this feature is enabled users can secure 
+     messages with an encryption key (called "Password" in the frontend since not everyone knows 
+     the difference between a "password" and a "key"). Messages can only be read when the correct 
+     key is provided. When no key is entered uddeIM falls back to "Message obfuscating".
+
+     Warning: This is an experimental feature. Use is with care.
+     When you are unsure what to do enable "Message obfuscating" only. 
+     You can enable encryption whenever you like.
+
+10.) There are checkboxes in the inbox, outbox, trash and archive now. These checkboxes allow
+     to delete multiple messages at the same time. You can choose between text and icon layout.
+11.) About 50 minor bugs and CSS layout bugs fixed.
+12.) Messages can be pruned in the backend manually.
+13.) User settings link was not shown when popups where enabled and notifications not.
+14.) When CB avatars are enabled, "no picture" avatar is displayed when user has no avatar.
+15.) Icons for menubar, bottom links and action links can be enabled/disabled seperately.
+16.) The maintenance function has been improved and checks for a few database errors (useful when
+     you have updated from uddeIM 0.5 and below or when 3rd party software writes in uddeIM's
+     database tables).
+17.) Some configuration variables have changed (this allows to make uddeIM compatible to J!1.5 
+     in near future).
+18.) uddeIM allows multiple receivers now. Just enter all names seperated with an ",". To send
+     a message to Alice and Bob, enter "alice,bob".
+     There is a small consmetic issue with this feature when blocking is enabled. When one
+     user blocks you, you will get a message that the message has not been sent. You have to try 
+     again and to re-enter the message and all recipients. None of the non-blocking recipients 
+     will get the message.
+
+Note: uddeIM 0.8b does not use strong encryption (a encryption algorithm like DES, 3DES or AES).
+      uddeIM uses a vernam cipher which is based on a simple password as key stream (usually this 
+      should be a randomized bit stream). So uddeIM encryption feature is actually not unbreakable 
+      but good enough for our purposes (maybe I implement strong encryption in a future version).
+
+
+Following features are new 0.7:
+===============================
+ 1.) Messages are obfuscated in the DB to prevent accidentally reading (real encryption in 
+     not yet implemented)
+ 2.) The default value for email notifications can be set in the backend (a change is only
+     valid for users who have not changed their preferences yet).
+     Note: If you want to set email notifications for all users you have to 
+     set "_uddeim_emn->status=1" for all users with e.g. phpMyAdmin.
+ 3.) You can suppress the "All users" link in write new message dialog.
+ 4.) Performance has been optimized when avatars have been enabled in message lists.
+ 5.) Performance has been optimized for all database queries.
+ 6.) Cleaned up the code a little bit
+ 7.) When an email notification is sent the REPLY-TO header is set to the recipient's address,
+     so replies to notifications are usually not sent to the administrative address.
+ 8.) You can enable popup support in uddeIM now. UddeIM does not display popups itself. When
+     this setting is enabled in the admin backend, users can enable/disable popups in the 
+     uddeIM user settings.
+     Actually you have to install a patched "mod_cblogin" (e.g. "mod_cblogin_11pl2") so that 
+     popups are displayed.
+ 9.) The default for popup notification can be set in the backend (a change is only
+     valid for users who have not changed their preferences yet).
+10.) Systemmessages were not purged from the database even when they were deleted from the inbox.
+11.) Repeatedly performed checks for __pms table each time you called the admin backend fixed.
+12.) New maintenance tab in admin backend added. When users are deleted from the database 
+     messages are usually still stored in the database. This function trashes orphaned messages 
+     send to or written by deleted users.
+12.) Messages sent as copy to yourself were never purged from the database (they have not be shown 
+     in uddeIM but still were stored in the database).
+13.) Problem with infinite redirects when not logged in fixed.
+
+
+Following features are new 0.6:
+===============================
+ 1.) Sender can delete messages from the outbox
+ 2.) You can switch between Realnames / Usernames in admin backend
+ 3.) When creating a new message uddeIM shows *your* connections (that means connections to 
+     other users instead of connections from other users to you)
+ 4.) Connections can be displayed in a listbox (switchable in admin backend)
+
+
+-- development taken over by Stephan Slabihoud --
+
+
+Following features are new 0.5b:
+================================
+ 1.) Bug fix: Ordering in all users list
+ 2.) Check for missing quotedivider setting
+ 3.) Showinboxlimit setting now correctly saved in admin
+ 4.) uddeIM can now operate with real names instead of usernames
+ 5.) CBE support added
+ 6.) Reply quote in message display in own CSS class 
+ 7.) New behaviour: In-message-links to comprofiler now open in top window
+ 8.) Email notifications on system messages now recognize the "not when online" setting
+
+ 
+Following features are new 0.5a:
+================================
+ 1.) Install routine allows single quotes 
+ 2.) Fetched trashed Itemid
+ 3.) Email notifications on system messages did not recognize individual user's email settings
+ 4.) Weakness addressed: Special characters in component title
+
+ 
+Following features are new 0.5:
+===============================
+ 1.) System to process messages with BB Codes
+ 2.) BB Code/JavaScript support when composing message
+ 3.) Support for Emoticons 
+ 4.) Template System 
+ 5.) Menu can contains icons 
+ 6.) Toggle read status of messages
+ 7.) New BB Parser
+ 8.) CB connections now available when composing a message
+ 9.) Users list available when composing a message
+10.) Admins now able to suppress title display
+11.) uddeIM now recognizes the local time offset as set in the Mambo/Joomla configuration
+12.) Compatible with JACL
+
+
+Following features are new 0.4e:
+================================
+ 1.) Addressed an incomatibility with CB RC2 (regarding thumbnail display)
+
+
+Following features are new 0.4d:
+================================
+ 1.) Archive checkboxes not working (this bug was introduced in version 0.4c ;-))
+ 2.) Bux fixed in Userlist plugin: "no such user" error  when called with username prefilled
+
+
+Following features are new 0.4c:
+================================
+ 1.) Allows for userlist plugin
+ 2.) Better integration with Community Builder 1.0 RC2
+ 3.) Allows general messages to contain BB codes
+ 4.) Some functions renamed to avoid conflicts with SMF bridge
+ 5.) New handling of pruning of restored messages
+ 6.) Email notification toggle links not visible when inbox empty
+ 7.) BB codes stripped from reply quote
+ 8.) Automatic deletions of unread messages not working correctly
+ 9.) uddeIM not sending messages when more than one submit button on page
+10.) In Admin: corrected PHP tags	
+
+
+Following features are new 0.4a:
+================================
+ 1.) Bugfix for system/general message comoposition
+
+
+Following features are new 0.4:
+===============================
+ 1.) Archive
+ 2.) Email notification system
+ 3.) Forgetmenot feature
+ 4.) System/General messages system
+ 5.) 'Copy to self' feature
+ 6.) CB no longer required
+ 7.) Many features made optional
+ 8.) HTML Output redone
+ 9.) Maximum message feature
+10.) Non latin display (should work now with any charset)
+11.) Quotes double escaped when msg restored
+12.) Could block users multiple times
+13.) Now compatible with any magic quotes setting
+
+
+Following features are new 0.3:
+===============================
+ 1.) Blocking system 
+
+
+Following features are new 0.21:
+================================
+ 1.) Fixed a minor bug (regarding date display under certain server settings)

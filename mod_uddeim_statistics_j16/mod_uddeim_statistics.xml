@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6.0" client="site" method="upgrade">
+	<name>uddeIM Statistics</name>
+	<creationDate>2017-10-01</creationDate>
+	<author>Stephan Slabihoud</author>
+	<copyright>Stephan Slabihoud. This is free software and you may redistribute it under the GPL. uddeIM comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>ssl@gmx.de</authorEmail>
+	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
+	<version>4.0</version>
+	<description>uddeIM Statistics module</description>
+	<files>
+		<filename module="mod_uddeim_statistics">mod_uddeim_statistics.php</filename>
+		<filename>mod_uddeim_statistics.xml</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="uddshowall" type="radio" default="1" label="Show all" description="Count all messages">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshow7" type="radio" default="1" label="Show 7 days" description="Count messages of the last 7 days">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshow30" type="radio" default="1" label="Show 30 days" description="Count messages of the last 30 days">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshow365" type="radio" default="1" label="Show 365 days" description="Count messages of the last 365 days">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" type="text" default="" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

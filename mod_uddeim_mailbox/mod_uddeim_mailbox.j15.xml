@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="module" version="1.5.0" method="upgrade">
+	<name>uddeIM Mailbox</name>
+	<creationDate>2017-10-01</creationDate>
+	<author>Stephan Slabihoud</author>
+	<copyright>Stephan Slabihoud. This is free software and you may redistribute it under the GPL. uddeIM comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>ssl@gmx.de</authorEmail>
+	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
+	<version>4.0</version>
+	<description>uddeIM Mailbox module</description>
+	<files>
+		<filename module="mod_uddeim_mailbox">mod_uddeim_mailbox.php</filename>
+		<filename>mod_uddeim_mailbox.xml</filename>
+	</files>
+	<params>
+		<param name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="A suffix to be applied to the css class of the module (table.moduletable), this allows individual module styling" />
+		<param name="uddshownew" type="radio" default="1" label="Show Status" description="Show number of new mesages">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="uddshowinbox" type="radio" default="1" label="Show Inbox" description="Show Inbox Statusline">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="uddshowoutbox" type="radio" default="1" label="Show Outbox" description="Show Outbox Statusline">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="uddshowtrashcan" type="radio" default="1" label="Show Trashcan" description="Show Trashcan Statusline">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="uddshowarchive" type="radio" default="1" label="Show Archive" description="Show Archive Statusline">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>	
+		<param name="uddshowcontacts" type="radio" default="1" label="Show Contacts" description="Show link to contacts">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>	
+		<param name="uddshowsettings" type="radio" default="1" label="Show Settings" description="Show link to settings">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>	
+		<param name="uddshowcompose" type="radio" default="1" label="Show Compose link" description="Show link to compose a new message">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="uddshowicons" type="radio" default="0" label="Show Icons" description="Show menu icons before descriptions">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+	</params>
+</install>

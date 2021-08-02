@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6.0" client="site" method="upgrade">
+	<name>uddeIM Mailbox</name>
+	<creationDate>2017-10-01</creationDate>
+	<author>Stephan Slabihoud</author>
+	<copyright>Stephan Slabihoud. This is free software and you may redistribute it under the GPL. uddeIM comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>ssl@gmx.de</authorEmail>
+	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
+	<version>4.0</version>
+	<description>uddeIM Mailbox module</description>
+	<files>
+		<filename module="mod_uddeim_mailbox">mod_uddeim_mailbox.php</filename>
+		<filename>mod_uddeim_mailbox.xml</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="uddshownew" type="radio" default="1" label="Show Status" description="Show number of new mesages">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshowinbox" type="radio" default="1" label="Show Inbox" description="Show Inbox Statusline">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshowoutbox" type="radio" default="1" label="Show Outbox" description="Show Outbox Statusline">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshowtrashcan" type="radio" default="1" label="Show Trashcan" description="Show Trashcan Statusline">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshowarchive" type="radio" default="1" label="Show Archive" description="Show Archive Statusline">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>	
+				<field name="uddshowcontacts" type="radio" default="1" label="Show Contacts" description="Show link to contacts">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>	
+				<field name="uddshowsettings" type="radio" default="1" label="Show Settings" description="Show link to settings">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>	
+				<field name="uddshowcompose" type="radio" default="1" label="Show Compose link" description="Show link to compose a new message">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshowicons" type="radio" default="0" label="Show Icons" description="Show menu icons before descriptions">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" type="text" default="" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>
