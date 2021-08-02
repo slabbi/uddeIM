@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE extension>
+<extension type="file" version="2.5" method="upgrade">
+	<name>UddeIM Language - Fr</name>
+	<version>2.0.9</version>
+	<creationDate>2012-12-08</creationDate>
+	<author>Aide-Joomla.com</author>
+	<authorEmail>webmaster@aide-joomla.com</authorEmail>
+	<authorUrl>http://www.aide-joomla.com</authorUrl>
+	<license>GNU/GPL</license>
+	<description>Traduction française pour l'extension de messagerie UddeIM - Traduction révisée par Aide-Joomla.com</description>
+	<fileset>
+                <files folder="language.utf8" target="administrator/components/com_uddeim/language.utf8">
+			<filename>french.php</filename>
+                </files>
+                <files folder="language" target="administrator/components/com_uddeim/language">
+			<filename>french.php</filename>
+		</files>
+	</fileset>
+</extension>

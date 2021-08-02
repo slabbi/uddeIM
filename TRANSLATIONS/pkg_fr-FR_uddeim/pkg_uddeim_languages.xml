@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE extension>
+<extension type="package" version="2.5" method="upgrade">
+	<name>UddeIM Language Pack</name>
+	<packagename>UddeIM languages</packagename>
+	<version>2.0.9</version>
+	<creationDate>2012-11-17</creationDate>
+	<author>Aide-Joomla.com</author>
+	<authorEmail>webmaster@aide-joomla.com</authorEmail>
+	<authorUrl>http://www.aide-joomla.com</authorUrl>
+	<license>GNU/GPL</license>
+	<description>Pack de langue FR pour le composant UddeIM - Traduction révisée par Aide-Joomla.com.</description>
+	<files folder="language">
+	</files>
+</extension>
