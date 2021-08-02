@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cbinstall version="1.0" type="plugin" group="user">
+	<name>Private Messaging System (uddeIM PMS)</name>
+	<author>Stephan Slabihoud</author>
+	<creationDate>2017-10-01</creationDate>
+	<copyright>(C) Stephan Slabihoud</copyright>
+	<license>* @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU/GPL version 2</license>
+	<authorEmail>ssl@gmx.de</authorEmail>
+	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
+	<version>2.0.4</version>
+	<release>4.0.0</release>
+	<description>v4.0 - Provides uddeIM integration for Community Builder. Also contains user deletion cleanup code.</description>
+	<files>
+		<filename plugin="pms.uddeim">pms.uddeim.php</filename>
+		<filename>index.html</filename>
+	</files>
+    <params>
+		<param name="doSingleEscape" type="list" default="0" label="Unescape '\\n'" description="When you have problems with '\\n' in notification messages set this to 'yes'. Default is 'no'.">
+			<option value="0">No (default)</option>
+			<option value="1">Yes</option>					
+		</param>
+		<param name="doEscape" type="list" default="1" label="Double escape" description="When you have problems with '\n' in notification messages set this to 'no'. Default is 'yes'.">
+			<option value="0">No</option>
+			<option value="1">Yes (default)</option>					
+		</param>
+	    <param name="@spacer" type="spacer" default="" label="" description="" />
+		<param name="@spacer" type="spacer" default="see tab manager: pms.uddeim parameters" label="More settings:" description="" />
+		<param name="@spacer" type="spacer" default="also enable PMS integration in Configuration/Integration" label="" description="" />
+	</params>
+	<tabs>
+		<tab name="_UDDEIM_PM_PMSTAB" description="" class="getuddeimTab" fields="0" position="cb_right" displaytype="html">
+			<params>
+				<param name="@spacer" type="spacer" default="Quick Message Settings" label="" description="" />
+				<param name="showTitle" type="list" default="1" label="Show Tab title" description="Show the title of the tab inside this tab. The description is also shown, if present. &lt;strong&gt;IMPORTANT: The title is the tab title here.&lt;/strong&gt;">
+					<option value="0">Hide</option>
+					<option value="1">Show</option>
+				</param>
+				<param name="showSubject" type="list" default="0" label="Show Subject Field" description="Show the subject field. If hidden, subject will be &quot;Message from your profile view&quot; = _UE_PM_PROFILEMSG">
+					<option value="0">Hide</option>
+					<option value="1">Show</option>					
+				</param>
+				<param name="width" type="text" size="10" default="30" label="Width (chars)" description="" />
+				<param name="height" type="text" size="10" default="5" label="Height (lines)" description="" />
+				<param name="@spacer" type="spacer" default="" label="" description="" />
+				<param name="@spacer" type="spacer" default="see plugin manager: pms.uddeim parameters" label="More settings:" description="" />
+			</params>
+			<fields>
+			</fields>
+		</tab>
+	</tabs>
+	<database>
+	</database>
+</cbinstall>

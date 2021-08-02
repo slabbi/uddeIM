@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<mosinstall type="component">
+   <name>uddeim</name>
+   <creationDate>2017-10-01</creationDate>
+   <author>Stephan Slabihoud</author>
+   <copyright>This is free software and you may redistribute it under the GPL. uddeIM comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt. For icons credits and license, see LICENSE folder. Where noted, other copyrights apply for code portions. This version is based on uddeIM 0.5b which has been written by Benjamin Zweifel in 2006.</copyright>
+   <authorEmail>ssl@gmx.de</authorEmail>
+   <authorUrl>http://www.slabihoud.de/software/</authorUrl>
+   <version>4.0</version>
+   <description>uddeIM Instant Messages for Mambo/Joomla</description>
+<files>
+	<filename>uddeim.php</filename>
+	<filename>inbox.php</filename>
+	<filename>outbox.php</filename>
+	<filename>archive.php</filename>
+	<filename>trashcan.php</filename>
+	<filename>userlists.php</filename>
+	<filename>includes.php</filename>
+	<filename>includes.db.php</filename>
+	<filename>bbparser.php</filename>
+	<filename>crypt.class.php</filename>
+	<filename>getpiclink.php</filename>
+	<filename>cb_extra.php</filename>
+	<filename>json.php</filename>
+	<filename>index.html</filename>
+	<filename>captcha.php</filename>
+	<filename>captcha15.php</filename>
+	<filename>uddeimlib.php</filename>
+	<filename>uddeimlib10.php</filename>
+	<filename>uddeimlib15.php</filename>
+	<filename>uddeimlib16.php</filename>
+	<filename>uddeimlib17.php</filename>
+	<filename>uddeimlib25.php</filename>
+	<filename>uddeimlib30.php</filename>
+	<filename>uddeimlib31.php</filename>
+	<filename>uddeimlib32.php</filename>
+	<filename>uddeimlib33.php</filename>
+	<filename>uddeimlib38.php</filename>
+	<filename>uddeim_igoogle.xml</filename>
+	<filename>recaptchalib.php</filename>
+	<filename>uddeim.api.php</filename>
+
+	<filename>js/bbsmile.js</filename>
+	<filename>js/uddeimtools.js</filename>
+	<filename>js/Autocompleter.js</filename>
+	<filename>js/Autocompleter2.js</filename>
+	<filename>js/Autocompleter-1.2.js</filename>
+	<filename>js/Autocompleter.Local-1.2.js</filename>
+	<filename>js/Autocompleter.Request-1.2.js</filename>
+	<filename>js/mootools.js</filename>
+	<filename>js/mootools-1.2.4-core.js</filename>
+	<filename>js/Observer.js</filename>
+	<filename>js/Observer-1.2.js</filename>
+	<filename>js/mootools-core-1.3-full-nocompat.js</filename>
+	<filename>js/mootools-more-1.3.0.1.js</filename>
+	<filename>js/Meio.Autocomplete.js</filename>
+
+	<filename>autoload.php</filename>
+	<filename>ReCaptcha/ReCaptcha.php</filename>
+	<filename>ReCaptcha/RequestMethod.php</filename>
+	<filename>ReCaptcha/RequestParameters.php</filename>
+	<filename>ReCaptcha/Response.php</filename>
+	<filename>ReCaptcha/RequestMethod/Curl.php</filename>
+	<filename>ReCaptcha/RequestMethod/CurlPost.php</filename>
+	<filename>ReCaptcha/RequestMethod/Post.php</filename>
+	<filename>ReCaptcha/RequestMethod/Socket.php</filename>
+	<filename>ReCaptcha/RequestMethod/SocketPost.php</filename>
+
+	<filename>templates/default/css/uddeim.css</filename>
+	<filename>templates/default/css/admin.uddeim.css</filename>
+	<filename>templates/default/css/uddemodule.css</filename>
+	<filename>templates/default/css/autocompleter.css</filename>
+	<filename>templates/default/css/meio.aucomplete.css</filename>
+	<filename>templates/default/css/index.html</filename>
+	<filename>templates/default/index.html</filename>
+	<filename>templates/default/images/index.html</filename>
+	<filename>templates/default/animated/index.html</filename>
+	<filename>templates/default/animated-extended/index.html</filename>
+</files>
+<images>
+	<filename>monofont.ttf</filename>
+	<filename>templates/images/donate_d.gif</filename>
+	<filename>templates/images/donate_en.gif</filename>
+	<filename>templates/images/igoogle.gif</filename>
+	<filename>templates/images/publish_x.png</filename>
+	<filename>templates/images/rss_logo.png</filename>
+	<filename>templates/images/tick.png</filename>
+	<filename>templates/images/uddeim_logo.png</filename>
+	<filename>templates/images/uddeim-favicon.png</filename>
+	<filename>templates/default/animated/emoticon_crossed.gif</filename>
+	<filename>templates/default/animated/emoticon_heart.gif</filename>
+	<filename>templates/default/animated/emoticon_wondering.gif</filename>
+	<filename>templates/default/animated/emoticon_angry.gif</filename>
+	<filename>templates/default/animated/emoticon_blush.gif</filename>
+	<filename>templates/default/animated/emoticon_cool.gif</filename>
+	<filename>templates/default/animated/emoticon_kiss.gif</filename>
+	<filename>templates/default/animated/emoticon_laughing.gif</filename>
+	<filename>templates/default/animated/emoticon_sad.gif</filename>
+	<filename>templates/default/animated/emoticon_shocked.gif</filename>
+	<filename>templates/default/animated/emoticon_smile.gif</filename>
+	<filename>templates/default/animated/emoticon_tongue.gif</filename>
+	<filename>templates/default/animated/emoticon_wink.gif</filename>
+	<filename>templates/default/animated-extended/beach.gif</filename>
+	<filename>templates/default/animated-extended/boredom.gif</filename>
+	<filename>templates/default/animated-extended/bye.gif</filename>
+	<filename>templates/default/animated-extended/clapping.gif</filename>
+	<filename>templates/default/animated-extended/cry.gif</filename>
+	<filename>templates/default/animated-extended/dance2.gif</filename>
+	<filename>templates/default/animated-extended/dance4.gif</filename>
+	<filename>templates/default/animated-extended/dash.gif</filename>
+	<filename>templates/default/animated-extended/diablo.gif</filename>
+	<filename>templates/default/animated-extended/drinks.gif</filename>
+	<filename>templates/default/animated-extended/first_move.gif</filename>
+	<filename>templates/default/animated-extended/friends.gif</filename>
+	<filename>templates/default/animated-extended/gamer.gif</filename>
+	<filename>templates/default/animated-extended/girl_cry.gif</filename>
+	<filename>templates/default/animated-extended/girl_devil.gif</filename>
+	<filename>templates/default/animated-extended/girl_mad.gif</filename>
+	<filename>templates/default/animated-extended/girl_wink.gif</filename>
+	<filename>templates/default/animated-extended/give_heart.gif</filename>
+	<filename>templates/default/animated-extended/give_rose.gif</filename>
+	<filename>templates/default/animated-extended/good.gif</filename>
+	<filename>templates/default/animated-extended/kiss1.gif</filename>
+	<filename>templates/default/animated-extended/kiss2.gif</filename>
+	<filename>templates/default/animated-extended/lazy.gif</filename>
+	<filename>templates/default/animated-extended/nea.gif</filename>
+	<filename>templates/default/animated-extended/popcorn.gif</filename>
+	<filename>templates/default/animated-extended/punish.gif</filename>
+	<filename>templates/default/animated-extended/secret.gif</filename>
+	<filename>templates/default/animated-extended/smoke.gif</filename>
+	<filename>templates/default/animated-extended/stinker.gif</filename>
+	<filename>templates/default/animated-extended/training.gif</filename>
+	<filename>templates/default/animated-extended/victory.gif</filename>
+	<filename>templates/default/animated-extended/yes.gif</filename>
+	<filename>templates/default/images/emoticon_crossed.gif</filename>
+	<filename>templates/default/images/emoticon_heart.gif</filename>
+	<filename>templates/default/images/emoticon_wondering.gif</filename>
+	<filename>templates/default/images/emoticon_angry.gif</filename>
+	<filename>templates/default/images/emoticon_blush.gif</filename>
+	<filename>templates/default/images/emoticon_cool.gif</filename>
+	<filename>templates/default/images/emoticon_kiss.gif</filename>
+	<filename>templates/default/images/emoticon_laughing.gif</filename>
+	<filename>templates/default/images/emoticon_sad.gif</filename>
+	<filename>templates/default/images/emoticon_shocked.gif</filename>
+	<filename>templates/default/images/emoticon_smile.gif</filename>
+	<filename>templates/default/images/emoticon_tongue.gif</filename>
+	<filename>templates/default/images/emoticon_wink.gif</filename>
+	<filename>templates/default/images/format_bold.gif</filename>
+	<filename>templates/default/images/format_bold_close.gif</filename>
+	<filename>templates/default/images/format_italic.gif</filename>
+	<filename>templates/default/images/format_italic_close.gif</filename>
+	<filename>templates/default/images/format_underline.gif</filename>
+	<filename>templates/default/images/format_underline_close.gif</filename>
+	<filename>templates/default/images/format_red.gif</filename>
+	<filename>templates/default/images/format_red_close.gif</filename>
+	<filename>templates/default/images/format_blue.gif</filename>
+	<filename>templates/default/images/format_blue_close.gif</filename>
+	<filename>templates/default/images/format_green.gif</filename>
+	<filename>templates/default/images/format_green_close.gif</filename>
+	<filename>templates/default/images/format_size1.gif</filename>
+	<filename>templates/default/images/format_size1_close.gif</filename>
+	<filename>templates/default/images/format_size2.gif</filename>
+	<filename>templates/default/images/format_size2_close.gif</filename>
+	<filename>templates/default/images/format_size4.gif</filename>
+	<filename>templates/default/images/format_size4_close.gif</filename>
+	<filename>templates/default/images/format_size5.gif</filename>
+	<filename>templates/default/images/format_size5_close.gif</filename>
+	<filename>templates/default/images/format_image.gif</filename>
+	<filename>templates/default/images/format_image_close.gif</filename>
+	<filename>templates/default/images/format_link.gif</filename>
+	<filename>templates/default/images/format_link_close.gif</filename>
+	<filename>templates/default/images/format_closeall.gif</filename>
+	<filename>templates/default/images/menu_inbox.gif</filename>
+	<filename>templates/default/images/menu_outbox.gif</filename>
+	<filename>templates/default/images/menu_trashcan.gif</filename>
+	<filename>templates/default/images/menu_archive.gif</filename>
+	<filename>templates/default/images/menu_settings.gif</filename>
+	<filename>templates/default/images/menu_new.gif</filename>
+	<filename>templates/default/images/menu_book.gif</filename>
+	<filename>templates/default/images/icon_online.gif</filename>
+	<filename>templates/default/images/icon_offline.gif</filename>
+	<filename>templates/default/images/icon_start.gif</filename>
+	<filename>templates/default/images/icon_end.gif</filename>
+	<filename>templates/default/images/icon_forward.gif</filename>
+	<filename>templates/default/images/icon_recall.gif</filename>
+	<filename>templates/default/images/icon_next.gif</filename>
+	<filename>templates/default/images/icon_prev.gif</filename>
+	<filename>templates/default/images/icon_delete.gif</filename>
+	<filename>templates/default/images/icon_archive.gif</filename>
+	<filename>templates/default/images/icon_block.gif</filename>
+	<filename>templates/default/images/icon_spam.gif</filename>
+	<filename>templates/default/images/icon_updown.gif</filename>
+	<filename>templates/default/images/icon_up.gif</filename>
+	<filename>templates/default/images/icon_down.gif</filename>
+	<filename>templates/default/images/archive.gif</filename>
+	<filename>templates/default/images/attachment.gif</filename>
+	<filename>templates/default/images/delayed_im.gif</filename>
+	<filename>templates/default/images/disk.gif</filename>
+	<filename>templates/default/images/email.gif</filename>
+	<filename>templates/default/images/env.gif</filename>
+	<filename>templates/default/images/env_ani.gif</filename>
+	<filename>templates/default/images/envelope.gif</filename>
+	<filename>templates/default/images/envelope_deleted.gif</filename>
+	<filename>templates/default/images/forward.gif</filename>
+	<filename>templates/default/images/new_im.gif</filename>
+	<filename>templates/default/images/nonew_im.gif</filename>
+	<filename>templates/default/images/page_white_magnify.gif</filename>
+	<filename>templates/default/images/recycle.gif</filename>
+	<filename>templates/default/images/restore.gif</filename>
+	<filename>templates/default/images/spinner16.gif</filename>
+	<filename>templates/default/images/staroff.gif</filename>
+	<filename>templates/default/images/staron.gif</filename>
+	<filename>templates/default/images/trash.gif</filename>
+	<filename>templates/default/images/unarchive.gif</filename>
+	<filename>templates/default/images/edit.gif</filename>
+</images>
+  <install>
+    <queries>
+      <query>
+CREATE TABLE IF NOT EXISTS `#__uddeim` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `replyid` int(11) NOT NULL default '0',
+  `fromid` int(11) NOT NULL default '0',
+  `toid` int(11) NOT NULL default '0',
+  `message` text NOT NULL,
+  `datum` int(11) default NULL,
+  `toread` int(1) NOT NULL default '0',
+  `totrash` int(1) NOT NULL default '0',
+  `totrashdate` int(11) default NULL,
+  `totrashoutbox` int(1) NOT NULL default '0',
+  `totrashdateoutbox` int(11) default NULL,
+  `expires` int(11) NOT NULL default '0',
+  `disablereply` int(1) NOT NULL default '0',  
+  `systemflag` int(1) NOT NULL default '0',
+  `delayed` int(1) NOT NULL default '0',
+  `systemmessage` varchar(60) default NULL,
+  `archived` int(1) NOT NULL default '0',    
+  `cryptmode` int(1) NOT NULL default '0',
+  `flagged` int(1) NOT NULL default '0',
+  `crypthash` varchar(32) default NULL,
+  `publicname` text default NULL,
+  `publicemail` text default NULL,
+  PRIMARY KEY  (`id`),
+  KEY `toid_toread` (`toid`,`toread`),
+  KEY `fromid` (`fromid`),
+  KEY `replyid` (`replyid`),
+  KEY `datum` (`datum`),
+  KEY `totrashdate` (`totrashdate`),
+  KEY `totrashdateoutbox_datum` ( `totrashdateoutbox` , `datum` ),
+  KEY `toread_totrash_datum` (`toread`,`totrash`,`datum`),
+  KEY `totrash_totrashdate` (`totrash`,`totrashdate`),
+  KEY `archived_totrash_toid_datum` (`archived`,`totrash`,`toid`,`datum`),
+  KEY `systemflag` (`systemflag`),
+  KEY `delayed` (`delayed`)
+) ENGINE=MyISAM;
+      </query>
+      <query> 
+CREATE TABLE IF NOT EXISTS `#__uddeim_blocks` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `blocker` int(11) NOT NULL default '0',
+  `blocked` int(11) NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM;
+      </query>
+      <query>
+CREATE TABLE IF NOT EXISTS `#__uddeim_emn` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `userid` int(11) NOT NULL default '0',
+  `status` int(1) NOT NULL default '0',
+  `popup` int(1) NOT NULL default '0',
+  `public` int(1) NOT NULL default '0',
+  `remindersent` int(11) NOT NULL default '0',
+  `lastsent` int(11) NOT NULL default '0',
+  `autoresponder` INT(1) NOT NULL DEFAULT '0',
+  `autorespondertext` TEXT NOT NULL,
+  `autoforward` INT(1) NOT NULL DEFAULT '0',
+  `autoforwardid` INT(1) NOT NULL DEFAULT '0',
+  `locked` INT(1) NOT NULL DEFAULT '0',
+  `moderated` INT(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY  (`id`),
+  KEY `userid` (`userid`)
+) ENGINE=MyISAM;
+      </query>
+      <query>
+CREATE TABLE IF NOT EXISTS `#__uddeim_config` (
+  `varname` tinytext NOT NULL,
+  `value` tinytext NOT NULL,
+  PRIMARY KEY  (`varname`(30))
+) ENGINE=MyISAM;
+      </query>
+      <query>
+CREATE TABLE IF NOT EXISTS `#__uddeim_userlists` (
+   `id` int(11) NOT NULL auto_increment,
+   `userid` int(11) NOT NULL default '0',
+   `name` varchar(40) NOT NULL default '',
+   `description` text NOT NULL,
+   `userids` text NOT NULL,
+   `global` int(1) NOT NULL default '0',
+   PRIMARY KEY  (`id`),
+   KEY `userid` (`userid`),
+   KEY `global` (`global`)
+) ENGINE=MyISAM;
+      </query>
+	  <query>
+CREATE TABLE IF NOT EXISTS `#__uddeim_spam` (
+   `id` int(10) unsigned NOT NULL auto_increment,
+   `mid` int(11) NOT NULL default '0',
+   `datum` int(11) default NULL,
+   `reported` int(11) default NULL,
+   `fromid` int(1) NOT NULL default '0',
+   `toid` int(1) NOT NULL default '0',
+   `message` TEXT NOT NULL,
+   PRIMARY KEY  (`id`),
+   KEY `mid` (`mid`),
+   KEY `fromid` (`fromid`),
+   KEY `toid` (`toid`)
+) ENGINE=MyISAM;
+	  </query>
+	  <query>
+CREATE TABLE IF NOT EXISTS `#__uddeim_attachments` (
+   `id` int(10) unsigned NOT NULL auto_increment,
+   `mid` int(1) NOT NULL default '0',
+   `tempname` TEXT NOT NULL,
+   `filename` TEXT NOT NULL,
+   `fileid` varchar(32) NOT NULL,
+   `size` int(1) NOT NULL default '0',
+   `datum` int(11) default NULL,
+   PRIMARY KEY  (`id`),
+   KEY `mid` (`mid`),
+   KEY `fileid` (`fileid`),
+   KEY `datum` (`datum`)
+) ENGINE=MyISAM;
+	  </query>
+    </queries>
+  </install>
+
+  <administration>
+    <menu>uddeIM</menu>
+      <files>
+         <filename>admin.uddeim.php</filename>
+         <filename>admin.shared.php</filename>
+         <filename>admin.includes.php</filename>
+         <filename>admin.usersettings.php</filename>
+	 	 <filename>admin.uddeimlib.php</filename>
+	 	 <filename>admin.uddeimlib10.php</filename>
+		 <filename>admin.uddeimlib15.php</filename>
+		 <filename>admin.uddeimlib16.php</filename>
+		 <filename>admin.uddeimlib17.php</filename>
+		 <filename>admin.uddeimlib25.php</filename>
+		 <filename>admin.uddeimlib30.php</filename>
+		 <filename>admin.uddeimlib31.php</filename>
+		 <filename>admin.uddeimlib32.php</filename>
+		 <filename>admin.uddeimlib33.php</filename>
+		 <filename>admin.uddeimlib38.php</filename>
+         <filename>toolbar.uddeim.php</filename>
+		 <filename>install.uddeim.php</filename>
+		 <filename>uninstall.uddeim.php</filename>
+         <filename>config.class.php</filename>
+         <filename>index.html</filename>
+      </files>
+      <images>
+		 <filename>language/arabic.php</filename>
+		 <filename>language/brazilian_portuguese.php</filename>
+		 <filename>language/bulgarian.php</filename>
+		 <filename>language/catalan.php</filename>
+		 <filename>language/czech.php</filename>
+		 <filename>language/danish.php</filename>
+		 <filename>language/dutch.php</filename>
+         <filename>language/english.php</filename>
+		 <filename>language/farsi.php</filename>
+		 <filename>language/finnish.php</filename>
+		 <filename>language/french.php</filename>
+		 <filename>language/german.php</filename>
+		 <filename>language/germanf.php</filename>
+		 <filename>language/germani.php</filename>
+		 <filename>language/greek.php</filename>
+		 <filename>language/hebrew.php</filename>
+		 <filename>language/hrvatski.php</filename>
+		 <filename>language/hungarian.php</filename>
+		 <filename>language/indonesian.php</filename>
+		 <filename>language/italian.php</filename>
+		 <filename>language/japanese.php</filename>
+		 <filename>language/lithuanian.php</filename>
+		 <filename>language/norwegian.php</filename>
+		 <filename>language/portuguese.php</filename>
+		 <filename>language/romanian.php</filename>
+		 <filename>language/russian.php</filename>
+		 <filename>language/simplified_chinese.php</filename>
+		 <filename>language/spanish.php</filename>
+		 <filename>language/serbian.php</filename>
+		 <filename>language/serbian_lat.php</filename>
+		 <filename>language/swedish.php</filename>
+         <filename>language/traditional_chinese.php</filename>
+		 <filename>language/turkish.php</filename>
+		 <filename>language/ukrainian.php</filename>
+		 <filename>language/vietnamese.php</filename>
+		 <filename>language/index.html</filename>
+
+		 <filename>language.utf8/arabic.php</filename>
+		 <filename>language.utf8/brazilian_portuguese.php</filename>
+		 <filename>language.utf8/bulgarian.php</filename>
+		 <filename>language.utf8/catalan.php</filename>
+		 <filename>language.utf8/czech.php</filename>
+		 <filename>language.utf8/danish.php</filename>
+		 <filename>language.utf8/dutch.php</filename>
+         <filename>language.utf8/english.php</filename>
+		 <filename>language.utf8/farsi.php</filename>
+		 <filename>language.utf8/finnish.php</filename>
+		 <filename>language.utf8/french.php</filename>
+		 <filename>language.utf8/german.php</filename>
+		 <filename>language.utf8/germanf.php</filename>
+		 <filename>language.utf8/germani.php</filename>
+		 <filename>language.utf8/greek.php</filename>
+		 <filename>language.utf8/hebrew.php</filename>
+		 <filename>language.utf8/hrvatski.php</filename>
+		 <filename>language.utf8/hungarian.php</filename>
+		 <filename>language.utf8/indonesian.php</filename>
+		 <filename>language.utf8/italian.php</filename>
+		 <filename>language.utf8/japanese.php</filename>
+		 <filename>language.utf8/lithuanian.php</filename>
+		 <filename>language.utf8/norwegian.php</filename>
+		 <filename>language.utf8/polish.php</filename>
+		 <filename>language.utf8/portuguese.php</filename>
+		 <filename>language.utf8/russian.php</filename>
+		 <filename>language.utf8/simplified_chinese.php</filename>
+		 <filename>language.utf8/spanish.php</filename>
+		 <filename>language.utf8/serbian.php</filename>
+		 <filename>language.utf8/serbian_lat.php</filename>
+		 <filename>language.utf8/swedish.php</filename>
+         <filename>language.utf8/traditional_chinese.php</filename>
+		 <filename>language.utf8/turkish.php</filename>
+		 <filename>language.utf8/ukrainian.php</filename>
+		 <filename>language.utf8/vietnamese.php</filename>
+		 <filename>language.utf8/index.html</filename>
+      </images>
+   </administration>
+   <installfile>install.uddeim.php</installfile>
+   <uninstallfile>uninstall.uddeim.php</uninstallfile>
+</mosinstall>

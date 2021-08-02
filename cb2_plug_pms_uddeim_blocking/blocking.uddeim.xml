@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cbinstall version="1.0.0" type="plugin" group="user">
+	<name>uddeIM Blocking Plugin</name>
+	<author>Stephan Slabihoud</author>
+	<creationDate>2017-10-01</creationDate>
+	<copyright>(C) Stephan Slabihoud</copyright>
+	<license>* @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU/GPL version 2</license>
+	<authorEmail>ssl@gmx.de</authorEmail>
+	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
+	<version>2.0.4</version>
+	<release>4.0.0</release>
+	<description>v4.0 - uddeIM Blocking Plugin</description>
+	<files>
+		<filename plugin="blocking.uddeim">blocking.uddeim.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<params>
+		<param	name="uddeIMblockingPlugEnabled" type="radio" label="uddeIM Blocking Plugin Enabled" default="1" description="Select Yes to enable Blocking Plugin.">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+	</params>
+	<tabs>
+		<tab name="Blocking" description="The Blocking Tab" class="getUddeIMblockingTab" fields="0" position="cb_tabmain" displaytype="tab">
+			<fields>
+			</fields>
+		</tab>
+	</tabs>
+	<database>
+	</database>
+</cbinstall>

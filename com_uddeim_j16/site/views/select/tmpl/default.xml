@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_UDDEIM_SELECT_VIEW_DEFAULT_TITLE">
+        <message>COM_UDDEIM_SELECT_VIEW_DEFAULT_DESC</message>
+    </layout>
+    <fields name="request">
+        <fieldset name="request">
+            <field
+                name="id"
+                type="list"
+                label="COM_UDDEIM_SELECT_FIELD_SHOWBOX_LABEL"
+                description="COM_UDDEIM_SELECT_FIELD_SHOWBOX_DESC"
+                default="1"
+            >
+				<option value="1">Inbox</option>
+				<option value="2">Outbox</option>
+				<option value="3">Trashcan</option>
+				<option value="4">Archive</option>
+				<option value="5">Settings</option>
+				<option value="6">Contacts</option>
+				<option value="7">Compose</option>
+			</field>
+		</fieldset>
+	</fields>
+</metadata>

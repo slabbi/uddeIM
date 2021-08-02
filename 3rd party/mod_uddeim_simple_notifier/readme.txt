@@ -1,0 +1,1 @@
+﻿UddeIM Simple Notifier (GPL 2.0) by Michał ProchaczekE-Mail: piglet@prochaczek.plWWW:    michal.prochaczek.plThis module shows an image (and optionally the number) when new messages are available.

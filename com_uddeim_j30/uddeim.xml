@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0" method="upgrade">
+    <name>uddeIM</name>
+    <creationDate>2017-10-01</creationDate>
+    <author>Stephan Slabihoud</author>
+    <copyright>This is free software and you may redistribute it under the GPL. uddeIM comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt. For icons credits and license, see LICENSE folder. Where noted, other copyrights apply for code portions. This version is based on uddeIM 0.5b which has been written by Benjamin Zweifel in 2006.</copyright>
+    <license>GNU/GPL</license>
+    <authorEmail>ssl@gmx.de</authorEmail>
+    <authorUrl>http://www.slabihoud.de/software/</authorUrl>
+    <version>4.0</version>
+    <description>uddeIM Instant Messages for Mambo/Joomla</description>
+	<files folder="site">
+		<folder>views</folder>
+		<folder>js</folder>
+		<folder>templates</folder>
+		<folder>ReCaptcha</folder>
+		<filename>archive.php</filename>
+		<filename>autoload.php</filename>
+		<filename>bbparser.php</filename>
+		<filename>captcha.php</filename>
+		<filename>captcha15.php</filename>
+		<filename>cb_extra.php</filename>
+		<filename>crypt.class.php</filename>
+		<filename>getpiclink.php</filename>
+		<filename>inbox.php</filename>
+		<filename>includes.db.php</filename>
+		<filename>includes.php</filename>
+		<filename>index.html</filename>
+		<filename>json.php</filename>
+		<filename>monofont.ttf</filename>
+		<filename>outbox.php</filename>
+		<filename>recaptchalib.php</filename>
+		<filename>trashcan.php</filename>
+		<filename>uddeim.api.php</filename>
+		<filename>uddeim.php</filename>
+		<filename>uddeim_igoogle.xml</filename>
+		<filename>uddeimlib.php</filename>
+		<filename>uddeimlib10.php</filename>
+		<filename>uddeimlib15.php</filename>
+		<filename>uddeimlib16.php</filename>
+		<filename>uddeimlib17.php</filename>
+		<filename>uddeimlib25.php</filename>
+		<filename>uddeimlib30.php</filename>
+		<filename>uddeimlib31.php</filename>
+		<filename>uddeimlib32.php</filename>
+		<filename>uddeimlib33.php</filename>
+		<filename>uddeimlib38.php</filename>
+		<filename>userlists.php</filename>
+	</files>
+	<scriptfile>script.php</scriptfile>
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates</schemapath>
+		</schemas>
+	</update>
+	<administration>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_uddeim.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_uddeim.sys.ini</language>
+		</languages>
+		<menu img="../components/com_uddeim/templates/images/uddeim-favicon.png">COM_UDDEIM_MENU</menu>
+		<files folder="admin">
+			<folder>sql</folder>
+			<folder>language</folder>
+			<folder>language.utf8</folder>
+			<filename>access.xml</filename>
+			<filename>uddeim.php</filename>
+			<filename>admin.includes.php</filename>
+			<filename>admin.shared.php</filename>
+			<filename>admin.uddeim.php</filename>
+			<filename>admin.uddeimlib.php</filename>
+			<filename>admin.uddeimlib10.php</filename>
+			<filename>admin.uddeimlib15.php</filename>
+			<filename>admin.uddeimlib16.php</filename>
+			<filename>admin.uddeimlib17.php</filename>
+			<filename>admin.uddeimlib25.php</filename>
+			<filename>admin.uddeimlib30.php</filename>
+			<filename>admin.uddeimlib31.php</filename>
+			<filename>admin.uddeimlib32.php</filename>
+			<filename>admin.uddeimlib33.php</filename>
+			<filename>admin.uddeimlib38.php</filename>
+			<filename>admin.usersettings.php</filename>
+			<filename>config.class.php</filename>
+			<filename>config.xml</filename>
+			<filename>index.html</filename>
+			<filename>toolbar.uddeim.php</filename>
+		</files>
+	</administration>
+</extension>

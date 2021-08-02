@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cbinstall version="1.0" type="plugin" group="user">
+	<name>uddeIM Profilelink</name>
+	<author>Stephan Slabihoud</author>
+	<creationDate>2017-10-01</creationDate>
+	<copyright>(C) Stephan Slabihoud</copyright>
+	<license>* @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html GNU/GPL version 2</license>
+	<authorEmail>ssl@gmx.de</authorEmail>
+	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
+	<version>2.0.4</version>
+	<release>4.0.0</release>
+	<description>v4.0 - Displays a link to uddeIM compose message page in the profile. When the plugin is &quot;public&quot; it calls the public frontend (when enabled).</description>
+	<files>
+		<filename plugin="pms.uddeim.profilelink">pms.uddeim.profilelink.php</filename>
+		<filename>index.html</filename>
+	</files>
+    <params>
+	</params>
+	<tabs>
+		<tab name="_UDDEIM_PM_PMSLINK" description="" class="getuddeimLinkTab" fields="0" position="cb_right" displaytype="html">
+			<params>
+				<param name="@spacer" type="spacer" default="uddeIM Profilelink Settings" label="" description="" />
+				<param name="showTitlePL" type="list" default="1" label="Show Tab title" description="Show the title of the tab inside this tab. The description is also shown, if present. &lt;strong&gt;IMPORTANT: The title is the tab title here.&lt;/strong&gt;">
+					<option value="0">Hide</option>
+					<option value="1">Show</option>
+				</param>
+				<param name="noUserlistPL" type="list" default="0" label="Suppress User List" description="Suppress the complete user list selection.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</param>
+				<param name="noToPL" type="list" default="0" label="Disable To: Field" description="Disable the To: field.">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</param>
+				<param name="textLinkPL" type="text" size="25" default="Send Private Message" label="Link text" description="Default is &quot;Send Private Message&quot;" />
+				<param name="@spacer" type="spacer" default="" label="" description="" />
+				<param name="@spacer" type="spacer" default="see plugin manager: pms.uddeim.profilelink parameters" label="More settings:" description="" />
+			</params>
+			<fields>
+			</fields>
+		</tab>
+	</tabs>
+	<database>
+	</database>
+</cbinstall>

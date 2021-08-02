@@ -1,0 +1,83 @@
+/* *******************************************************************
+/* Title          udde Instant Messages (uddeIM)
+/* Description    Instant Messages System for Mambo 4.5.X/Joomla 1.0.X
+/* Author         Stephan Slabihoud, Benjamin Zweifel
+/* Version        2.9
+/* as of          2005-2012
+/* License        This is free software and you may redistribute it under the GPL.
+/*                uddeIM comes with absolutely no warranty. For details, see the license at
+/*                http://www.gnu.org/licenses/gpl.txt
+/* *******************************************************************
+/* This is the default CSS file
+/* ******************************************************************* */
+
+#uddeim-pagenav {
+}
+
+#uddeim-pagenav .pagenav {
+}
+
+div#uddeim-pagenav a.pagenav {
+}
+
+#uddeim-pagenav a.pagenav:hover {
+}
+
+#uddeim-pagenav ul li {
+  display: inline !important;
+  margin: 0 5px;
+}
+
+div.controls label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+table.adminlist tr.row0 {
+    background-color: #F9F9F9;
+    text-align: left;
+}
+table.adminlist tr.row1 {
+    background-color: #FFFFFF;
+    text-align: left;
+}
+table.adminlist td {
+    border-bottom: 1px solid #E5E5E5;
+    padding: 4px;
+	font-size: 11px;
+}
+
+table.adminlist th.title {
+    text-align: left;
+}
+table.adminlist th {
+	background-color: #d0d0d0;
+    color: #000000;
+    font-size: 11px;
+    height: 25px;
+    margin: 0;
+    padding: 6px 4px 2px;
+}
+
+table.adminlist {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+table.adminlist #f_id,
+table.adminlist #f_username,
+table.adminlist #f_name,
+table.adminlist #f_status,
+table.adminlist #f_popup,
+table.adminlist #f_public,
+table.adminlist #f_autor,
+table.adminlist #f_autof,
+table.adminlist #f_moderated,
+table.adminlist #f_locked {
+	width:auto !important;
+}

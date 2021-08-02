@@ -1,0 +1,522 @@
+/* *******************************************************************
+/* Title          udde Instant Messages (uddeIM)
+/* Description    Instant Messages System for Mambo 4.5.X/Joomla 1.0.X
+/* Author         Stephan Slabihoud, Benjamin Zweifel
+/* Version        2.8
+/* as of          2005-2012
+/* License        This is free software and you may redistribute it under the GPL.
+/*                uddeIM comes with absolutely no warranty. For details, see the license at
+/*                http://www.gnu.org/licenses/gpl.txt
+/* *******************************************************************
+/* This is the default CSS file
+/* ******************************************************************* */
+
+/* IDs and classes for the whole component */
+
+#uddeim img, #uddeim a img {
+	border: none;
+}
+
+#uddeim {
+	/* all uddeim output is wrapped by this master container */
+	padding: 0px 0px 8px 0px;
+	background: none;
+}
+
+#uddeim img, #uddeim a img {
+	border: none;
+}
+
+#uddeim a {
+}
+
+#uddeim a:hover {
+}
+
+/* The headline, if there is one */
+
+#uddeim div.contentheading {
+	padding: 10px;
+	border: none;
+}
+
+/* The navigation row */
+
+#uddeim-navbar2 {
+/* menu row */
+	padding: 4px 8px 8px 8px !important;
+}
+
+li.uddeim-activemenu {
+}
+
+#uddeim-navbar2 ul {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+#uddeim-navbar2 ul li {
+	display: inline !important;
+	margin-right: 7px !important;
+	font-weight: bold !important;
+	background: none !important;
+	padding: 0px !important;
+	margin-left: 0px !important;
+}
+
+#uddeim-navbar2 li a {
+}
+
+#uddeim-navbar2 li a:hover {
+}
+
+#uddeim-navbar2 ul li img {
+	margin-right: 3px !important;
+	margin-bottom: -4px !important;
+}
+
+/* The main container for all content (message lists, message display, compose forms) */
+
+#uddeim-m
+{
+	margin: 0;
+	padding-bottom: 8px;
+	border-top: 1px solid #999999;
+	border-bottom: 1px solid #999999;		
+}
+
+/* Main container begins with toplines, if there are any */
+
+#uddeim-toplines {
+/* information between menu row and msg list/write forms */
+	font-size:		11px;
+	padding: 8px;
+}
+
+#uddeim-toplines p {
+/* some are in paragraphs */
+	font-size:		11px;
+}
+
+/* Message Display: The header */
+
+div.uddeim-messageheader
+{
+	position: relative;
+	padding: 10px;
+	margin: 0 0 10px 0;
+	border: 1px solid #888888;
+}
+
+table.innermost {
+	background: none !important;
+	border: none !important;
+	border-spacing: 5px !important;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+table.innermost tr {
+	border: none !important;
+}
+
+table.innermost td {
+	border: none !important;
+}
+
+div.uddeim-messageheader img.uddeim-tn {
+	display: table-cell;
+	float: left;
+}
+
+div.uddeim-messageheader div.uddeim-messagefrom {
+	float: left;
+	vertical-align: top;
+	margin-left: 10px;
+}
+
+div.uddeim-messageheader div.uddeim-messagefrom-spam {
+	float: left;
+	vertical-align: top;
+	margin-left: 10px;
+}
+
+#uddeim-m div.uddeim-messageheader div.uddeim-messagefrom a {
+}
+
+#uddeim-m div.uddeim-messageheader div.uddeim-messagefrom-spam a {
+}
+
+div.uddeim-messageheader ul {
+	position: relative !important;
+	top: 0px !important;
+	right: 30px !important;
+	list-style: none !important;
+	list-style-type: none !important;
+}
+
+div.uddeim-messageheader li {
+	background: none !important;
+	list-style-type: none !important;
+}
+
+
+#uddeim-m div.uddeim-messageheader li a {
+}
+
+#uddeim-m div.uddeim-messageheader li a:hover, #uddeim-m div.uddeim-messageheader div.uddeim-messagefrom a:hover {
+}
+
+
+span.uddeim-clear {
+	clear: both;
+	display: block;
+}
+
+/* Message Display: The Message Body */
+
+div.uddeim-messagebody {
+/*	clear: both; */
+	padding: 20px 20px 20px 8px;
+	font-size: 1.1em;
+}
+
+div.uddeim-messagebody2 {
+	background: #f8f8f8 !important;
+	border: none !important;
+	padding: 10px !important;
+	font-size: 1.0em !important;
+	color: #000000 !important;	
+}
+
+div.uddeim-messagebody2 a {
+	background: transparent !important;
+	color: #000000 !important;	
+	font-weight: normal !important;
+	text-decoration: none !important;
+}
+
+div.uddeim-messagebody2 a:hover {
+	background: transparent !important;
+	color: #000000 !important;
+	font-weight: normal !important;
+	text-decoration: underline !important;
+}
+
+div.uddeim-replyquote {
+	font-size: 0.9em;
+	padding-left: 8px;
+	margin-top: 8px;
+	border-left: 1px solid grey;
+}
+
+/* Message Display: System messages */ 
+
+
+#uddeim-message {
+	margin-top:		8px;
+	padding: 8px;
+}
+
+#uddeim-message table {
+}
+
+#uddeim-message .sectiontableentry1 td {
+	padding: 8px;
+	padding-left: 15px;
+	border: 1px solid #C5C5C5;	
+}
+
+#uddeim-message .sectiontableentry1 td img {
+}
+
+#uddeim-message .sectiontableentry2 td {
+	background-color: #ffffff;
+	color: #000000;
+	border: 1px solid #c0c0c0;
+	padding: 15px;
+	font-size: 12px;
+}
+
+
+
+/* Message Lists (inbox, outbox, archive, trashcan are contained by this ID */
+
+#uddeim-overview {
+	padding: 8px 8px 0px 8px !important;
+}
+#uddeim-overview table {
+}
+#uddeim-overview .sectiontableentry1 a,
+#uddeim-overview .sectiontableentry2 a  {
+}
+#uddeim-overview .sectiontableentry1 a:hover,
+#uddeim-overview .sectiontableentry2 a:hover {
+}
+#uddeim-overview td {
+}
+#uddeim-overview .sectiontableheader {
+ 	font-size: 12px !important;
+}
+#uddeim-overview .sectiontablefooter {
+ 	font-size: 12px !important;
+}
+#uddeim-overview .sectiontableentry1 td {
+	padding: 3px !important;
+}
+#uddeim-overview .sectiontableentry2 td {
+	padding: 3px !important;
+}
+
+/* Page Navigation below lists */
+
+#uddeim-pagenav {
+/* navigation links (to start, to end, previous page, ...) below */
+	font-size:		11px;
+	text-align:		right;
+	margin-top:		6px;
+	padding: 0px 8px 0px 8px;
+}
+
+#uddeim-pagenav .pagenav {
+	background: none;
+	border: none;
+	padding: 2px;
+}
+
+div#uddeim-pagenav a.pagenav {
+	background: none;
+	border: none;
+	padding: 2px;
+}
+
+#uddeim-pagenav a.pagenav:hover {
+}
+
+#uddeim-pagenav ul li {
+  display: inline !important;
+  list-style-type: none !important;
+}
+
+/* Settings */
+
+/* Settings: E-Mail-Notification */
+
+#uddeim-set-emn {
+	padding: 8px 8px 8px 15px;
+	border: 1px solid #C5C5C5;	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#uddeim-set-emn h4 {
+	margin-top: 8px;
+}
+
+/* Settings: Blocking system */
+
+.uddeim-set-block {
+	padding: 8px;
+	padding-left: 15px;
+	margin-top: 15px;
+	border: 1px solid #C5C5C5;	
+}
+
+.uddeim-set-block div#uddeim-overview {
+	padding: 0px;
+}
+
+/* Settings: Popup */
+
+#uddeim-set-popup {
+	padding: 8px 8px 8px 15px;
+	border: 1px solid #C5C5C5;	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#uddeim-set-popup h4 {
+	margin-top: 8px;
+}
+
+/* Settings: Sound */
+
+#uddeim-set-sound {
+	padding: 8px 8px 8px 15px;
+	border: 1px solid #C5C5C5;	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#uddeim-set-sound h4 {
+	margin-top: 8px;
+}
+
+/* Compose */
+
+#uddeim-writeform {
+	padding: 10px 8px 0px 8px;
+}
+
+#uddeim-connectionlist ul {
+	margin: 0px;
+	padding: 0px 5px 0px 5px;
+}
+
+#uddeim-connectionlist ul li {
+	display: inline;
+	background: none;
+	margin: 0px;
+	padding: 0px 5px 0px 0px;
+}
+
+#uddeim-writeform textarea {
+	font-size: 11px;
+	width: 450px;
+	border: 1px solid #cccccc;
+}
+
+#uddeim-writeform input {
+	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";
+	font-size: 11px;
+	border: 1px solid #cccccc;
+}
+
+#uddeim-writeform input#input_to_name {
+	width: 200px;
+}
+
+#uddeim-writeform input.button {
+	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";
+	font-size: 11px;
+	border: 1px solid #c0c0c0;
+
+}
+
+
+
+div.uddeim-messageattachments {
+}
+div.uddeim-messageattachments table {
+	border: none !important;
+}
+div.uddeim-messageattachments td {
+	position: relative !important;
+	padding: 10px !important;
+	margin: 10px 0 0 0 !important;
+	border: none !important;
+}
+div.uddeim-messageattachments tr {
+	border: none !important;
+}
+div.uddeim-attachmentbox {
+	padding: 10px 5px 10px 5px !important;
+}
+
+
+
+.uddeim-sendoption {
+	font-size:		11px;
+	padding: 3px;
+}
+
+.uddeim-captcha {
+	padding: 3px;
+}
+
+.uddeim-password {
+	padding: 3px;
+}
+
+.uddeim-sendbutton {
+	padding: 3px;
+}
+
+.uddeim-textcounter {
+	padding: 3px;
+}
+
+/* Compose: the BB Codes and Smilies box */
+
+#uddeim-bbemobox table {
+	width: 300px;
+	margin-bottom: 8px;
+	background: #eee;
+	border: 1px solid #bbb;
+}
+
+#uddeim-smileybox table {
+	width: 450px;
+	margin-bottom: 8px;
+	background: #eee;
+	border: 1px solid #bbb;
+}
+
+#uddeim-smileybox-popup table {
+	margin-bottom: 8px;
+	background: #eee;
+	border: 1px solid #bbb;
+}
+
+/* Information text below output */
+
+#uddeim-bottomlines {
+/* Additional information at the bottom */
+	margin-top:		10px;
+	font-size: xx-small;
+	padding: 0px 8px 8px 8px;
+}
+
+#uddeim-bottomlines p {
+/* some are in paragraphs */
+	font-size:		11px;
+}
+
+/* Bottom Border, below uddeim-m content container, at bottom of uddeim main container */
+
+#uddeim-bottomborder {
+	padding: 10px;
+}
+
+.uddeim-bottomborder a {
+}
+
+#uddeim-bottomborder a {
+	font-weight: normal;
+	margin-right: 5px;
+}
+
+#uddeim-bottomborder a:hover {
+}
+
+.uddeim-limit-bb {
+	text-align: right;
+	margin-left: 15px;
+}
+
+
+
+/* Additional classes */
+
+.uddeim-warning {
+/* used for warnings (limit excess) */
+	background-color:	#F23F00;
+	color:				#ffffff;
+	font-weight: bold;
+}
+
+
+
+/* New Joomla 1.6 */
+#uddeim-filter table td,
+#uddeim-filter table tr {
+	border-style: none;
+}
+#uddeim-writeform  table td,
+#uddeim-writeform  table tr {
+	border-style: none;
+}
+#uddeim-block table td,
+#uddeim-block table tr {
+	border-style: none;
+}
