@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="1.6.0" client="site" method="upgrade">
+	<name>uddeIM Notifier</name>
+	<creationDate>2017-10-01</creationDate>
+	<author>Stephan Slabihoud</author>
+	<copyright>Stephan Slabihoud. This is free software and you may redistribute it under the GPL. uddeIM comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt.</copyright>
+	<license>GNU/GPL</license>
+	<authorEmail>ssl@gmx.de</authorEmail>
+	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
+	<version>4.0</version>
+	<description>uddeIM Notifier module</description>
+	<files>
+      <filename module="mod_uddeim">mod_uddeim.php</filename>
+      <filename>mod_uddeim.xml</filename>
+      <filename>mod_uddeim/mail.gif</filename>
+      <filename>mod_uddeim/users.gif</filename>
+      <filename>mod_uddeim/close.gif</filename>
+      <filename>mod_uddeim/domLib.js</filename>
+      <filename>mod_uddeim/domTT.js</filename>
+      <filename>mod_uddeim/domTT_drag.js</filename>
+      <filename>mod_uddeim/popup.css</filename>
+      <filename>mod_uddeim/popupex.css</filename>
+      <filename>mod_uddeim/alert.mp3</filename>
+      <filename>mod_uddeim/alert.ogg</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="uddhidenotifier" type="radio" default="0" label="No output" description="Does not display anything. Usefull when you want use the notification (popup, floating box) only. You should also hide the module title bar.">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="uddshowmsg" type="list" default="1" label="Show messages" description="Shows sender name and/or first characters of new message in the module">
+					<option value="2">Show names only</option>
+					<option value="1">Show names and teaser</option>
+					<option value="3">No</option>
+					<option value="0">Show new msg counter</option>
+				</field>
+				<field name="uddmanylines" type="text" default="0" label="Lines to display" description="Sets how many new messages at most are to be displayed in the module" />
+				<field name="uddmaxchars" type="text" default="50" label="Max characters" description="Sets how many characters (username + first words of messages) are to be displayed in the module" />
+				<field name="uddeenablepopup" type="list" default="0" label="Enable popup" description="Enable PMS notification (works currently with uddeIM 0.7 and above only).">
+					<option value="0">Disable popups</option>
+					<option value="1">Enable popups</option>
+				</field>
+				<field name="uddeenableajax" type="list" default="0" label="Enable AJAX" description="Enable AJAX requests (do only use on small sites)">
+					<option value="0">Do not use AJAX</option>
+					<option value="1">Use AJAX</option>
+				</field>
+				<field name="uddeajaxtime" type="text" default="5" label="AJAX refresh" description="AJAX refresh time in seconds (minimum 5 seconds)" />
+				<field name="uddeDHTMLpopup" type="list" default="2" label="Notification type" description="By default, DHTML floating boxes are used.">
+					<option value="0">- not available -</option>
+					<option value="1">DHTML boxes</option>
+					<option value="2">DHTML floating box</option>
+				</field>
+				<field name="uddnametype" type="list" default="0" label="Displayed name" description="By default, full realnames are displayed.">
+					<option value="0">Realname</option>
+					<option value="1">Username</option>
+					<option value="2">Firstname (CB only)</option>
+				</field>
+				<field name="uddeSound" type="list" default="0" label="Sound alert" description="By default, no sound notification is played. Does not work with DHTML boxes.">
+					<option value="0">None</option>
+					<option value="1">DOM</option>
+					<option value="2">HTML5</option>
+				</field>
+				<field name="@spacer" type="spacer" default="Following parameters for floating box only" label="" description="" />
+				<field name="uddrightpos" type="text" default="10" label="End position" description="(Floating box only) Ending position of the floating box when sliding right (&gt;0 distance from left window border, &lt;0 distance from right window border)." />
+				<field name="uddtimeout" type="text" default="10000" label="Display time" description="(Floating box only) Display time until box is removed (msec)." />
+				<field name="uddrightspeed" type="text" default="20" label="Floating in speed" description="(Floating box only) Sliding speed to the right (smaller number means faster movement)." />		
+				<field name="uddleftspeed" type="text" default="10" label="Floating out speed" description="(Floating box only) Sliding speed to the left (smaller number means faster movement)." />
+			</fieldset>
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx" type="text" default="" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

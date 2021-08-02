@@ -1,0 +1,132 @@
+Please observe that the license under which uddeIM is released (GNU/GPL) does not apply to the icon sets. Read here about the icon credits and the associated licenses. 
+
+Icon Credits:
+
+images/emoticon_angry.gif
+images/emoticon_cool.gif
+images/emoticon_kiss.gif
+images/emoticon_laughing.gif
+images/emoticon_sad.gif
+images/emoticon_shocked.gif
+images/emoticon_smile.gif
+images/emoticon_tongue.gif
+images/emoticon_wink.gif
+images/emoticon_blush.gif
+images/emoticon_crossed.gif
+images/emoticon_heart.gif
+images/emoticon_wondering.gif
+Modified versions of KOLOBOK smileys for uddeIM. See "KOLOBOK Smileys Copyright.txt".
+
+animated/emoticon_angry.gif
+animated/emoticon_cool.gif
+animated/emoticon_kiss.gif
+animated/emoticon_laughing.gif
+animated/emoticon_sad.gif
+animated/emoticon_shocked.gif
+animated/emoticon_smile.gif
+animated/emoticon_tongue.gif
+animated/emoticon_wink.gif
+animated/emoticon_blush.gif
+animated/emoticon_crossed.gif
+animated/emoticon_heart.gif
+animated/emoticon_wondering.gif
+Smileys by KOLOBOK. See "KOLOBOK Smileys Copyright.txt".
+
+oldstyle/emoticon_angry.gif
+oldstyle/emoticon_cool.gif
+oldstyle/emoticon_kiss.gif
+oldstyle/emoticon_laughing.gif
+oldstyle/emoticon_sad.gif
+oldstyle/emoticon_shocked.gif
+oldstyle/emoticon_smile.gif
+oldstyle/emoticon_tongue.gif
+oldstyle/emoticon_wink.gif
+oldstyle/emoticon_blush.gif
+oldstyle/emoticon_crossed.gif
+oldstyle/emoticon_heart.gif
+oldstyle/emoticon_wondering.gif
+by Benjamin Zweifel based on public domain and the emoticon library of Joomlaboard © 2003-2005 the Two Shoes M-Factory.
+This is free software and you may redistribute it under the GPL. It comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt
+
+images/format_bold.gif
+images/format_italic.gif
+images/format_underline.gif
+images/format_image.gif
+images/menu_trashcan.gif
+images/menu_archive.gif
+images/menu_settings.gif
+images/menu_new.gif
+by Tango Project licensed under the Creative Commons Share-Alike license
+
+images/format_bold_close.gif
+images/format_italic_close.gif
+images/format_underline_close.gif
+images/format_red.gif
+images/format_red_close.gif
+images/format_blue.gif
+images/format_blue_close.gif
+images/format_green.gif
+images/format_green_close.gif
+images/format_size1.gif
+images/format_size1_close.gif
+images/format_size2.gif
+images/format_size2_close.gif
+images/format_size4.gif
+images/format_size4_close.gif
+images/format_size5.gif
+images/format_size5_close.gif
+images/format_image_close.gif
+images/format_link.gif
+images/format_link_close.gif
+images/format_closeall.gif
+by Benjamin Zweifel based on icons by Tango Project licensed under the Creative Commons Share-Alike license
+
+images/menu_inbox.gif
+images/menu_outbox.gif
+images/new_im.gif
+images/nonew_im.gif		 
+images/icon_online.gif
+images/icon_offline.gif		
+images/green_env_ani.gif
+images/send.gif
+images/icon_start.gif
+images/icon_end.gif
+images/icon_next.gif
+images/icon_prev.gif
+by Benjamin Zweifel. Not released under any license. 
+
+images/icon_block.gif
+images/icon_archive.gif
+images/icon_delete.gif
+by mono. Not released under any license.
+
+images/menu_trashcan.gif
+images/menu_archive.gif
+images/menu_new.gif
+images/new_im.gif
+images/nonew_im.gif		 
+images/archive.gif
+images/unarchive.gif
+images/trash.gif
+images/email.gif
+images/forward.gif
+images/recycle.gif
+images/restore.gif
+images/edit.gif
+images/menu_book.gif
+images/staron.gif
+images/staroff.gif
+by Mark James (modified by Stephan Slabihoud) under the Creative Commons Attribution 2.5 License (see Famfamfam Silk Icons.txt).
+
+images/igoogle.gif
+by Google Inc.
+
+images/donate_d.gif
+images/donate_en.gif
+by PayPal Inc.
+
+images/envelope.gif
+images/envelope_deleted.gif
+images/rss_logo.png
+images/uddeim_logo.png
+by Stephan Slabihoud. Not released under any license.
