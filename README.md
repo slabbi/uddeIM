@@ -9,10 +9,10 @@ With this repository we want to help to keep this great project updated to work 
 	
 ## Technologies
 Project is created with:
+* Mambo 1.x
 * Joomla version: 1.x
 * Joomla version: 2.x
 * Joomla version: 3.x
-* Joomla version: 4.x
 
 * Community Builder version: X.y
 
