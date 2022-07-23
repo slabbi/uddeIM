@@ -13,6 +13,7 @@ Project is created with:
 * Joomla version: 1.x
 * Joomla version: 2.x
 * Joomla version: 3.x
+* Joomla version: 4.x (not tested)
 
 * Community Builder version: X.y
 
