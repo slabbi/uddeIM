@@ -109,7 +109,9 @@ function uddeIMmosGetParam( &$arr, $name, $def=null, $mask=0 ) {
     }
     if ($mask & 2) {
         if (is_null($safeHtmlFilter)) {
-            $safeHtmlFilter = JFilterInput::getInstance(null, null, 1, 1);
+            //passing null as first argument to ::getInstance raises an exception
+//            $safeHtmlFilter = JFilterInput::getInstance(null, null, 1, 1);
+            $safeHtmlFilter = new JFilterInput();
         }
         $var = $safeHtmlFilter->clean($var, 'none');
     } elseif ($mask & 4) {
