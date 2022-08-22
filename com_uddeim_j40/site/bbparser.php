@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0 / Joomla 1.5
-// Author         © 2007-2010 Stephan Slabihoud, © 2006 Benjamin Zweifel
+// Author         ï¿½ 2007-2010 Stephan Slabihoud, ï¿½ 2006 Benjamin Zweifel
 // License        This is free software and you may redistribute it under the GPL.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk. For details, see the license at
@@ -202,11 +202,10 @@ function uddeIMsmile_replace($string, $config) {
 			closedir($folder);
 		}
 	}
-	  
-	reset($message_emoticons);
-	while (list($emo_txt,$emo_src)=each($message_emoticons)) {
-		$string=str_replace($emo_txt,$emo_src,$string);
-	}
+
+    foreach ($message_emoticons as $emoji_txt => $emoji_src) {
+        $string = str_replace($emoji_txt, $emoji_src, $string);
+    }
 	return $string;
 }
 
