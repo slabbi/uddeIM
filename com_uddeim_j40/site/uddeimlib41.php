@@ -330,7 +330,7 @@ function uddeIMgetLang() {
 // default: 		$temp = "english";			break;
 
 function uddeIMgetVersion() {
-    $ver = new JVersion();
+    $ver = new Joomla\CMS\Version;
     return $ver;
 }
 
