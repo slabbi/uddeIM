@@ -127,7 +127,7 @@ function uddeIMmosGetParam( &$arr, $name, $def=null, $mask=0 ) {
 
 function uddeIMmosRedirect( $url, $msg='' ) {
     $app = JFactory::getApplication();
-    $app->redirect(JRoute::_($url, false), JText::_($msg));
+    $app->redirect(JRoute::_($url, false));
 }
 
 function uddeJSEFredirect($url, $msg='', $avoid='') {			// REMOVE FROM includes.php
@@ -141,7 +141,7 @@ function uddeJSEFredirect($url, $msg='', $avoid='') {			// REMOVE FROM includes.
     }
     $redirecturl = JRoute::_($redirecturl, false);
     $app = JFactory::getApplication();
-    $app->redirect( $redirecturl, JText::_($msg) );
+    $app->redirect( $redirecturl );
 }
 
 function uddeIMmosMail($from, $fromname, $recipient, $subject, $body, $mode=0, $cc=NULL, $bcc=NULL, $attachment=NULL, $replyto=NULL, $replytoname=NULL ) {
