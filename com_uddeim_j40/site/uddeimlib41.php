@@ -11,6 +11,8 @@
 //                Redistributing this file is only allowed when keeping the header unchanged.
 // ********************************************************************************************
 
+use Joomla\Utilities\ArrayHelper;
+
 if (!(defined('_JEXEC') || defined('_VALID_MOS'))) { die( 'Direct Access to this location is not allowed.' ); }
 
 global $uddeim_isadmin;
@@ -101,7 +103,7 @@ if (!defined('_MOS_ALLOWRAW'))
 function uddeIMmosGetParam( &$arr, $name, $def=null, $mask=0 ) {
     static $noHtmlFilter	= null;
     static $safeHtmlFilter	= null;
-    $var = JArrayHelper::getValue( $arr, $name, $def, '' );
+    $var = ArrayHelper::getValue( $arr, $name, $def, '' );
     if (!($mask & 1) && is_string($var)) {
         $var = trim($var);
     }
