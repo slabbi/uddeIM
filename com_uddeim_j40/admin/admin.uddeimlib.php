@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo & Joomla
-// Author         © 2007-2015 Stephan Slabihoud
+// Author         ï¿½ 2007-2015 Stephan Slabihoud
 // License        This is free software and you may redistribute it under the GPL.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk. For details, see the license at
@@ -11,34 +11,39 @@
 //                Redistributing this file is only allowed when keeping the header unchanged.
 // ********************************************************************************************
 
+use Joomla\CMS\Version;
+
 if (!(defined('_JEXEC') || defined('_VALID_MOS'))) { die( 'Direct Access to this location is not allowed.' ); }
 
 global $uddeim_isadmin;
 global $ver;
 
 if ( defined( 'JPATH_ADMINISTRATOR' ) ) {
-	$ver = new JVersion();
-	if (!strncasecmp($ver->RELEASE, "3.8", 3)) {
-		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib38.php');
-	} elseif (!strncasecmp($ver->RELEASE, "3.3", 3) ||
-			  !strncasecmp($ver->RELEASE, "3.4", 3) ||
-			  !strncasecmp($ver->RELEASE, "3.5", 3) ||
-			  !strncasecmp($ver->RELEASE, "3.6", 3) ||
-			  !strncasecmp($ver->RELEASE, "3.7", 3)) {
-		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib33.php');
-	} elseif (!strncasecmp($ver->RELEASE, "3.2", 3)) {
-		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib32.php');
-	} elseif (!strncasecmp($ver->RELEASE, "3.1", 3)) {
-		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib31.php');
-	} elseif (!strncasecmp($ver->RELEASE, "3.0", 3)) {
-		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib30.php');
-	} elseif (!strncasecmp($ver->RELEASE, "2.5", 3)) {
-		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib25.php');
-	} elseif (!strncasecmp($ver->RELEASE, "1.5", 3)) {
-		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib15.php');
-	} elseif (!strncasecmp($ver->RELEASE, "1.6", 3)) {
-		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib16.php');
-	} elseif (!strncasecmp($ver->RELEASE, "1.7", 3)) {
+    $ver = new Version();
+    $shortVersion = $ver->getShortVersion();
+    if (!strncasecmp($shortVersion, "4.1", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib41.php');
+    } else if (!strncasecmp($shortVersion, "3.8", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib38.php');
+    } elseif (!strncasecmp($shortVersion, "3.3", 3) ||
+        !strncasecmp($shortVersion, "3.4", 3) ||
+        !strncasecmp($shortVersion, "3.5", 3) ||
+        !strncasecmp($shortVersion, "3.6", 3) ||
+        !strncasecmp($shortVersion, "3.7", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib33.php');
+    } elseif (!strncasecmp($shortVersion, "3.2", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib32.php');
+    } elseif (!strncasecmp($shortVersion, "3.1", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib31.php');
+    } elseif (!strncasecmp($shortVersion, "3.0", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib30.php');
+    } elseif (!strncasecmp($shortVersion, "2.5", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib25.php');
+    } elseif (!strncasecmp($shortVersion, "1.5", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib15.php');
+    } elseif (!strncasecmp($shortVersion, "1.6", 3)) {
+        require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib16.php');
+    } elseif (!strncasecmp($shortVersion, "1.7", 3)) {
 		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib17.php');
 	} else {
 		require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib38.php');
