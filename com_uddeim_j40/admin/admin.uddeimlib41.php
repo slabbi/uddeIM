@@ -64,10 +64,10 @@ if (!class_exists('mosTabs')) {
             $this->tuseCookies = $useCookies;
         }
         function startTab( $tabText, $paneid ) {
-            echo JHtml::_('bootstrap.addPanel', $this->tpane, $paneid, $tabText); //$this->startPanel( $tabText, $paneid);
+            echo JHtml::_('bootstrap.addTab', $this->tpane, $paneid, $tabText);
         }
         function endTab() {
-            echo JHtml::_('bootstrap.endPanel'); // $this->endPanel();
+            echo JHtml::_('bootstrap.endTab');
         }
         function startPane( $tabText ){
             $options = array(
@@ -75,10 +75,10 @@ if (!class_exists('mosTabs')) {
                 'useCookie' => $this->tuseCookies
             );
             $this->tpane = $tabText;
-            echo JHtml::_('bootstrap.startPane', $tabText, $options); // parent::startPane( $tabText );
+            echo JHtml::_('bootstrap.startTabSet', $tabText, $options);
         }
         function endPane(){
-            echo JHtml::_('bootstrap.endPane', $this->tpane); // parent::endPane();
+            echo JHtml::_('bootstrap.endTabSet', $this->tpane);
         }
     }
 }
