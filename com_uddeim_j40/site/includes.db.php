@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0 / Joomla 1.5
-// Author         © 2007-2010 Stephan Slabihoud
+// Author         ï¿½ 2007-2010 Stephan Slabihoud
 // License        This is free software and you may redistribute it under the GPL.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk. For details, see the license at
@@ -58,7 +58,7 @@ function uddeIMsaveRAWmessage($fromid, $toid, $replyid, $message, $date, $config
 				(int)$fromid.", ".(int)$toid.", ".(int)$replyid.", '".$message."', ".$date.")";
 	}
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to save a message" . $database->stderr(true));
 	}
 	$insID = $database->insertid();
@@ -81,7 +81,7 @@ function uddeIMdeleteReport($myself, $messageid) {
 	$database = uddeIMgetDatabase();
 	$sql = "DELETE FROM `#__uddeim_spam` WHERE toid=".(int)$myself." AND mid=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query())
+	if (!$database->execute())
 		die("SQL error when attempting to recall a report" . $db->stderr(true));
 }
 
@@ -340,7 +340,7 @@ function uddeIMinsertBlockerBlocked($blocker, $blocked) {
 	$database = uddeIMgetDatabase();
 	$sql="INSERT INTO `#__uddeim_blocks` (blocker, blocked) VALUES (".(int)$blocker.",".(int)$blocked.")";
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to save a message" . $database->stderr(true));
 	}	
 }
@@ -357,7 +357,7 @@ function uddeIMpurgeBlockerBlocked($blocker, $blocked) {
 	$database = uddeIMgetDatabase();
 	$sql="DELETE FROM `#__uddeim_blocks` WHERE blocker=".(int)$blocker." AND blocked=".(int)$blocked;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to delete a blocking" . $database->stderr(true));
 	}
 }
@@ -468,7 +468,7 @@ function uddeIMpurgeUserlist($myself, $listid, $withglobal=0) {
 	else
 		$sql="DELETE FROM `#__uddeim_userlists` WHERE id=".(int)$listid." AND userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to delete a list" . $database->stderr(true));
 	}
 }
@@ -480,7 +480,7 @@ function uddeIMupdateUserlist($myself, $listid, $listname, $listdesc, $listids, 
 	else
 		$sql="UPDATE `#__uddeim_userlists` SET name=".$database->Quote($listname).", description=".$database->Quote($listdesc).", userids=".$database->Quote($listids).", global=".(int)$lglobal." WHERE id=".(int)$listid." AND userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query())
+	if (!$database->execute())
 		die("SQL error when attempting to update a list" . $database->stderr(true));
 }
 
@@ -488,7 +488,7 @@ function uddeIMinsertUserlist($myself, $listname, $listdesc, $listids, $lglobal)
 	$database = uddeIMgetDatabase();
 	$sql="INSERT INTO `#__uddeim_userlists` (userid, name, description, userids, global) VALUES (".(int)$myself.", ".$database->Quote($listname).", ".$database->Quote($listdesc).", ".$database->Quote($listids).", ".(int)$lglobal.")";
 	$database->setQuery($sql);
-	if (!$database->query())
+	if (!$database->execute())
 		die("SQL error when attempting to save a list" . $database->stderr(true));
 }
 
@@ -589,7 +589,7 @@ function uddeIMupdateEMNstatus($myself, $status) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET status=".(int)$status." WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -598,7 +598,7 @@ function uddeIMupdateEMNreminder($myself, $reminder) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET remindersent=".(int)$reminder." WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -607,7 +607,7 @@ function uddeIMupdateEMNlastsent($myself, $lastsent) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET lastsent=".(int)$lastsent." WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -616,7 +616,7 @@ function uddeIMupdateEMNpublic($myself, $public) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET public=".(int)$public." WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -625,7 +625,7 @@ function uddeIMupdateEMNpopup($myself, $popup) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET popup=".(int)$popup." WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -634,7 +634,7 @@ function uddeIMupdateEMNautoresponder($myself, $autoresponder) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET autoresponder=".(int)$autoresponder." WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -643,7 +643,7 @@ function uddeIMupdateEMNautorespondertext($myself, $autorespondertext) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET autorespondertext='".addslashes(strip_tags($autorespondertext))."' WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -652,7 +652,7 @@ function uddeIMupdateEMNautoforward($myself, $autoforward) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET autoforward=".(int)$autoforward." WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -661,7 +661,7 @@ function uddeIMupdateEMNautoforwardid($myself, $autoforwardid) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim_emn` SET autoforwardid=".(int)$autoforwardid." WHERE userid=".(int)$myself;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -697,7 +697,7 @@ function uddeIMinsertEMNdefaults($myself, $config) {
 			(int)$autoforwardid.", ".
 			(int)$myself.")";
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error" . $database->stderr(true));
 	}
 }
@@ -844,7 +844,7 @@ function uddeIMupdateFlagged($myself, $messageid, $value) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim` SET flagged=".(int)$value." WHERE toid=".(int)$myself." AND id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to mark a message" . $database->stderr(true));
 	}
 }
@@ -853,7 +853,7 @@ function uddeIMupdateDelayed($myself, $messageid, $value) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim` SET `delayed`=".(int)$value." WHERE fromid=".(int)$myself." AND id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to mark a message" . $database->stderr(true));
 	}
 }
@@ -863,7 +863,7 @@ function uddeIMupdateToread($myself, $messageid, $value) {
 //	$sql="UPDATE `#__uddeim` SET toread=".(int)$value." WHERE toid=".(int)$myself." AND archived=0 AND id=".(int)$messageid;
 	$sql="UPDATE `#__uddeim` SET toread=".(int)$value." WHERE toid=".(int)$myself." AND id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to trash a message" . $database->stderr(true));
 	}
 }
@@ -872,7 +872,7 @@ function uddeIMupdateArchived($messageid, $value) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim` SET archived=".(int)$value." WHERE id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to archive a message" . $database->stderr(true));
 	}
 }
@@ -881,7 +881,7 @@ function uddeIMupdateArchivedToid($myself, $messageid, $value) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim` SET archived=".(int)$value." WHERE toid=".(int)$myself." AND id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to archive a message" . $database->stderr(true));
 	}
 }
@@ -906,7 +906,7 @@ function uddeIMpurgeMessageFromUser($fromid, $messageid) {
 	$database = uddeIMgetDatabase();
 	$sql="DELETE FROM `#__uddeim` WHERE fromid=".(int)$fromid." AND id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to delete a message" . $database->stderr(true));
 	}
 }
@@ -915,7 +915,7 @@ function uddeIMdeleteMessageFromInbox($myself, $messageid, $deletetime) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim` SET totrash=1, totrashdate=".(int)$deletetime." WHERE toid=".(int)$myself." AND id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to delete a message" . $database->stderr(true));
 	}
 }
@@ -924,7 +924,7 @@ function uddeIMdeleteMessageFromArchive($myself, $messageid, $deletetime) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim` SET totrash=1, totrashdate=".(int)$deletetime." WHERE toid=".(int)$myself." AND id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to delete a message" . $database->stderr(true));
 	}
 }
@@ -933,7 +933,7 @@ function uddeIMdeleteMessageFromOutbox($myself, $messageid, $deletetime) {
 	$database = uddeIMgetDatabase();
 	$sql="UPDATE `#__uddeim` SET totrashoutbox=1, totrashdateoutbox=".(int)$deletetime." WHERE fromid=".(int)$myself." AND id=".(int)$messageid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to delete a message" . $database->stderr(true));
 	}
 }
@@ -948,14 +948,14 @@ function uddeIMrestoreMessageToInboxOutboxArchive($myself, $messageid) {
 		// so when the message was from the inbox/archivem then restore it to there and do not restore to outbox (might be also valid e.g. for copy2me messages)
 		$sql="UPDATE `#__uddeim` SET totrash=0, totrashdate=NULL WHERE toid=".(int)$myself." AND id=".(int)$messageid;
 		$database->setQuery($sql);
-		if (!$database->query()) {
+		if (!$database->execute()) {
 			die("SQL error when attempting to restore a message" . $database->stderr(true));
 		}
 	} else {
 		// Check if the message was send by me (so it was in the Outbox)
 		$sql="UPDATE `#__uddeim` SET totrashoutbox=0, totrashdateoutbox=NULL WHERE fromid=".(int)$myself." AND id=".(int)$messageid;
 		$database->setQuery($sql);
-		if (!$database->query()) {
+		if (!$database->execute()) {
 			die("SQL error when attempting to restore a message" . $database->stderr(true));
 		}
 	}
@@ -1109,7 +1109,7 @@ function uddeIMselectOutbox($myself, $limitstart, $limit, $config, $filter_user=
 	//	"general messages" (toid==myself && fromid==toid && systemflag=1 				-> systemmessage to myself
 	//			       OR toid==myself && fromid<>toid && systemflag=1 => not shown)		-> systemmessage to others
 	//	"copy2me" (toid=myself && fromid==toid && systemflag=2 => not shown)
-	// FIXME?: copy2me ändern => keine systemmessage mehr, sondern neues feld mit "original author"
+	// FIXME?: copy2me ï¿½ndern => keine systemmessage mehr, sondern neues feld mit "original author"
 	$filter = "";
 	if ($filter_user) $filter = " AND a.toid=".(int)$filter_user;
 	if ($filter_user==-1) $filter = " AND a.toid=0";

@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0 / Joomla 1.5
-// Author         © 2007-2013 Stephan Slabihoud
+// Author         ï¿½ 2007-2013 Stephan Slabihoud
 // License        This is free software and you may redistribute it under the GPL.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk. For details, see the license at
@@ -69,41 +69,47 @@ function uddeIMcheckJversion() {					// borrowed from Cummunity Builder, -1 = Ma
     // }
 	
 	$version = uddeIMgetVersion();
-	if ($version->PRODUCT == "Mambo") {
-		if ( strncasecmp( $version->RELEASE, "4.6", 3 ) < 0 ) {
+
+    // TODO: Reimplement the Mambo, Elixis and MiaCMS if needed.
+//	if ($version->PRODUCT == "Mambo") {
+//		if ( strncasecmp( $shortVersion, "4.6", 3 ) < 0 ) {
+//			$ver = 0;
+//		} else {
+//			$ver = -1;
+//		}
+//	} elseif ($version->PRODUCT == "Elxis") {
+//		$ver = 0;
+//	} elseif ($version->PRODUCT == "MiaCMS") {
+//		$ver = -1;
+//	} elseif ($version->PRODUCT == "Joomla!" || $version->PRODUCT == "Accessible Joomla!") {
+    
+    $shortVersion = $version->getShortVersion();
+		if (!strncasecmp($shortVersion, "1.0", 3)) {
 			$ver = 0;
-		} else {
-			$ver = -1;
-		}
-	} elseif ($version->PRODUCT == "Elxis") {
-		$ver = 0;
-	} elseif ($version->PRODUCT == "MiaCMS") {
-		$ver = -1;
-	} elseif ($version->PRODUCT == "Joomla!" || $version->PRODUCT == "Accessible Joomla!") {
-		if (!strncasecmp($version->RELEASE, "1.0", 3)) {
-			$ver = 0;
-		} elseif (!strncasecmp($version->RELEASE, "1.5", 3)) {
+		} elseif (!strncasecmp($shortVersion, "1.5", 3)) {
 			$ver = 1;
-		} elseif (!strncasecmp($version->RELEASE, "1.6", 3)) {
+		} elseif (!strncasecmp($shortVersion, "1.6", 3)) {
 			$ver = 2;
-		} elseif (!strncasecmp($version->RELEASE, "1.7", 3)) {
+		} elseif (!strncasecmp($shortVersion, "1.7", 3)) {
 			$ver = 3;
-		} elseif (!strncasecmp($version->RELEASE, "2.5", 3)) {
+		} elseif (!strncasecmp($shortVersion, "2.5", 3)) {
 			$ver = 4;
-		} elseif (!strncasecmp($version->RELEASE, "3.0", 3)) {
+		} elseif (!strncasecmp($shortVersion, "3.0", 3)) {
 			$ver = 5;
-		} elseif (!strncasecmp($version->RELEASE, "3.1", 3)) {
+		} elseif (!strncasecmp($shortVersion, "3.1", 3)) {
 			$ver = 6;
-		} elseif (!strncasecmp($version->RELEASE, "3.2", 3)) {
+		} elseif (!strncasecmp($shortVersion, "3.2", 3)) {
 			$ver = 7;
-		} elseif (!strncasecmp($version->RELEASE, "3.3", 3)) {
+		} elseif (!strncasecmp($shortVersion, "3.3", 3)) {
 			$ver = 8;
-		} else {
+		} elseif (!strncasecmp($shortVersion, "4.1", 3)) {
 			$ver = 9;
-		}
-	} else {
-		$ver = 0;
-	}
+		} else {
+            $ver = 10;
+        }
+//	} else {
+//		$ver = 0;
+//	}
 	return $ver;
 }
 

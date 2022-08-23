@@ -22,25 +22,25 @@ class com_uddeimInstallerScript
         // $type is the type of change (install, update or discover_install)
         echo '<p>' . JText::_('COM_UDDEIM_PREFLIGHT_' . $type . '_TEXT') . '</p>';
 
-		$ver = new JVersion();
+        $ver = new JVersion();
 		// Installing component manifest file version
 		$parent->getManifest()->version;
  		// Manifest file minimum Joomla version
 		$this->minimum_joomla_release = $parent->getManifest()->attributes()->version;
-		
-		if ( version_compare( $ver->getShortVersion(), $this->minimum_joomla_release, 'lt' ) ) {
-			Jerror::raiseWarning(null, 'Cannot install uddeIM in a Joomla release prior to '.$this->minimum_joomla_release);
-			return false;
-		}
-		
-		if ( $type=='update' ) {
-			$oldRelease = $this->getParam('version');
-			$rel = $oldRelease . ' to ' . $this->release;
-			if ( version_compare( $this->release, $oldRelease, 'le' ) ) {		// lt/le
-				Jerror::raiseWarning(null, 'Cannot upgrade ' . $rel);
-				return false;
-			}
-		}
+
+        if ( version_compare( $ver->getShortVersion(), $this->minimum_joomla_release, 'lt' ) ) {
+            JFactory::getApplication()->enqueueMessage('Cannot install uddeIM in a Joomla release prior to '.$this->minimum_joomla_release, 'warning');
+            return false;
+        }
+
+        if ( $type=='update' ) {
+            $oldRelease = $this->getParam('version');
+            $rel = $oldRelease . ' to ' . $this->release;
+            if ( version_compare( $this->release, $oldRelease, 'le' ) ) {		// lt/le
+                JFactory::getApplication()->enqueueMessage('Cannot upgrade ' . $rel, 'warning');
+                return false;
+            }
+        }
 	}
  
     function postflight($type, $parent) {
