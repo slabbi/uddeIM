@@ -963,11 +963,11 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 			// BUGBUG: that is not the best error handling possible but is will do the work
 			// iterate through all errorcodes and show the first error found, rest of data will be lost
 			// ==> delete all files that were uploaded ok
-			while (list($key, $value) = each( $uploadfile_temppathname )) {
+			foreach ($uploadfile_temppathname as $key => $value) {
 				if (file_exists($value))
 					unlink($value);
 			}
-			while (list($key, $value) = each( $uploadfile_error )) {
+			foreach ($uploadfile_error as $key => $value) {
 				if ($value==-1) {	// upload failed
 					uddeIMmenuWriteform($myself, $my_gid, $item_id, $to_name, $pmessage, 18, $config);
 					return;
@@ -1714,11 +1714,11 @@ function uddeIMsaveSysgm($myself, $to_name, $to_id, $pmessage, $tobedeleted, $to
 				// BUGBUG: that is not the best error handling possible but is will do the work
 				// iterate through all errorcodes and show the first error found, rest of data will be lost
 				// ==> delete all files that were uploaded ok
-				while (list($key, $value) = each( $uploadfile_temppathname )) {
+				foreach ($uploadfile_temppathname as $key => $value) {
 					if (file_exists($value))
 						unlink($value);
 				}
-				while (list($key, $value) = each( $uploadfile_error )) {
+				foreach ($uploadfile_error as $key => $value) {
 					if ($value==-1) {	// upload failed
 						uddeIMprintMenu($myself, 'new', $item_id, $config);
 						echo "<div id='uddeim-m'>\n";
@@ -1814,7 +1814,7 @@ function uddeIMsaveSysgm($myself, $to_name, $to_id, $pmessage, $tobedeleted, $to
 		echo "<span id='divpass' style='visibility:hidden;'><input type='hidden' name='cryptpass' value='".$cryptpass."' /></span>\n";
 
 		if( $config->enableattachment && uddeIMisAttachmentAllowed($my_gid, $config)) {
-			while (list($key, $value) = each( $uploadfile_temppathname )) {
+			foreach ($uploadfile_temppathname as $key => $value) {
 				echo "<input type='hidden' name='uploadfile_temppathname[". $key ."]' value=". $database->Quote($uploadfile_temppathname[$key]) ." />\n";
 				echo "<input type='hidden' name='uploadfile_original[". $key ."]' value=". $database->Quote($uploadfile_original[$key]) ." />\n";
 				echo "<input type='hidden' name='uploadfile_id[". $key ."]' value=". $database->Quote($uploadfile_id[$key]) ." />\n";
