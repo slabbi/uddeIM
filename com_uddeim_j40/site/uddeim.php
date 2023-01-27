@@ -1186,8 +1186,10 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, replyid, toread, message, datum, disablereply, systemflag, systemmessage, totrashoutbox, totrashdateoutbox) VALUES (".(int)$savefromid.", ".(int)$savefromid.", ".(int)$replyid.", 1, '".$savemessagecopy."', ".$savedatum.", 1, 2, '".$copyname."', 1,".$savedatum.")";
 			}
 			$database->setQuery($sql);
-			if (!$database->query()) {
-				die("SQL error when attempting to save a message" . $database->stderr(true));
+			try {
+				$database->execute();
+			} catch(Exception $e) {
+				throw new Exception("SQL error when attempting to save a message. " . get_class($e));
 			}
 			
 			// UDDEIMFILE
@@ -1237,8 +1239,10 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 					$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, totrashoutbox, totrashdateoutbox) VALUES (".(int)$savetoid.", ".(int)$savefromid.", '". $cm ."', ".$savedatum.", 1,".$savedatum.")";
 				}
 				$database->setQuery($sql);
-				if (!$database->query()) {
-					die("SQL error when attempting to save a message" . $database->stderr(true));
+				try {
+					$database->execute();
+				} catch(Exception $e) {
+					throw new Exception("SQL error when attempting to save a message. " . get_class($e));
 				}
 			}
 		}
@@ -1457,8 +1461,10 @@ function uddeIMtoPublicSaveMessage($myself, $pmessage, $tobedeleted, $tobedelete
 		$sql="INSERT INTO `#__uddeim` (publicname, publicemail, fromid, toid, replyid, message, datum, totrash, totrashdate, toread) VALUES ('".$fromname."', '".$fromemail."', ".(int)$myself.", ".(int)$savetoid.", ".(int)$replyid.", '".$savemessage."', ".$savedatum.",1,".$savedatum.",1)";
 	}
 	$database->setQuery($sql);
-	if (!$database->query()) {
-		die("SQL error when attempting to save a message" . $database->stderr(true));
+	try {
+		$database->execute();
+	} catch(Exception $e) {
+		throw new Exception("SQL error when attempting to save a message. " . get_class($e));
 	}
 	$insID = $database->insertid();
 
@@ -1513,8 +1519,10 @@ function uddeIMtoPublicSaveMessage($myself, $pmessage, $tobedeleted, $tobedelete
 			$sql="INSERT INTO `#__uddeim` (fromid, toid, replyid, toread, message, datum, disablereply, systemflag, systemmessage, archived, totrashoutbox, totrashdateoutbox) VALUES (".(int)$myself.", ".(int)$myself.", ".(int)$replyid.", 1, '".$savemessagecopy."', ".$savedatum.", 1, 2, '".$copyname."', 0, 1,".$savedatum.")";
 		}
 		$database->setQuery($sql);
-		if (!$database->query()) {
-			die("SQL error when attempting to save a message" . $database->stderr(true));
+		try {
+			$database->execute();
+		} catch(Exception $e) {
+			throw new Exception("SQL error when attempting to save a message. " . get_class($e));
 		}
 	}
 
@@ -1950,8 +1958,10 @@ function uddeIMsaveSysgm($myself, $to_name, $to_id, $pmessage, $tobedeleted, $to
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, expires, systemmessage, systemflag, disablereply, totrashoutbox, totrashdateoutbox) VALUES (".(int)$savefromid.", ".(int)$savetoid.", '".$savemessage."', ".$savedatum.", ".$validuntil.", '".$savesysflag."', 1,".$savedisablereply.", 1,".$savedatum.")";
 			}
 			$database->setQuery($sql);
-			if (!$database->query()) {
-				die("SQL error when attempting to save a message" . $database->stderr(true));
+			try {
+				$database->execute();
+			} catch(Exception $e) {
+				throw new Exception("SQL error when attempting to save a message. " . get_class($e));
 			}
 			$insID = $database->insertid();
 

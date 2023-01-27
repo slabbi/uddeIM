@@ -45,6 +45,7 @@
 		<filename>uddeimlib32.php</filename>
 		<filename>uddeimlib33.php</filename>
 		<filename>uddeimlib38.php</filename>
+		<filename>uddeimlib41.php</filename>
 		<filename>userlists.php</filename>
 	</files>
 	<scriptfile>script.php</scriptfile>
@@ -84,6 +85,7 @@
 			<filename>admin.uddeimlib32.php</filename>
 			<filename>admin.uddeimlib33.php</filename>
 			<filename>admin.uddeimlib38.php</filename>
+			<filename>admin.uddeimlib41.php</filename>
 			<filename>admin.usersettings.php</filename>
 			<filename>config.class.php</filename>
 			<filename>config.xml</filename>

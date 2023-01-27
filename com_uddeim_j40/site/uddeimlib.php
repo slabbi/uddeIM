@@ -47,7 +47,7 @@ if ( defined( 'JPATH_ADMINISTRATOR' ) ) {
     } elseif (!strncasecmp($shortVersion, "1.7", 3)) {
 		require_once(JPATH_SITE.'/components/com_uddeim/uddeimlib17.php');
 	} else {
-		require_once(JPATH_SITE.'/components/com_uddeim/uddeimlib38.php');
+		require_once(JPATH_SITE.'/components/com_uddeim/uddeimlib41.php');
 	}
 } else {
 	global $mainframe;

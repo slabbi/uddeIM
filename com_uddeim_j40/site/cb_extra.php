@@ -46,34 +46,44 @@ function user_delete_ext($userid, $pmsUserDeleteOption) {
 
 	if ($pmsUserDeleteOption==2 || $pmsUserDeleteOption==4) {
 		$database->setQuery( $query_pms_delete1 );
-		if (!$database->query()) {
-			$this->_setErrorMSG("SQL error " . $query_pms_delete1 . $database->stderr(true));
-			return false;			
+		try {
+			$database->execute();
+		} catch(Exception $e) {
+			$this->_setErrorMSG("SQL error " . $query_pms_delete1 . $e->getMessage());
+			return false;
 		}
 	}
 
 	if ($pmsUserDeleteOption==2 || $pmsUserDeleteOption==3) {
 		$database->setQuery( $query_pms_delete2 );
-		if (!$database->query()) {
-			$this->_setErrorMSG("SQL error " . $query_pms_delete2 . $database->stderr(true));
-			return false;			
+		try {
+			$database->execute();
+		} catch(Exception $e) {
+			$this->_setErrorMSG("SQL error " . $query_pms_delete2 . $e->getMessage());
+			return false;
 		}
 	}
 
 	if ($pmsUserDeleteOption>=2) {
 		$database->setQuery( $query_pms_delete_extra1 );
-		if (!$database->query()) {
-			$this->_setErrorMSG("SQL error " . $query_pms_delete_extra1 . $database->stderr(true));
-			return false;			
+		try {
+			$database->execute();
+		} catch(Exception $e) {
+			$this->_setErrorMSG("SQL error " . $query_pms_delete_extra1 . $e->getMessage());
+			return false;
 		}
 		$database->setQuery( $query_pms_delete_extra2 );
-		if (!$database->query()) {
-			$this->_setErrorMSG("SQL error " . $query_pms_delete_extra2 . $database->stderr(true));
-			return false;			
+		try {
+			$database->execute();
+		} catch(Exception $e) {
+			$this->_setErrorMSG("SQL error " . $query_pms_delete_extra2 . $e->getMessage());
+			return false;
 		}
 		$database->setQuery( $query_pms_delete_extra3 );
-		if (!$database->query()) {
-			$this->_setErrorMSG("SQL error " . $query_pms_delete_extra3 . $database->stderr(true));
+		try {
+			$database->execute();
+		} catch(Exception $e) {
+			$this->_setErrorMSG("SQL error " . $query_pms_delete_extra3 . $e->getMessage());
 			return false;			
 		}
 	}

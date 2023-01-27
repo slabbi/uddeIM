@@ -506,9 +506,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -561,9 +559,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -607,9 +603,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -644,9 +638,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -723,9 +715,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, systemflag, disablereply, archived, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".
 						(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$systemflag.", ".(int)$disablereply.", ".(int)$archived.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -761,9 +751,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 					$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.")";
 				}
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -810,9 +798,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -859,9 +845,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -896,9 +880,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -942,9 +924,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -995,9 +975,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 
@@ -1054,9 +1032,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 	// **************************************************************************************************
@@ -1104,9 +1080,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 	// **************************************************************************************************
@@ -1142,9 +1116,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 	// **************************************************************************************************
@@ -1186,9 +1158,7 @@ function uddeIMimportPMS($option, $task, $act, $start, $count, $pathtoadmin, $co
 			if($fromid && $toid && $pmessage) {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, toread, totrash, totrashdate, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$pmessage."', ".$unixdate.", ".(int)$toread.", ".(int)$totrash.", ".$totrashdate.", ".(int)$totrashoutbox.", ".$totrashdateoutbox.")";
 				$database->setQuery( $sql );
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}	
+				$database->execute();
 			}
 		}
 	}
@@ -2411,9 +2381,11 @@ function uddeIMarchivetoTrash($option, $task, $act, $config) {
 		$rightnow=uddetime($config->timezone);
 		$sql="UPDATE `#__uddeim` SET archived=0 WHERE archived=1";
 		$database->setQuery($sql);
-		if (!$database->query()) {
-			die("SQL error when attempting to unarchive messages" . $database->stderr(true));
-		}	
+		try {
+			$database->execute();
+		} catch(Exception $e) {
+			throw new Exception("SQL error when attempting to unarchive messages. " . get_class($e));
+		}
 		$mosmsg = _UDDEADM_ARCHIVETOTRASH_INBOX_DONE;
 		$redirecturl = uddeIMredirectIndex()."?option=com_uddeim";
 		uddeIMmosRedirect($redirecturl, $mosmsg);
@@ -2548,12 +2520,12 @@ function uddeIMmaintenanceCheckTrash($option, $task, $act, $config) {
 				echo _UDDEADM_MAINTENANCE_MT2." #$i<br />";
 				$query = "DELETE FROM `#__uddeim_emn` WHERE userid=".(int)$i;
 				$database->setQuery($query);
-				if (!$database->query()) { die("SQL error" . $database->stderr(true)); }	
+				$database->execute();	
 
 				echo _UDDEADM_MAINTENANCE_MT3." #$i<br />";
 				$query = "DELETE FROM `#__uddeim_blocks` WHERE blocker=".(int)$i." OR blocked=".(int)$i;
 				$database->setQuery($query);
-				if (!$database->query()) { die("SQL error" . $database->stderr(true)); }	
+				$database->execute();	
 
 				$trashoffset=((float)$config->TrashLifespan)*86400;
 				$deletetime=uddetime($config->timezone)-$trashoffset-1;	// "-1" to ensure that pruning will delete the message
@@ -2564,7 +2536,7 @@ function uddeIMmaintenanceCheckTrash($option, $task, $act, $config) {
 				//              $query = "UPDATE `#__uddeim` SET totrash=1, totrashdate=".$deletetime." WHERE toid=".(int)$i;
 				$query = "UPDATE `#__uddeim` SET totrashoutbox=1, totrashdateoutbox=".$deletetime.", totrash=1, totrashdate=".$deletetime." WHERE toid=".(int)$i;
 				$database->setQuery($query);
-				if (!$database->query()) { die("SQL error" . $database->stderr(true)); }	
+				$database->execute();	
 
 // when this is removed, deleted users are shown as "User deleted" in the inbox
 				echo _UDDEADM_MAINTENANCE_MT5." #$i<br />";
@@ -2572,7 +2544,7 @@ function uddeIMmaintenanceCheckTrash($option, $task, $act, $config) {
 				//              $query = "UPDATE `#__uddeim` SET totrashoutbox=1, totrashdateoutbox=".$deletetime." WHERE fromid=".(int)$i;
 				$query = "UPDATE `#__uddeim` SET totrashoutbox=1, totrashdateoutbox=".$deletetime.", totrash=1, totrashdate=".$deletetime." WHERE fromid=".(int)$i;
 				$database->setQuery($query);
-				if (!$database->query()) { die("SQL error" . $database->stderr(true)); }	
+				$database->execute();	
 			}
 		} else {		// user exists, so display some stats only
 			$query = 'SELECT COUNT(id) FROM `#__uddeim` WHERE totrashoutbox=0 AND fromid='.(int)$i;
@@ -2619,10 +2591,10 @@ function uddeIMmaintenanceCheckTrash($option, $task, $act, $config) {
 	if ($act=="trash" && ($datein>0 || $dateout>0)) {
 		$query = 'UPDATE `#__uddeim` SET totrashdate=NULL WHERE totrash=0 AND totrashdate IS NOT NULL';
 		$database->setQuery($query);
-		$ret=$database->query();
+		$ret=$database->execute();
 		$query = 'UPDATE `#__uddeim` SET totrashdateoutbox=NULL WHERE totrashoutbox=0 AND totrashdateoutbox IS NOT NULL';
 		$database->setQuery($query);
-		$ret=$database->query();
+		$ret=$database->execute();
 		echo "<br />";
 		echo _UDDEADM_MAINTENANCE_D2."<br />";
 	}
@@ -2662,13 +2634,13 @@ function uddeIMmaintenanceCheckTrash($option, $task, $act, $config) {
 			// ok this is not really an XML fix but its ok
 			$database = uddeIMgetDatabase();
 			$database->setQuery( "UPDATE `#__components` SET admin_menu_img = '../components/com_uddeim/templates/images/uddeim-favicon.png' WHERE admin_menu_link = 'option=com_uddeim'" );
-			$database->query();
+			$database->execute();
 		//}
 	}
 	if ($act=="trash" && uddeIMcheckJversion()>=2) {
 		$database = uddeIMgetDatabase();
 		$database->setQuery( "UPDATE `#__menu` SET img = '../components/com_uddeim/templates/images/uddeim-favicon.png' WHERE link = 'index.php?option=com_uddeim'" );
-		$database->query();
+		$database->execute();
 	}
 
 	if ($act=="check") {
@@ -3133,13 +3105,11 @@ function uddeIMbackupRestoreConfig($option, $task, $act, $pathtoadmin, $config) 
 
 		$query = 'TRUNCATE TABLE `#__uddeim_config`';
 		$database->setQuery($query);
-		if (!$database->query())
-			echo("SQL error: ".$database->stderr(true));
+		$database->execute();
 		foreach ($backup as $key => $value) {
 			$query = 'INSERT INTO `#__uddeim_config` ( varname, value ) VALUES ( '.$database->Quote($key).', '.$database->Quote($value).' )';
 			$database->setQuery($query);
-			if (!$database->query())
-				echo("SQL error: ".$database->stderr(true));
+			$database->execute();
 		}
 		echo "<div style='text-align:left'>";
 		echo "<p><b>"._UDDEADM_BACKUP_DONE."</b></p>";
@@ -3149,8 +3119,7 @@ function uddeIMbackupRestoreConfig($option, $task, $act, $pathtoadmin, $config) 
 		$query = "SELECT varname, value FROM `#__uddeim_config`";
         $database->setQuery($query);
         $results = $database->loadObjectList();
-		if (!$database->query())
-			echo("SQL error: ".$database->stderr(true));
+		$database->execute();
         foreach ($results as $result) {
 			if (substr($result->varname,0,1)!='_')
 				$config->{$result->varname} = $result->value;
