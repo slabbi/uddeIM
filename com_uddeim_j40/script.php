@@ -24,7 +24,7 @@ class com_uddeimInstallerScript
 
         $ver = new JVersion();
 		// Installing component manifest file version
-		$parent->getManifest()->version;
+		$this->release = $parent->getManifest()->version;
  		// Manifest file minimum Joomla version
 		$this->minimum_joomla_release = $parent->getManifest()->attributes()->version;
 
@@ -36,7 +36,7 @@ class com_uddeimInstallerScript
         if ( $type=='update' ) {
             $oldRelease = $this->getParam('version');
             $rel = $oldRelease . ' to ' . $this->release;
-            if ( version_compare( $this->release, $oldRelease, 'le' ) ) {		// lt/le
+            if ( version_compare( $this->release, $oldRelease, 'lt' ) ) {		// lt/le
                 JFactory::getApplication()->enqueueMessage('Cannot upgrade ' . $rel, 'warning');
                 return false;
             }
@@ -152,9 +152,9 @@ function uddeIM_com_install() {
 	$config->longwaitingdays = 75;
 	$config->longwaitingemail = 0;
 	$config->maxlength = 2500;
-	$config->showcblink = 1;
+	$config->showcblink = 0;
 	$config->showmenulink = 0;
-	$config->showcbpic = 1;
+	$config->showcbpic = 0;
 	$config->showonline = 1;
 	$config->allowarchive = 0;
 	$config->maxarchive = 100;
@@ -415,7 +415,11 @@ function uddeIM_com_install() {
 		if ($config->languagecharset) {			// UTF-8 fix, not tested so far
 			$sql = "SET NAMES utf8;";
 			$database->setQuery($sql);
-			$isok = $database->execute();
+			try {
+				$isok = $database->execute();
+			} catch(Exception $e) {
+				$isok = false;
+			}
 		}
 
 		$rightnow = uddetime($config->timezone);
@@ -425,9 +429,11 @@ function uddeIM_com_install() {
 		// its not a reply, so replyid=0
 		$sql="INSERT INTO `#__uddeim` (fromid, toid, toread, message, datum, systemflag, disablereply, systemmessage, totrashoutbox, totrashdateoutbox) VALUES (".$userid.", ".$userid.", 0, '".$welcome_msg."', ".$welcome_time.", 1, 1, '".$welcome_user."', 1, ".$welcome_time.")";
 		$database->setQuery($sql);
-		if (!$database->execute()) {
-			die("SQL error when attempting to save a message" . $database->stderr(true));
-		}	
+		try {
+			$database->execute();
+		} catch(Exception $e) {
+			throw new Exception("SQL error when attempting to save a message. " . get_class($e));
+		}
 	}
 
 	// create folder for attachments

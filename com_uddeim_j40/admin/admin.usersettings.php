@@ -408,9 +408,7 @@ function uddeIMusermessagesremove($option, $task, $uddeid, $config) {
 			if ($entryexists) {
 				$sql="UPDATE `#__uddeim` SET totrashoutbox=1, totrashdateoutbox=".(int)$rightnow." WHERE totrashoutbox=0 AND fromid=".(int)$id;
 				$database->setQuery($sql);
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}
+				$database->execute();
 			}
 			$sql="SELECT count(id) FROM `#__uddeim` WHERE totrash=0 AND toid=".(int)$id;
 			$database->setQuery($sql);
@@ -419,9 +417,7 @@ function uddeIMusermessagesremove($option, $task, $uddeid, $config) {
 			if ($entryexists) {
 				$sql="UPDATE `#__uddeim` SET totrash=1, toread=1, totrashdate=".(int)$rightnow." WHERE totrash=0 AND toid=".(int)$id;
 				$database->setQuery($sql);
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}
+				$database->execute();
 			}
 		}
 	}
@@ -439,9 +435,7 @@ function uddeIMdolistEMN($option, $task, $uddeid, $config) {
 			if ($entryexists) {
 				$sql="DELETE FROM `#__uddeim_emn` WHERE userid=".(int)$id;
 				$database->setQuery($sql);
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}
+				$database->execute();
 			}
 		}
 	} elseif ($task=="usersettingsnew" && count($uddeid)) {
@@ -452,9 +446,7 @@ function uddeIMdolistEMN($option, $task, $uddeid, $config) {
 			if (!$entryexists) {
 				$sql="INSERT INTO `#__uddeim_emn` (status, popup, public, userid) VALUES (".$config->notifydefault.", ".$config->popupdefault.", ".$config->pubfrontenddefault.", ".$id.")";
 				$database->setQuery($sql);
-				if (!$database->query()) {
-					die("SQL error" . $database->stderr(true));
-				}
+				$database->execute();
 			}
 		}
 	}
@@ -478,16 +470,12 @@ function uddeIMsaveAutoresponder($option, $task, $act, $config) {
 	
 	$sql="UPDATE `#__uddeim_emn` SET autoresponder=".(int)$autoresponder." WHERE id=".(int)$emnid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
-		die("SQL error" . $database->stderr(true));
-	}
+	$database->execute();
 
 	if ($autoresponder>0) {
 		$sql="UPDATE `#__uddeim_emn` SET autorespondertext='".addslashes(strip_tags($autorespondertext))."' WHERE id=".(int)$emnid;
 		$database->setQuery($sql);
-		if (!$database->query()) {
-			die("SQL error" . $database->stderr(true));
-		}
+		$database->execute();
 	}
 	$redirecturl = uddeIMredirectIndex()."?option=$option&task=usersettings";
 	uddeIMmosRedirect($redirecturl); 
@@ -565,16 +553,12 @@ function uddeIMsaveAutoforward($option, $task, $act, $config) {
 	
 	$sql="UPDATE `#__uddeim_emn` SET autoforward=".(int)$autoforward." WHERE id=".(int)$emnid;
 	$database->setQuery($sql);
-	if (!$database->query()) {
-		die("SQL error" . $database->stderr(true));
-	}
+	$database->execute();
 
 	if ($autoforward>0) {
 		$sql="UPDATE `#__uddeim_emn` SET autoforwardid=".(int)$autoforwardid." WHERE id=".(int)$emnid;
 		$database->setQuery($sql);
-		if (!$database->query()) {
-			die("SQL error" . $database->stderr(true));
-		}
+		$database->execute();
 	}
 	$redirecturl = uddeIMredirectIndex()."?option=$option&task=usersettings";
 	uddeIMmosRedirect($redirecturl); 
@@ -643,9 +627,7 @@ function uddeIMchangeStatus($option, $task, $emnid, $config) {
 		default: $value=0; break;
 	}
 	$database->setQuery("UPDATE `#__uddeim_emn` SET status=".(int)$value." WHERE id=".(int)$emnid);
-	if (!$database->query()) {
-		die("SQL error" . $database->stderr(true));
-	}
+	$database->execute();
 //	$redirecturl = "indexX.php?option=$option&task=$task";
 //	uddeIMmosRedirect($redirecturl); 
 }
@@ -656,9 +638,7 @@ function uddeIMchangePopup($option, $task, $emnid, $config) {
 	$value = (int)$database->loadResult();
 	$value = 1 - $value;
 	$database->setQuery("UPDATE `#__uddeim_emn` SET popup=".(int)$value." WHERE id=".(int)$emnid);
-	if (!$database->query()) {
-		die("SQL error" . $database->stderr(true));
-	}
+	$database->execute();
 //	$redirecturl = "indexX.php?option=$option&task=$task";
 //	uddeIMmosRedirect($redirecturl); 
 }
@@ -669,9 +649,7 @@ function uddeIMchangePublic($option, $task, $emnid, $config) {
 	$value = (int)$database->loadResult();
 	$value = 1 - $value;
 	$database->setQuery("UPDATE `#__uddeim_emn` SET public=".(int)$value." WHERE id=".(int)$emnid);
-	if (!$database->query()) {
-		die("SQL error" . $database->stderr(true));
-	}
+	$database->execute();
 //	$redirecturl = "indexX.php?option=$option&task=$task";
 //	uddeIMmosRedirect($redirecturl); 
 }
@@ -682,9 +660,7 @@ function uddeIMchangeLocked($option, $task, $emnid, $config) {
 	$value = (int)$database->loadResult();
 	$value = 1 - $value;
 	$database->setQuery("UPDATE `#__uddeim_emn` SET locked=".(int)$value." WHERE id=".(int)$emnid);
-	if (!$database->query()) {
-		die("SQL error" . $database->stderr(true));
-	}
+	$database->execute();
 }
 
 function uddeIMchangeModerated($option, $task, $emnid, $config) {
@@ -693,9 +669,7 @@ function uddeIMchangeModerated($option, $task, $emnid, $config) {
 	$value = (int)$database->loadResult();
 	$value = 1 - $value;
 	$database->setQuery("UPDATE `#__uddeim_emn` SET moderated=".(int)$value." WHERE id=".(int)$emnid);
-	if (!$database->query()) {
-		die("SQL error" . $database->stderr(true));
-	}
+	$database->execute();
 }
 
 // function uddeIMchangeAutor($option, $task, $emnid, $config) {

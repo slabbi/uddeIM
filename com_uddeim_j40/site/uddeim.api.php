@@ -353,8 +353,10 @@ class uddeIMAPI {
 				$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, expires, systemmessage, systemflag, disablereply, totrashoutbox, totrashdateoutbox) VALUES (".(int)$fromid.", ".(int)$toid.", '".$savemessage."', ".$savedatum.", ".$validuntil.", '".$savesysflag."', 1,".$savedisablereply.", 1,".$savedatum.")";
 			}
 			$database->setQuery($sql);
-			if (!$database->query()) {
-				die("SQL error when attempting to save a message" . $database->stderr(true));
+			try {
+				$database->execute();
+			} catch(Exception $e) {
+				throw new Exception("SQL error when attempting to save a message. " . get_class($e));
 			}
 			$insID = $database->insertid();
 

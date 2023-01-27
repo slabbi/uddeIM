@@ -58,9 +58,9 @@ if (defined('_uddeConfig')) {
 	var $longwaitingdays = 75;
 	var $longwaitingemail = 0;
 	var $maxlength = 2500;
-	var $showcblink = 1;
+	var $showcblink = 0;
 	var $showmenulink = 0;
-	var $showcbpic = 1;
+	var $showcbpic = 0;
 	var $showonline = 1;
 	var $allowarchive = 0;
 	var $maxarchive = 100;
