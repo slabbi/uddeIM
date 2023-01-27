@@ -8,6 +8,7 @@ This project was created by a great Joomla and Joomlapolis (Community Builder) c
 With this repository we want to help to keep this great project updated to work with all versions of Joomla
 	
 ## Technologies
+
 Project is created with:
 * Mambo 1.x
 * Joomla version: 1.x
@@ -37,34 +38,35 @@ Community Builder ("cb_" and "cb2_") packages can be used with all Joomla versio
 com_uddeim        the main component for Joomla 1.0, 1.5
 com_uddeim_j16    the main component for Joomla 1.6, 1.7, 2.5
 com_uddeim_j30    the main component for Joomla 3.0, 3.1, 3.2
+com_uddeim_j40    the main component for Joomla 3.0, 3.1, 3.2
 
+### uddeIM
 
-### com_uddeim - COMPONENT
+#### com_uddeim (COMPONENT)
 com_uddeim        uddeIM - the main component
 
-### mod_uddeim - MODULE
+#### mod_uddeim (MODULE)
 A message notifier module. Install this module with the module installer. The module provides popup notifications introduced with uddeIM 0.8.
 
-### mod_uddeim_mailbox (MODULE)
+#### mod_uddeim_mailbox (MODULE)
 A mailbox module for uddeIM. Install this module with the module installer. The module shows some statistics and links to the inbox, outbox, trashcan, archive, settings and compose form.
 Note: This module does several database queries. Do not install when you have performance problems on your server.
 
-### mod_uddeim_statistics (MODULE)
+#### mod_uddeim_statistics (MODULE)
 A statistics module for uddeIM. Install this module with the module installer. The module shows some statistics about numbers of PMs written with uddeIM (all, last 7/30/365 days).
 Note: This module does several database queries. Do not install when you have performance problems on your server.
 
-### Mambo
-
-#### plug_uddeim_contentlink (MAMBOT/PLUGIN)
+#### plug_uddeim_contentlink (PLUGIN)
 A content mambot/plugin which creates a simple link allowing to compose a message to a certain user. Please refer to the FAQ for more information about this Joomla plugin.
 
-#### plug_uddeim_searchbot (MAMBOT/PLUGIN)
+#### plug_uddeim_searchbot (PLUGIN)
 A search mambot/plugin which integrates uddeIM into Joomla search. Note: It does not search inside obfuscated, encrypted or encoded messages. Please refer to the FAQ for more information about this Joomla plugin.
 
 ### plug_uddeim_hooks (PLUGIN)
 A system plugin which enables the uddeIM hook mechanism. Please refer to the FAQ for more information about this Joomla plugin.
 
 ### Commnity Builder
+
 #### Community Builder PMS Plugin
 
 cb_plug_pms_uddeim                 (COMMUNITY BUILDER 1.x PLUGIN)
