@@ -433,7 +433,9 @@ function uddeIMselectAllUserlists($myself, $my_gid, $config, $withglobal=0) {
 
 	// remove lists if required (1: global list => do not remove; 2: restricted list => remove if not on list or creator or admin)
 	if (!uddeIMisAdmin($my_gid) && !uddeIMisAdmin2($my_gid, $config)) {
-		while (list($key, $row) = each($value)) {
+		$keys = array_keys($value);
+		foreach ($keys as $key) {
+			$row = $value[$key];
 			if ($row->global==2) {
 				// test if $myself in list
 				$ar_ids = explode(",",$row->userids);

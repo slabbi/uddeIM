@@ -708,7 +708,7 @@ function uddeIMdoFilePrune($config) {
 	if (!$value)
 		$value = Array();
 
-	while (list($key, $row) = each($value)) {
+	foreach ($value as $key => $row) {
 		if (file_exists($uploaddir."/".$row->tempname))
 			unlink($uploaddir."/".$row->tempname);
 		$sql="DELETE FROM `#__uddeim_attachments` WHERE fileid=".$database->Quote($row->fileid);
@@ -732,7 +732,7 @@ function uddeIMpreSaveAttachmentsRemove($config) {
 		$value = Array();
 
 	if (count($value)>0) {		// we have temporary file markers, so remove the files and all entries
-		while (list($key, $row) = each($value)) {
+		foreach ($value as $key => $row) {
 			if (file_exists($uploaddir."/".$row->tempname))
 				unlink($uploaddir."/".$row->tempname);
 		}

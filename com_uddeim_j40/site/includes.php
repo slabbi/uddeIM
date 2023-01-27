@@ -1571,7 +1571,7 @@ function uddeIMreplaceListsWithNames(&$thelist, $myself, $config) {
 	if ($objs==FALSE)
 		return 0;	// error
 
-	while (list($key, $obj) = each($objs)) {
+	foreach ($objs as $key => $obj) {
 		if (substr($obj,0,1)=="#") {				// its a list
 			$listname = substr($obj,1);				// remove leading "#"
 			// also show global lists

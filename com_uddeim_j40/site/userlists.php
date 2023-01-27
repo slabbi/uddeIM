@@ -253,7 +253,7 @@ function uddeIMsaveLists($myself, $item_id, $listid, $listname, $listdesc, $list
 	$cnt = 0;
 	$ar_ids = explode(",",$listids);
 	$ar_ids2 = Array();
-	while (list($key, $value) = each($ar_ids)) {
+	foreach ($ar_ids as $key => $value) {
 		$cnt++;
 		if ($cnt > $config->maxonlists)
 			break;
