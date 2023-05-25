@@ -40,7 +40,8 @@ function uddeIMhandleAttachments(&$uploadfile_temppathname, &$uploadfile_origina
 
 		$tmp_files = uddeIMmosGetParam ($_FILES, 'uddeimfile', array("tmp_name" => array()));
 
-		while (list($key, $value) = each( $tmp_files["tmp_name"] )) {
+		//while (list($key, $value) = each( $tmp_files["tmp_name"] )) {
+		foreach ($tmp_files["tmp_name"] as $key => $value) {
 			$tmp_name 	= $tmp_files["tmp_name"][$key];
 			$name 		= $tmp_files["name"][$key];
 			$size 		= $tmp_files["size"][$key];
@@ -115,7 +116,8 @@ function uddeIMhandleAttachments(&$uploadfile_temppathname, &$uploadfile_origina
 function uddeIMsaveAttachments($insID, $uploadfile_temppathname, $uploadfile_original, $uploadfile_id, $uploadfile_size, $savedatum, $config) {
 	$database = uddeIMgetDatabase();
 
-	while (list($key, $value) = each( $uploadfile_temppathname )) {
+	//while (list($key, $value) = each( $uploadfile_temppathname )) {
+	foreach ($uploadfile_temppathname as $key => $value) {	
 		// store only the name, not the complete path to the file
 		$temp = basename($uploadfile_temppathname[$key]);
 		$sql="INSERT INTO `#__uddeim_attachments` (mid, tempname, filename, fileid, size, datum) VALUES (".
@@ -135,7 +137,8 @@ function uddeIMsaveAttachments($insID, $uploadfile_temppathname, $uploadfile_ori
 function uddeIMpreSaveAttachments($uploadfile_temppathname, $uploadfile_original, $uploadfile_id, $uploadfile_size, $savedatum, $config) {
 	$database = uddeIMgetDatabase();
 	$insID = -1;	// its a dummy message ID used for temporary file markers
-	while (list($key, $value) = each( $uploadfile_temppathname )) {
+	//while (list($key, $value) = each( $uploadfile_temppathname )) {
+	foreach ($uploadfile_temppathname as $key => $value) {
 		// store only the name, not the complete path to the file
 		$temp = basename($uploadfile_temppathname[$key]);
 		$sql="INSERT INTO `#__uddeim_attachments` (mid, tempname, filename, fileid, size, datum) VALUES (".
@@ -162,7 +165,8 @@ function uddeIMpreSaveAttachmentsFinish($config) {
 
 function uddeIMunlinkTempfiles($uploadfile_temppathname, $config) {
 	if (count($uploadfile_temppathname)>0) {
-		while (list($key, $row) = each($uploadfile_temppathname)) {
+		//while (list($key, $row) = each($uploadfile_temppathname)) {
+		foreach ($uploadfile_temppathname as $key => $row) {
 			if (file_exists($uploadfile_temppathname[$key]))
 				unlink($uploadfile_temppathname[$key]);
 		}
@@ -187,7 +191,8 @@ function uddeIMshowAttachments($box, $item_id, $messageid, $config) {
 	if (count($value)>0) {
 		echo "<div class='uddeim-messageattachments'><table class='innermost' width='100%'><tr style='border:0px none !important;'><td style='border:0px none !important;' valign='top'>";
 		echo "<table style='border:0px none !important; padding: 4px !important;'>";
-		while (list($key, $row) = each($value)) {
+		//while (list($key, $row) = each($value)) {
+		foreach ($value as $key => $row) {
 			$pic = '<img src="'.$pathtosite.'/components/com_uddeim/templates/'.$config->templatedir.'/images/disk.gif" alt="'. _UDDEIM_DOWNLOAD .'" title="'. _UDDEIM_DOWNLOAD .'" />';
 
 			if (!$config->unprotectdownloads) {
@@ -233,7 +238,8 @@ function uddeIMdownloadAttachments($box, $userid, $item_id, $messageid, $fileid,
 
 		if (count($value)>0) {
 
-			while (list($key, $row) = each($value)) {
+			//while (list($key, $row) = each($value)) {
+			foreach ($value as $key => $row) {
 				
 				$uploaddir  = uddeIMgetPath('absolute_path')."/images/uddeimfiles";
 				if (file_exists($uploaddir."/".$row->tempname)) {
