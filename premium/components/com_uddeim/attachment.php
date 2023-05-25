@@ -11,7 +11,7 @@
 // Version 4.1
 // ********************************************************************************************
 
-if (!(defined('_JEXEC') || defined('_VALID_MOS'))) { die( 'Direct Access to this location is not allowed.' ); }
+if (!(defined('_JEXEC') || defined('_VALID_MOS'))) { die( 'Direct Access to this location is not allowed.' ); } 
 
 function uddeIMcheckPluginA() {
 	return 7;
