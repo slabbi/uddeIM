@@ -683,8 +683,10 @@ function uddeIM_utf8_strlen($utf8, $str) {
 function uddeIMquoteSmart($source) {
     $database = uddeIMgetDatabase();
     // if (get_magic_quotes_gpc()) {
-    if ( (function_exists("get_magic_quotes_gpc") && get_magic_quotes_gpc()) ) {
-        $source = stripslashes($source);
+    if ( function_exists("get_magic_quotes_gpc") ) {
+		if ( get_magic_quotes_gpc() ) {
+			$source = stripslashes($source);
+		}
     }
     $source = $database->escape( $source );
     // $source = JDatabase::escape( $source );
