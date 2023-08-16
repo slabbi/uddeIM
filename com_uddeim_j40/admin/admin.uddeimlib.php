@@ -21,7 +21,10 @@ global $ver;
 if ( defined( 'JPATH_ADMINISTRATOR' ) ) {
     $ver = new Version();
     $shortVersion = $ver->getShortVersion();
-    if (!strncasecmp($shortVersion, "4.1", 3)) {
+    if (!strncasecmp($shortVersion, "4.4", 3) ||
+		!strncasecmp($shortVersion, "4.3", 3) ||
+		!strncasecmp($shortVersion, "4.2", 3) ||
+		!strncasecmp($shortVersion, "4.1", 3)) {
         require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib41.php');
     } else if (!strncasecmp($shortVersion, "3.8", 3)) {
         require_once(JPATH_SITE.'/administrator/components/com_uddeim/admin.uddeimlib38.php');
