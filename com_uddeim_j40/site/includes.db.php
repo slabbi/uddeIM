@@ -687,13 +687,14 @@ function uddeIMinsertEMNdefaults($myself, $config) {
 	$mod	= 0;
 	if (uddeIMisReggedOnly($config->usergid))
 		$mod	= $config->modnewusers;
-	$sql="INSERT INTO `#__uddeim_emn` (moderated, locked, status, popup, public, autoresponder, autoforward, autoforwardid, userid) VALUES (".
+	$sql="INSERT INTO `#__uddeim_emn` (moderated, locked, status, popup, public, autoresponder, autorespondertext, autoforward, autoforwardid, userid) VALUES (".
 			(int)$mod.", ".
 			(int)$locked.", ".
 			(int)$status.", ".
 			(int)$popup.", ".
 			(int)$public.", ".
 			(int)$autoresponder.", ".
+			"'', ".
 			(int)$autoforward.", ".
 			(int)$autoforwardid.", ".
 			(int)$myself.")";

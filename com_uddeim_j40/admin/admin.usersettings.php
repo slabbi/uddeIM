@@ -444,7 +444,7 @@ function uddeIMdolistEMN($option, $task, $uddeid, $config) {
 			$database->setQuery($sql);
 			$entryexists=$database->loadResult();
 			if (!$entryexists) {
-				$sql="INSERT INTO `#__uddeim_emn` (status, popup, public, userid) VALUES (".$config->notifydefault.", ".$config->popupdefault.", ".$config->pubfrontenddefault.", ".$id.")";
+				$sql="INSERT INTO `#__uddeim_emn` (status, popup, public, userid, autorespondertext) VALUES (".$config->notifydefault.", ".$config->popupdefault.", ".$config->pubfrontenddefault.", ".$id.", '')";
 				$database->setQuery($sql);
 				$database->execute();
 			}

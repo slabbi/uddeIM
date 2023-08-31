@@ -273,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `#__uddeim_emn` (
   `remindersent` int(11) NOT NULL default '0',
   `lastsent` int(11) NOT NULL default '0',
   `autoresponder` INT(1) NOT NULL DEFAULT '0',
-  `autorespondertext` TEXT NOT NULL DEFAULT '',
+  `autorespondertext` TEXT NOT NULL,
   `autoforward` INT(1) NOT NULL DEFAULT '0',
   `autoforwardid` INT(1) NOT NULL DEFAULT '0',
   `locked` INT(1) NOT NULL DEFAULT '0',
