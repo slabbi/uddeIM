@@ -1,0 +1,46 @@
+==============================================================================
+How to install the premium plugins?
+==============================================================================
+
+Extract the downloaded archive and copy the files
+    /components/com_uddeim/rss.php
+    /components/com_uddeim/pfrontend.php
+    /components/com_uddeim/attachment.php
+    /components/com_uddeim/postbox.php
+into
+    /components/com_uddeim/
+
+and
+    /administrator/components/com_uddeim/admin.spamcontrol.php
+    /administrator/components/com_uddeim/admin.mcp.php
+into
+    /administrator/components/com_uddeim/
+
+When you enter the uddeIM admin backend you should find
+
+    - a new tab "Public",
+    - a new option "Enable RSS" in the "System" tab,
+    - a new option "Enable attachments" in the "System" tab,
+    - a new toolbar icon "Report Center"
+    - a new toolbar icon "Message Center"
+
+WARNING:
+The Postbox Plugin is experimental. Use it on your own risk!
+
+
+The iGoogle gadget is available here:
+
+    http://yoursite/components/com_uddeim/uddeim_igoogle.xml
+
+The admin can enable a iGoogle button in the user preferences that can be 
+used to install the gadget.
+
+
+Please refer to the "File attachments plugin" chapter in the FAQ
+when installing the File attachments plugin. When doing an upgrade
+you need to create a folder manually and you should copy two files
+into that folder, so people cannot access files directly. 
+These files - "index.html" and ".htaccess" - can be found in the 
+folder "support".
+
+More information can be found in the FAQ.
