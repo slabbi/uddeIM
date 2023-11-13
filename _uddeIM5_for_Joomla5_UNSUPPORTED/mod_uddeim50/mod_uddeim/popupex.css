@@ -1,0 +1,51 @@
+#floaterDiv {
+	border:2px ridge #F0F0F0;
+	position:fixed;
+	width:150px;
+	height:120px;
+	left:-400px;
+	top:10px;
+	background-color:#f0f0f0;
+	text-align:center;
+	z-index:10000;
+	color:#000000;
+}
+#floaterDiv .floaterTranslucent { 
+	_ilter: progid:DXImageTransform.Microsoft.Alpha(opacity=87);
+	filter:alpha(0.90);
+	-moz-opacity:0.90;
+	-khtml-opacity:0.90;
+	opacity:0.90;
+}
+#floaterDiv div.floaterTitle {
+	border-style:solid;
+	border-color:#000000;
+	border-width:0px 0px 1px 0px;
+	background-color:#c0c0c0;
+	color:#000000;
+	padding:1px 1px 0px 1px;
+	width:148px;
+	text-align:left;
+	position:absolute;
+	top:0px;
+	right:0px;
+	height:16px;
+	vertical-align:middle;
+}
+#floaterDiv div.floaterTitle img {
+	position:absolute;
+	top:1px;
+	right:0px;
+}
+#floaterDiv div.floaterBody {
+	border:0px none #000000;
+	position:absolute;
+	left:0px;
+	top:17px;
+	width:148px;
+	height:100px;
+	padding:1px 1px 1px 1px;
+	background-color:transparent;
+	text-align:center;
+	color:#000000;
+}
