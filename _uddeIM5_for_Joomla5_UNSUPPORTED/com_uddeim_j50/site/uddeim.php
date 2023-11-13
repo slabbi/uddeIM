@@ -200,7 +200,7 @@ $autoforwardid      = (int)uddeIMmosGetParam ($_POST, 'autoforwardid', 0);
 $arcmes		    = uddeIMmosGetParam ($_POST, 'arcmes');
 $backto			= uddeIMmosGetParam ($_POST, 'backto');
 
-$limitstart		= (int)uddeIMmosGetParam ($_REQUEST, 'start', 0);
+$limitstart		= (int)uddeIMmosGetParam ($_REQUEST, 'limitstart', 0);
 $limit			= (int)uddeIMmosGetParam ($_REQUEST, 'limit');
 if(!$limit) { $limit=$config->perpage; }
 if(!$limit) { $limit=10; }
