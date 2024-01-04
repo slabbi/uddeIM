@@ -176,8 +176,8 @@ if ( $uddshowarchive && $uddconfig->allowarchive) {
 }
 
 if( ($uddconfig->enablelists==1) ||
-	($uddconfig->enablelists==2 && (uddeIMisSpecial($uddmy_gid) || uddeIMisSpecial2($uddmy_gid, $config))) || 
-	($uddconfig->enablelists==3 && (uddeIMisAdmin($uddmy_gid) || uddeIMisAdmin2($uddmy_gid, $config))) ) {
+	($uddconfig->enablelists==2 && (uddeIMisSpecial($uddmy_gid) || uddeIMisSpecial2($uddmy_gid, $uddconfig))) || 
+	($uddconfig->enablelists==3 && (uddeIMisAdmin($uddmy_gid) || uddeIMisAdmin2($uddmy_gid, $uddconfig))) ) {
 	// ok contact lists are enabled
 	if ( $uddshowcontacts ) {
 		$uddout .= "<p class='uddeim-module-body'>";
