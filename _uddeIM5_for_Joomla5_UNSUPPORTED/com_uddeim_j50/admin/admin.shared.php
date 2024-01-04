@@ -116,12 +116,12 @@ function uddeIMcheckJversion() {					// borrowed from Cummunity Builder, -1 = Ma
 // $groupsadmin
 // $groupsspecial
 function uddeIMisAdmin2($my_gid, $config) {
-	$new = array_intersect($my_gid, explode(",", $config->groupsadmin));
+	$new = array_intersect($my_gid, explode(",", $config->groupsadmin ?? ''));
 	return !empty($new);
 }
 
 function uddeIMisSpecial2($my_gid, $config) {
-	$new = array_intersect($my_gid, explode(",", $config->groupsspecial));
+	$new = array_intersect($my_gid, explode(",", $config->groupsspecial ?? ''));
 	return !empty($new);
 }
 
