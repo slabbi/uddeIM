@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0, 1.5, 1.6, 1.7, 2.5
-// Author         © 2007-2012 Stephan Slabihoud
+// Author         Â© 2007-2012 Stephan Slabihoud
 // License        This plugin is published under copyright.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk.
@@ -236,10 +236,7 @@ function uddeIMshowSpamControl($option, $task, $act, $config) {
 	<input type="hidden" name="boxchecked" value="0" />
 	<input type="hidden" name="hidemainmenu" value="0" />
 <?php
-	if ($version->PRODUCT == "Joomla!" || $version->PRODUCT == "Accessible Joomla!")
-		if (strncasecmp($version->RELEASE, "1.0", 3)) {
-			echo "<input type=\"hidden\" name=\"limitstart\" value=\"".(int)$limitstart."\" />";
-		}
+//no longer needed in joomla 5
 ?>
 </form>
 <?php
