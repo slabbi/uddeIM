@@ -109,12 +109,8 @@ switch ($task) {
 		break;
 	case "settings":
 	default:
-		if (strncasecmp($ver->RELEASE, "3.0", 3)) {		// if NOT Version 3.0 which had a bug
-//		if ($xver<3) {
+		
 			mosMenuBar::startTable();
-	//		mosMenuBar::customX( 'usersettings', '../components/com_uddeim/images/user.png', '../components/com_uddeim/images/user.png', 'User settings', false );
-	//		mosMenuBar::customX( 'usersettings', 'user.png', 'user.png', 'User settings', false );
-	//		mosMenuBar::customX( 'backuprestore', 'archive.png', 'archive_f2.png', 'Backup &amp; Restore', false );
 			if (uddeIMcheckPlugin('mcp'))
 				if (uddeIMcheckVersionPlugin('mcp'))
 					mosMenuBar::customX( 'mcp', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_MCP, false );
@@ -122,21 +118,6 @@ switch ($task) {
 				if (uddeIMcheckVersionPlugin('spamcontrol'))
 					mosMenuBar::customX( 'spamcontrol', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_SPAMCONTROL, false );
 			mosMenuBar::customX( 'usersettings', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_USERSETTINGS, false );
-			mosMenuBar::save( 'savesettings', _UDDEIM_TOOLBAR_SAVE );
-	//		mosMenuBar::customX( 'usersettings', 'edit.png', 'edit_f2.png', 'User settings', false );
-	//		mosMenuBar::save( 'savesettings', 'Save' );
-			mosMenuBar::cancel();
-			mosMenuBar::spacer();
-			mosMenuBar::endTable();
-		} else {
-			mosMenuBar::startTable();
-			if (uddeIMcheckPlugin('mcp'))
-				if (uddeIMcheckVersionPlugin('mcp'))
-					mosMenuBar::custom( 'mcp', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_MCP, false );
-			if (uddeIMcheckPlugin('spamcontrol'))
-				if (uddeIMcheckVersionPlugin('spamcontrol'))
-					mosMenuBar::custom( 'spamcontrol', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_SPAMCONTROL, false );
-			mosMenuBar::custom( 'usersettings', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_USERSETTINGS, false );
 			mosMenuBar::save( 'savesettings', _UDDEIM_TOOLBAR_SAVE );
 			mosMenuBar::cancel();
 			mosMenuBar::spacer();
