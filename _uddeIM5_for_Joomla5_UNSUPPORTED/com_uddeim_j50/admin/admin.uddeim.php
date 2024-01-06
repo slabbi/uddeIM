@@ -457,7 +457,7 @@ function uddeIMsaveSettings($option, $task, $pathtoadmin, $config) {
 		$redirecturl = uddeIMredirectIndex()."?option=com_uddeim&task=archivetotrash";
 		uddeIMmosRedirect($redirecturl, $mosmsg);
 	}
-	
+	opcache_reset();
 	$mosmsg=_UDDEADM_SETTINGSSAVED;
 	$redirecturl = uddeIMredirectIndex()."?option=com_uddeim&task=settings";
 	uddeIMmosRedirect($redirecturl, $mosmsg);
@@ -1343,7 +1343,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 				echo "<p><b><span style='color: red;'>"._UDDEADM_CONFIGNOTWRITEABLE." $configdatei</span></b></p>";
 			} else {
 				echo "<p><b><span style='color: green;'>"._UDDEADM_CONFIGWRITEABLE." $configdatei</span></b></p>";
-                                echo "<p><span style='color:red;'><i>"._UDDEADM_CONFIGNOTE."</i></span></p>";
+                              //echo "<p><span style='color:red;'><i>"._UDDEADM_CONFIGNOTE."</i></span></p>";
 			}
 		} else {
 			echo "<p><b><span style='color: blue;'>"._UDDEADM_CONFIG_FTPLAYER." $configdatei</span></b></p>";
