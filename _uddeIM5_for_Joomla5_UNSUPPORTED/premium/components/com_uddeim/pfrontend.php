@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0, 1.5, 1.6, 1.7, 2.5
-// Author         © 2007-2012 Stephan Slabihoud
+// Author         Â© 2007-2012 Stephan Slabihoud
 // License        This plugin is published under copyright.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk.
@@ -40,8 +40,8 @@ function uddeIMpublicFrontendPlugin($versionstring, $pathtouser, $pathtosite, $c
 	$item_id	= (int) $Itemid;
 	$task		= uddeIMmosGetParam( $_REQUEST, 'task', 'inbox');	// task is publicnew or publicsave
 
-	$recip		= (int) uddeIMmosGetParam ( $_REQUEST, 'recip');				// für blocking nach ID and new message
-	$runame		= uddeIMmosGetParam ( $_REQUEST, 'runame');	// für blocking nach NAME and new message
+	$recip		= (int) uddeIMmosGetParam ( $_REQUEST, 'recip');				// fÃ¼r blocking nach ID and new message
+	$runame		= uddeIMmosGetParam ( $_REQUEST, 'runame');	// fÃ¼r blocking nach NAME and new message
 
 	$to_id		= (int) uddeIMmosGetParam ($_POST, 'to_id');
 	$to_name	= uddeIMmosGetParam ($_POST, 'to_name');
@@ -382,7 +382,7 @@ function uddeIMpublicSaveMessage($fromname, $fromemail, $to_name, $to_id, $pmess
 		$sql="INSERT INTO `#__uddeim` (`delayed`, publicname, publicemail, fromid, toid, message, datum, totrashoutbox, totrashdateoutbox) VALUES (".(int)$delayed.", '".$fromname."', '".$fromemail."', ".(int)$savefromid.", ".(int)$savetoid.", '".$savemessage."', ".$savedatum.",1,".$savedatum.")";
 	}
 	$database->setQuery($sql);
-	if (!$database->query()) {
+	if (!$database->execute()) {
 		die("SQL error when attempting to save a message" . $database->stderr(true));
 	}
 	$insID = $database->insertid();
@@ -444,7 +444,7 @@ function uddeIMpublicSaveMessage($fromname, $fromemail, $to_name, $to_id, $pmess
 				$sql  = "INSERT INTO `#__uddeim` (fromid, toid, message, datum) VALUES (".(int)$savefromid.", ".(int)$autoforwardid.", '".$savemessage."', ".$savedatum.")";
 			}
 			$database->setQuery($sql);
-			if (!$database->query()) {
+			if (!$database->execute()) {
 				die("SQL error when attempting to save a message" . $database->stderr(true));
 			}
 			$insIDforward = $database->insertid();
