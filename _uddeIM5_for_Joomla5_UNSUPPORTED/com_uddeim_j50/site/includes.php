@@ -908,7 +908,9 @@ function uddeIMdispatchEMN($var_msgid, $item_id, $cryptmode, $var_fromid, $var_t
 		if(!uddeIMexistsEMN($var_toid))
 			uddeIMinsertEMNdefaults($var_toid, $config);
 		uddeIMupdateEMNreminder($var_toid, uddetime($config->timezone));
+		return true;
 	}
+	else return false;
 }
 
 // *****************************************************************************************
