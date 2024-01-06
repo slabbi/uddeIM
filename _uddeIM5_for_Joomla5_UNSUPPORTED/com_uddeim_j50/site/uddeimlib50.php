@@ -136,6 +136,7 @@ function uddeIMmosGetParam( &$arr, $name, $def=null, $mask=0 ) {
 
 function uddeIMmosRedirect( $url, $msg='' ) {
     $app = Factory::getApplication();
+	if ($msg) $app->enqueueMessage($msg);
     $app->redirect(Route::_($url, false));
 }
 
@@ -150,6 +151,7 @@ function uddeJSEFredirect($url, $msg='', $avoid='') {			// REMOVE FROM includes.
     }
     $redirecturl = Route::_($redirecturl, false);
     $app = Factory::getApplication();
+	if ($msg) $app->enqueueMessage($msg);
     $app->redirect( $redirecturl );
 }
 
