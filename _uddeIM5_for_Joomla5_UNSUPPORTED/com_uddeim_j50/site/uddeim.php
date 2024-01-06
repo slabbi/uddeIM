@@ -1279,14 +1279,14 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 		if($config->allowemailnotify==1 && !$ismoderated) {
 			$ison = uddeIMgetEMNstatus($savetoid);
 			if (($ison==1) || ($ison==2 && !$currentlyonline) || ($ison==10 && !$itisareply) || ($ison==20 && !$currentlyonline && !$itisareply))  {
-				uddeIMdispatchEMN($insID, $item_id, $config->cryptmode, $savefromid, $savetoid, $email, $type, $config);
+			$notify = uddeIMdispatchEMN($insID, $item_id, $config->cryptmode, $savefromid, $savetoid, $email, $type, $config);
 				// 0 stands for normal (not forgetmenot)
 			}
 		} elseif($config->allowemailnotify==2 && !$ismoderated) {
 			if (uddeIMisAdmin($rec_gid) || uddeIMisAdmin2($rec_gid, $config)) {
 				$ison = uddeIMgetEMNstatus($savetoid);
 				if (($ison==1) || ($ison==2 && !$currentlyonline) || ($ison==10 && !$itisareply) || ($ison==20 && !$currentlyonline && !$itisareply))  {
-					uddeIMdispatchEMN($insID, $item_id, $config->cryptmode, $savefromid, $savetoid, $email, $type, $config);
+			$notify = uddeIMdispatchEMN($insID, $item_id, $config->cryptmode, $savefromid, $savetoid, $email, $type, $config);
 					// 0 stands for normal (not forgetmenot)
 				}
 			}
@@ -1305,6 +1305,10 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 
 	if($messageid) {
 		$mosmsg=_UDDEIM_MESSAGE_REPLIEDTO;
+	} elseif ($notify) { //if successful sent
+                $mosmsg=_UDDEIM_MESSAGEINFO_SENT.uddeIMgetNameFromID($savetoid, $config);
+        } elseif ($config->allowemailnotify && !$notify && !$tobedeleted) { // reports an email error
+                $mosmsg=_UDDEIM_MESSAGEINFO_ERROR.',error';
 	} else {
 		$mosmsg=_UDDEIM_MESSAGE_SENT;
 	}
