@@ -955,6 +955,8 @@ DEFINE ('_UDDEIM_SUBMIT', 'Absenden');
 DEFINE ('_UDDEIM_NOID', 'Fehler: Keine Empfänger-ID gefunden. Nichts versendet.');
 DEFINE ('_UDDEIM_MESSAGE_REPLIEDTO', 'Nachricht beantwortet');
 DEFINE ('_UDDEIM_MESSAGE_SENT', 'Nachricht versendet');
+DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Nachricht und Infomail versendet an ');
+DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Nachricht versendet, aber Infomail fehlgeschlagen ');
 DEFINE ('_UDDEIM_MOVEDTOTRASH', ' und in den Papierkorb verschoben');
 DEFINE ('_UDDEIM_NOSUCHUSER', 'Keinen Benutzer mit diesem Namen gefunden!');
 DEFINE ('_UDDEIM_NOTTOYOURSELF', 'Sie können sich nicht selbst Nachrichten schicken!');
