@@ -944,6 +944,8 @@ DEFINE ('_UDDEIM_SUBMIT', 'Send');
 DEFINE ('_UDDEIM_NOID', 'Error: Recipient not found. No message sent.');
 DEFINE ('_UDDEIM_MESSAGE_REPLIEDTO', 'Reply sent');
 DEFINE ('_UDDEIM_MESSAGE_SENT', 'Message sent');
+DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Message and Infomail sent to ');
+DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Message sent, but Infomail failed');
 DEFINE ('_UDDEIM_MOVEDTOTRASH', ' and original message moved to trash');
 DEFINE ('_UDDEIM_NOSUCHUSER', 'There is no user with this username!');
 DEFINE ('_UDDEIM_NOTTOYOURSELF', 'It is not possible to send messages to yourself!');
