@@ -457,7 +457,8 @@ function uddeIMsaveSettings($option, $task, $pathtoadmin, $config) {
 		$redirecturl = uddeIMredirectIndex()."?option=com_uddeim&task=archivetotrash";
 		uddeIMmosRedirect($redirecturl, $mosmsg);
 	}
-	opcache_reset();
+	if (function_exists('opcache_reset')) 
+		opcache_reset();
 	$mosmsg=_UDDEADM_SETTINGSSAVED;
 	$redirecturl = uddeIMredirectIndex()."?option=com_uddeim&task=settings";
 	uddeIMmosRedirect($redirecturl, $mosmsg);
