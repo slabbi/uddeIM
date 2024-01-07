@@ -21,7 +21,7 @@ function uddeIMcheckCAPTCHA($my_gid, $config) {
 		($config->usecaptcha==2 && !uddeIMisSpecial($my_gid) && !uddeIMisSpecial2($my_gid, $config)) ) {				// CAPTCHA enabled for public frontend and registered users (note: 0 is not required since this is done in public.php)
 
 		if ($config->captchatype==0) {
-			if (class_exists('Factory')) {
+			if (class_exists('Joomla\CMS\Factory')) {
 				// CAPTCHA15
 				$session = Factory::getSession();
 				$_SESSION['security_code'] = $session->get('security_code');	// so I do not need to modify saveMessage code
@@ -32,7 +32,7 @@ function uddeIMcheckCAPTCHA($my_gid, $config) {
 
 			if( $_SESSION['security_code'] == $_POST['security_code'] && !empty($_SESSION['security_code'] ) ) {
 				// CAPTCHA is correct, so unset security code
-				if (class_exists('Factory')) {
+				if (class_exists('Joomla\CMS\Factory')) {
 					$session = Factory::getSession();
 					$session->set('security_code', null);
 				} else {
@@ -72,7 +72,7 @@ function uddeIMcheckCAPTCHA($my_gid, $config) {
 function uddeIMwriteCSRF($config) {
 	if ($config->csrfprotection) {
 		$code = md5(uniqid(rand(),true));
-		if (class_exists('Factory')) {
+		if (class_exists('Joomla\CMS\Factory')) {
 			$session = Factory::getSession();
 			$session->set('csrf_code', $code);
 		} else {
@@ -85,14 +85,14 @@ function uddeIMwriteCSRF($config) {
 
 function uddeIMcheckCSRF($config) {
 	if ($config->csrfprotection) {
-		if (class_exists('Factory')) {
+		if (class_exists('Joomla\CMS\Factory')) {
 			$session = Factory::getSession();
 			$_SESSION['csrf_code'] = $session->get('csrf_code');	// so I do not need to modify saveMessage code
 		} else {
 			session_start();
 		}
 		if( $_SESSION['csrf_code'] == $_POST['csrf_token'] && !empty($_SESSION['csrf_code'] ) ) {
-			if (class_exists('Factory')) {
+			if (class_exists('Joomla\CMS\Factory')) {
 				$session = Factory::getSession();
 				$session->set('csrf_code', null);
 			} else {
@@ -1954,7 +1954,7 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 			echo "<div class='uddeim-captcha'>";
 			echo "<label for='security_code'>"._UDDEIM_SECURITYCODE." </label><input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
 
-			if (class_exists('Factory')) {
+			if (class_exists('Joomla\CMS\Factory')) {
 				// CAPTCHA15
 				echo "<img style='vertical-align:middle;' src='".$pathtosite."/components/com_uddeim/captcha15.php' alt='' /><br />";
 			} else {
