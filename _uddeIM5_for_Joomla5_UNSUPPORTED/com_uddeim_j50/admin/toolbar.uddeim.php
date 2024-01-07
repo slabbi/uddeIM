@@ -108,20 +108,18 @@ switch ($task) {
 		mosMenuBar::endTable();
 		break;
 	case "settings":
-	default:
-		
-			mosMenuBar::startTable();
-			if (uddeIMcheckPlugin('mcp'))
-				if (uddeIMcheckVersionPlugin('mcp'))
-					mosMenuBar::customX( 'mcp', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_MCP, false );
-			if (uddeIMcheckPlugin('spamcontrol'))
-				if (uddeIMcheckVersionPlugin('spamcontrol'))
-					mosMenuBar::customX( 'spamcontrol', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_SPAMCONTROL, false );
-			mosMenuBar::customX( 'usersettings', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_USERSETTINGS, false );
-			mosMenuBar::save( 'savesettings', _UDDEIM_TOOLBAR_SAVE );
-			mosMenuBar::cancel();
-			mosMenuBar::spacer();
-			mosMenuBar::endTable();
-		}
+	default:		
+		mosMenuBar::startTable();
+		    if (uddeIMcheckPlugin('mcp'))
+			if (uddeIMcheckVersionPlugin('mcp'))
+			mosMenuBar::customX( 'mcp', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_MCP, false );
+		    if (uddeIMcheckPlugin('spamcontrol'))
+			if (uddeIMcheckVersionPlugin('spamcontrol'))
+			mosMenuBar::customX( 'spamcontrol', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_SPAMCONTROL, false );
+		mosMenuBar::customX( 'usersettings', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_USERSETTINGS, false );
+		mosMenuBar::save( 'savesettings', _UDDEIM_TOOLBAR_SAVE );
+		mosMenuBar::cancel();
+		mosMenuBar::spacer();
+		mosMenuBar::endTable();
 		break;
 }
