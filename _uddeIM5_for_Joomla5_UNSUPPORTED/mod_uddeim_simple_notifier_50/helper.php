@@ -27,7 +27,7 @@ class ModUddeimSimpleNotifierHelper {
 		$query = $db->getQuery(true)
             ->select('COUNT(' . $db->quoteName('toread') . ') AS ' . $db->quoteName('number') ) 
             ->from($db->quoteName('#__uddeim'))
-            ->where($db->quoteName(toid) . ' = ' . (int)$userid . ' AND ' . $db->quoteName(toread) . ' =0');
+            ->where($db->quoteName(toid) . ' = ' . (int)$userid . ' AND ' . $db->quoteName(toread) . ' =0 AND ' . $db->quoteName('totrash') . ' =0');
 		
 		// Prepare the query
 		$db->setQuery($query);
