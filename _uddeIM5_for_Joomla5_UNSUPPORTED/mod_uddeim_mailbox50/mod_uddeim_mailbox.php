@@ -136,7 +136,7 @@ if ($usepostbox){
     $uddout .= "<p class='uddeim-module-body'>";
     $uddout .= $uddshowicons ? "<img src='".$uddpathtosite."/components/com_uddeim/templates/".$uddconfig->templatedir."/images/menu_postbox.png' alt='"._UDDEIM_POSTBOX."' style='margin-left:-2px;margin-right:3px;height:18px;' />" : "";
     $uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=postbox".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_POSTBOX.'">';
-    $uddout .= _UDDEIM_POSTBOX."<span style='display: block;font-variant-position:super;text-align:center;'>".($uddshowicons ? $iconin : '&darr;')."&hairsp;".$uddresultin."&ensp;".($uddshowicons ? $iconout : '&nerr;')."&hairsp;".$uddresultout."</span>";
+    $uddout .= _UDDEIM_POSTBOX."<span style='display: block;font-variant-position:super;text-align:center;'>".($uddshowicons ? $iconin : '&darr;')."&hairsp;".$uddresultin."&ensp;".($uddshowicons ? $iconout : '&uarr;')."&hairsp;".$uddresultout."</span>";
     $uddout .= '</a>';
 	$uddout .= "</p>";
 }
