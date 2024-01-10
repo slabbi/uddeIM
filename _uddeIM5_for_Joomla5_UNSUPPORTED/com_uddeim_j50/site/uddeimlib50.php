@@ -81,15 +81,19 @@ function uddeIMisReggedOnly($my_gid) {
 
 function uddeIMaddScript($value) {
     if ($value) {
-        $document = Factory::getDocument();
-        $document->addScript( $value );
+        //$document = Factory::getDocument();
+        //$document->addScript( $value );
+	$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+        $wa->registerAnduseScript('udd_'.basename($value,'.js'), $value );
     }
 }
 
 function uddeIMaddCSS($value) {
     if ($value) {
-        $document = Factory::getDocument();
-        $document->addStyleSheet( $value );
+        //$document = Factory::getDocument();
+        //$document->addStyleSheet( $value );
+	$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+        $wa->registerAnduseStyle('udd_'.basename($value,'.css'), $value );    
     }
 }
 
@@ -118,8 +122,8 @@ function uddeIMmosGetParam( &$arr, $name, $def=null, $mask=0 ) {
     }
     if ($mask & 2) {
         if (is_null($safeHtmlFilter)) {
-            //passing null as first argument to ::getInstance raises an exception
-//            $safeHtmlFilter = JFilterInput::getInstance(null, null, 1, 1);
+	//passing null as first argument to ::getInstance raises an exception
+	//$safeHtmlFilter = JFilterInput::getInstance(null, null, 1, 1);
             $safeHtmlFilter = new InputFilter();
         }
         $var = $safeHtmlFilter->clean($var, 'none');
@@ -187,39 +191,39 @@ function uddeIMmosMail($from, $fromname, $recipient, $subject, $body, $mode=0, $
 // The timezone support is completely messed up in Joomla because of several API changes.
 // The code below does not longer work (returns e.g. CET instead of an number).
 function uddeIMgetOffset() {
-    $config = Factory::getConfig();
+    $config = Factory::getApplication()->getConfig(); 
     return $config->get('offset');
 }
 
 function uddeIMgetLocale() {
-    $lang = Factory::getLanguage();
+    $lang = Factory::getApplication()->getLanguage();
     return $lang->getTag();
     //$config = Factory::getConfig();
     //return $config->get('locale');
 }
 
 function uddeIMgetSitename() {
-    $config = Factory::getConfig();
+    $config = Factory::getApplication()->getConfig(); 
     return $config->get('sitename');
 }
 
 function uddeIMgetMailFrom() {
-    $config = Factory::getConfig();
+    $config = Factory::getApplication()->getConfig();
     return $config->get('mailfrom');
 }
 
 function uddeIMgetMetaDesc() {
-    $config = Factory::getConfig();
+    $config = Factory::getApplication()->getConfig();
     return $config->get('MetaDesc');
 }
 
 function uddeIMgetMetaKeys() {
-    $config = Factory::getConfig();
+    $config = Factory::getApplication()->getConfig();
     return $config->get('MetaKeys');
 }
 
 function uddeIMgetLang() {
-    $lang = Factory::getLanguage();
+    $lang = Factory::getApplication()->getLanguage();
     $tag = $lang->getTag();
     $tag1 = strtolower(substr($tag,0,2));
     $tag2 = strtolower(substr($tag,3,2));
@@ -353,7 +357,7 @@ function uddeIMgetDatabase() {
 }
 
 function uddeIMgetDBprefix() {
-    $config = Factory::getConfig();
+    $config = Factory::getApplication()->getConfig(); 
     return $config->get('dbprefix');
 }
 
@@ -577,8 +581,8 @@ function uddeIMchmod($file, $mode, $forcenoftp=false) {
 }
 
 function uddeIMisFtpLayer() {
-    if (class_exists('Factory')) {
-        $config = Factory::getConfig();
+    if (class_exists('Joomla\CMS\Factory')) {
+        $config = Factory::getApplication()->getConfig(); 
         if ($config->get('ftp_enable'))
             return true;
     }
