@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0, 1.5, 1.6, 1.7, 2.5
-// Author         © 2012 Stephan Slabihoud
+// Author         Â© 2012 Stephan Slabihoud
 // License        This plugin is published under copyright.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk.
@@ -481,8 +481,10 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 			}
 		}
 	}
-	
-	
+
+	//the user in this conversation
+	$conuser = $allmessages[0]->toid == $myself ? $allmessages[0]->fromname : $allmessages[0]->toname;
+
 
 	echo "<form method='post' name='messages' action='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=inboxfork&Itemid=".$item_id)."'>\n";
 	// now open the inbox container and table; write table headings
@@ -493,7 +495,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 	echo "<tr>";
 	echo "<th style='border:none; text-align:center;' class='sectiontableheader'>".$delall."</th>";
 	echo "<th style='border:none;' class='sectiontableheader'>&nbsp;</th>";
-	echo "<th style='border:none;' class='sectiontableheader'>"._UDDEIM_FROM."/"._UDDEIM_TO."</th>";
+	echo "<th style='border:none;' class='sectiontableheader'>"._UDDEIM_FROM."&ensp;<span class='badge'>".$conuser."</span></th>";
 	echo "<th style='border:none;' class='sectiontableheader'>"._UDDEIM_DATE."</th>";
 	echo "<th style='border:none;' class='sectiontableheader'>&nbsp;</th>";
 	echo "</tr>\n";
@@ -968,13 +970,16 @@ function uddeIMdoOutboxHeader($myself, $displaymessage, $config) {
 	$headerstring.=$temp;
 
 	// is this user currently online?
-	if ($config->showonline && $displaymessage->toname) {
+	/*if ($config->showonline && $displaymessage->toname) {
 		$isonline = uddeIMisOnline($displaymessage->toid);
 		if($isonline)
 			$headerstring.="&nbsp;".$uddeicons_onlinepic;
 		else
 			$headerstring.="&nbsp;".$uddeicons_offlinepic;
-	}
+	}*/
+	//showonline (in outbox) should be corresponding to avatar ($displaymessage->fromid)
+    	if ($config->showonline && $displaymessage->fromid == $myself)
+    	$headerstring.="&nbsp;".$uddeicons_onlinepic;    //myself = online
 
 	return $headerstring;
 }
