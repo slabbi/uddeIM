@@ -149,7 +149,7 @@ function uddeIMsendmail($fromname, $frommail, $toname, $tomail, $subject, $messa
 			$header .= "Reply-To: ".$replyto."\n";
 		if ($config->mailsystem ==4)  //force \r\n
                         $header = str_replace('\n','\r\n',$header);
-		$ret = @mail($tomail,$subject,$message,$header);
+		$ret = mail($tomail,$subject,$message,$header);
 	}
 	return $ret.' - (1 =sent, 0 =error)&emsp;to:&emsp;'.$tomail.'<br><b>subject:</b>&emsp;'.$subject.'<br>full text:&emsp;'.$message.'<br><b>Header:</b>&emsp;'.$header;  //debug line;  
 }
