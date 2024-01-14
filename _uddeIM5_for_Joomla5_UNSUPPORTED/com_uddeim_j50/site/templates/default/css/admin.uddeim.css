@@ -22,6 +22,10 @@ div.controls label {
     margin-bottom: 5px;
 }
 
+#uddeimContent select, #uddeimContent input {
+    max-width: 200px;
+}
+
 table.adminlist tr.row0 {
     background-color: #F9F9F9;
     text-align: left;
