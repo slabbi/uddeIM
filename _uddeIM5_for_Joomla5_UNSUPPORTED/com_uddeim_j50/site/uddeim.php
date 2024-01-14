@@ -1271,26 +1271,23 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 			$config->emailwithmessage==0)
 			$forceembedded = 0;
 
-		$type = 0; 			// 0=normal message, 1=forgetmenot, 2=admin forces text
-		if ($forceembedded)
-			$type = 2;		// admin forces
+		$type = $forceembedded ? 2 : 0;  // 0=normal, 1=forgetmenot, 2=admin forces text  
 
+		$ison = uddeIMgetEMNstatus($savetoid); //get user status setting 
+                $emailallowed = (($ison==1) || ($ison==10 && !$itisareply) ||
+                        ($ison==20 && !$currentlyonline && !$itisareply) ||
+                        ($ison==2 && !$currentlyonline)) ? true : false;
+
+                $notify = '';
+		
 		// BUGBUG: it would be better to have the correct cryptmode here (it might be 1 when no password has been entered, otherwise 2
-		if($config->allowemailnotify==1 && !$ismoderated) {
-			$ison = uddeIMgetEMNstatus($savetoid);
-			if (($ison==1) || ($ison==2 && !$currentlyonline) || ($ison==10 && !$itisareply) || ($ison==20 && !$currentlyonline && !$itisareply))  {
-			$notify = uddeIMdispatchEMN($insID, $item_id, $config->cryptmode, $savefromid, $savetoid, $email, $type, $config);
-				// 0 stands for normal (not forgetmenot)
-			}
-		} elseif($config->allowemailnotify==2 && !$ismoderated) {
-			if (uddeIMisAdmin($rec_gid) || uddeIMisAdmin2($rec_gid, $config)) {
-				$ison = uddeIMgetEMNstatus($savetoid);
-				if (($ison==1) || ($ison==2 && !$currentlyonline) || ($ison==10 && !$itisareply) || ($ison==20 && !$currentlyonline && !$itisareply))  {
-			$notify = uddeIMdispatchEMN($insID, $item_id, $config->cryptmode, $savefromid, $savetoid, $email, $type, $config);
-					// 0 stands for normal (not forgetmenot)
-				}
-			}
-		}
+		if ($emailallowed && !$ismoderated) {     //send email if... 
+		   if (($config->allowemailnotify==1) ||
+                       ($config->allowemailnotify==2 && (uddeIMisAdmin($rec_gid) || uddeIMisAdmin2($rec_gid, $config))))			     
+		   $notify = uddeIMdispatchEMN($insID, $item_id, $config->cryptmode, $savefromid, $savetoid, $email, $type, $config);
+				// 0 stands for normal (not forgetmenot)			
+		} 
+		
 		if ($tobedeletedsent) {
 			$deletetime=uddetime($config->timezone);
 			uddeIMdeleteMessageFromOutbox($myself, $insID, $deletetime);
@@ -1303,14 +1300,26 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 		uddeIMdeleteMessageFromInbox($myself, $messageid, $deletetime);
 	}
 
+//Debug   $config->mailsystem==2 = debug on error  $config->mailsystem==3 = Info (debug All)
+	
+	if ( $notify && ($config->mailsystem ==3 || ($config->mailsystem ==2 && !intval($notify))) ){   //debug only if email used
+	echo '<span class="alert alert-secondary">Message <b>has been sent</b> and Email shown below - only the <b>return</b> (to Inbox) <b>is skipped</b></span><br><br>';
+	echo  '<u>basics:</u>&emsp;allowed='.$emailallowed.' | ID='.$insID.' | item='.$item_id.' | crypt='.$config->cryptmode.' | von:'.$savefromid.' | to:'.$savetoid.' | text='.$email.' | type='.$type.'<br>';
+	echo '<u>maildata:</u><br>'.$notify.'<br><u>Config settings:</u><br>';
+	var_dump($config);
+	return;  //only stop the redirect - messages are saved (and deleted if selected)
+	}
+
 	if($messageid) {
-		$mosmsg=_UDDEIM_MESSAGE_REPLIEDTO;
-	} elseif ($notify) { //if successful sent
-                $mosmsg=_UDDEIM_MESSAGEINFO_SENT.uddeIMgetNameFromID($savetoid, $config);
-        } elseif ($config->allowemailnotify && !$notify && !$tobedeleted) { // reports an email error
-                $mosmsg=_UDDEIM_MESSAGEINFO_ERROR.',error';
+		$mosmsg = _UDDEIM_MESSAGE_REPLIEDTO;
+        	if(intval($notify))
+        	$mosmsg .= _UDDEIM_MESSAGE_REPLY_INFO;
+    	} elseif (intval($notify)) {
+        	$mosmsg=_UDDEIM_MESSAGEINFO_SENT.uddeIMgetNameFromID($savetoid, $config);
+    	} elseif ($emailallowed && $notify && !intval($notify) && !$tobedeleted) {
+        	$mosmsg=_UDDEIM_MESSAGEINFO_ERROR.", 'error'";
 	} else {
-		$mosmsg=_UDDEIM_MESSAGE_SENT;
+		$mosmsg=_UDDEIM_MESSAGE_SENT.(!$emailallowed ? ' (no infomail accepted)' : '');
 	}
 	if ($tobedeleted) {
 		$mosmsg.=_UDDEIM_MOVEDTOTRASH;
