@@ -173,6 +173,11 @@
 	font-weight: bold !important;
  	font-size: 11px !important;
 }
+#uddeim-overview .sectiontableheader .badge {
+    font-size: 1.15em;
+    background: steelblue;
+    padding: 1px 6px 1px 4px;
+}
 #uddeim-overview .sectiontablefooter {
 	height: 15px !important;
 	line-height: 15px !important;
