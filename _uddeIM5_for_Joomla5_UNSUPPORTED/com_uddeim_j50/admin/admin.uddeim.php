@@ -1348,6 +1348,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			}
 		} else {
 			echo "<p><b><span style='color: blue;'>"._UDDEADM_CONFIG_FTPLAYER." $configdatei</span></b></p>";
+			echo "<span style='color:red;'><i>".(function_exists('opcache_reset') ? '<b>OPCache reset</b>' : _UDDEADM_CONFIGNOTE)."</i></span></p>"; 
 		}
 
 		$ret = uddeIMcheckForValidDB($option, $task, $uddeimversion, $config);
@@ -1926,7 +1927,8 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			<?php uddeIMadmText($config->groupsadmin, 20, 'config_groupsadmin', false, _UDDEADM_GROUPSADMIN_HEAD, _UDDEADM_GROUPSADMIN_EXP); ?>
 			<?php uddeIMadmText($config->groupsspecial, 20, 'config_groupsspecial', false, _UDDEADM_GROUPSSPECIAL_HEAD, _UDDEADM_GROUPSSPECIAL_EXP); ?>
 
-			<?php uddeIMadmSelect($config->mailsystem, 'config_mailsystem', Array('1'=>_UDDEADM_MAILSYSTEM_MOSMAIL, '0'=>_UDDEADM_MAILSYSTEM_PHPMAIL), false, _UDDEADM_MAILSYSTEM_HEAD, _UDDEADM_MAILSYSTEM_EXP); ?>
+			<?php //uddeIMadmSelect($config->mailsystem, 'config_mailsystem', Array('1'=>_UDDEADM_MAILSYSTEM_MOSMAIL, '0'=>_UDDEADM_MAILSYSTEM_PHPMAIL), false, _UDDEADM_MAILSYSTEM_HEAD, _UDDEADM_MAILSYSTEM_EXP); ?>
+			<?php uddeIMadmSelect($config->mailsystem, 'config_mailsystem', Array('1'=>_UDDEADM_MAILSYSTEM_MOSMAIL, '0'=>_UDDEADM_MAILSYSTEM_PHPMAIL, '4'=>'php mail - force \r\n [header]', '2'=>'php mail [debug on Error]', '3'=>'php mail Info [debug All]'), false, _UDDEADM_MAILSYSTEM_HEAD, _UDDEADM_MAILSYSTEM_EXP); ?>
 			<?php uddeIMadmText($config->sysm_username, 20, 'config_sysm_username', false, _UDDEADM_SYSM_USERNAME_HEAD, _UDDEADM_SYSM_USERNAME_EXP); ?>
 
 			<?php uddeIMadmSelect($config->usecaptcha, 'config_usecaptcha', Array('4'=>_UDDEADM_CAPTCHAF4, '3'=>_UDDEADM_CAPTCHAF3, '2'=>_UDDEADM_CAPTCHAF2, '1'=>_UDDEADM_CAPTCHAF1, '0'=>_UDDEADM_CAPTCHAF0), false, _UDDEADM_USECAPTCHA_HEAD, _UDDEADM_USECAPTCHA_EXP, $adminstyle); ?>
