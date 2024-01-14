@@ -147,9 +147,11 @@ function uddeIMsendmail($fromname, $frommail, $toname, $tomail, $subject, $messa
 	} else {								//php mail
 		if ($replyto)
 			$header .= "Reply-To: ".$replyto."\n";
+		if ($config->mailsystem ==4)  //force \r\n
+                        $header = str_replace('\n','\r\n',$header);
 		$ret = @mail($tomail,$subject,$message,$header);
 	}
-	return $ret;
+	return $ret.' - (1 =sent, 0 =error)&emsp;to:&emsp;'.$tomail.'<br><b>subject:</b>&emsp;'.$subject.'<br>full text:&emsp;'.$message.'<br><b>Header:</b>&emsp;'.$header;  //debug line;  
 }
 
 function uddeIMisPublicUser($name, $id) {
@@ -822,6 +824,7 @@ function uddeIMreminderDispatch($item_id, $config) {
 
 // $emn_option = 1 : forgotmenot message
 // $emn_option = 2 : force include message text into message
+
 function uddeIMdispatchEMN($var_msgid, $item_id, $cryptmode, $var_fromid, $var_toid, $var_message, $emn_option, $config) {
 	$mosConfig_sitename = uddeIMgetSitename();
 	$pathtosite  = uddeIMgetPath('live_site');
@@ -902,15 +905,17 @@ function uddeIMdispatchEMN($var_msgid, $item_id, $cryptmode, $var_fromid, $var_t
 
 	$replyto = $var_tomail;
 	$replytoname = "";
-
-	if(uddeIMsendmail($config->emn_sendername, $config->emn_sendermail, $var_toname, $var_tomail, $subject, $var_body, $replyto, $replytoname, "", $config)) {
+	
+	$mailphp = uddeIMsendmail($config->emn_sendername, $config->emn_sendermail, $var_toname, $var_tomail, $subject, $var_body, $replyto, $replytoname, "", $config);
+	$lasterror = '<br>[last_error]<br>'.error_get_last()['message'].' in '.error_get_last()['file'].' line '.error_get_last()['line'].'<br>'; 
+		
+	if(substr($mailphp,0,1) == '1'){  //sent is ok
 		// set the remindersent status of this user to true
 		if(!uddeIMexistsEMN($var_toid))
 			uddeIMinsertEMNdefaults($var_toid, $config);
-		uddeIMupdateEMNreminder($var_toid, uddetime($config->timezone));
-		return true;
+		uddeIMupdateEMNreminder($var_toid, uddetime($config->timezone));		
 	}
-	else return false;
+	return $mailphp.$lasterror;
 }
 
 // *****************************************************************************************
