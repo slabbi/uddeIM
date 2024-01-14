@@ -14,6 +14,13 @@
 // *******************************************************************
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'English language file by <a href="http://slabihoud.de/software/" target="_new">uddeIM HQ (Stephan Slabihoud)</a>');	// Enter your credits line here, e.g. 'Translation by <a href="http://domain.com" target="_new">John Doe</a>'
 
+// New: 5.0
+DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'Select mailsystem uddeIM should use to send notifications.<br><b>force \r\n</b> is used instead of default \n linebreak, if email sending fails<br><b>Debug</b> as in the select description');
+DEFINE ('_UDDEIM_MESSAGE_REPLY_INFO', ' (with Infomail)');
+DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Message and Infomail sent to ');
+DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Message sent, but Infomail failed');
+DEFINE ('_UDDEADM_CONFIGNOTE', 'NOTE: because of Cache settings changes may not be visible after save and reload');
+
 // New: 3.8
 DEFINE ('_UDDEADM_CAPTCHA_RECAPTCHA2', 'reCaptcha 2.0');
 DEFINE ('_UDDEADM_CB2', 'Community Builder 2.0+');
@@ -779,15 +786,13 @@ DEFINE ('_UDDEADM_MODESHOWALLUSERS_0', 'Suppress "All Users" link');
 DEFINE ('_UDDEADM_MODESHOWALLUSERS_1', 'Show "All Users" link');
 DEFINE ('_UDDEADM_MODESHOWALLUSERS_2', 'Always show all users');
 DEFINE ('_UDDEADM_CONFIGNOTWRITEABLE', 'Configuration is not writeable:');
-DEFINE ('_UDDEADM_CONFIGWRITEABLE', 'Configuration is writeable:');
-DEFINE ('_UDDEADM_CONFIGNOTE', 'NOTE: because of Cache settings changes may not be visible after save and reload'); 
+DEFINE ('_UDDEADM_CONFIGWRITEABLE', 'Configuration is writeable:'); 
 DEFINE ('_UDDEIM_FORWARDLINK', 'forward');
 DEFINE ('_UDDEIM_RECIPIENTFOUND', 'recipient found');
 DEFINE ('_UDDEIM_RECIPIENTSFOUND', 'recipients found');
 DEFINE ('_UDDEADM_MAILSYSTEM_MOSMAIL', 'mosMail');
 DEFINE ('_UDDEADM_MAILSYSTEM_PHPMAIL', 'php mail (default)');
 DEFINE ('_UDDEADM_MAILSYSTEM_HEAD', 'Mailsystem');
-DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'Select mailsystem uddeIM should use to send notifications.');
 DEFINE ('_UDDEADM_SHOWGROUPS_HEAD', 'Show Joomla groups');
 DEFINE ('_UDDEADM_SHOWGROUPS_EXP', 'Show Joomla groups in system message list.');
 DEFINE ('_UDDEADM_ALLOWFORWARDS_HEAD', 'Forwarding of messages');
@@ -944,8 +949,6 @@ DEFINE ('_UDDEIM_SUBMIT', 'Send');
 DEFINE ('_UDDEIM_NOID', 'Error: Recipient not found. No message sent.');
 DEFINE ('_UDDEIM_MESSAGE_REPLIEDTO', 'Reply sent');
 DEFINE ('_UDDEIM_MESSAGE_SENT', 'Message sent');
-DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Message and Infomail sent to ');
-DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Message sent, but Infomail failed');
 DEFINE ('_UDDEIM_MOVEDTOTRASH', ' and original message moved to trash');
 DEFINE ('_UDDEIM_NOSUCHUSER', 'There is no user with this username!');
 DEFINE ('_UDDEIM_NOTTOYOURSELF', 'It is not possible to send messages to yourself!');
