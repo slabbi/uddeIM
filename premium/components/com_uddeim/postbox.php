@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0, 1.5, 1.6, 1.7, 2.5
-// Author         © 2012 Stephan Slabihoud
+// Author         Â© 2012 Stephan Slabihoud
 // License        This plugin is published under copyright.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk.
@@ -230,7 +230,7 @@ function uddeIMshowPostbox($myself, $item_id, $limit, $limitstart, $cryptpass, $
 		uddeIMprintFilter($myself, 'postbox', $totalpostbox, $item_id, $config, $filter_user, $filter_unread, $filter_flagged);
 
 	// if no messages:
-	if (count($allmessages)<1) { // no messages to list
+	if (empty($allmessages)) { // no messages to list
 		uddeIMshowNoMessage('postbox', $filter_user, $filter_unread, $filter_flagged);
 		echo "</div>\n<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'standard', 'none', $config)."</div>\n";
 		return;
@@ -458,7 +458,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 	//	uddeIMprintFilter($myself, 'postboxuser', $totalpostbox, $item_id, $config, $filter_user, $filter_unread, $filter_flagged);
 
 	// if no messages:
-	if (count($allmessages)<1) { // no messages to list
+	if (empty($allmessages)) { // no messages to list
 		uddeIMshowNoMessage('postbox', $filter_user, $filter_unread, $filter_flagged);
 		echo "</div>\n<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'standard', 'none', $config)."</div>\n";
 		return;
@@ -982,11 +982,12 @@ function uddeIMdoOutboxHeader($myself, $displaymessage, $config) {
 // *****************************************************************************************
 
 function uddeIMdeletePostbox($myself, $arcmes, $limit, $limitstart, $item_id, $config) {
-	$n = count($arcmes);
-	if (!$n) {
+	
+	if (empty($arcmes)) {
 		echo _UDDEIM_NOMSGSELECTED."<br /><a href='javascript:history.go(-1)'>"._UDDEIM_BACK."</a>";
 		return;
 	}
+	$n = count($arcmes);
 	for ($i = 0; $i <= ($n-1); $i++) {
 		$deletetime=uddetime($config->timezone);
 		if ($arcmes[$i]>0) {
@@ -1029,12 +1030,12 @@ function uddeIMdeleteMessagePostbox($myself, $messageid, $userid, $box, $limit, 
 }
 
 function uddeIMdeleteMessagePostboxMultiple($myself, $userid, $arcmes, $limit, $limitstart, $item_id, $config) {
-	$n = count($arcmes);
-	if (!$n) {
+	
+	if (empty($arcmes)) {
 		echo _UDDEIM_NOMSGSELECTED."<br /><a href='javascript:history.go(-1)'>"._UDDEIM_BACK."</a>";
 		return;
 	}
-
+        $n = count($arcmes);
 	for ($i = 0; $i <= ($n-1); $i++) {
 		$deletetime=uddetime($config->timezone);
 		if ($arcmes[$i]>0) {
