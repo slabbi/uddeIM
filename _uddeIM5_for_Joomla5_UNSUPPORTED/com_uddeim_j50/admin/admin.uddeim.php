@@ -457,10 +457,9 @@ function uddeIMsaveSettings($option, $task, $pathtoadmin, $config) {
 		$redirecturl = uddeIMredirectIndex()."?option=com_uddeim&task=archivetotrash";
 		uddeIMmosRedirect($redirecturl, $mosmsg);
 	}
-	if (function_exists('opcache_reset')) 
-		opcache_reset();
+	$ocreset = function_exists('opcache_reset') ? opcache_reset() : 0;
 	$mosmsg=_UDDEADM_SETTINGSSAVED;
-	$redirecturl = uddeIMredirectIndex()."?option=com_uddeim&task=settings";
+	$redirecturl = uddeIMredirectIndex()."?option=com_uddeim&task=settings&opcr=".$ocreset;
 	uddeIMmosRedirect($redirecturl, $mosmsg);
 }
 
@@ -1348,7 +1347,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			}
 		} else {
 			echo "<p><b><span style='color: blue;'>"._UDDEADM_CONFIG_FTPLAYER." $configdatei</span></b></p>";
-			echo "<span style='color:red;'><i>".(function_exists('opcache_reset') ? '<b>OPCache reset</b>' : _UDDEADM_CONFIGNOTE)."</i></span></p>"; 
+			echo "<span style='color:red;'><i>".(isset($_GET['ocpr']) ? ($_GET['ocpr'] ? '<b>OPCache reset</b>' : _UDDEADM_CONFIGNOTE) : '')."</i></span></p>"; 
 		}
 
 		$ret = uddeIMcheckForValidDB($option, $task, $uddeimversion, $config);
