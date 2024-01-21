@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0 / Joomla 1.5
-// Author         © 2007-2010 Stephan Slabihoud, © 2006 Benjamin Zweifel
+// Author         Â© 2007-2010 Stephan Slabihoud, Â© 2006 Benjamin Zweifel
 // License        This is free software and you may redistribute it under the GPL.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk. For details, see the license at
@@ -75,7 +75,7 @@ function uddeIMshowOutbox($myself, $item_id, $limit, $limitstart, $cryptpass, $c
 		uddeIMprintFilter($myself, 'outbox', $total, $item_id, $config, $filter_user, $filter_unread, $filter_flagged);
 
 	// if no messages:
-	if(count($allmessages)<1) { // no messages to list
+	if(empty($allmessages)) { // no messages to list
 		uddeIMshowNoMessage('outbox', $filter_user, $filter_unread, $filter_flagged);
 		echo "</div>\n<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'standard', 'none', $config)."</div>\n";
 		return;
@@ -263,7 +263,7 @@ function uddeIMshowOutmessage($myself, $item_id, $messageid, $isforward, $cryptp
 
 	$displaymessages = uddeIMselectOutboxMessage($myself, $messageid, $config, 0);
 
-	if(count($displaymessages)<1) {
+	if(empty($displaymessages)) {
 		echo _UDDEIM_MESSAGENOACCESS;
 		return;
 	}
@@ -372,7 +372,7 @@ function uddeIMshowOutmessage($myself, $item_id, $messageid, $isforward, $cryptp
 					$temp = $or;
 				$orig = $temp;
 
-				if (count($orig)>0) {		// the message should be stored in the outbox
+				if (!empty($orig)) {		// the message should be stored in the outbox
 					if ($orig->cryptmode==2 || $orig->cryptmode==4) {	// Message is encrypted, so go to enter password page
 						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showpass&Itemid=".$item_id."&messageid=".$replyid)."'>".$pic."</a>";
 					} else {					// normal message
@@ -384,7 +384,7 @@ function uddeIMshowOutmessage($myself, $item_id, $messageid, $isforward, $cryptp
 			}
 
 			$repls = uddeIMselectMessageReplies($displaymessage->id, 'inbox', $myself);
-			if (count($repls)>0) {
+			if (!empty($repls)) {
 				$msgnavigation .= "<br />";
 				$msgnavigation .= _UDDEIM_PMNAV_THEREARERESPONSES;
 				foreach($repls as $repl) {
@@ -531,11 +531,12 @@ function uddeIMdeleteMessageOutbox($myself, $messageid, $limit, $limitstart, $it
 }
 
 function uddeIMdeleteOutbox($myself, $item_id, $arcmes, $limit, $limitstart, $config) {
-	$n = count($arcmes);
-	if (!$n) {
+	
+	if (empty($arcmes)) {
 		echo _UDDEIM_NOMSGSELECTED."<br /><a href='javascript:history.go(-1)'>"._UDDEIM_BACK."</a>";
 		return;
 	}
+	$n = count($arcmes);
 	for ($i = 0; $i <= ($n-1); $i++) {
 		$rightnow=uddetime($config->timezone);
 		if($arcmes[$i]>0) {
@@ -556,7 +557,7 @@ function uddeIMrecallMessage($myself, $item_id, $messageid, $cryptpass, $config)
 	$my_gid = $config->usergid;
 
 	$displaymessages = uddeIMselectOutboxMessageIfUnread($myself, $messageid, $config);
-	if(count($displaymessages)<1) {
+	if(empty($displaymessages)) {
 		$mosmsg = _UDDEIM_COULDNOTRECALL;
 		uddeJSEFredirect("index.php?option=com_uddeim&task=outbox&Itemid=".$item_id, $mosmsg);
 	}
