@@ -132,7 +132,7 @@ function uddeIMshowInbox($myself, $item_id, $limit, $limitstart, $cryptpass, $co
 //	}
 
 	// if no messages:
-	if (count($allmessages)<1) { // no messages to list
+	if (empty($allmessages)) { // no messages to list
 		uddeIMshowNoMessage('inbox', $filter_user, $filter_unread, $filter_flagged);
 		echo "</div>\n<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'standard', 'none', $config)."</div>\n";
 		return;
@@ -335,7 +335,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 
 	$displaymessages = uddeIMselectInboxMessage($myself, $messageid, $config, 0);
 
-	if (count($displaymessages)<1) {
+	if (empty($displaymessages)) {
 		echo _UDDEIM_MESSAGENOACCESS;
 		return;
 	}
@@ -478,7 +478,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 					$temp = $or;
 				$orig = $temp;
 
-				if (count($orig)>0) {		// the message should be stored in the outbox
+				if (!empty($orig)) {		// the message should be stored in the outbox
 					$goto = "showout";
 					$c2me = "";
 					if ($copy2me) // this is a copy2me message, so the original is also stored in inbox
@@ -494,7 +494,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 			}
 
 			$repls = uddeIMselectMessageReplies($displaymessage->id, 'outbox', $myself);
-			if (count($repls)>0) {
+			if (!empty($repls)) {
 				$msgnavigation .= "<br />";
 				$msgnavigation .= _UDDEIM_PMNAV_THEREARERESPONSES;
 				foreach($repls as $repl) {
