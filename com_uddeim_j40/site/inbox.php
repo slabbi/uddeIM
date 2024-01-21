@@ -2,7 +2,7 @@
 // ********************************************************************************************
 // Title          udde Instant Messages (uddeIM)
 // Description    Instant Messages System for Mambo 4.5 / Joomla 1.0 / Joomla 1.5
-// Author         © 2007-2010 Stephan Slabihoud, © 2006 Benjamin Zweifel
+// Author         Â© 2007-2010 Stephan Slabihoud, Â© 2006 Benjamin Zweifel
 // License        This is free software and you may redistribute it under the GPL.
 //                uddeIM comes with absolutely no warranty.
 //                Use at your own risk. For details, see the license at
@@ -132,7 +132,7 @@ function uddeIMshowInbox($myself, $item_id, $limit, $limitstart, $cryptpass, $co
 //	}
 
 	// if no messages:
-	if (count($allmessages)<1) { // no messages to list
+	if (empty($allmessages)) { // no messages to list
 		uddeIMshowNoMessage('inbox', $filter_user, $filter_unread, $filter_flagged);
 		echo "</div>\n<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'standard', 'none', $config)."</div>\n";
 		return;
@@ -335,7 +335,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 
 	$displaymessages = uddeIMselectInboxMessage($myself, $messageid, $config, 0);
 
-	if (count($displaymessages)<1) {
+	if (empty($displaymessages)) {
 		echo _UDDEIM_MESSAGENOACCESS;
 		return;
 	}
@@ -478,7 +478,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 					$temp = $or;
 				$orig = $temp;
 
-				if (count($orig)>0) {		// the message should be stored in the outbox
+				if (!empty($orig)) {		// the message should be stored in the outbox
 					$goto = "showout";
 					$c2me = "";
 					if ($copy2me) // this is a copy2me message, so the original is also stored in inbox
@@ -494,7 +494,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 			}
 
 			$repls = uddeIMselectMessageReplies($displaymessage->id, 'outbox', $myself);
-			if (count($repls)>0) {
+			if (!empty($repls)) {
 				$msgnavigation .= "<br />";
 				$msgnavigation .= _UDDEIM_PMNAV_THEREARERESPONSES;
 				foreach($repls as $repl) {
@@ -687,11 +687,12 @@ function uddeIMdeleteMessageInbox($myself, $messageid, $limit, $limitstart, $ite
 }
 
 function uddeIMdeleteInbox($myself, $item_id, $arcmes, $limit, $limitstart, $config) {
-	$n = count($arcmes);
-	if (!$n) {
+	
+	if (empty($arcmes)) {
 		echo _UDDEIM_NOMSGSELECTED."<br /><a href='javascript:history.go(-1)'>"._UDDEIM_BACK."</a>";
 		return;
 	}
+	$n = count($arcmes);
 	for ($i = 0; $i <= ($n-1); $i++) {
 		$rightnow=uddetime($config->timezone);
 		if ($arcmes[$i]>0) {
