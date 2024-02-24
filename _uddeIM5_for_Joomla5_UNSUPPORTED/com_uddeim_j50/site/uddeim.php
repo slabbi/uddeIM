@@ -46,6 +46,8 @@ require_once($pathtouser.'/getpiclink.php');		// after includes.db.php and admin
 //	require_once(uddeIMgetPath('absolute_path').'/includes/mambo.php');
 
 require($pathtoadmin."/config.class.php");			// get the configuration file
+global $versionstring; 
+
 $config = new uddeimconfigclass();
 
 $userid = uddeIMgetUserID();
@@ -297,7 +299,7 @@ $omitDefaultOutput = false;
 
 if (uddeIMcheckJversion()>=4) {
 	// https://docs.joomla.org/Retrieving_request_data_using_JInput
-	$jinput = Factory::getApplication()->input;
+	$jinput = Factory::getApplication()->getInput();
 	$input1 = $jinput->get('no_html', false, 'BOOL');
 	$input2 = $jinput->get('format', 'html', 'STRING');
 	if ($input1 || 'raw'==$input2)
