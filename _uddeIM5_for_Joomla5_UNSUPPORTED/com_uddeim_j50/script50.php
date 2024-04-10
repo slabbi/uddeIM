@@ -91,7 +91,7 @@ function uddeIM_com_install() {
 		require_once($mainframe->getCfg('absolute_path').'/administrator/components/com_uddeim/admin.uddeimlib50.php');
 	}
 
-	require_once(uddeIMgetPath('absolute_path')."/administrator/components/com_uddeim/config.class.php");
+	require_once(uddeIMgetPath('absolute_path')."/administrator/components/com_uddeim/config.class.dist.php");
 	require_once(uddeIMgetPath('absolute_path')."/administrator/components/com_uddeim/admin.shared.php");
 	require_once(uddeIMgetPath('absolute_path')."/administrator/components/com_uddeim/admin.includes.php");
 
