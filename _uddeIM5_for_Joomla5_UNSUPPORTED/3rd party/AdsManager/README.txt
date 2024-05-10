@@ -1,1 +1,0 @@
-Please also check the FAQ!
