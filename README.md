@@ -14,7 +14,8 @@ Project is created with:
 * Joomla version: 1.x
 * Joomla version: 2.x
 * Joomla version: 3.x
-* Joomla version: 4.1.x
+* Joomla version: 4.x
+* Joomla version: 5.x
 
 * Community Builder version: X.y
 
@@ -37,8 +38,9 @@ Community Builder ("cb_" and "cb2_") packages can be used with all Joomla versio
 
 com_uddeim        the main component for Joomla 1.0, 1.5
 com_uddeim_j16    the main component for Joomla 1.6, 1.7, 2.5
-com_uddeim_j30    the main component for Joomla 3.0, 3.1, 3.2
-com_uddeim_j40    the main component for Joomla 3.0, 3.1, 3.2
+com_uddeim_j30    the main component for Joomla 3.x
+com_uddeim_j40    the main component for Joomla 4.x
+com_uddeim_j50    the main component for Joomla 5.x
 
 ### uddeIM
 
