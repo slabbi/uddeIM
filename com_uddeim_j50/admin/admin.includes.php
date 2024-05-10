@@ -348,7 +348,7 @@ function uddeIMcheckPMStype() {
 
 function uddeIMcreateCFGstring($config) {
 	$cf="<?php\n";
-	$cf.="if (!(defined('_JEXEC') || defined('_VALID_MOS'))) { die( 'Direct Access to this location is not allowed.' ); }\n";
+	$cf.="defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );\n"; 
 	$cf.="if (defined('_uddeConfig')) {\n";
 	$cf.=" return true;\n";
 	$cf.="} else {\n";
