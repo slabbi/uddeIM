@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="__UP_title__"
+			directory_title="uddeIM Message Viewer"
+            description="Displays messages from your uddeIM inbox."
+            author="Stephan Slabihoud"
+            author_email="ssl+coolgadget@gmx.de"
+            author_affiliation="uddeIM support"
+            author_location="Bottrop, Germany"
+            height="250"
+            scrolling="false"
+            singleton="false">
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs"/>
+	<Require feature="tabs"/>
+	<Require feature="analytics"/>
+</ModulePrefs>
+<UserPref name="title" display_name="Titel" default_value="uddeIM Inbox"/>
+<UserPref name="feedurl1" display_name="Feed URL" default_value="http://"/>
+<UserPref name="showFeedDesc" display_name="Show desc" datatype="bool" default_value="false"/>
+<UserPref name="entries" display_name="Entries" datatype="enum" default_value="5">
+  <EnumValue value="3"/>
+  <EnumValue value="4"/>
+  <EnumValue value="5"/>
+  <EnumValue value="6"/>
+  <EnumValue value="7"/>
+  <EnumValue value="8"/>
+  <EnumValue value="9"/>
+  <EnumValue value="10"/>
+  <EnumValue value="11"/>
+  <EnumValue value="12"/>
+</UserPref>
+<UserPref name="summaries" display_name="Summary" datatype="enum" default_value="200">
+  <EnumValue value="-1" display_value="none"/>
+  <EnumValue value="100" display_value="short"/>
+  <EnumValue value="200" display_value="middle"/>
+  <EnumValue value="300" display_value="long"/>
+  <EnumValue value="400" display_value="longer"/>
+  <EnumValue value="0" display_value="show all"/>
+</UserPref>
+<UserPref name="renderHtml" display_name="Show HTML" datatype="bool" default_value="true"/>
+<UserPref name="showTimestamp" display_name="Show Date" datatype="bool" default_value="false"/>
+<UserPref name="lang" display_name="Language" datatype="enum" default_value="EN">
+  <EnumValue value="BRPT" display_value="Brazilian-PT"/>
+  <EnumValue value="CAT" display_value="Catalan"/>
+  <EnumValue value="DE" display_value="Deutsch"/>
+  <EnumValue value="NL" display_value="Dutch"/>
+  <EnumValue value="EN" display_value="English"/>
+  <EnumValue value="FI" display_value="Finnish"/>
+  <EnumValue value="FR" display_value="French"/>
+  <EnumValue value="GR" display_value="Greek"/>
+  <EnumValue value="IL" display_value="Hebrew"/>
+  <EnumValue value="HU" display_value="Hungarian"/>
+  <EnumValue value="IT" display_value="Italian"/>
+  <EnumValue value="PO" display_value="Polish"/>
+  <EnumValue value="RU" display_value="Russian"/>
+  <EnumValue value="SR" display_value="Serbian"/>
+  <EnumValue value="CNS" display_value="Simplified Chinese"/>
+  <EnumValue value="CNT" display_value="Traditional Chinese"/>
+  <EnumValue value="TR" display_value="Turkish"/>
+</UserPref>
+<UserPref name="selectedTab" datatype="hidden"/>
+<Content type="html"><![CDATA[
+  <style type="text/css">
+  .tablib_table {
+    font-size: 0.7em;
+  }
+  .tablib_selected, .tablib_unselected {
+    width: 45%;
+  }
+
+  .statusLabel {
+    font-size: 0.75em;
+    font-style: italic;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .feedHeader {
+    padding-top: 5px;
+    font-size: 0.7em;
+  }
+  .feedHeader .feedTitle {
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  .feedHeader .feedAuthor {
+    font-weight: normal;
+    font-size: 0.8em;
+    color: #676767;
+  }
+
+  .feedList {
+    font-size: 0.7em;
+    margin: 0px;
+    padding: 0px 0px 5px 0px;
+    border-bottom: 1px solid #aaaaaa;
+  }
+  .feedList li {
+    margin-top: 5px;
+    padding: 3px 3px 0px 3px;
+    border-top: 1px solid #aaaaaa;
+  }
+  .feedList li div.entryTitle a {
+    font-weight: bold;
+  }
+  .feedList li div.entryTimestamp {
+    font-size: 0.95em;
+    font-style: italic;
+    color: #676767;
+  }
+  </style>
+
+  <script>
+  // Global variables
+  var prefs = new _IG_Prefs(__MODULE_ID__);
+  var tabs = new _IG_Tabs(__MODULE_ID__);
+
+  var newmsgs = "New messages";
+  var allmsgs = "All messages";
+  var code0	= "No messages";
+  var code1	= "No new messages";
+  var code2	= "Access not allowed";
+  var code3	= "Wrong username or password";
+  var code4	= "No object";
+  var code5	= "User blocked";
+  var tinfo = "Info";
+  var tconfig = "Please configure the personalized feed URL in the preferences.";
+
+  /**
+   * Initialize tabs when page loads.
+   * Create tab for each userpref only if userpref is not empty.
+   */
+  function init() {
+	var lang = prefs.getString("lang");
+	switch(lang) {
+		case "BRPT":newmsgs = "Novas mensagens";
+					allmsgs = "Mensagens";
+					break;
+		case "CAT": newmsgs = "Nous missatges";
+					allmsgs = "Missatges";
+					break;
+		case "DE": 	newmsgs = "Neue PMs";
+					allmsgs = "Alle PMs";
+					code0	= "Keine Nachrichten";
+					code1	= "Keine neuen Nachrichten";
+					code2	= "Zugriff nicht erlaubt";
+					code3	= "Falscher Benutzername oder Passwort";
+					code5	= "Benutzer ist geblockt";
+					var tinfo = "Info";
+					var tconfig = "Bitte die personalisierte URL in den Einstellungen konfigurieren.";
+					break;
+		case "NL": 	newmsgs = "Nieuwe berichten";
+					allmsgs = "Berichten";
+					break;
+		case "FI": 	newmsgs = "Uudet viestit";
+					allmsgs = "Viestit";
+					break;
+		case "FR": 	newmsgs = "Nouveaux messages";
+					allmsgs = "Messages";
+					break;
+		case "GR": 	newmsgs = "Νέα μηνύματα";
+					allmsgs = "μηνύματα";
+					break;
+		case "IL": 	newmsgs = "הודעות חדשות";
+					allmsgs = "הודעות";
+					break;
+		case "HU": 	newmsgs = "Új üzenet";
+					allmsgs = "Üzenet";
+					break;
+		case "IT": 	newmsgs = "Nuovi messaggi";
+					allmsgs = "Messaggi";
+					break;
+		case "PO": 	newmsgs = "Nowe wiadomości";
+					allmsgs = "Wiadomości";
+					break;
+		case "RU": 	newmsgs = "Новые сообщения";
+					allmsgs = "сообщения";
+					break;
+		case "SR": 	newmsgs = "Нове поруке";
+					allmsgs = "порукa";
+					break;
+		case "CNS": newmsgs = "新消息";
+					allmsgs = "消息";
+					break;
+		case "CNT": newmsgs = "新訊息";
+					allmsgs = "訊息";
+					break;
+		case "TR": 	newmsgs = "Yeni mesajlar";
+					allmsgs = "Mesajlar";
+					break;
+	}	
+		
+    var f1 = _hesc(prefs.getString("feedurl1"));
+    var f2 = _hesc(prefs.getString("feedurl1"));
+
+	if (f1!="http://")	f1 += _hesc("&type=1&showall=0&dummy=1");
+	if (f2!="http://")	f2 += _hesc("&type=1&showall=1");
+
+    var ft1 = newmsgs;
+    var ft2 = allmsgs;
+
+    if (f1 != "" && f1!="http://") {
+      tabs.addDynamicTab(((ft1 == "") ? "Feed 1" : ft1), _IG_Callback(callbackTab, f1));
+    }
+    if (f2 != "" && f1!="http://") {
+      tabs.addDynamicTab(((ft2 == "") ? "Feed 2" : ft2), _IG_Callback(callbackTab, f2));
+    } else {
+	  var infoid = tabs.addTab(tinfo);
+	  document.getElementById(infoid).innerHTML = '<div class="statusLabel">' + _hesc(tconfig) + '</div>';
+	}
+  };
+
+  /**
+   * Fetches an Atom or RSS feed and generates content inside the
+   * selected tab's content container.  This function is called whenever
+   * a tab is selected.
+   */
+function callbackTab(tabId, feedUrl) {
+    var showFeedDesc = prefs.getBool("showFeedDesc");
+    var summaries = prefs.getInt("summaries");
+    var entries = prefs.getInt("entries");
+    var renderHtml = prefs.getBool("renderHtml");
+    var showTimestamp = prefs.getBool("showTimestamp");
+    var container = _gel(tabId);
+
+	if (feedUrl.length<=10) {
+		container.innerHTML = '<div class="statusLabel">Please configure the feed URL...</div>';
+		return;
+	}
+
+    // Display loading message before fetching feed.
+    container.innerHTML = '<div class="statusLabel">Loading...</div>';
+
+    _IG_FetchXmlContent(
+      feedUrl,
+	  
+
+	  function (feed) {
+        if (feed == null || typeof(feed) != "object" || feed.firstChild == null) {
+            container.innerHTML = '<div class="statusLabel">Invalid feed URL:<br>' + feedUrl + '</div>';
+            return;
+        }
+
+        var html = '<div class="feedHeader">';   
+			html+= '<div class="feedTitle">';   
+
+		var itemList = feed.getElementsByTagName("channel");
+        for (var i = 0; i < itemList.length ; i++) { 
+			var nodeList = itemList.item(i).childNodes;
+			var title = "";
+			var link = "";
+			var desc = "";
+			for (var j = 0; j < nodeList.length ; j++) {
+				var node = nodeList.item(j);
+				if (node.nodeName == "title") {
+	                  title = node.firstChild.nodeValue;
+	            }
+	            if (node.nodeName == "link") {
+	                link = node.firstChild.nodeValue; 
+	            }
+	            if (node.nodeName == "description" && node.firstChild!=null) {
+					desc = node.firstChild.nodeValue; 
+	            }
+	        } 
+			html+= ((link != "") ? '<a target="_top" href="' + _hesc(link) + '">' + _hesc(title) + '</a>' : _hesc(title));
+        //  html+= ((feed.Author != "") ? '<span class="feedAuthor"> by ' + _hesc(feed.Author) + '</span>' : "");
+            html+= '</div>';
+			if (showFeedDesc)
+				html+= '<div class="feedDesc">' + _hesc(desc) + '</div>';
+			html+= '</div>';
+		}
+
+		var itemList = feed.getElementsByTagName("item");
+ 
+			html+= '<ul class="feedList">';
+            for (var i = 0; i < Math.min(itemList.length, entries) ; i++) { 
+				var nodeList = itemList.item(i).childNodes;
+
+				var title = "";
+				var link = "";
+				var desc = "";
+				var pDate = "";
+				for (var j = 0; j < nodeList.length ; j++) {
+					var node = nodeList.item(j);
+					if (node.nodeName == "title") {
+	                   title = node.firstChild.nodeValue;
+					   if (title.substr(0,4).toUpperCase() == "CODE") {
+					      switch(title.toUpperCase()) {
+							case "CODE=0": title = code0; break;
+							case "CODE=1": title = code1; break;
+							case "CODE=2": title = code2; break;
+							case "CODE=3": title = code3; break;
+							case "CODE=4": title = code4; break;
+							case "CODE=5": title = code5; break;
+						  }
+					   }
+	                }
+	                if (node.nodeName == "link") {
+	                   link = node.firstChild.nodeValue; 
+	                }
+	                if (summaries>-1 && node.nodeName == "description" && node.firstChild!=null) {
+	                   desc = node.firstChild.nodeValue; 
+	                }
+	                if (showTimestamp && node.nodeName == "pubDate" && node.firstChild!=null) {
+	                   pubDate = node.firstChild.nodeValue;
+					   var pmsec = Date.parse(pubDate);
+					   var ploc = new Date(pmsec);
+					   pDate = ploc.toLocaleString();
+	                }
+	            } 
+				// SHOW DATA
+				html+= '<li>';
+				html+= '<a target="_top" href="' + link + '"><b>' + _hesc(title) + '</b></a>';
+	            if (desc != "") {
+		            var summary = document.createElement("div");
+		            summary.innerHTML = (summaries == 0) ? desc : desc.substr(0, summaries);
+		            html+= '<div class="entrySummary">';
+		            html+= (renderHtml ? summary.innerHTML : _hesc(summary.innerHTML));
+		            html+= '</div>';
+	            }
+	            if (pDate != "") {
+	              html+= '<div class="entryTimestamp">[' + pDate + ']</div>';
+	            }
+				html+= '</li>';
+			} 
+			html+= '</ul>';
+            container.innerHTML = html;
+		    _IG_AdjustIFrameHeight();
+		},
+		{ refreshInterval: 30 }
+    );
+}
+
+  // Set onload event handler to call init()
+  _IG_RegisterOnloadHandler(init);
+//  _IG_Analytics("UA-676947-9", "/feeds_tabs");
+  </script>
+]]>
+</Content>
+</Module>

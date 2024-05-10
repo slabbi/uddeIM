@@ -1,0 +1,15 @@
+
+-* MONOGRAM Uddeim Template *-
+ * Version: 1.0
+
+ * Monogram Theme by 
+ * cumla.blogspot.com
+
+ * Based on Monorange theme
+
+
+ * Icons 
+ * http://www.gnome.org/
+
+ * Smileys
+ * http://www.jms101.btinternet.co.uk/

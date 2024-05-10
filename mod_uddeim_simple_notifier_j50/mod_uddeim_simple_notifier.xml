@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension type="module" version="5.0" client="site" method="upgrade" >
+        <name>uddeIM Simple Notifier</name> 
+        <author>Michał Prochaczek</author> 
+        <creationDate>2014-12-28</creationDate> 
+        <copyright>All rights reserved by Michał Prochaczek 2010 - 2014</copyright> 
+        <license>GPL 2.0</license> 
+        <authorEmail>piglet@prochaczek.pl</authorEmail> 
+        <authorUrl>michal.prochaczek.pl</authorUrl> 
+        <version>5.3</version>
+        <description>MOD_UDDEIM_SIMPLE_XML_DESCRIPTION</description>
+
+		
+	<files>
+		<filename>mod_uddeim_simple_notifier.xml</filename>
+		<!-- The "module" attribute signifies that this is the main controller file -->
+		<filename module="mod_uddeim_simple_notifier">mod_uddeim_simple_notifier.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+		<filename>script.php</filename>
+		<folder>tmpl</folder>
+		<folder>language</folder>
+	</files>
+	
+	<languages>
+        <language tag="en-GB">language/en-GB/en-GB.mod_uddeim_simple_notifier.ini</language>
+        <language tag="de-DE">language/de-DE/de-DE.mod_uddeim_simple_notifier.ini</language>
+		<language tag="pl-PL">language/pl-PL/pl-PL.mod_uddeim_simple_notifier.ini</language>
+    </languages>
+
+    
+	<media destination="mod_uddeim_simple_notifier">
+		<filename>index.html</filename>
+		<folder>icons</folder>
+	</media>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field 
+					name="displaynumber" 
+					type="radio"
+					default="1"
+                    layout="joomla.form.field.radio.switcher"
+					label="MOD_UDDEIM_SIMPLE_DISPLAY_NUMBER" 
+					description="MOD_UDDEIM_SIMPLE_DESC_DISPLAY_NUMBER">
+						<option value="0">JNO</option>
+						<option value="1">JYES</option>
+				</field>
+				<field 
+					name="displayzero" 
+					type="radio"
+					default="0"
+                    class="btn-group"
+					label="MOD_UDDEIM_SIMPLE_DISPLAY_ZERO" 
+					description="MOD_UDDEIM_SIMPLE_DESC_DISPLAY_ZERO">
+						<option value="0">JNO</option>
+						<option value="1">MOD_UDDEIM_SIMPLE_DISPLAY_ZERO_1</option>
+						<option value="2">MOD_UDDEIM_SIMPLE_DISPLAY_ZERO_2</option>
+				</field>
+				<field 
+					name="icon" 
+					type="imagelist" 
+					default="default.png" 
+					label="MOD_UDDEIM_SIMPLE_CHOOSE_ICON" 
+					description="MOD_UDDEIM_SIMPLE_DESC_CHOOSE_ICON" 
+					directory="media/mod_uddeim_simple_notifier/icons" 
+					exclude="" stripext="" hide_none="1"/>
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="layout"
+					type="modulelayout"
+					default="default"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>		
+		
+	<scriptfile>script.php</scriptfile>
+
+	<updateservers>
+		<server type="extension" name="uddeIM Simple Notifier" priority="1">http://michal.prochaczek.pl/joomla/mod_uddeim_simple_notifier_update.xml</server>
+	</updateservers>
+	
+</extension>

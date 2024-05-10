@@ -1,0 +1,103 @@
+/* ******************************************************************* */
+/* Title          udde Instant Messages (uddeIM)
+/* Description    Instant Messages System for Mambo 4.5 / Joomla 1.0 / Joomla 1.5
+/* Author         © 2007-2008 Stephan Slabihoud, © 2006 Benjamin Zweifel
+/* License        This is free software and you may redistribute it under the GPL.
+/*                uddeIM comes with absolutely no warranty.
+/*                Use at your own risk. For details, see the license at
+/*                http://www.gnu.org/licenses/gpl.txt
+/*                Other licenses can be found in LICENSES folder.
+/* ******************************************************************* */
+
+#uddeim-module {
+/* container of the module */
+	font-size:	.9em;
+	font-family : sans-serif;
+	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";	
+	padding: 0px 0px 8px 0px;
+    margin: .5em 2em 0 6px;
+	background: none;
+}
+
+#uddeim-modulenew {
+/* container of the module when unread messages present */
+	font-size:	.9em;
+	font-family : sans-serif;
+	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";	
+	padding: 0px 0px 8px 0px;
+    margin: .5em 2em 0 6px;
+	background: none;	
+}
+
+#uddeim-nomessage {
+/* container of the module when no new messages present */
+    font-size: .9em;
+}
+
+#uddeim-module p.uddeim-module-head {
+	background-color: #ffc000;
+	margin: 0;
+	padding-left: 3px;
+}
+
+#uddeim-module p.uddeim-module-head a {
+	color: #F23F00;
+	margin: 0;
+}
+
+#uddeim-module p.uddeim-module-head a:hover {
+	text-decoration: underline;
+}
+
+#uddeim-modulenew p.uddeim-module-head {
+	background-color: #ffc000;
+	margin: 0;
+	padding-left: 3px;
+}
+
+#uddeim-modulenew p.uddeim-module-head a {
+	color: #F23F00;
+	margin: 0;
+}
+
+
+
+#uddeim-module p.uddeim-module-body {
+	background-color: #EAEAEA;
+	padding: 1px 1px 1px 3px;
+	color: black;
+	margin: 0;
+}
+
+#uddeim-modulenew p.uddeim-module-body {
+	background-color: #EAEAEA;
+	padding: 1px 1px 1px 3px;		
+	margin: 0;
+}
+
+#uddeim-modulenew p.uddeim-module-body a {
+	color: #F23F00;
+}
+
+#uddeim-modulenew p.uddeim-module-body a:hover {
+	text-decoration: underline;
+}
+
+
+
+#uddeim-modulenew p.uddeim-module-row {
+	background-color: #EAEAEA;
+	color: black;
+	border-bottom: 1px solid #cccccc;
+	margin: 0;
+	padding: 1px 1px 1px 3px;	
+}
+
+#uddeim-modulenew p.uddeim-module-row a {
+	color: #F23F00;
+	margin: 0;
+}
+
+#uddeim-modulenew p.uddeim-module-row a:hover {
+	text-decoration: underline;
+}

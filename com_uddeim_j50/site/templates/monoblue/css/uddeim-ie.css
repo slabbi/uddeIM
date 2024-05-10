@@ -1,0 +1,665 @@
+/* *******************************************************************
+/* monoblue css, by mono, changed by benjamin
+/* ******************************************************************* */
+
+/* Main container uddeim */
+
+#uddeim {
+	color: #000000;
+	font-family : sans-serif;
+	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";	
+	padding: 0px 0px 8px 0px;
+	background: none;
+}
+
+#uddeim img, #uddeim a img {
+	border: none;
+}
+
+#uddeim a {
+	color: #336688;	
+	text-decoration: underline;
+}
+
+#uddeim a:hover {
+	color: #225577;
+}
+
+
+
+
+
+/* Topborder */
+
+
+
+
+
+/* Contentheading, headline */
+
+#uddeim div.contentheading {
+	padding: 10px;
+	border: none;
+}
+
+
+
+
+
+/* Navigation */
+
+#uddeim-navbar2 {
+	background-color: #336688 !important;
+	padding: 4px !important;
+}
+
+#uddeim-navbar2 ul {
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+#uddeim-navbar2 ul li {
+	display: inline !important;
+	margin-right: 7px !important;
+	font-weight: bold !important;
+	background: none !important;
+	padding: 0px !important;
+	margin-left: 0px !important;
+}
+
+#uddeim-navbar2 li a {
+	color: #c0c0c0 !important;
+	font-weight: bold !important;
+	text-decoration: none !important;
+}
+
+#uddeim-navbar2 li a:hover {
+	color: #ffffff !important;
+	text-decoration: none !important;
+	background: transparent !important;
+}
+
+#uddeim-navbar2 ul li img {
+	margin-right: 3px !important;
+	margin-bottom: -4px !important;
+}
+
+li.uddeim-activemenu {
+	color: #ffffff !important;
+}
+
+
+
+
+
+/* Everything BETWEEN navigation and bottomborder is wrapped by uddeim-m */
+
+#uddeim-m {
+	background-color: #e0e0ff; 
+	margin: 0;
+	padding: 10px;
+	min-height: 100px;
+}
+
+
+
+
+
+/* Toplines * (within uddeim-m) */
+
+#uddeim-toplines {
+	font-size: 11px;
+	padding: 8px;
+	color: #000000;
+}
+
+#uddeim-toplines p {
+	font-size: 11px;
+	color: #000000;	
+}
+
+
+
+
+
+/* Overview: Lists (inbox, outbox, trash, archive) */
+
+#uddeim-overview {
+	padding: 8px 8px 0px 8px !important;
+	width: 100% !important;
+}
+#uddeim-overview table {
+	border: 1px solid #CCCCCC;
+	border-collapse: collapse; 
+	border-spacing: none;
+}
+#uddeim-overview .sectiontableheader {
+	color: #000000 !important;
+	background-color: #c0c0df !important;
+	padding: 3px 3px 0 3px !important;
+	font-weight: bold !important;
+ 	font-size: 11px !important;
+}
+#uddeim-overview .sectiontablefooter {
+	color: #000000 !important;
+	background-color: #c0c0df !important;
+	padding: 3px 3px 0 3px !important;
+	font-weight: bold !important;
+ 	font-size: 11px !important;
+}
+#uddeim-overview .sectiontableentry1 a,
+#uddeim-overview .sectiontableentry2 a  {
+	text-decoration: none !important;
+	color: #336688 !important;
+}
+#uddeim-overview .sectiontableentry1 a:hover,
+#uddeim-overview .sectiontableentry2 a:hover {
+	text-decoration: underline !important;
+	background: none !important;
+}
+#uddeim-overview td {
+	border: 1px solid #CCCCCC; border-collapse: collapse; border-spacing: none;
+}
+#uddeim-overview .sectiontableentry2 td {
+	background-color: #EAEAEA !important;
+	color: #000000 !important;
+	padding: 3px !important;
+}
+#uddeim-overview .sectiontableentry1 td {
+	background-color: #F3F3F3 !important;
+	color: #000000 !important;
+	padding: 3px !important;
+}
+
+
+
+
+
+/* Page Navigation (below lists) */
+
+#uddeim-pagenav {
+	font-size: 11px;
+	text-align: right;
+	margin-top:	6px;
+	padding: 0px 8px 0px 8px;
+}
+
+#uddeim-pagenav .pagenav {
+	color: #000000;
+	background: none;
+	border: none;
+	padding: 2px;
+}
+
+div#uddeim-pagenav a.pagenav {
+	color: #336688;
+	background: none;
+	text-decoration: none;
+	border: none;
+	padding: 2px;
+}
+
+#uddeim-pagenav a.pagenav:hover {
+	text-decoration: underline;
+	background: transparent !important;
+}
+
+#uddeim-pagenav ul li {
+  display: inline !important;
+  list-style-type: none !important;
+}
+
+
+
+
+
+/* Message Display */
+/* Header */
+
+div.uddeim-messageheader {
+	position: relative;
+	padding: 10px;
+	margin: 0 0 10px 0;
+	background: #C2C2FF;
+	border: 1px solid #B5B5FF;
+}
+
+table.innermost {
+	background: none !important;
+	border: none !important;
+	border-spacing: 5px !important;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+table.innermost tr {
+	border: none !important;
+}
+
+table.innermost td {
+	border: none !important;
+}
+
+div.uddeim-messageheader img.uddeim-tn {
+	display: table-cell;
+	float: left;
+}
+
+div.uddeim-messageheader div.uddeim-messagefrom {
+	color: black;
+	float: left;
+	vertical-align: top;
+	margin-left: 10px;
+	color: #000000;
+}
+
+div.uddeim-messageheader div.uddeim-messagefrom-spam {
+	color: black;
+	float: left;
+	vertical-align: top;
+	margin-left: 10px;
+	color: #000000;
+}
+
+#uddeim-m div.uddeim-messageheader div.uddeim-messagefrom a {
+	color: #336688;
+}
+
+#uddeim-m div.uddeim-messageheader div.uddeim-messagefrom-spam a {
+	color: #336688;
+}
+
+div.uddeim-messageheader ul {
+	position: relative !important;
+	top: 0px !important;
+	right: 30px !important;
+	list-style: none !important;
+	list-style-position: outside !important;
+	list-style-type: none !important;
+}
+
+div.uddeim-messageheader li {
+	background: url("../../../../../components/com_uddeim/templates/monoblue/images/icon_delete.gif") no-repeat 0px 5px;
+	padding-left: 15px !important;
+	line-height: 1em !important;
+}
+
+div.uddeim-messageheader  li.uddeim-messageactionlink-delete {
+	background-image: url("../../../../../components/com_uddeim/templates/monoblue/images/icon_delete.gif");
+}
+
+div.uddeim-messageheader  li.uddeim-messageactionlink-block {
+	background-image: url("../../../../../components/com_uddeim/templates/monoblue/images/icon_block.gif");
+}
+
+div.uddeim-messageheader  li.uddeim-messageactionlink-archive {
+	background-image: url("../../../../../components/com_uddeim/templates/monoblue/images/icon_archive.gif");
+}
+
+div.uddeim-messageheader  li.uddeim-messageactionlink-spam {
+	background-image: url("../../../../../components/com_uddeim/templates/monoblue/images/icon_spam.gif");
+}
+
+div.uddeim-messageheader  li.uddeim-messageactionlink-forward {
+	background-image: url("../../../../../components/com_uddeim/templates/monoblue/images/icon_forward.gif");
+}
+
+div.uddeim-messageheader  li.uddeim-messageactionlink-recall {
+	background-image: url("../../../../../components/com_uddeim/templates/monoblue/images/icon_recall.gif");
+}
+
+#uddeim-m div.uddeim-messageheader li a {
+	color: #808080;
+	border: medium none;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+#uddeim-m div.uddeim-messageheader li a:hover, #uddeim-m div.uddeim-messageheader div.uddeim-messagefrom a:hover {
+	color: #F23F00;
+	text-decoration: underline;
+	background: transparent !important;
+}
+
+span.uddeim-clear {
+	clear: both;
+	display: block;
+}
+
+
+
+
+/* Message Display */
+/* Body */
+
+div.uddeim-messagebody {
+/*	clear: both; */
+	background: #ffffff !important;
+	border: 1px solid #C0C0C0 !important;
+	padding: 10px !important;
+	font-size: 1.1em !important;
+	color: #000000 !important;	
+}
+
+div.uddeim-messagebody2 {
+	background: #f8f8f8 !important;
+	border: none !important;
+	padding: 10px !important;
+	font-size: 1.0em !important;
+	color: #000000 !important;	
+}
+
+tr.uddeim-messagebody2header {
+	background: #ffffff !important;
+}
+
+tr.uddeim-messagebody2body {
+	background: #ffffff !important;
+}
+
+div.uddeim-messagebody2 a {
+	background: transparent !important;
+	color: #000000 !important;	
+	font-weight: normal !important;
+	text-decoration: none !important;
+}
+
+div.uddeim-messagebody2 a:hover {
+	background: transparent !important;
+	color: #000000 !important;
+	font-weight: normal !important;
+	text-decoration: underline !important;
+}
+
+div.uddeim-replyquote {
+	font-size: 0.9em;
+	padding-left: 8px;
+	margin-top: 8px;
+	border-left: 1px solid grey;
+}
+
+
+
+/* Compose, Writeform */
+
+#uddeim-writeform {
+	padding: 10px 8px 0px 8px;
+	color: #000000;
+}
+
+#uddeim-connectionlist ul {
+	margin: 0px;
+	padding: 0px 5px 0px 5px;
+}
+
+#uddeim-connectionlist ul li {
+	display: inline;
+	background: none;
+	margin: 0px;
+	padding: 0px 5px 0px 0px;
+}
+
+#uddeim-writeform textarea {
+	font-size: 11px;
+	width: 450px;
+	background-color: #ffffff;
+	color: #000000;
+	border: 1px solid #cccccc;
+}
+
+#uddeim-writeform input {
+	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";
+	font-size: 11px;
+	background-color: #ffffff;
+	color: #000000;
+	border: 1px solid #cccccc;
+}
+
+#uddeim-writeform input#input_to_name {
+	width: 200px;
+}
+
+#uddeim-writeform input.button {
+	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";
+	font-size: 11px;
+	background: none;
+	background-color: #cccccc;
+	color: #000000;
+	border: 1px solid #c0c0c0;
+
+}
+
+
+
+div.uddeim-messageattachments {
+/*	position: relative !important;
+	background: #D2D2FF !important;
+	border: 1px solid #B5B5FF !important; */
+}
+div.uddeim-messageattachments table {
+	border: none !important;
+}
+div.uddeim-messageattachments td {
+	position: relative !important;
+	padding: 10px !important;
+	margin: 10px 0 0 0 !important;
+	border: none !important;
+}
+div.uddeim-messageattachments tr {
+	border: none !important;
+}
+div.uddeim-attachmentbox {
+	padding: 10px 5px 10px 5px !important;
+}
+
+
+
+#uddeim-bbemobox table {
+	width: 300px;
+	margin-bottom: 8px;
+	background: #eee;
+	border: 1px solid #bbb;
+}
+
+#uddeim-smileybox table {
+	width: 450px;
+	margin-bottom: 8px;
+	background: #eee;
+	border: 1px solid #bbb;
+}
+
+#uddeim-smileybox-popup table {
+	margin-bottom: 8px;
+	background: #eee;
+	border: 1px solid #bbb;
+}
+
+.uddeim-sendoption {
+	font-size:		11px;
+	padding: 3px;
+}
+
+.uddeim-captcha {
+	padding: 3px;
+}
+
+.uddeim-password {
+	padding: 3px;
+}
+
+.uddeim-sendbutton {
+	padding: 3px;
+}
+
+.uddeim-textcounter {
+	padding: 3px;
+}
+
+
+
+
+
+
+/* Settings page */
+
+#uddeim-set-emn {
+	padding: 8px 8px 8px 15px;
+	background: #D2D2D2;
+	border: 1px solid #C5C5C5;	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#uddeim-set-emn h4 {
+	margin-top: 8px;
+}
+
+.uddeim-set-block {
+	padding: 8px;
+	padding-left: 15px;
+	margin-top: 15px;
+	background: #D2D2D2;
+	border: 1px solid #C5C5C5;	
+}
+
+.uddeim-set-block div#uddeim-overview {
+	padding: 0px;
+}
+
+
+/* Settings: Popup */
+
+#uddeim-set-popup {
+	padding: 8px 8px 8px 15px;
+	border: 1px solid #C5C5C5;	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#uddeim-set-popup h4 {
+	margin-top: 8px;
+}
+
+/* Settings: Sound */
+
+#uddeim-set-sound {
+	padding: 8px 8px 8px 15px;
+	border: 1px solid #C5C5C5;	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+#uddeim-set-sound h4 {
+	margin-top: 8px;
+}
+
+/* Bottomlines (within uddeim-m) */
+
+#uddeim-bottomlines {
+	margin-top:	10px;
+	font-size: 10px;
+	padding: 0px 8px 8px 8px;
+	color: #666666;
+	line-height: 1.2em;
+}
+
+#uddeim-bottomlines p {
+	font-size: 11px;
+}
+
+
+
+
+
+/* Bottomborder */
+
+#uddeim-bottomborder {
+ background: #e0e0e0;
+ padding: 10px;
+}
+
+.uddeim-bottomborder a {
+}
+
+#uddeim-bottomborder a {
+	color: #336688;
+	font-weight: normal;
+	text-decoration: none;
+	 margin-right: 5px;
+}
+
+#uddeim-bottomborder a:hover {
+	color: #C20F00;
+	text-decoration: underline;
+	background: transparent !important;
+}
+
+.uddeim-limit-bb {
+	text-align: right;
+	margin-left: 15px;
+}
+
+
+
+
+
+/* Others */
+
+.uddeim-warning {
+	background-color: #F23F00;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+
+
+
+
+
+/* System message */
+
+#uddeim-message {
+	margin-top: 8px;
+	padding: 8px;
+}
+
+#uddeim-message table {
+	border: 1px solid green;
+	border-spacing: 10px;
+}
+
+#uddeim-message .sectiontableentry1 td {
+	padding: 8px;
+	padding-left: 15px;
+	background: #D2D2D2;
+	border: 1px solid #C5C5C5;	
+}
+
+#uddeim-message .sectiontableentry1 td img {
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+#uddeim-message .sectiontableentry2 td {
+	background-color: #ffffff;
+	color: #000000;	
+	border: 1px solid #c0c0c0;
+	padding: 15px;
+	font-size: 12px;
+}
+
+
+
+/* New Joomla 1.6 */
+#uddeim-filter table td,
+#uddeim-filter table tr {
+	border-style: none;
+}
+#uddeim-writeform  table td,
+#uddeim-writeform  table tr {
+	border-style: none;
+}
+#uddeim-block table td,
+#uddeim-block table tr {
+	border-style: none;
+}

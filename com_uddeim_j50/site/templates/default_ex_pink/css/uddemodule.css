@@ -1,0 +1,157 @@
+/* ******************************************************************* */
+/* Title          udde Instant Messages (uddeIM)
+/* Description    Instant Messages System for Mambo 4.5 / Joomla 1.0 / Joomla 1.5
+/* Author         � 2007-2008 Stephan Slabihoud, � 2006 Benjamin Zweifel
+/* License        This is free software and you may redistribute it under the GPL.
+/*                uddeIM comes with absolutely no warranty.
+/*                Use at your own risk. For details, see the license at
+/*                http://www.gnu.org/licenses/gpl.txt
+/*                Other licenses can be found in LICENSES folder.
+/* ******************************************************************* */
+
+#xeftcol div.module,
+#xightcol-normal div.module,
+#xightcol-broad div.modulec {
+ padding-bottom: 0px;
+  padding-top: 0px;
+  background: transparent;
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+#xeftcol div.module {
+  padding-left: 5px;
+  padding-right: 0px;
+}
+#xightcol-normal div.module,
+#xightcol-broad div.module {
+  padding-left: 5px;
+  padding-right: 0px;
+}
+
+#xeftcol div.module h3 {
+  width: 146px;			/* +2x2px f�r padding bei div.module h3 */
+}
+#xightcol-normal div.module h3 {
+  width: 146px;
+}
+
+#xightcol-broad div.module h3,
+#xightcol-broad div.moduledocman h3 {
+  width: 170px;
+}
+
+xiv.module h3,
+xiv.moduledocman h3 {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 2px 2px 2px;
+  margin-bottom: 5px;
+  margin-left: -6px;
+  margin-top: -1px;
+  margin-right: -1px;
+  color: #FFFFFF;
+  border: 1px outset #BF246A;
+  background-color: #BF246A;
+}
+
+
+
+#uddeim-module {
+/* container of the module */
+	font-size:	.9em;
+	padding: 0px 0px 0px 0px;
+	background: none;
+  margin: 6px 2em 0 6px;
+}
+
+#uddeim-modulenew {
+/* container of the module when unread messages present */
+	font-size:	.9em;
+    font-weight:bold;
+	padding: 0px 0px 0px 0px;
+	background: none;	
+  margin: 6px 2em 0 6px;
+}
+
+#uddeim-nomessage {
+/* container of the module when no new messages present */
+    font-size: .9em;
+}
+
+#uddeim-module p.uddeim-module-head {
+	background-color: #BF246A;
+	margin: 0;
+  border: 1px outset #BF246A;
+	padding-left: 3px;
+}
+
+#uddeim-modulenew p.uddeim-module-head {
+	background-color: #BF246A;
+	margin: 0;
+  border: 1px outset #BF246A;
+  font-weight: bold;
+	padding-left: 3px;
+}
+
+#uddeim-module p.uddeim-module-head a {
+	color: white;
+	margin: 0;
+}
+
+#uddeim-modulenew p.uddeim-module-head a {
+	color: white;
+  font-weight: bold;
+	margin: 0;
+}
+
+#uddeim-module p.uddeim-module-head a:hover {
+	color: red;
+}
+
+#uddeim-modulenew p.uddeim-module-head a:hover {
+	color: red;
+}
+
+
+#uddeim-module p.uddeim-module-body {
+	background-color: #EAEAEA;
+	padding: 1px 1px 1px 3px;
+	color: black;
+	margin: 0;
+  margin-right: 1px;
+}
+
+#uddeim-modulenew p.uddeim-module-body {
+	background-color: #EAEAEA;
+	padding: 1px 1px 1px 3px;		
+	margin: 0;
+  margin-right: 1px;
+}
+
+#uddeim-modulenew p.uddeim-module-body a {
+	color: #336688;
+}
+
+#uddeim-modulenew p.uddeim-module-body a:hover {
+	color: red;
+}
+
+
+
+#uddeim-modulenew p.uddeim-module-row {
+	background-color: #EAEAEA;
+	color: black;
+	border-bottom: 1px solid #cccccc;
+	margin: 0;
+	padding: 1px 1px 1px 3px;	
+  margin-right: 1px;
+}
+
+#uddeim-modulenew p.uddeim-module-row a {
+	color: #336688;
+	margin: 0;
+}
+
+#uddeim-modulenew p.uddeim-module-row a:hover {
+	text-decoration: underline;
+}
