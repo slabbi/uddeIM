@@ -85,7 +85,7 @@ class getUddeIMblockingTab extends cbTabHandler {
 				if ($blocked && $blocker && $blocker==$this->myuserid) {
 					$sql = "DELETE FROM `#__uddeim_blocks` WHERE blocked=".$blocked." AND blocker=".$blocker;
 					$_CB_database->setQuery( $sql );
-					if (!$_CB_database->execute())
+					if (!$_CB_database->query())
 						die("SQL error" . $_CB_database->stderr(true));
 					$ret = '<fieldset><legend>'._UDDEIM_CBPLUG_BLOCKINGCFG.'</legend>';
 					$ret .= _UDDEIM_CBPLUG_NOWUNBLOCKED;
@@ -100,7 +100,7 @@ class getUddeIMblockingTab extends cbTabHandler {
 					if (!$exists) {
 						$sql = "INSERT INTO `#__uddeim_blocks` (blocker, blocked) VALUES (".$blocker.", ".$blocked.")";
 						$_CB_database->setQuery( $sql );
-						if (!$_CB_database->execute())
+						if (!$_CB_database->query())
 							die("SQL error" . $_CB_database->stderr(true));
 					}
 					$ret = '<fieldset><legend>'._UDDEIM_CBPLUG_BLOCKINGCFG.'</legend>';

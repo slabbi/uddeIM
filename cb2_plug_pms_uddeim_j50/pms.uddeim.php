@@ -167,8 +167,8 @@ class getuddeimTab extends cbPMSHandler {
 		// escaping not necessary, already escaped before this internal function gets called now insert the message as system message 
 		// REPLY IS NOT DISABLED AS THE SYSTEMMESSAGE USERNAME WILL CONTAIN A VALID USERNAME
 		if($udde_fromid && $udde_toid) {
-			$_CB_database->SetQuery($sql);
-			if (!$_CB_database->execute()) {
+			$_CB_database->setQuery($sql);
+			if (!$_CB_database->query()) {
 				die("SQL error" . $_CB_database->stderr(true));
 			}
 			$insID = $_CB_database->insertid();
@@ -231,8 +231,8 @@ class getuddeimTab extends cbPMSHandler {
 		}
 
 		if($udde_fromid && $udde_toid) {
-			$_CB_database->SetQuery($sql);
-			if (!$_CB_database->execute()) {
+			$_CB_database->setQuery($sql);
+			if (!$_CB_database->query()) {
 				die("SQL error" . $_CB_database->stderr(true));
 			}
 			$insID = $_CB_database->insertid();
@@ -580,17 +580,17 @@ class getuddeimTab extends cbPMSHandler {
 
 		print "Deleting pms data for user ".$user->id;
 		$_CB_database->setQuery( $query_pms_delete );
-		if (!$_CB_database->execute()) {
+		if (!$_CB_database->query()) {
 			$this->_setErrorMSG("SQL error " . $query_pms_delete . $_CB_database->stderr(true));
 			return false;			
 		}
 		$_CB_database->setQuery( $query_pms_delete_extra1 );
-		if (!$_CB_database->execute()) {
+		if (!$_CB_database->query()) {
 			$this->_setErrorMSG("SQL error " . $query_pms_delete_extra1 . $_CB_database->stderr(true));
 			return false;			
 		}			
 		$_CB_database->setQuery( $query_pms_delete_extra2 );
-		if (!$_CB_database->execute()) {
+		if (!$_CB_database->query()) {
 			$this->_setErrorMSG("SQL error " . $query_pms_delete_extra2 . $_CB_database->stderr(true));
 			return false;			
 		}			
