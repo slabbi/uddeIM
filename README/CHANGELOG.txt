@@ -14,7 +14,8 @@ changes and news for 5.x:
 7.) added 5 new templates
 8.) updated ReCaptcha php to newest version 1.3 (php 8)
 9.) premium addons integrated
-10.) some minor style updates in the backend
+10.) replaced McCrypt (EOL) with OpenSSL encryption
+11.) some minor style updates in the backend
 
 
 Following features are new 4.1:
