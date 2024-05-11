@@ -88,6 +88,6 @@
 		</files>
 	</administration>
     <updateservers>
-		<server type="extension" priority="1" name="Uddeim Update Server">https://github.com/slabbi/uddeIM/uddeim_update.xml</server>
+		<server type="extension" priority="1" name="Uddeim Update Server">https://raw.githack.com/slabbi/uddeIM/main/uddeim_update.xml</server>
 	</updateservers>
 </extension>
