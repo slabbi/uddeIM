@@ -76,7 +76,8 @@ cb2_plug_pms_uddeim                (COMMUNITY BUILDER 2.x PLUGIN)
 
 A plugin for the Community Builder that allows to send a "Quick message" from a user's profile. Install this with the plugin installer in CB. You have also to publish and configure a tab in CB.
 
-Note: This plugin does currently not recognize the timedelay and CAPTCHA settings. So do only use the "Quick message" feature when you do not need CAPTCHA or timedelay protection.
+[!NOTE]
+This plugin does currently not recognize the timedelay and CAPTCHA settings. So do only use the "Quick message" feature when you do not need CAPTCHA or timedelay protection.
 
 You can also use plug_pms_mypmspro instead (note that it does not offer all features of plug_pms_uddeim).
 plug_pms_uddeim is the uddeIM-only (extended) version of plug_pms_mypmspro.
