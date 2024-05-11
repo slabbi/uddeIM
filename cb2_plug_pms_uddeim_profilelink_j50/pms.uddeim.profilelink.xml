@@ -8,7 +8,7 @@
 	<authorEmail>ssl@gmx.de</authorEmail>
 	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
 	<version>2.9</version>
-	<release>5.0</release>
+    <release>5.0</release>
 	<description>v5.0 - Displays a link to uddeIM compose message page in the profile. When the plugin is &quot;public&quot; it calls the public frontend (when enabled).</description>
 	<files>
 		<filename plugin="pms.uddeim.profilelink">pms.uddeim.profilelink.php</filename>

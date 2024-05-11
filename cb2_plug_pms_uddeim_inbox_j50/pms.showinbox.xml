@@ -8,7 +8,7 @@
 	<authorEmail>ssl@gmx.de</authorEmail>
 	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
 	<version>2.9</version>
-	<release>5.0</release>
+    <release>5.0</release>
 	<description>v5.0 - Provides a CB Tab that shows the content of the uddeIM Inbox.</description>
 	<files>
 		<filename plugin="pms.showinbox">pms.showinbox.php</filename>
