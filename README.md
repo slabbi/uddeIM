@@ -25,22 +25,17 @@ Of course, we recommend to stay updated, so please update your Joomla to the mos
 ## Setup
 To run this project, You need a Joomla CMS system. You will need to install the packages according to the Joomla version you have.
 
-#### PLEASE READ THE FAQ FOR MORE INFORMATION! (https://github.com/slabbi/uddeIM/blob/main/README/FAQ.pdf)
-
-Install com_uddeim (_j16, _j30) with the component installer and create a link in the menu for registered users (set the access level to "public users" when you plan to enable uddeIM's public frontend feature) to this component.
+Install com_uddeim (_j16, _j30, _j50) with the component installer and create a link in the menu for registered users (set the access level to "public users" when you plan to enable uddeIM's public frontend feature) to this component.
 
 Please read "README uddeIM x.x" for more information.
 
+Note: A package without "_" suffix can be used with Joomla 1.0 and 1.5 only! The suffix "_j16" indicates that this package can be used with Joomla 1.6, 1.7 and 2.5. The suffix "_j30" indicates that this package can be used with Joomla 3.0 and above, "_j50" for Joomla 5.0 and above. Community Builder ("cb_" and "cb2_") packages can be used with all Joomla versions.
 
-#### NOTE:
-A package without "_" suffix can be used with Joomla 1.0 and 1.5 only! The suffix "_j16" indicates that this package can be used with Joomla 1.6, 1.7 and 2.5. The suffix "_j30" indicates that this package can be used with Joomla 3.0 and above.
-Community Builder ("cb_" and "cb2_") packages can be used with all Joomla versions.
-
-com_uddeim        the main component for Joomla 1.0, 1.5
-com_uddeim_j16    the main component for Joomla 1.6, 1.7, 2.5
-com_uddeim_j30    the main component for Joomla 3.x
-com_uddeim_j40    the main component for Joomla 4.x
-com_uddeim_j50    the main component for Joomla 5.x
+* com_uddeim        the main component for Joomla 1.0, 1.5
+* com_uddeim_j16    the main component for Joomla 1.6, 1.7, 2.5
+* com_uddeim_j30    the main component for Joomla 3.x
+* com_uddeim_j40    the main component for Joomla 4.x
+* com_uddeim_j50    the main component for Joomla 5.x
 
 ### uddeIM
 
@@ -76,8 +71,7 @@ cb2_plug_pms_uddeim                (COMMUNITY BUILDER 2.x PLUGIN)
 
 A plugin for the Community Builder that allows to send a "Quick message" from a user's profile. Install this with the plugin installer in CB. You have also to publish and configure a tab in CB.
 
-[!NOTE]
-This plugin does currently not recognize the timedelay and CAPTCHA settings. So do only use the "Quick message" feature when you do not need CAPTCHA or timedelay protection.
+Note: This plugin does currently not recognize the timedelay and CAPTCHA settings. So do only use the "Quick message" feature when you do not need CAPTCHA or timedelay protection.
 
 You can also use plug_pms_mypmspro instead (note that it does not offer all features of plug_pms_uddeim).
 plug_pms_uddeim is the uddeIM-only (extended) version of plug_pms_mypmspro.
