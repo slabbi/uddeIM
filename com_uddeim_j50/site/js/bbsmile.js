@@ -1,3 +1,15 @@
+// ********************************************************************************************
+// Title          udde Instant Messages (uddeIM)
+// Description    Instant Messages System for Joomla 5
+// Author         © 2007-2024 Stephan Slabihoud, v5 joomod.de
+// License        This is free software and you may redistribute it under the GPL.
+//                uddeIM comes with absolutely no warranty.
+//                Use at your own risk. For details, see the license at
+//                http://www.gnu.org/licenses/gpl.txt
+//                Other licenses can be found in LICENSES folder.
+//                Redistributing this file is only allowed when keeping the header unchanged.
+// ********************************************************************************************
+
 // bbCode control by
 // subBlue design
 // www.subBlue.com
