@@ -98,7 +98,8 @@ function uddeIMdecrypt($crypt,$key,$mode) {
 		$crypt = uddeIMdoDecodeHexadecimal($crypt);
 	elseif ($mode2 == CRYPT_MODE_BASE64)
 		$crypt = (string)base64_decode($crypt);
-	elseif ($mode>=0 && $mode<16) {
+	
+	if ($mode>=0 && $mode<16) {
 		for ($i=0;$i<strlen($crypt);$i++)
 			@$data .= $crypt[$i] ^ $key[$i % strlen($key)];
 	}
