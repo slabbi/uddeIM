@@ -1239,14 +1239,14 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 				$sql  = "SELECT count(id) FROM `#__uddeim` WHERE `delayed`!=0";
 				$database->setQuery($sql);
 				$temp = (int)$database->loadResult();
-				echo "<span style='padding: 3px'><a href='".uddeIMredirectIndex()."?option=com_uddeim&task=mcp'>"._UDDEADM_MCP_STAT." ".$temp."</a></span><br />";
+				echo "<a class='btn btn".($temp ? '-' : '-outline-')."info' href='".uddeIMredirectIndex()."?option=com_uddeim&task=mcp'>"._UDDEADM_MCP_STAT."&ensp;<b class='badge bg-danger'>&ensp;".$temp."&ensp;</b></a><br />";
 			}
 
 			if ($plugin_spamcontrol) {
 				$sql  = "SELECT count(a.id) FROM `#__uddeim_spam` AS a LEFT JOIN `#__uddeim` AS b ON a.mid = b.id";
 				$database->setQuery($sql);
 				$temp = (int)$database->loadResult();
-				echo "<span style='padding: 3px'><a href='".uddeIMredirectIndex()."?option=com_uddeim&task=spamcontrol'>"._UDDEADM_SPAMCONTROL_STAT." ".$temp."</a></span><br />";
+				echo "<a class='btn btn".($temp ? '-' : '-outline-')."danger' style='margin:8px 0' href='".uddeIMredirectIndex()."?option=com_uddeim&task=spamcontrol'>"._UDDEADM_SPAMCONTROL_STAT."&ensp;<b class='badge bg-info'>&ensp;".$temp."&ensp;</b></a><br />";
 			}
 
 			if (!$config->emailtrafficenabled) {
