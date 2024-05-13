@@ -1,15 +1,14 @@
-/*<!--Make sure the form has the autocomplete function switched off:-->
-<form autocomplete="off" action="/action_page.php">
-    <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="myCountry" placeholder="Country">
-    </div>
-    <input type="submit">
-</form>'/
-
-/* <script>
-autocomplete(document.getElementById("myInput"), array(values);
-var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo"];
-</script> */
+// ********************************************************************************************
+// Title          udde Instant Messages (uddeIM)
+// Description    Instant Messages System for Joomla 5
+// Author         © 2007-2024 Stephan Slabihoud, v5 joomod.de
+// License        This is free software and you may redistribute it under the GPL.
+//                uddeIM comes with absolutely no warranty.
+//                Use at your own risk. For details, see the license at
+//                http://www.gnu.org/licenses/gpl.txt
+//                Other licenses can be found in LICENSES folder.
+//                Redistributing this file is only allowed when keeping the header unchanged.
+// ********************************************************************************************
 
 
 function autocomplete(inp, arr, seperror='', sep=',', start=0, instr=0) {
