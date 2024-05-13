@@ -3,7 +3,7 @@
 // @title         udde Instant Messages (uddeIM)
 // @description   Instant Messages System for Joomla 5
 // @author        Stephan Slabihoud, Benjamin Zweifel
-// @copyright     © 2007-2024 Stephan Slabihoud, © 2024 v5 joomod.de, © 2006 Benjamin Zweifel
+// @copyright     Â© 2007-2024 Stephan Slabihoud, Â© 2024 v5 joomod.de, Â© 2006 Benjamin Zweifel
 // @license       GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 //                This program is free software: you may redistribute it and/or modify under the
 //                terms of the GNU General Public License as published by the Free Software Foundation,
@@ -154,12 +154,12 @@ function uddeIMshowTrashCan($myself, $item_id, $limit, $limitstart, $cryptpass, 
 		if ($themessage->systemflag || $config->allowbb)
 			$teasermessage=uddeIMbbcode_strip($teasermessage);
 
-		$teasermessage=uddeIMteaser(stripslashes($teasermessage), $config->firstwordsinbox, $config->quotedivider, $config->languagecharset);
+		$teasermessage=uddeIMteaser(stripslashes($teasermessage ?? ''), $config->firstwordsinbox, $config->quotedivider, $config->languagecharset);
 		$teasermessage=htmlspecialchars($teasermessage, ENT_QUOTES, $config->charset);
 		$teasermessage=str_replace("&amp;#", "&#", $teasermessage);
 		$teasermessage=str_replace("&amp;&lt;/br&gt;", " ", $teasermessage);
 
-		$safemessage=htmlspecialchars(stripslashes($cm), ENT_QUOTES, $config->charset);
+		$safemessage=htmlspecialchars(stripslashes($cm ?? ''), ENT_QUOTES, $config->charset);
 		$safemessage=str_replace("&amp;&lt;/br&gt;", "</br>", $safemessage);
 
 		$messagecell=$teasermessage;
