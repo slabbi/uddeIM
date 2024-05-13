@@ -21,7 +21,7 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 function uddeIMbbcode_replace($string, $config) {
-    if (strlen($string)) {
+    if (strlen($string ?? '')) {
 
 	if($config->allowbb > 0) {
 	
@@ -218,7 +218,7 @@ function uddeIMsmile_replace($string, $config) {
 
 function uddeIMbbcode_strip($string) {
 
-    if (strlen($string)){
+    if (strlen($string ?? '')){
 
 	// bold
     $string = preg_replace("/(\[b\])(.*?)(\[\/b\])/si", "\\2", $string);
