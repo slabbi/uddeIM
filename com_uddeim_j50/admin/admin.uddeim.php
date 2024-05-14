@@ -1208,9 +1208,9 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
   <table cellpadding="4" cellspacing="0" border="0" width="98%">
   <tr>
     <td class="sectionname" align="left">
-      <h4><?php echo _UDDEADM_SETTINGS; ?></h4>
+      <h3><?php echo _UDDEADM_SETTINGS; ?></h3>
     </td>
-    <td align="left" width="25%">
+    <td align="left" width="50%">
 	  <?php
 			$plugin_error = 0;
 			if (uddeIMcheckPlugin('poxtbox'))
@@ -1250,7 +1250,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			}
 
 			if (!$config->emailtrafficenabled) {
-				echo "<br /><span style='color: red; padding: 3px'>"._UDDEADM_EMAILSTOPPED."</span><br />";
+				echo "<br /><span class='alert bg-warning' style='color: red; padding: 3px 8px'>"._UDDEADM_EMAILSTOPPED."</span><br /><br />";
 			}
 
 			if ($plugin_error) {
