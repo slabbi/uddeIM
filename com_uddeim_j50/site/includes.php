@@ -122,13 +122,13 @@ function uddeIMmb_mime_header($string, $config, $encoding=null) {
 function uddeIMsendmail($fromname, $frommail, $toname, $tomail, $subject, $message, $replyto, $replytoname, $addheaders, $config) {
 	$mosConfig_sitename = uddeIMgetSitename();
 	$ret = false;
-	$temp = '"'.$fromname.'"';
+	$temp = $fromname;				// was '"'.$fromname.'"';
 	if ($config->encodeheader)
 		$temp = uddeIMmb_mime_header($temp, $config);
 
 	$header  = "From: ".$temp." <".$frommail.">\n";
 	$header .= "Organization: ".$mosConfig_sitename."\n";
-	$header .= "User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.8.1.6) Gecko/20070728 Thunderbird/2.0.0.6\n";
+	$header .= "User-Agent: uddeIM PMS\n";
 	$header .= "MIME-Version: 1.0\n";
 	$header .= "Content-type: text/plain; charset=".uddeIMgetCharsetMailalias($config->mailcharset)."\n";
 	$header .= "Content-Transfer-Encoding: 8bit\n";
