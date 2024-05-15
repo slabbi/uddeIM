@@ -30,7 +30,6 @@ DEFINE ('_UDDEADM_SAVECONFIGDB_HEAD', 'always save Configuration to db');
 DEFINE ('_UDDEADM_SAVECONFIGDB_EXP', 'always backup the configuration on each saving to the db');
 
 // New: 5.0
-DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'Select mailsystem uddeIM should use to send notifications.<br><b>force \r\n</b> is used instead of default \n linebreak, if email sending fails<br><b>Debug</b> as in the select description');
 DEFINE ('_UDDEIM_MESSAGE_REPLY_INFO', ' (with Infomail)');
 DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Message and Infomail sent to ');
 DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Message sent, but Infomail failed');
@@ -824,6 +823,7 @@ DEFINE ('_UDDEIM_RECIPIENTSFOUND', 'recipients found');
 DEFINE ('_UDDEADM_MAILSYSTEM_MOSMAIL', 'use Joomla Mail');
 DEFINE ('_UDDEADM_MAILSYSTEM_PHPMAIL', 'php mail (default)');
 DEFINE ('_UDDEADM_MAILSYSTEM_HEAD', 'Mailsystem');
+DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'Select mailsystem uddeIM should use to send notifications.<br><b>force \r\n</b> is used instead of default \n linebreak, if email sending fails<br><b>Debug</b> as in the select description');
 DEFINE ('_UDDEADM_SHOWGROUPS_HEAD', 'Show Joomla groups');
 DEFINE ('_UDDEADM_SHOWGROUPS_EXP', 'Show Joomla groups in system message list.');
 DEFINE ('_UDDEADM_ALLOWFORWARDS_HEAD', 'Forwarding of messages');
