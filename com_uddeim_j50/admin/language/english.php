@@ -1,4 +1,4 @@
-?php
+<?php
 // ********************************************************************************************
 // @title         udde Instant Messages (uddeIM)
 // @description   Instant Messages System for Joomla 5, language file
