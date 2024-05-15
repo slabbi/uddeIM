@@ -35,7 +35,6 @@ DEFINE ('_UDDEADM_SAVECONFIGDB_HEAD', 'enregistrez toujours la configuration dan
 DEFINE ('_UDDEADM_SAVECONFIGDB_EXP', 'sauvegardez toujours la configuration à chaque sauvegarde dans la base de données');
 
 // New: 5.0
-DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'Sélectionnez le système de messagerie que uddeIM doit utiliser pour envoyer des notifications.<br><b>forcer \r\n</b> est utilisé à la place du saut de ligne \n par défaut, si l\'envoi d\'e-mails échoue<br><b>Débogage</b> comme dans la description sélectionnée');
 DEFINE ('_UDDEIM_MESSAGE_REPLY_INFO', ' (avec Infomail)');
 DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Message et infomail envoyés à ');
 DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Message envoyé, mais Infomail a échoué');
