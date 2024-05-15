@@ -3,7 +3,7 @@
 // @title         udde Instant Messages (uddeIM)
 // @description   Instant Messages System for Joomla 5, language file
 // @author        Stephan Slabihoud
-// @copyright     © 2007-2024 Stephan Slabihoud, © 2024 v5 joomod.de
+// @copyright     Â© 2007-2024 Stephan Slabihoud, Â© 2024 v5 joomod.de
 // @license       GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 //                This program is free software: you may redistribute it and/or modify under the
 //                terms of the GNU General Public License as published by the Free Software Foundation,
@@ -30,7 +30,6 @@ DEFINE ('_UDDEADM_SAVECONFIGDB_HEAD', 'always save Configuration to db');
 DEFINE ('_UDDEADM_SAVECONFIGDB_EXP', 'always backup the configuration on each saving to the db');
 
 // New: 5.0
-DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'Select mailsystem uddeIM should use to send notifications.<br><b>force \r\n</b> is used instead of default \n linebreak, if email sending fails<br><b>Debug</b> as in the select description');
 DEFINE ('_UDDEIM_MESSAGE_REPLY_INFO', ' (with Infomail)');
 DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Message and Infomail sent to ');
 DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Message sent, but Infomail failed');
