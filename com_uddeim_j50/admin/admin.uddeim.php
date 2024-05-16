@@ -58,12 +58,6 @@ if ($plugin=uddeIMcheckPlugin('rss'))
 if ($plugin=uddeIMcheckPlugin('pfrontend'))
 	include_once($plugin);
 
-//auto rename _bak to use old config
-//if (file_exists($pathtoadmin."/config.class_bak.php")) {
-//rename($pathtoadmin."/config.class_bak.php",$pathtoadmin."/config.class.php");
-//if (function_exists('opcache_reset'))
-//opcache_reset();
-//}
 
 clearstatcache(TRUE,$pathtoadmin."/config.class.php");
 
@@ -1210,8 +1204,43 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
     <td class="sectionname" align="left">
       <h3><?php echo _UDDEADM_SETTINGS; ?></h3>
     </td>
-    <td align="left" width="55%">
-	  <?php
+    <td align="left" width="50%">
+    <?php
+        if (!$config->emailtrafficenabled) {
+				echo "<span class='alert bg-warning' style='color: red; padding: 3px 8px'>"._UDDEADM_EMAILSTOPPED."</span>";
+			}
+    ?>
+    </td>
+    <td align="right" width="10%">
+            <img align="middle" style="display: inline; border:1px solid lightgray;" src="<?php echo uddeIMgetPath('live_site')."/components/com_uddeim/templates/images/uddeim_logo.png"; ?>" width="150" height="75" />
+    </td></tr>
+    <tr>
+    <td width="100%" colspan="3">
+            <?php
+		// when the ftp layer is enabled it does not make any sense to ask if the file is writeable since this cannot be checked
+		$configdatei = "/administrator/components/com_uddeim/config.class.php";
+
+		if (!uddeIMisFtpLayer()) {
+			if (!uddeIMisWritable($configdatei)) {
+				echo "<p><b><span style='color: red;'>"._UDDEADM_CONFIGNOTWRITEABLE." $configdatei</span></b></p>";
+			} else {
+				echo "<p><b><span style='color: green;'>"._UDDEADM_CONFIGWRITEABLE." $configdatei</span></b>&ensp;-&ensp;";
+                                echo "<span style='color:red;'><i>".(isset($_GET['ocr']) ? ($_GET['ocr'] ? '<b>OPCache reset</b>' : _UDDEADM_CONFIGNOTE) : '')."</i></span></p>";
+
+			}
+		} else {
+			echo "<p><b><span style='color: blue;'>"._UDDEADM_CONFIG_FTPLAYER." $configdatei</span></b></p>";
+		}
+
+		$ret = uddeIMcheckForValidDB($option, $task, $uddeimversion, $config);
+		if (!$ret)
+			echo "<p><b><span style='color: red;'>"._UDDEADM_UPDATEYOURDB."</span></b></p>";
+
+	?>
+    </td></tr>
+    <tr>
+    <td>
+    <?php
 			$plugin_error = 0;
 			if (uddeIMcheckPlugin('poxtbox'))
 				if (!uddeIMcheckVersionPlugin('postbox'))
@@ -1232,29 +1261,10 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 				if (!uddeIMcheckVersionPlugin('attachment'))
 					$plugin_error = 1;
 
-			if ($plugin_error || $plugin_spamcontrol || $plugin_mcp || !$config->emailtrafficenabled)
-				echo "<span style='padding: 3px'>"._UDDEADM_INFORMATION."</span><br />";
-
-			if ($plugin_mcp) {
-				$sql  = "SELECT count(id) FROM `#__uddeim` WHERE `delayed`!=0";
-				$database->setQuery($sql);
-				$temp = (int)$database->loadResult();
-				echo "<a class='btn btn".($temp ? '-' : '-outline-')."info' href='".uddeIMredirectIndex()."?option=com_uddeim&task=mcp'>"._UDDEADM_MCP_STAT."&ensp;<b class='badge bg-danger'>&ensp;".$temp."&ensp;</b></a><br />";
-			}
-
-			if ($plugin_spamcontrol) {
-				$sql  = "SELECT count(a.id) FROM `#__uddeim_spam` AS a LEFT JOIN `#__uddeim` AS b ON a.mid = b.id";
-				$database->setQuery($sql);
-				$temp = (int)$database->loadResult();
-				echo "<a class='btn btn".($temp ? '-' : '-outline-')."danger' style='margin:8px 0' href='".uddeIMredirectIndex()."?option=com_uddeim&task=spamcontrol'>"._UDDEADM_SPAMCONTROL_STAT."&ensp;<b class='badge bg-info'>&ensp;".$temp."&ensp;</b></a><br />";
-			}
-
-			if (!$config->emailtrafficenabled) {
-				echo "<br /><span class='alert bg-warning' style='color: red; padding: 3px 8px'>"._UDDEADM_EMAILSTOPPED."</span><br /><br />";
-			}
-
 			if ($plugin_error) {
-				if (!uddeIMcheckVersionPlugin('postbox'))
+                echo "<span style='padding: 12px'>"._UDDEADM_VERSIONCHECK_INFO."</span>";
+                echo "</td><td>";
+                if (!uddeIMcheckVersionPlugin('postbox'))
 					echo "<span style='color: red; padding: 3px'>"._UDDEADM_OOD_PB."</span><br />";
 				if (!uddeIMcheckVersionPlugin('mcp'))
 					echo "<span style='color: red; padding: 3px'>"._UDDEADM_OOD_MCP."</span><br />";
@@ -1266,40 +1276,32 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					echo "<span style='color: red; padding: 3px'>"._UDDEADM_OOD_PF."</span><br />";
 				if (!uddeIMcheckVersionPlugin('attachment'))
 					echo "<span style='color: red; padding: 3px'>"._UDDEADM_OOD_A."</span><br />";
+            }
+        ?>
+	</td></tr>
+    <tr>
+    <td colspan="3">
+        <?php
+            if ( $plugin_spamcontrol || $plugin_mcp )
+				echo "<span style='padding: 12px'>"._UDDEADM_INFORMATION."</span>";
+
+			if ($plugin_mcp) {
+				$sql  = "SELECT count(id) FROM `#__uddeim` WHERE `delayed`!=0";
+				$database->setQuery($sql);
+				$temp = (int)$database->loadResult();
+				echo "<a class='btn btn".($temp ? '-' : '-outline-')."info' href='".uddeIMredirectIndex()."?option=com_uddeim&task=mcp'>"._UDDEADM_MCP_STAT."&ensp;<b class='badge bg-danger'>&ensp;".$temp."&ensp;</b></a> ";
 			}
-		?>
-    </td>
-    <td align="right" width="10%">
-      <img align="middle" style="display: inline; border:1px solid lightgray;" src="<?php echo uddeIMgetPath('live_site')."/components/com_uddeim/templates/images/uddeim_logo.png"; ?>" width="150" height="75" />
-    </td>
-  </tr>
-  <tr>
-    <td width="100%" colspan="3">
-      <?php
-		// when the ftp layer is enabled it does not make any sense to ask if the file is writeable since this cannot be checked
-		$configdatei = "/administrator/components/com_uddeim/config.class.php";
 
-		if (!uddeIMisFtpLayer()) {
-			if (!uddeIMisWritable($configdatei)) {
-				echo "<p><b><span style='color: red;'>"._UDDEADM_CONFIGNOTWRITEABLE." $configdatei</span></b></p>";
-			} else {
-				echo "<p><b><span style='color: green;'>"._UDDEADM_CONFIGWRITEABLE." $configdatei</span></b>&ensp;-&ensp;";
-                echo "<span style='color:red;'><i>".(isset($_GET['ocr']) ? ($_GET['ocr'] ? '<b>OPCache reset</b>' : _UDDEADM_CONFIGNOTE) : '')."</i></span></p>";
-
+			if ($plugin_spamcontrol) {
+				$sql  = "SELECT count(a.id) FROM `#__uddeim_spam` AS a LEFT JOIN `#__uddeim` AS b ON a.mid = b.id";
+				$database->setQuery($sql);
+				$temp = (int)$database->loadResult();
+				echo "<a class='btn btn".($temp ? '-' : '-outline-')."danger' style='margin:8px 0' href='".uddeIMredirectIndex()."?option=com_uddeim&task=spamcontrol'>"._UDDEADM_SPAMCONTROL_STAT."&ensp;<b class='badge bg-info'>&ensp;".$temp."&ensp;</b></a>";
 			}
-		} else {
-			echo "<p><b><span style='color: blue;'>"._UDDEADM_CONFIG_FTPLAYER." $configdatei</span></b></p>";
-		}
-
-		$ret = uddeIMcheckForValidDB($option, $task, $uddeimversion, $config);
-		if (!$ret)
-			echo "<p><b><span style='color: red;'>"._UDDEADM_UPDATEYOURDB."</span></b></p>";
-
-	?>
-    </td>
-  </tr>
-  </table>
-  </div>
+        ?>
+    </td></tr>
+    </table>
+  </div><br />
 
 <?php	
 	$adminstyle = ' style="border-top:1px solid lightgray"';
