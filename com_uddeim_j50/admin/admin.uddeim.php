@@ -108,12 +108,12 @@ echo "\n<!-- ".$versionstring." output below -->\n";
 if (uddeIMcheckJversion()>=5) {
 	// load the admin css file for Joomla 3.0+
 	$css = "";
-	if(file_exists($pathtouser.'/templates/'.$config->templatedir.'/css/admin.uddeim.css')) {
-		$css = $pathtosite."/components/com_uddeim/templates/".$config->templatedir."/css/admin.uddeim.css";
+	if(file_exists($pathtouser.'/templates/admin/admin.uddeim.css')) {
+		$css = $pathtouser.'/templates/admin/admin.uddeim.css';
 	} else {
 		// template css doesn't exist, now we try to load the default css file
-		if(file_exists($pathtouser.'/templates/default/css/admin.uddeim.css'))
-			$css = $pathtosite."/components/com_uddeim/templates/default/css/admin.uddeim.css";
+		if(file_exists(file_exists($pathtoadmin.'/admin.uddeim.css'))
+			$css = $pathtoadmin.'/admin.uddeim.css';
 	}
 	if ($css)
 		uddeIMaddCSS($css);
