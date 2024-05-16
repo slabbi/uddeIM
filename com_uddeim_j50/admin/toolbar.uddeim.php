@@ -114,19 +114,20 @@ switch ($task) {
 		break;
 	case "settings":
 	default:
-			
+
 			/*if (uddeIMcheckPlugin('mcp'))
 				if (uddeIMcheckVersionPlugin('mcp'))
 					mosMenuBar::custom( 'mcp', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_MCP, false );
 			if (uddeIMcheckPlugin('spamcontrol'))
 				if (uddeIMcheckVersionPlugin('spamcontrol'))
 					mosMenuBar::custom( 'spamcontrol', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_SPAMCONTROL, false );
-     			*/
-			mosMenuBar::startTable();
-			mosMenuBar::custom( 'usersettings', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_USERSETTINGS, false );
+            */
+            mosMenuBar::startTable();
+            mosMenuBar::custom( 'usersettings', 'edit.png', 'edit_f2.png', _UDDEIM_TOOLBAR_USERSETTINGS, false );
 			mosMenuBar::save( 'savesettings', _UDDEIM_TOOLBAR_SAVE );
 			mosMenuBar::cancel();
 			mosMenuBar::spacer();
 			mosMenuBar::endTable();
+            
 		break;
 }

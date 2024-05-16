@@ -97,7 +97,7 @@ function uddeIMshowMCP($option, $task, $act, $config) {
 
 	$results = array("a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z");
 	
-	$the_username='<select id="f_username" class="text" name="f_username" size="1"><option value=""';
+	$the_username='<select id="f_username" class="form-select" name="f_username" size="1"><option value=""';
 	if ($f_param[0]=="") $the_username.=' selected';
 	$the_username.='>'._UDDEADM_USERSET_SELUSERNAME.'</option>';
 	foreach($results as $result) {
@@ -107,7 +107,7 @@ function uddeIMshowMCP($option, $task, $act, $config) {
 	}
 	$the_username.="</select>";
 
-	$the_name='<select id="f_name" class="text" name="f_name" size="1"><option value=""';
+	$the_name='<select id="f_name" class="form-select" name="f_name" size="1"><option value=""';
 	if ($f_param[1]=="") $the_name.=' selected';
 	$the_name.='>'._UDDEADM_USERSET_SELNAME.'</option>';
 	foreach($results as $result) {
@@ -134,11 +134,11 @@ function uddeIMshowMCP($option, $task, $act, $config) {
 
 	<table cellpadding="4" cellspacing="0" border="0" width="100%" class="adminlist">
 	<tr>
-		<td width="100%" align="left"><?php echo $pageNav->writeLimitBox('?option=$option&task=$task'); ?></td>
+		<td width="15%" align="left"><?php echo $pageNav->writeLimitBox('?option=$option&task=$task'); ?></td>
 		<td><?php echo $the_username; ?></td>
 		<td><?php echo $the_name; ?></td>
 		<td>
-			<input type="submit" value="<?php echo _UDDEADM_ADMIN_FILTER; ?>" />
+			<input type="submit" class="btn btn-success" value="<?php echo _UDDEADM_ADMIN_FILTER; ?>" />
 		</td>
 	</tr>
 	</table>

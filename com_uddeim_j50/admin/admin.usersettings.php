@@ -1,24 +1,35 @@
 <?php
 // ********************************************************************************************
-// @title         udde Instant Messages (uddeIM)
-// @description   Instant Messages System for Joomla 5, admin user settings
-// @author        Stephan Slabihoud
-// @copyright     © 2007-2024 Stephan Slabihoud, © 2024 v5 joomod.de
-// @license       GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
-//                This program is free software: you may redistribute it and/or modify under the
-//                terms of the GNU General Public License as published by the Free Software Foundation,
-//                either version 3 of the License, or (at your option) any later version.
-//
-//                uddeIM is distributed in the hope to be useful but comes with absolutely NO WARRENTY.
-//                You should have received a copy of the GNU General Public License along with this program.
-//                Use at your own risk. For details, see the license at http://www.gnu.org/licenses/gpl.txt
-//                Other licenses may be found in LICENSES folder.
+// Title          udde Instant Messages (uddeIM)
+// Description    Instant Messages System for Mambo 4.5 / Joomla 1.0 / Joomla 1.5
+// Author         © 2007-2010 Stephan Slabihoud
+// License        This is free software and you may redistribute it under the GPL.
+//                uddeIM comes with absolutely no warranty.
+//                Use at your own risk. For details, see the license at
+//                http://www.gnu.org/licenses/gpl.txt
+//                Other licenses can be found in LICENSES folder.
 //                Redistributing this file is only allowed when keeping the header unchanged.
 // ********************************************************************************************
 
-defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
+//  `id` int(11) unsigned NOT NULL auto_increment,
+//  `userid` int(11) NOT NULL default '0',
+//  `status` int(1) NOT NULL default '0',		0=no notification,		1=always (10=not on reply),		2=when offline (20=not on reply)
+//  `popup` int(1) NOT NULL default '0',  		1=popup
+//  `public` int(1) NOT NULL default '0',  		1=public frontend
+//  `remindersent` int(11) NOT NULL default '0',
+//  `lastsent` int(11) NOT NULL default '0',
+//  `autoresponder` int(1) NOT NULL default '0',  	0=no, 1=yes
+//  `autoforward` int(1) NOT NULL default '0',  	0=no, 1=yes
+//  `locked` int(1) NOT NULL default '0',  	0=no, 1=yes
+//  `moderated` int(1) NOT NULL default '0',  	0=no, 1=yes
+
+// /administrator/images/tick.png
+// /administrator/images/publish_x.png
+
+if (!(defined('_JEXEC') || defined('_VALID_MOS'))) { die( 'Direct Access to this location is not allowed.' ); }
 
 function uddeIMshowUsersettings($option, $task, $act, $config) {
+	// $mosConfig_offset = uddeIMgetOffset();
 	$database = uddeIMgetDatabase();
 	$emnid = intval( uddeIMmosGetParam( $_POST, 'id', '' ) );
 
@@ -79,6 +90,7 @@ function uddeIMshowUsersettings($option, $task, $act, $config) {
 	if ($limitstart>=$total)
 		$limitstart = 0;
 
+// echo($sql." ==> ".$total."<br />");
 
 	$sql  = "SELECT a.*,b.id AS uid,b.name,b.username,b.block ";
 	$sql .= "FROM `#__uddeim_emn` AS a RIGHT JOIN `#__users` AS b ON a.userid=b.id";
@@ -87,6 +99,9 @@ function uddeIMshowUsersettings($option, $task, $act, $config) {
 	$database->setQuery($sql);
 	$rows = $database->loadObjectList();
 
+// echo($sql."<br />");
+
+	// include_once(uddeIMgetPath('absolute_path')."/administrator/includes/pageNavigation.php");
 	$pageNav = new uddeIMmosPageNav( $total, $limitstart, $limit  );
 
 	$sql="SELECT username,name FROM `#__users` WHERE block!='1' ORDER BY username";
@@ -115,6 +130,7 @@ function uddeIMshowUsersettings($option, $task, $act, $config) {
 	}
 	$the_name.="</select>";
 
+//			<h4><img align="middle" style="display: inline;" src="<?php echo uddeIMgetPath('live_site')."/administrator/images/inbox.png"; " />&nbsp;<?php echo _UDDEADM_USERSET_EDITSETTINGS; </h4>
     ?>
     <form action="<?php echo uddeIMredirectIndex(); ?>" method="post" name="adminForm" id='adminForm'>
 
@@ -261,7 +277,7 @@ function uddeIMshowUsersettings($option, $task, $act, $config) {
 			echo ")";
 		} else {
 			echo "<a href='javascript:document.adminForm.act.value=\"status\"; document.adminForm.id.value=\"".$row->id."\"; document.adminForm.submit();'>";
-
+//			echo "<a href='indexX.php?option=$option&task=$task&act=status&id=$row->id'>";
 			switch($row->status) {
 				case 0: echo _UDDEADM_USERSET_NONOTIFICATION; break;
 				case 1: echo _UDDEADM_USERSET_ALWAYS; break;
@@ -277,9 +293,11 @@ function uddeIMshowUsersettings($option, $task, $act, $config) {
 		if (is_null($row->popup)) { 
 			uddeIMshowTick($config->popupdefault,true);
 		} else {
+			// echo "<a href='javascript:document.adminForm.act.value=\"popup\"; document.adminForm.id.value=\"".$row->id."\"; document.adminForm.submit();'>".($row->popup ? _UDDEADM_USERSET_YES : _UDDEADM_USERSET_NO)."</a>";
 			echo "<a href='javascript:document.adminForm.act.value=\"popup\"; document.adminForm.id.value=\"".$row->id."\"; document.adminForm.submit();'>";
 			uddeIMshowTick($row->popup);
 			echo "</a>";
+//			echo "<a href='indexX.php?option=$option&task=$task&act=popup&id=$row->id'>".($row->popup ? _UDDEADM_USERSET_YES : _UDDEADM_USERSET_NO)."</a>";
 		}
 		echo "</td>";
 		echo "<td align='left'>";
@@ -289,12 +307,14 @@ function uddeIMshowUsersettings($option, $task, $act, $config) {
 			echo "<a href='javascript:document.adminForm.act.value=\"public\"; document.adminForm.id.value=\"".$row->id."\"; document.adminForm.submit();'>";
 			uddeIMshowTick($row->public);
 			echo "</a>";
+//			echo "<a href='indexX.php?option=$option&task=$task&act=public&id=$row->id'>".($row->public ? _UDDEADM_USERSET_YES : _UDDEADM_USERSET_NO)."</a>";
 		}
 		echo "</td>";
 		echo "<td align='left'>";
 		if (is_null($row->autoresponder)) { 
 			uddeIMshowTick(0,true);	// default is 0"
 		} else {
+//			echo "<a href='javascript:document.adminForm.act.value=\"autor\"; document.adminForm.id.value=\"".$row->id."\"; document.adminForm.submit();'>".($row->autoresponder ? _UDDEADM_USERSET_YES : _UDDEADM_USERSET_NO)."</a>";
 			echo "<a href='javascript:document.adminForm.task.value=\"editautoresponder\"; document.adminForm.id.value=\"".$row->id."\"; document.adminForm.submit();'>";
 			uddeIMshowTick($row->autoresponder);
 			echo "</a>";
@@ -362,6 +382,11 @@ function uddeIMshowUsersettings($option, $task, $act, $config) {
 	if (uddeIMcheckJversion()>=1) {
 		echo "<input type=\"hidden\" name=\"limitstart\" value=\"".(int)$limitstart."\" />";
 	}
+	// $version = uddeIMgetVersion();
+	// if ($version->PRODUCT == "Joomla!" || $version->PRODUCT == "Accessible Joomla!")
+	// 	if (strncasecmp($version->RELEASE, "1.0", 3)) {
+	// 		echo "<input type=\"hidden\" name=\"limitstart\" value=\"".(int)$limitstart."\" />";
+	// 	}
 ?>
 </form>
 <?php
@@ -473,7 +498,11 @@ function uddeIMeditAutoresponder($option, $task, $act, $config) {
 		$username = $result->username;
 		$name     = $result->name;
 	}
-
+//	$value = NULL;
+//	if($database->loadObject($value)) {
+//		$name = $value->username;
+//		$email = $value->name;
+//	}
 
 	$emptysettings='';
 	$emn_responder_checkstatus='';
@@ -572,9 +601,10 @@ function uddeIMeditAutoforward($option, $task, $act, $config) {
 	echo "<p style='text-align:left;'>"._UDDEIM_AUTOFORWARD_EXP."</p>";
 	echo "<form name='adminForm' id='adminForm' method='post' action='".uddeIMredirectIndex()."' class='adminForm' style='text-align:left;'>";
 	echo '<input onclick="document.adminForm.autoforwardcheck.checked ? document.adminForm.autoforwardid.disabled=false : document.adminForm.autoforwardid.disabled=true;" type="checkbox" '.$emn_forward_checkstatus.' value="1" name="autoforwardcheck" />'._UDDEIM_EMN_AUTOFORWARD.'<br />';
-
+//	echo "<textarea name='autoforwardid' class='inputbox' rows='1' cols='6'".($ison==1 ? '' : 'disabled="disabled"').">".htmlentities($autoforwardid,ENT_QUOTES, $config->charset)."</textarea><br />";
 	uddeIMdoShowAllUsers(0, Array(_UDDEIM_GID_SADMIN), $config, 2, $ison, $autoforwardid);		// show all users, I am an admin, $config, mode=2 forwarding box, enabled=$ison, selected name=$autoforwardid
 	echo "<br />";
+	// echo '<input type="submit" name="reply" class="button" value="'._UDDEIM_SAVECHANGE.'" />';
 	echo '<input type="hidden" name="option" value="'.$option.'" />';
 	echo '<input type="hidden" name="task" value="'.$task.'" />';
 	echo '<input type="hidden" name="act" value="" />';
@@ -598,6 +628,8 @@ function uddeIMchangeStatus($option, $task, $emnid, $config) {
 	}
 	$database->setQuery("UPDATE `#__uddeim_emn` SET status=".(int)$value." WHERE id=".(int)$emnid);
 	$database->execute();
+//	$redirecturl = "indexX.php?option=$option&task=$task";
+//	uddeIMmosRedirect($redirecturl); 
 }
 
 function uddeIMchangePopup($option, $task, $emnid, $config) {
@@ -607,6 +639,8 @@ function uddeIMchangePopup($option, $task, $emnid, $config) {
 	$value = 1 - $value;
 	$database->setQuery("UPDATE `#__uddeim_emn` SET popup=".(int)$value." WHERE id=".(int)$emnid);
 	$database->execute();
+//	$redirecturl = "indexX.php?option=$option&task=$task";
+//	uddeIMmosRedirect($redirecturl); 
 }
 
 function uddeIMchangePublic($option, $task, $emnid, $config) {
@@ -616,6 +650,8 @@ function uddeIMchangePublic($option, $task, $emnid, $config) {
 	$value = 1 - $value;
 	$database->setQuery("UPDATE `#__uddeim_emn` SET public=".(int)$value." WHERE id=".(int)$emnid);
 	$database->execute();
+//	$redirecturl = "indexX.php?option=$option&task=$task";
+//	uddeIMmosRedirect($redirecturl); 
 }
 
 function uddeIMchangeLocked($option, $task, $emnid, $config) {
@@ -636,4 +672,13 @@ function uddeIMchangeModerated($option, $task, $emnid, $config) {
 	$database->execute();
 }
 
-
+// function uddeIMchangeAutor($option, $task, $emnid, $config) {
+//	$database = uddeIMgetDatabase();
+//	$database->setQuery("SELECT autoresponder FROM `#__uddeim_emn` WHERE id=".(int)$emnid);
+//	$value = (int)$database->loadResult();
+//	$value = 1 - $value;
+//	$database->setQuery("UPDATE `#__uddeim_emn` SET autoresponder=".(int)$value." WHERE id=".(int)$emnid);
+//	if (!$database->query()) {
+//		die("SQL error" . $database->stderr(true));
+//	}
+// }
