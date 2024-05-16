@@ -3,7 +3,7 @@
 // @title         udde Instant Messages (uddeIM)
 // @description   Instant Messages System for Joomla 5, install script
 // @author        Stephan Slabihoud, Benjamin Zweifel
-// @copyright     © 2007-2024 Stephan Slabihoud, © 2024 v5 joomod.de, © 2006 Benjamin Zweifel
+// @copyright     Â© 2007-2024 Stephan Slabihoud, Â© 2024 v5 joomod.de, Â© 2006 Benjamin Zweifel
 // @license       GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 //                This program is free software: you may redistribute it and/or modify under the
 //                terms of the GNU General Public License as published by the Free Software Foundation,
@@ -139,8 +139,8 @@ function uddeIM_com_install() {
 	$config->emn_sendermail = 'webmaster';
 	$config->emn_sendername = 'Messaging';
 	$config->sysm_username = 'System';
-	$config->charset = 'ISO-8859-1';
-	$config->mailcharset = 'ISO-8859-1';
+	$config->charset = 'UTF-8';
+	$config->mailcharset = 'UTF-8';
 	$config->emn_body_nomessage = '';
 	$config->emn_body_withmessage = '';
 	$config->emn_forgetmenot = '';
@@ -150,8 +150,10 @@ function uddeIM_com_install() {
 	$config->quotedivider= '__________';
 	$config->blockgroups = '';
 	$config->pubblockgroups = '';
-	$config->hideusers = '62';
-	$config->pubhideusers = '62';
+
+    $suser = Factory::getApplication()->getIdentity()->id; 
+	$config->hideusers = $suser;
+	$config->pubhideusers = $suser;
 	$config->attachmentgroups = '';
 	$config->recaptchaprv = '';
 	$config->recaptchapub = '';
