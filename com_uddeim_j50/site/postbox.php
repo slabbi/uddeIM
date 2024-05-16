@@ -578,10 +578,10 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 
 			if ($config->reportspam) {		// uddeIMcheckPlugin('spamcontrol') &&  not required since uddeIMcheckConfig sets this 0 if plugin is missing
 				if ($is_spam) {
-					$spamcell = "<br /><br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=unreportspam&Itemid=".$item_id."&messageid=".$themessage->id."&recip=".$userid."&ret=postboxuser")."'>"._UDDEIM_SPAMCONTROL_UNREPORT."</a>";
-					$spamcellflag = "<br /><div class='uddeim-messagefrom-spam'>"._UDDEIM_SPAMCONTROL_MARKED."</div>";
-				} else {
-					$spamcell = "<br /><br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=reportspam&Itemid=".$item_id."&messageid=".$themessage->id."&recip=".$userid."&ret=postboxuser")."'>"._UDDEIM_SPAMCONTROL_REPORT."</a>";
+                    $spamcell = "<a class='uddeim-messageactionlink-spam unreport' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=unreportspam&Itemid=".$item_id."&messageid=".$themessage->id."&recip=".$userid."&ret=postboxuser")."'>"._UDDEIM_SPAMCONTROL_UNREPORT."</a>&nbsp;";
+					$spamcellflag = "<br /><div class='uddeim-messagefrom-spam badge bg-success'>"._UDDEIM_SPAMCONTROL_MARKED."</div>";
+                } else {
+                    $spamcell = "<a class='uddeim-messageactionlink-spam' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=reportspam&Itemid=".$item_id."&messageid=".$themessage->id."&recip=".$userid."&ret=postboxuser")."'>"._UDDEIM_SPAMCONTROL_REPORT."</a>&nbsp;";
 				}
 			}
 		}
@@ -728,7 +728,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 		echo "</td>";
 		echo "<td style='padding:4px; border-bottom:none; border-right:none; vertical-align:top'>";
 		echo $datumcell;
-		echo $spamcell.$spamcellflag;
+		echo $spamcellflag.$spamcell;
 		echo "</td>";
 		if ($config->actionicons) {
 			echo "<td style='padding:4px; border-bottom:none; width:32px; text-align:center; vertical-align:top'>".

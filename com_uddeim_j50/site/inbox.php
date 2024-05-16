@@ -447,9 +447,9 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 
 		if ($config->reportspam) {		// uddeIMcheckPlugin('spamcontrol') &&  not required since uddeIMcheckConfig sets this 0 if plugin is missing
 			if ($is_spam)
-				$headerstring.="<br /><li class='uddeim-messageactionlink-spam'><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=unreportspam&Itemid=".$item_id."&messageid=".$displaymessage->id)."'>"._UDDEIM_SPAMCONTROL_UNREPORT."</a></li>";
+                $headerstring.="<br /><li class='uddeim-messageactionlink-spam unreport'><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=unreportspam&Itemid=".$item_id."&messageid=".$displaymessage->id)."'>"._UDDEIM_SPAMCONTROL_UNREPORT."</a></li>";
 			else
-				$headerstring.="<br /><li class='uddeim-messageactionlink-spam'><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=reportspam&Itemid=".$item_id."&messageid=".$displaymessage->id)."'>"._UDDEIM_SPAMCONTROL_REPORT."</a></li>";
+                $headerstring.="<br /><li class='uddeim-messageactionlink-spam'><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=reportspam&Itemid=".$item_id."&messageid=".$displaymessage->id)."'>"._UDDEIM_SPAMCONTROL_REPORT."</a></li>";
 		}
 
 		$headerstring.="</ul>";
@@ -521,7 +521,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 		$headerstring.="<td valign='bottom'>";
 		if ($config->reportspam) {		// uddeIMcheckPlugin('spamcontrol') &&  not required since uddeIMcheckConfig sets this 0 if plugin is missing
 			if ($is_spam)
-				$headerstring.="<div class='uddeim-messagefrom-spam'>"._UDDEIM_SPAMCONTROL_MARKED."</div>";
+                $headerstring.="<div class='uddeim-messagefrom-spam badge bg-success'>"._UDDEIM_SPAMCONTROL_MARKED."</div>&nbsp;";
 		}
 		$headerstring.="</td>";
 
