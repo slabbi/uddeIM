@@ -84,6 +84,7 @@
 			<filename>config.xml</filename>
 			<filename>index.html</filename>
 			<filename>toolbar.uddeim.php</filename>
+			<filename>admin.uddeim.css</filename>
             <filename>uddeim-menuicon.png</filename>
 		</files>
 	</administration>
