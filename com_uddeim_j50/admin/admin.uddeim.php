@@ -1205,12 +1205,12 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
   <input type="hidden" name="config_forgetmenotstart" value="<?php echo $config->forgetmenotstart; ?>" />
 
   <div align="center">
-  <table cellpadding="4" cellspacing="0" border="0" width="98%">
+  <table cellpadding="4" cellspacing="0" border="0" width="100%">
   <tr>
     <td class="sectionname" align="left">
       <h3><?php echo _UDDEADM_SETTINGS; ?></h3>
     </td>
-    <td align="left" width="50%">
+    <td align="left" width="55%">
 	  <?php
 			$plugin_error = 0;
 			if (uddeIMcheckPlugin('poxtbox'))
