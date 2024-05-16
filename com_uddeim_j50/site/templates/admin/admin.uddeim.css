@@ -1,1 +1,101 @@
+/* *******************************************************************
+/* Title          udde Instant Messages (uddeIM)
+/* Description    Instant Messages System for Joomla 5.X
+/* Author         Stephan Slabihoud, joomod.de, Benjamin Zweifel
+/* Version        5
+/* as of          2005-2024
+/* License        This is free software and you may redistribute it under the GPL.
+/*                uddeIM comes with absolutely no warranty. For details, see the license at
+/*                http://www.gnu.org/licenses/gpl.txt
+/* *******************************************************************
+/* This is the default CSS file
+/* ******************************************************************* */
+.uddeim-16x16{
+background:url('../components/com_uddeim/templates/images/uddeim-favicon.png') no-repeat left;
+}
 
+.com_uddeim .container-main {
+    overflow: auto;
+}
+.com_uddeim .btn-toolbar {
+    flex-wrap: nowrap;
+}
+#uddeimContent select, #uddeimContent input {
+    max-width: 200px;
+}
+div.controls label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+table.adminlist tr.row0 {
+    background-color: #F9F9F9;
+    text-align: left;
+}
+table.adminlist tr.row1 {
+    background-color: #FFFFFF;
+    text-align: left;
+}
+table.adminlist td {
+    border-bottom: 1px solid #E5E5E5;
+    padding: 4px;
+	font-size: 11px;
+}
+
+table.adminlist th.title {
+    text-align: left;
+}
+table.adminlist th {
+	background-color: #d0d0d0;
+    color: #000000;
+    font-size: 11px;
+    height: 25px;
+    margin: 0;
+    padding: 6px 4px 2px;
+}
+
+table.adminlist {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+table.adminlist #f_id,
+table.adminlist #f_username,
+table.adminlist #f_name,
+table.adminlist #f_status,
+table.adminlist #f_popup,
+table.adminlist #f_public,
+table.adminlist #f_autor,
+table.adminlist #f_autof,
+table.adminlist #f_moderated,
+table.adminlist #f_locked,
+table.adminlist #limit {
+	width:auto !important;
+}
+
+.adminlist.uddfilter .form-select {
+    padding: 4px 36px 4px 4px;
+    background-size: auto 200px;
+    font-size: 1.2em;
+}
+.adminlist.uddfilter input {
+    margin: -4px 0 0 8px;
+}
+.adminlist.uddfilter #limit {
+    display: inline;
+}
+.adminlist.uddfilter .fa-bars {
+    color: #999;
+    vertical-align: middle;
+    margin: 0 6px 3px 0;
+}
+.adminlist.uddfilter #f_status {
+    width: 100% !important;
+    max-width: 75%;
+    display: inline-block;
+}
