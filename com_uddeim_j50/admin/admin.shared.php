@@ -20,9 +20,9 @@ defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 // some global variables
 global $versionstring, $checkversion, $checkhotfix, $configversion;
-$versionstring	= "uddeIM 5.3";						// version string for about boxes
-$checkversion	= "5.3";							// version as above for check for update - this is the version we have
-$checkhotfix	= "3";								// version as above for check for update - this is the version we have
+$versionstring	= "uddeIM 5.4";						// version string for about boxes
+$checkversion	= "5.4";							// version as above for check for update - this is the version we have
+$checkhotfix	= "4";								// version as above for check for update - this is the version we have
 $configversion	= "2.8";							// this is the version number of the configuration file we expect to load
 
 function uddeIMgetVersionArray() {
