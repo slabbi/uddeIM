@@ -830,7 +830,7 @@ DEFINE ('_UDDEIM_RECIPIENTSFOUND', 'Destinataires trouvÃ©s');
 DEFINE ('_UDDEADM_MAILSYSTEM_MOSMAIL', 'utiliser Joomla Mail');
 DEFINE ('_UDDEADM_MAILSYSTEM_PHPMAIL', 'PHP Mail (default)');
 DEFINE ('_UDDEADM_MAILSYSTEM_HEAD', 'SystÃ¨me de courrier');
-DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'SÃ©lectionnez le systÃ¨me de courrier pour que uddeIM puisse envoyer des notifications.');
+DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'SÃ©lectionnez le systÃ¨me de courrier pour que uddeIM puisse envoyer des notifications.<br><b>forcer \r\n</b> est utilisÃ© Ã la place du saut de ligne \n par dÃ©faut, si l\'envoi d\'e-mails Ã©choue<br><b>Débogage</b> comme dans la description sÃ©lectionnÃ©e');
 DEFINE ('_UDDEADM_SHOWGROUPS_HEAD', 'Afficher les groupes sous Joomla');
 DEFINE ('_UDDEADM_SHOWGROUPS_EXP', 'Afficher les groupes sous Joomla dans une liste.');
 DEFINE ('_UDDEADM_ALLOWFORWARDS_HEAD', 'Transfert des messages');
