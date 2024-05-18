@@ -2264,10 +2264,11 @@ function uddeIMadmYesNo($value, $postvar, $condition, $head, $exp, $style='') {
 	echo uddeIMprintCond($condition, $head, "gray", true);
 	echo '</td>';
 	echo '<td align="left" valign="top"'.$style.'>';
-	$local = Array();
-	$local[] = $tm->makeOption( '1', _UDDEADM_YES );
-	$local[] = $tm->makeOption( '0', _UDDEADM_NO );
-	echo $tm->RadioList( $local, $postvar, 'class="inputbox" size="2"', $value );
+	//$local = Array();
+	//$local[] = $tm->makeOption( '1', _UDDEADM_YES );
+	//$local[] = $tm->makeOption( '0', _UDDEADM_NO );
+	//echo $tm->RadioList( $local, $postvar, 'class="inputbox" size="2"', $value );
+	echo $tm->yesnoButton( $postvar, $value ); 
 	echo '</td>';
 	echo '<td align="left" valign="top" width="50%"'.$style.'>';
 	echo uddeIMprintCond($condition, $exp, "gray");
@@ -2299,7 +2300,7 @@ function uddeIMadmText($value, $size, $postvar, $condition, $head, $exp, $postfi
 	echo uddeIMprintCond($condition, $head, "gray", true);
 	echo '</td>';
 	echo '<td align="left" valign="top"'.$style.'>';
-	echo '<input type="text" name="'.$postvar.'" size="'.$size.'" value="'.uddeIMquotecode($value).'" /> '.$postfixtext;
+	echo '<input type="text" name="'.$postvar.'" size="'.$size.'" value="'.uddeIMquotecode($value).'" />'.($postfixtext ? '<span class="uddpostfix">'.$postfixtext.'</span>' : '');
 	echo '</td>';
 	echo '<td align="left" valign="top" width="50%"'.$style.'>';
 	echo uddeIMprintCond($condition, $exp, "gray");
