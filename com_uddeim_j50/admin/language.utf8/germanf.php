@@ -23,6 +23,8 @@ defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Deutsches Sprachfile erstellt von <a href="http://slabihoud.de/software/" target="_new">uddeIM HQ (Stephan Slabihoud)</a>');	// Enter your credits line here, e.g. 'Translation by <a href="http://domain.com" target="_new">John Doe</a>'
 
+// New: 5.4
+DEFINE ('_UDDEIM_CHARS', 'Zeichen');
 // New: 5.3
 DEFINE ('_UDDEADM_REVIEWBACKUP', 'Wichtig: bei der Installation wurde eine neue <b>Config Datei</b> (config.class.php) erstellt - die alte Datei wurde als config.class_bak.php gesichert. Sie kann wieder zurückbenannt werden um die Neue zu ersetzen (Neuerungen werden ergänzt), aber es wird <b>empfohlen</b> die Einstellungen wieder manuell anzupassen um die Neuerungen zu erkennen');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...setze Standardeinstellungen für Autocompleter und saveconfigdb');
@@ -1005,7 +1007,7 @@ DEFINE ('_UDDEADM_DATESETTINGS', 'Datum/Zeit');
 DEFINE ('_UDDEADM_DELETEREADAFTER_HEAD', 'Löschung gelesener Nachrichten nach');
 DEFINE ('_UDDEADM_DELETEUNREADAFTER_HEAD', 'Löschung ungelesener Nachrichten nach');
 DEFINE ('_UDDEADM_DELETETRASHAFTER_HEAD', 'Leeren des Papierkorbs nach');
-DEFINE ('_UDDEADM_DAYS', 'Tag(e)');
+DEFINE ('_UDDEADM_DAYS', 'Tage');
 DEFINE ('_UDDEADM_DELETEREADAFTER_EXP', 'Legt fest, wann <b>gelesene</b> Nachrichten aus dem Posteingang der Benutzer automatisch gelöscht werden. Wenn sie nicht automatisch gelöscht werden sollen, hier einen sehr hohen Wert angeben, der niemals erreicht wird (z.B. 36524 entspricht 100 Jahren).');
 DEFINE ('_UDDEADM_DELETEUNREADAFTER_EXP', 'Legt fest, wann <b>ungelesene</b> Nachrichten aus dem Posteingang der Benutzer automatisch gelöscht werden?');
 DEFINE ('_UDDEADM_DELETETRASHAFTER_EXP', 'Legt fest, wann <b>gelöschte</b> Nachrichten aus dem Papierkorb der Benutzer automatisch entfernt werden. Es sind auch Dezimalwerte möglich (z.B. löscht der Wert 0.125 Nachrichten nach drei Stunden automatisch aus dem Papierkorb).');
