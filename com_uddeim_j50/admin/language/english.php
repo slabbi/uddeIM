@@ -21,7 +21,8 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'English language file by <a href="http://slabihoud.de/software/" target="_new">uddeIM HQ (Stephan Slabihoud)</a>');	// Enter your credits line here, e.g. 'Translation by <a href="http://domain.com" target="_new">John Doe</a>'
-
+// New: 5.4
+DEFINE ('_UDDEIM_CHARS', 'chars');
 // New: 5.3
 DEFINE ('_UDDEADM_REVIEWBACKUP', 'Important: during installation a new <b>Config File</b> (config.class.php) was created - the old file was saved as config.class_bak.php. It may be renamed to replace the new one, but it is <b>recommanded</b> to edit the configuration manually, to see the changes');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...set default values for Autocompleter and saveconfigdb');
