@@ -129,10 +129,10 @@ function uddeIMshowSpamControl($option, $task, $act, $config) {
 	</table>
 	</div>
 
-	<table cellpadding="4" cellspacing="0" border="0" width="100%" class="adminlist">
+	<table cellpadding="4" cellspacing="0" border="0" width="100%" class="adminlist uddfilter">
 	<tr>
 		<td width="15%" align="left"><?php echo $pageNav->writeLimitBox('?option=$option&task=$task'); ?></td>
-		<td><?php echo $the_username; ?></td>
+		<td align="right"><?php echo $the_username; ?></td>
 		<td><?php echo $the_name; ?></td>
 		<td>
 			<input type="submit" class="btn btn-success" value="<?php echo _UDDEADM_ADMIN_FILTER; ?>" />
