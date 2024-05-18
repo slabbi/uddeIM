@@ -127,7 +127,7 @@ table.adminlist #limit {
     background: var(--danger);
     color: #fff;
 }
-span.uddinputafter {
+span.uddpostfix {
     padding: 6.5px 6px 6px;
     margin-left: -3px;
     background: gainsboro;
