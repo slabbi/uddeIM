@@ -27,6 +27,8 @@ defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Translated by Florent Nouvellon, Jyhelle, Baboon, Sarki pour <a href="http://www.joomlatutos.com/" target="_blank">Joomlatutos.com</a>, xillibit pour <a href="http://www.kunena.org" target="_blank">Kunena</a> et lavsteph pour <a href="http://www.aide-joomla.com/" target="_blank">Aide-Joomla.com</a>');
 
+// New: 5.4
+DEFINE ('_UDDEIM_CHARS', 'caractère');
 // New: 5.3
 DEFINE ('_UDDEADM_REVIEWBACKUP', 'Important : lors de l\'installation, un nouveau <b>fichier de configuration</b> (config.class.php) a été créé - l\'ancien fichier a été enregistré sous config.class_bak.php. Il peut être renommé pour remplacer le nouveau, mais il est <b>recommandé</b> d\'éditer la configuration manuellement, pour voir les changements');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...définir par défaut le lien pour le Auto completer et saveconfigdb');
