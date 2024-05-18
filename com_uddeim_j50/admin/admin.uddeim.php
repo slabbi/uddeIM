@@ -106,7 +106,7 @@ if (uddeIMcheckJversion()>=5) {
 		$css = $pathtouser.'/templates/admin/admin.uddeim.css';
 	} else {
 		// template css doesn't exist, now we try to load the default css file
-		if(file_exists(file_exists($pathtoadmin.'/admin.uddeim.css'))
+		if(file_exists(file_exists($pathtoadmin.'/admin.uddeim.css')))
 			$css = $pathtoadmin.'/admin.uddeim.css';
 	}
 	if ($css)
