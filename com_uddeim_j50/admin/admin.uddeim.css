@@ -100,3 +100,38 @@ table.adminlist #limit {
     display: inline-block;
 }
 
+.adminForm.uddeim .form-select {
+    padding: 4px 36px 4px 8px;
+    background-size: auto 200px;
+}
+.adminForm.uddeim .form-control {
+    padding: 4px 8px;
+    }
+
+.adminForm.uddeim input[type="radio"] {
+    visibility: hidden;
+    margin-left: -13px;
+}
+.adminForm.uddeim input[type="radio"][value="1"] + label {
+    padding: 3px 25px;
+}
+.adminForm.uddeim input[type="radio"][value="0"] + label {
+    padding: 3px 18px;
+    border-radius: .25rem 0 0 .25rem!important;
+}
+.adminForm.uddeim input[type="radio"][value="1"]:checked + label {
+    background: var(--success);
+    color: #fff;
+}
+.adminForm.uddeim input[type="radio"][value="0"]:checked + label {
+    background: var(--danger);
+    color: #fff;
+}
+span.uddinputafter {
+    padding: 6.5px 6px 6px;
+    margin-left: -3px;
+    background: gainsboro;
+    border: 1px solid silver;
+    border-radius: 0 .25rem .25rem 0;
+}
+
