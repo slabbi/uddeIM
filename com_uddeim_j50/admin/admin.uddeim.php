@@ -103,11 +103,11 @@ if (uddeIMcheckJversion()>=5) {
 	// load the admin css file for Joomla 3.0+
 	$css = "";
 	if(file_exists($pathtouser.'/templates/admin/admin.uddeim.css')) {
-		$css = $pathtouser.'/templates/admin/admin.uddeim.css';
+		$css = $pathtosite.'/components/com_uddeim/templates/admin/admin.uddeim.css';
 	} else {
 		// template css doesn't exist, now we try to load the default css file
 		if(file_exists($pathtoadmin.'/admin.uddeim.css'))
-			$css = $pathtoadmin.'/admin.uddeim.css';
+			$css = $pathtosite.'/administrator/components/com_uddeim/admin.uddeim.css';
 	}
 	if ($css)
 		uddeIMaddCSS($css);
@@ -1812,7 +1812,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			?>
 
 			<?php 
-				uddeIMadmText($config->timezone, 4, 'config_timezone', false, _UDDEADM_TIMEZONE_HEAD, _UDDEADM_TIMEZONE_EXP, _UDDEADM_HOURS, $adminstyle);
+				uddeIMadmText($config->timezone, 3, 'config_timezone', false, _UDDEADM_TIMEZONE_HEAD, _UDDEADM_TIMEZONE_EXP, _UDDEADM_HOURS, $adminstyle);
 				uddeIMadmYesNo($config->stime, 'config_stime', false, _UDDEADM_STIME_HEAD, _UDDEADM_STIME_EXP);
 			?>
 		</table>														
@@ -2285,7 +2285,7 @@ function uddeIMadmSelect($value, $postvar, $options_arr, $condition, $head, $exp
 	$local = Array();
 	foreach ($options_arr as $key => $val)
 		$local[] = $tm->makeOption( $key, $val );
-	echo $tm->selectList( $local, $postvar, 'class="inputbox" size="1"', 'value', 'text', $value );
+	echo $tm->selectList( $local, $postvar, 'class="form-select" size="1"', 'value', 'text', $value );
 	echo '</td>';
 	echo '<td align="left" valign="top" width="40%"'.$style.'>';
 	echo uddeIMprintCond($condition, $exp, "gray");
@@ -2299,7 +2299,7 @@ function uddeIMadmText($value, $size, $postvar, $condition, $head, $exp, $postfi
 	echo uddeIMprintCond($condition, $head, "gray", true);
 	echo '</td>';
 	echo '<td align="left" valign="top"'.$style.'>';
-	echo '<input type="text" name="'.$postvar.'" size="'.$size.'" value="'.uddeIMquotecode($value).'" />'.($postfixtext ? '<span class="uddpostfix">'.$postfixtext.'</span>' : '');
+	echo '<input type="text" name="'.$postvar.'" class="form-control" size="'.$size.'" value="'.uddeIMquotecode($value).'" />'.($postfixtext ? '<span class="uddpostfix">'.$postfixtext.'</span>' : '');
 	echo '</td>';
 	echo '<td align="left" valign="top" width="40%"'.$style.'>';
 	echo uddeIMprintCond($condition, $exp, "gray");
