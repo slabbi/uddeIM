@@ -366,7 +366,7 @@ switch ($task) {
 		$config->postboxfull = (int)uddeIMmosGetParam ($_POST, 'config_postboxfull', 0);
 		$config->postboxavatars = (int)uddeIMmosGetParam ($_POST, 'config_postboxavatars', 0);
 		$config->replytext = (int)uddeIMmosGetParam ($_POST, 'config_replytext', 1);
-        $config->saveconfigdb = (int)uddeIMmosGetParam ($_POST, 'config_saveconfigdb', 0);
+                $config->saveconfigdb = (int)uddeIMmosGetParam ($_POST, 'config_saveconfigdb', 0);
 
 		$oldsetting_allowarchive=uddeIMmosGetParam ($_POST, 'oldsetting_allowarchive', 0);
 		$oldsetting_longwaitingemail= uddeIMmosGetParam ($_POST, 'oldsetting_longwaitingemail', 0);
@@ -1207,8 +1207,8 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
     <td align="left" width="50%">
     <?php
         if (!$config->emailtrafficenabled) {
-				echo "<span class='alert bg-warning' style='color: red; padding: 3px 8px'>"._UDDEADM_EMAILSTOPPED."</span>";
-			}
+		echo "<span class='alert bg-warning' style='color: red; padding: 3px 8px'>"._UDDEADM_EMAILSTOPPED."</span>";
+		}
     ?>
     </td>
     <td align="right" width="10%">
@@ -1304,7 +1304,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
   </div><br />
 
 <?php	
-	$adminstyle = ' style="border-top:1px solid lightgray"';
+	$adminstyle = ' style="border-top:1px solid lightgray; padding-top:1em"';
 
 	if (uddeIMcheckJversion()>=15) {	// not J5 - was Joomla 3.0, bug (not) fixed in Joomla 3.1
 		echo '<ul class="nav nav-tabs" id="submenu">';
@@ -1333,8 +1333,8 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 	$tabs->startTab(_UDDEADM_MESSAGES,"home");
 
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
-			<?php uddeIMadmText($config->maxlength, 4, 'config_maxlength', false, _UDDEADM_MAXLENGTH_HEAD, _UDDEADM_MAXLENGTH_EXP); ?>
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
+			<?php uddeIMadmText($config->maxlength, 4, 'config_maxlength', false, _UDDEADM_MAXLENGTH_HEAD, _UDDEADM_MAXLENGTH_EXP, _UDDEIM_CHARS); ?>
 			<?php uddeIMadmYesNo($config->replytext, 'config_replytext', false, _UDDEADM_REPLYTEXT_HEAD, _UDDEADM_REPLYTEXT_EXP); ?>
 			<?php uddeIMadmYesNo($config->replytruncate, 'config_replytruncate', !$config->maxlength, _UDDEADM_TRUNCATE_HEAD, _UDDEADM_TRUNCATE_EXP); ?>
 			<?php uddeIMadmYesNo($config->showtextcounter, 'config_showtextcounter', !$config->maxlength, _UDDEADM_SHOWTEXTCOUNTER_HEAD, _UDDEADM_SHOWTEXTCOUNTER_EXP); ?>
@@ -1363,8 +1363,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			<?php uddeIMadmSelect($config->restrictcon, 'config_restrictcon', Array('3'=>_UDDEADM_RESTRICTCON3, '2'=>_UDDEADM_RESTRICTCON2, '1'=>_UDDEADM_RESTRICTCON1, '0'=>_UDDEADM_RESTRICTCON0), (!$is_js && !$is_cb && !$is_cbe), _UDDEADM_RESTRICTCON_HEAD, _UDDEADM_RESTRICTCON_EXP); ?>
 			<?php uddeIMadmYesNo($config->restrictrem, 'config_restrictrem', !$config->restrictcon, _UDDEADM_RESTRICTREM_HEAD, _UDDEADM_RESTRICTREM_EXP); ?>
 		
-		    <?php uddeIMadmSelect($config->cryptmode, 'config_cryptmode', Array('4'=>_UDDEADM_CRYPT4, '3'=>_UDDEADM_CRYPT3, '2'=>_UDDEADM_CRYPT2, '1'=>_UDDEADM_CRYPT1, '0'=>_UDDEADM_CRYPT0), false, _UDDEADM_USEENCRYPTION, _UDDEADM_USEENCRYPTIONDESC, $adminstyle); ?>
-        <!--without openssl: <?php uddeIMadmSelect($config->cryptmode, 'config_cryptmode', Array('3'=>_UDDEADM_CRYPT3, '2'=>_UDDEADM_CRYPT2, '1'=>_UDDEADM_CRYPT1, '0'=>_UDDEADM_CRYPT0), false, _UDDEADM_USEENCRYPTION, _UDDEADM_USEENCRYPTIONDESC, $adminstyle); ?>-->
+		        <?php uddeIMadmSelect($config->cryptmode, 'config_cryptmode', Array('4'=>_UDDEADM_CRYPT4, '3'=>_UDDEADM_CRYPT3, '2'=>_UDDEADM_CRYPT2, '1'=>_UDDEADM_CRYPT1, '0'=>_UDDEADM_CRYPT0), false, _UDDEADM_USEENCRYPTION, _UDDEADM_USEENCRYPTIONDESC, $adminstyle); ?>
 			<?php uddeIMadmText($config->cryptkey, 30, 'config_cryptkey', $config->cryptmode==0, _UDDEADM_OBFUSCATING_HEAD, _UDDEADM_OBFUSCATING_EXP); // BUGBUG: also cryptmode==3 ?>
 		</table>
 <?php
@@ -1376,7 +1375,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 	$tabs->startTab(_UDDEADM_DISPLAY,"display-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<?php uddeIMadmText($config->showtitle, 30, 'config_showtitle', false, _UDDEADM_SHOWTITLE_HEAD, _UDDEADM_SHOWTITLE_EXP); ?>
 			<?php
 				$tdirs = Array();
@@ -1419,14 +1418,14 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					<strong><?php echo _UDDEADM_COLSROWS_HEAD; ?></strong>
 				</td>
 				<td align="left" valign="top">
-					<input type="text" name="config_cols" size="4" value="<?php echo uddeIMquotecode($config->cols); ?>" /> /
-					<input type="text" name="config_rows" size="4" value="<?php echo uddeIMquotecode($config->rows); ?>" />
+					<input type="text" name="config_cols" class="form-control" size="3" value="<?php echo uddeIMquotecode($config->cols); ?>" /> /
+					<input type="text" name="config_rows" class="form-control" size="3" value="<?php echo uddeIMquotecode($config->rows); ?>" />
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_COLSROWS_EXP; ?>
 				</td>
 			</tr>
-			<?php uddeIMadmText($config->width, 4, 'config_width', false, _UDDEADM_WIDTH_HEAD, _UDDEADM_WIDTH_EXP); ?>
+			<?php uddeIMadmText($config->width, 4, 'config_width', false, _UDDEADM_WIDTH_HEAD, _UDDEADM_WIDTH_EXP,'px'); ?>
 
 			<?php uddeIMadmSelect($config->modeshowallusers, 'config_modeshowallusers', Array('2'=>_UDDEADM_MODESHOWALLUSERS_2, '1'=>_UDDEADM_MODESHOWALLUSERS_1, '0'=>_UDDEADM_MODESHOWALLUSERS_0), false, _UDDEADM_MODESHOWALLUSERS_HEAD, _UDDEADM_MODESHOWALLUSERS_EXP, $adminstyle); ?>
 			<?php uddeIMadmSelect($config->restrictallusers, 'config_restrictallusers', Array('0'=>_UDDEADM_RESTRALLUSERS_0, '1'=>_UDDEADM_RESTRALLUSERS_1, '2'=>_UDDEADM_RESTRALLUSERS_2), false, _UDDEADM_RESTRALLUSERS_HEAD, _UDDEADM_RESTRALLUSERS_EXP); ?>
@@ -1445,7 +1444,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 	$tabs->startTab(_UDDEADM_DELETIONS,"delete-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<?php uddeIMadmYesNo($config->ReadMessagesLifespanNote, 'config_ReadMessagesLifespanNote', false, _UDDEADM_DELETEREADAFTERNOTE_HEAD, _UDDEADM_DELETEREADAFTERNOTE_EXP); ?>
 			<?php uddeIMadmText($config->ReadMessagesLifespan, 4, 'config_ReadMessagesLifespan', false, _UDDEADM_DELETEREADAFTER_HEAD, _UDDEADM_DELETEREADAFTER_EXP, _UDDEADM_DAYS); ?>
 
@@ -1468,7 +1467,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 	$tabs->startTab(_UDDEADM_INTEGRATION,"integration-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">	
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">	
 			<?php uddeIMadmYesNo($config->showonline, 'config_showonline', false, _UDDEADM_SHOWONLINE_HEAD, _UDDEADM_SHOWONLINE_EXP); ?>
 			<?php uddeIMadmYesNo($config->allowpopup, 'config_allowpopup', false, _UDDEADM_POPUP_HEAD, _UDDEADM_POPUP_EXP); ?>
 			<?php uddeIMadmYesNo($config->popupdefault, 'config_popupdefault', false, _UDDEADM_POPUPDEFAULT_HEAD, _UDDEADM_POPUPDEFAULT_EXP); ?>
@@ -1489,11 +1488,11 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					if ($is_cbe2)	$cbl[] = mosHTML::makeOption( '4', _UDDEADM_CBE );
 					if ($is_ag)		$cbl[] = mosHTML::makeOption( '3', _UDDEADM_AGORA );
 					$cbl[] = mosHTML::makeOption( '0', _UDDEADM_DISABLED );
-					$list_cbl = mosHTML::selectList( $cbl, 'config_showcblink', 'class="inputbox" size="1"', 'value', 'text', $config->showcblink );
+					$list_cbl = mosHTML::selectList( $cbl, 'config_showcblink', 'class="form-select" size="1"', 'value', 'text', $config->showcblink );
 					echo $list_cbl;
 					?>
 				</td>
-				<td align="left" valign="top" width="50%"<?php echo $adminstyle; ?>>
+				<td align="left" valign="top" width="40%"<?php echo $adminstyle; ?>>
 					<?php echo _UDDEADM_SHOWLINK_EXP; ?>
 				</td>
 			</tr>		
@@ -1507,11 +1506,11 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
                   //if ($is_ku)		$sml[] = mosHTML::makeOption( '15', _UDDEADM_KUNENA5 );
 				  //if ($is_ku)		$sml[] = mosHTML::makeOption( '5', _UDDEADM_KUNENA );
 					$sml[] = mosHTML::makeOption( '0', _UDDEADM_DISABLED );
-					$list_sml = mosHTML::selectList( $sml, 'config_showmenulink', 'class="inputbox" size="1"', 'value', 'text', $config->showmenulink );
+					$list_sml = mosHTML::selectList( $sml, 'config_showmenulink', 'class="form-select" size="1"', 'value', 'text', $config->showmenulink );
 					echo $list_sml;
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_SHOWMENULINK_EXP; ?>
 				</td>
 			</tr>		
@@ -1531,11 +1530,11 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					if ($is_cbe2)	$cbp[] = mosHTML::makeOption( '4', _UDDEADM_CBE );
 					if ($is_ag)		$cbp[] = mosHTML::makeOption( '3', _UDDEADM_AGORA );
 					$cbp[] = mosHTML::makeOption( '0', _UDDEADM_DISABLED );
-					$list_cbp = mosHTML::selectList( $cbp, 'config_showcbpic', 'class="inputbox" size="1"', 'value', 'text', $config->showcbpic );
+					$list_cbp = mosHTML::selectList( $cbp, 'config_showcbpic', 'class="form-select" size="1"', 'value', 'text', $config->showcbpic );
 					echo $list_cbp;
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_SHOWPIC_EXP; ?>
 				</td>
 			</tr>
@@ -1545,10 +1544,10 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					<strong><?php echo _UDDEADM_AVATARWH_HEAD; ?></strong>
 				</td>
 				<td align="left" valign="top">
-					<input type="text" name="config_avatarw" size="4" value="<?php echo uddeIMquotecode($config->avatarw); ?>" /> /
-					<input type="text" name="config_avatarh" size="4" value="<?php echo uddeIMquotecode($config->avatarh); ?>" />
+					<input type="text" name="config_avatarw" class="form-control" size="3" value="<?php echo uddeIMquotecode($config->avatarw); ?>" /> /
+					<input type="text" name="config_avatarh" class="form-control" size="3" value="<?php echo uddeIMquotecode($config->avatarh); ?>" />
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_AVATARWH_EXP; ?>
 				</td>
 			</tr>
@@ -1572,11 +1571,11 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					$grd[] = mosHTML::makeOption( 'wavatar', 	_UDDEADM_GRWAVATAR );
 					$grd[] = mosHTML::makeOption( 'retro', 		_UDDEADM_GRRETRO );
 					$grd[] = mosHTML::makeOption( '',			_UDDEADM_GRDEFAULT );
-					$list_grd = mosHTML::selectList( $grd, 'config_gravatard', 'class="inputbox" size="1"', 'value', 'text', $config->gravatard );
+					$list_grd = mosHTML::selectList( $grd, 'config_gravatard', 'class="form-select" size="1"', 'value', 'text', $config->gravatard );
 					echo $list_grd;
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 <?php				echo uddeIMprintCond((!$config->gravatar || $is_nb), _UDDEADM_GRAVATARD_EXP, "gray", false); ?>
 				</td>
 			</tr>
@@ -1590,11 +1589,11 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					$grr[] = mosHTML::makeOption( 'pg', _UDDEADM_GRPG );
 					$grr[] = mosHTML::makeOption( 'r', 	_UDDEADM_GRR );
 					$grr[] = mosHTML::makeOption( 'x', 	_UDDEADM_GRX );
-					$list_grr = mosHTML::selectList( $grr, 'config_gravatarr', 'class="inputbox" size="1"', 'value', 'text', $config->gravatarr );
+					$list_grr = mosHTML::selectList( $grr, 'config_gravatarr', 'class="form-select" size="1"', 'value', 'text', $config->gravatarr );
 					echo $list_grr;
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 <?php				echo uddeIMprintCond((!$config->gravatar || $is_nb), _UDDEADM_GRAVATARR_EXP, "gray", false); ?>
 				</td>
 			</tr>
@@ -1608,7 +1607,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 	$tabs->startTab(_UDDEADM_EMAIL,"email-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">		
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">		
 			<?php uddeIMadmSelect($config->allowemailnotify, 'config_allowemailnotify', Array('2'=>_UDDEADM_ADMINSONLY, '1'=>_UDDEADM_YES, '0'=>_UDDEADM_NO), false, _UDDEADM_ALLOWEMAILNOTIFY_HEAD, _UDDEADM_ALLOWEMAILNOTIFY_EXP); ?>
 			<?php uddeIMadmSelect($config->notifydefault, 'config_notifydefault', Array('2'=>_UDDEADM_NOTIFYDEF_2, '1'=>_UDDEADM_NOTIFYDEF_1, '0'=>_UDDEADM_NOTIFYDEF_0), false, _UDDEADM_NOTIFYDEFAULT_HEAD, _UDDEADM_NOTIFYDEFAULT_EXP); ?>
 			<?php uddeIMadmSelect($config->emailwithmessage, 'config_emailwithmessage', Array('2'=>_UDDEADM_ADDEMAIL_ADMIN, '1'=>_UDDEADM_YES, '0'=>_UDDEADM_NO), false, _UDDEADM_EMAILWITHMESSAGE_HEAD, _UDDEADM_EMAILWITHMESSAGE_EXP); ?>
@@ -1644,7 +1643,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 	$tabs->startTab(_UDDEADM_BLOCK,"block-tab");
 ?>		
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<?php uddeIMadmYesNo($config->blocksystem, 'config_blocksystem', false, _UDDEADM_BLOCKSYSTEM_HEAD, _UDDEADM_BLOCKSYSTEM_EXP); ?>
 			<?php uddeIMadmYesNo($config->blockalert, 'config_blockalert', !$config->blocksystem, _UDDEADM_BLOCKALERT_HEAD, _UDDEADM_BLOCKALERT_EXP); ?>
 <?php
@@ -1676,7 +1675,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						if (in_array($usergroup->id,$xxx))
 							$checked = 'checked="checked"';
 						$count++;
-						echo '<td><input style="float:none;" type="checkbox" name="config_blockgroups['.$count.']" '.$checked.' value="'.$usergroup->id.'" id="cb'.$count.'" class="inputbox" /><label style="margin-left:4px;display:inline;float:none;" for="cb'.$count.'">'.$usergroup->name.'</label></td>';
+						echo '<td><input style="float:none;" type="checkbox" name="config_blockgroups['.$count.']" '.$checked.' value="'.$usergroup->id.'" id="cb'.$count.'" class="form-check-input" /><label style="margin-left:4px;display:inline;float:none;" for="cb'.$count.'">'.$usergroup->name.'</label></td>';
 						if (!($count % $numofcol))
 							echo '</tr><tr>';
 					}
@@ -1687,7 +1686,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					echo '</tr></table>';
 ?>
 				</td>
-				<td align="left" valign="top" width="50%"<?php echo $adminstyle; ?>>
+				<td align="left" valign="top" width="40%"<?php echo $adminstyle; ?>>
 					<?php echo _UDDEADM_BLOCKGROUPS_EXP; ?>
 				</td>
 			</tr>										
@@ -1719,7 +1718,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						if (in_array($usergroup->id,$xxx))
 							$checked = 'checked="checked"';
 						$count++;
-						echo '<td><input style="float:none;" type="checkbox" name="config_pubblockgroups['.$count.']" '.$checked.' value="'.$usergroup->id.'" id="pcb'.$count.'" class="inputbox" /><label style="margin-left:4px;display:inline;float:none;" for="pcb'.$count.'">'.$usergroup->name.'</label></td>';
+						echo '<td><input style="float:none;" type="checkbox" name="config_pubblockgroups['.$count.']" '.$checked.' value="'.$usergroup->id.'" id="pcb'.$count.'" class="form-check-input" /><label style="margin-left:4px;display:inline;float:none;" for="pcb'.$count.'">'.$usergroup->name.'</label></td>';
 						if (!($count % $numofcol))
 							echo '</tr><tr>';
 					}
@@ -1730,7 +1729,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					echo '</tr></table>';
 ?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo uddeIMprintCond(!$config->pubfrontend || !$plugin_public, _UDDEADM_PUBBLOCKGROUPS_EXP.uddeIMnoPremium(!$plugin_public), "gray"); ?>
 				</td>
 			</tr>										
@@ -1745,7 +1744,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 	$tabs->startTab(_UDDEADM_ARCHIVE,"archive-tab");
 
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<?php uddeIMadmYesNo($config->allowarchive, 'config_allowarchive', false, _UDDEADM_ALLOWARCHIVE_HEAD, _UDDEADM_ALLOWARCHIVE_EXP); ?>
 			<?php uddeIMadmText($config->maxarchive, 4, 'config_maxarchive', false, _UDDEADM_MAXARCHIVE_HEAD, _UDDEADM_MAXARCHIVE_EXP); ?>
 			<?php uddeIMadmYesNo($config->inboxlimit, 'config_inboxlimit', false, _UDDEADM_INBOXLIMIT_HEAD, _UDDEADM_INBOXLIMIT_EXP); ?>
@@ -1761,7 +1760,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 	$tabs->startTab(_UDDEADM_DATESETTINGS,"date-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<?php 
 				$df = Array();
                 $df[ 'j. n. H:i' ] =   '5. 8. 22:40';
@@ -1813,7 +1812,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			?>
 
 			<?php 
-				uddeIMadmText($config->timezone, 4, 'config_timezone', false, _UDDEADM_TIMEZONE_HEAD, _UDDEADM_TIMEZONE_EXP, '', $adminstyle);
+				uddeIMadmText($config->timezone, 4, 'config_timezone', false, _UDDEADM_TIMEZONE_HEAD, _UDDEADM_TIMEZONE_EXP, _UDDEADM_HOURS, $adminstyle);
 				uddeIMadmYesNo($config->stime, 'config_stime', false, _UDDEADM_STIME_HEAD, _UDDEADM_STIME_EXP);
 			?>
 		</table>														
@@ -1827,13 +1826,13 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 	if ($plugin_public) {
 		$tabs->startTab(_UDDEADM_PUBLIC,"public-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<?php uddeIMadmYesNo($config->pubfrontend, 'config_pubfrontend', false, _UDDEADM_PUBFRONTEND_HEAD, _UDDEADM_PUBFRONTEND_EXP); ?>
 			<?php uddeIMadmSelect($config->pubfrontenddefault, 'config_pubfrontenddefault', Array('1'=>_UDDEADM_PUBDEF1, '0'=>_UDDEADM_PUBDEF0), !$config->pubfrontend, _UDDEADM_PUBFRONTENDDEF_HEAD, _UDDEADM_PUBFRONTENDDEF_EXP); ?>
 			<?php uddeIMadmSelect($config->pubmodeshowallusers, 'config_pubmodeshowallusers', Array('2'=>_UDDEADM_MODESHOWALLUSERS_2, '1'=>_UDDEADM_MODESHOWALLUSERS_1, '0'=>_UDDEADM_MODESHOWALLUSERS_0), !$config->pubfrontend, _UDDEADM_PUBMODESHOWALLUSERS_HEAD, _UDDEADM_PUBMODESHOWALLUSERS_EXP); ?>
 			<?php uddeIMadmSelect($config->pubrealnames, 'config_pubrealnames', Array('1'=>_UDDEADM_REALNAMES, '0'=>_UDDEADM_USERNAMES), !$config->pubfrontend, _UDDEADM_PUBNAMESTEXT, _UDDEADM_PUBNAMESDESC); ?>
 			<?php uddeIMadmSelect($config->pubhideallusers, 'config_pubhideallusers', Array('3'=>_UDDEADM_HIDEALLUSERS_3, '2'=>_UDDEADM_HIDEALLUSERS_2, '1'=>_UDDEADM_HIDEALLUSERS_1, '0'=>_UDDEADM_HIDEALLUSERS_0), !$config->pubfrontend, _UDDEADM_PUBHIDEALLUSERS_HEAD, _UDDEADM_PUBHIDEALLUSERS_EXP); ?>
-			<?php uddeIMadmText($config->pubhideusers, 20, 'config_pubhideusers', !$config->pubfrontend, _UDDEADM_PUBHIDEUSERS_HEAD, _UDDEADM_PUBHIDEUSERS_EXP); ?>
+			<?php uddeIMadmText($config->pubhideusers, 20, 'config_pubhideusers', !$config->pubfrontend, _UDDEADM_PUBHIDEUSERS_HEAD, _UDDEADM_PUBHIDEUSERS_EXP, 'ID'); ?>
 			<?php uddeIMadmYesNo($config->pubemail, 'config_pubemail', !$config->pubemail, _UDDEADM_PUBEMAIL_HEAD, _UDDEADM_PUBEMAIL_EXP); ?>
 			<?php uddeIMadmYesNo($config->pubreplies, 'config_pubreplies', !$config->pubfrontend, _UDDEADM_PUBREPLYS_HEAD, _UDDEADM_PUBREPLYS_EXP); ?>
 			<?php uddeIMadmYesNo($config->modpubusers, 'config_modpubusers', !$config->pubfrontend, _UDDEADM_MODPUBUSERS_HEAD, _UDDEADM_MODNEWUSERS_EXP); ?>
@@ -1851,7 +1850,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 	$tabs->startTab(_UDDEADM_SYSTEM,"system-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<?php 
 				$temp  = _UDDEADM_ADMINIGNITIONONLY_EXP."<br />";
 				$temp .= "<a href=".uddeIMredirectIndex()."?option=com_uddeim&task=maintenanceprune>"._UDDEADM_MAINTENANCE_PRUNE."</a>";
@@ -1892,7 +1891,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 				$temp .= _UDDEADM_OVERWRITEITEMID_CURRENT.$found;
 				uddeIMadmYesNo($config->overwriteitemid, 'config_overwriteitemid', false, _UDDEADM_OVERWRITEITEMID_HEAD, $temp, $adminstyle);
 			?>
-			<?php uddeIMadmText($config->useitemid, 4, 'config_useitemid', !$config->overwriteitemid, _UDDEADM_USEITEMID_HEAD, _UDDEADM_USEITEMID_EXP); ?>
+			<?php uddeIMadmText($config->useitemid, 3, 'config_useitemid', !$config->overwriteitemid, _UDDEADM_USEITEMID_HEAD, _UDDEADM_USEITEMID_EXP,'ID uddeIM'); ?>
 
 			<?php
 				$arss = Array();
@@ -1938,7 +1937,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						$count++;
 						echo '<td>';
 						// if (!$config->enableattachment) echo "<span style='color: gray;'>";
-						echo '<input style="float:none;" type="checkbox" name="config_attachmentgroups['.$count.']" '.$checked.' value="'.$usergroup->id.'" id="cb'.$count.'" class="inputbox" /><label style="margin-left:4px;display:inline;float:none;" for="cb'.$count.'">'.$usergroup->name.'</label>';
+						echo '<input style="float:none;" type="checkbox" name="config_attachmentgroups['.$count.']" '.$checked.' value="'.$usergroup->id.'" id="cb'.$count.'" class="form-check-input" /><label style="margin-left:4px;display:inline;float:none;" for="cb'.$count.'">'.$usergroup->name.'</label>';
 						// if (!$config->enableattachment) echo "</span>";
 						echo '</td>';
 						if (!($count % $numofcol))
@@ -1951,11 +1950,11 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					echo '</tr></table>';
 ?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 <?php				echo uddeIMprintCond(!$config->enableattachment, _UDDEADM_ATTACHMENTGROUPS_EXP, "gray", false); ?>
 				</td>
 			</tr>										
-			<?php uddeIMadmText($config->maxsizeattachment, 10, 'config_maxsizeattachment', !$config->enableattachment, _UDDEADM_MAXSIZEATTACHMENT_HEAD, _UDDEADM_MAXSIZEATTACHMENT_EXP); ?>
+			<?php uddeIMadmText($config->maxsizeattachment, 10, 'config_maxsizeattachment', !$config->enableattachment, _UDDEADM_MAXSIZEATTACHMENT_HEAD, _UDDEADM_MAXSIZEATTACHMENT_EXP,'bytes'); ?>
 			<?php uddeIMadmText($config->allowedextensions, 40, 'config_allowedextensions', !$config->enableattachment, _UDDEADM_ALLOWEDEXTENSIONS_HEAD, _UDDEADM_ALLOWEDEXTENSIONS_EXP); ?>
 			<?php 
 				$amatt = Array();
@@ -1986,7 +1985,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 	if ($config->pmsimportdone<=1) {	// PMS found or already imported (=2 means suppress this tab, set when no PMS is found)
 		$tabs->startTab(_UDDEADM_IMPORT,"import-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<tr align="center" valign="middle">
 				<td align="left" valign="top">
 					<h2><?php echo _UDDEADM_IMPORT_HEADER; ?></h2>
@@ -2074,7 +2073,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 	$tabs->startTab(_UDDEADM_MAINTENANCE,"maintenance-tab");
 ?>
-		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm" id="adminForm">
+		<table width="100%" border="0" cellpadding="4" cellspacing="2" class="adminForm uddeim" id="adminForm">
 			<tr align="center" valign="middle">
 				<td align="left" valign="top">
 					<strong><?php echo _UDDEADM_MAINTENANCE_HEAD; ?></strong>
@@ -2085,7 +2084,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						echo "<a class='btn btn-sm btn-outline-action' href=".uddeIMredirectIndex()."?option=com_uddeim&task=maintenance&act=trash>"._UDDEADM_MAINTENANCE_TRASH."</a>&nbsp;";
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_MAINTENANCE_EXP; ?>
 				</td>
 			</tr>						
@@ -2098,7 +2097,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						echo "<a class='btn btn-sm btn-outline-danger' href=".uddeIMredirectIndex()."?option=com_uddeim&task=maintenanceprune>"._UDDEADM_MAINTENANCEDEL_ERASE."</a>";
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_MAINTENANCEDEL_EXP; ?>
 				</td>
 			</tr>
@@ -2111,7 +2110,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						echo "<a class='btn btn-sm btn-outline-danger' href=".uddeIMredirectIndex()."?option=com_uddeim&task=filemaintenanceprune>"._UDDEADM_FILEMAINTENANCEDEL_ERASE."</a>";
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_FILEMAINTENANCEDEL_EXP; ?>
 				</td>
 			</tr>						
@@ -2128,7 +2127,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						echo "<a class='btn btn-sm btn-outline-action' href=".uddeIMredirectIndex()."?option=com_uddeim&task=maintenancefix&act=fix>"._UDDEADM_MAINTENANCE_FIX."</a>&nbsp;";
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_MAINTENANCEFIX_EXP; ?>
 				</td>
 			</tr>						
@@ -2154,7 +2153,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						echo "<a class='btn btn-sm btn-outline-action' href=".uddeIMredirectIndex()."?option=com_uddeim&task=backuprestore&act=restore>"._UDDEADM_BACKUPRESTORE_RESTORE."</a>&nbsp;";
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_BACKUPRESTORE_EXP;
 					if ($backupdate) echo "<br />"._UDDEADM_BACKUPRESTORE_DATE.$backupdate; ?>
 				</td>
@@ -2168,7 +2167,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						echo "<a class='btn btn-sm btn-info' href=".uddeIMredirectIndex()."?option=com_uddeim&task=versioncheck>"._UDDEADM_VERSIONCHECK_CHECK."</a>";
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_VERSIONCHECK_EXP; ?>
 				</td>
 			</tr>						
@@ -2181,7 +2180,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 						echo "<a class='btn btn-sm btn-secondary' href=".uddeIMredirectIndex()."?option=com_uddeim&task=showstatistics>"._UDDEADM_STATISTICS_CHECK."</a>";
 					?>
 				</td>
-				<td align="left" valign="top" width="50%">
+				<td align="left" valign="top" width="40%">
 					<?php echo _UDDEADM_STATISTICS_EXP; ?>
 				</td>
 			</tr>						
@@ -2270,7 +2269,7 @@ function uddeIMadmYesNo($value, $postvar, $condition, $head, $exp, $style='') {
 	//echo $tm->RadioList( $local, $postvar, 'class="inputbox" size="2"', $value );
 	echo $tm->yesnoButton( $postvar, $value ); 
 	echo '</td>';
-	echo '<td align="left" valign="top" width="50%"'.$style.'>';
+	echo '<td align="left" valign="top" width="40%"'.$style.'>';
 	echo uddeIMprintCond($condition, $exp, "gray");
 	echo '</td>';
 	echo '</tr>';
@@ -2288,7 +2287,7 @@ function uddeIMadmSelect($value, $postvar, $options_arr, $condition, $head, $exp
 		$local[] = $tm->makeOption( $key, $val );
 	echo $tm->selectList( $local, $postvar, 'class="inputbox" size="1"', 'value', 'text', $value );
 	echo '</td>';
-	echo '<td align="left" valign="top" width="50%"'.$style.'>';
+	echo '<td align="left" valign="top" width="40%"'.$style.'>';
 	echo uddeIMprintCond($condition, $exp, "gray");
 	echo '</td>';
 	echo '</tr>';
@@ -2302,7 +2301,7 @@ function uddeIMadmText($value, $size, $postvar, $condition, $head, $exp, $postfi
 	echo '<td align="left" valign="top"'.$style.'>';
 	echo '<input type="text" name="'.$postvar.'" size="'.$size.'" value="'.uddeIMquotecode($value).'" />'.($postfixtext ? '<span class="uddpostfix">'.$postfixtext.'</span>' : '');
 	echo '</td>';
-	echo '<td align="left" valign="top" width="50%"'.$style.'>';
+	echo '<td align="left" valign="top" width="40%"'.$style.'>';
 	echo uddeIMprintCond($condition, $exp, "gray");
 	echo '</td>';
 	echo '</tr>';
