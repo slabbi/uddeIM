@@ -10,8 +10,17 @@ only the two libs included for use with Joomla 5:
 - uddeimlib50.php
 
 The many version checks within the different files have not been 
-removed, but the (admin.)uddeimlib.php, which selects the right 
-library is gone.
+removed, but the admin.uddeimlib.php, which selects the right 
+library, is gone.
+Caution: if you use cb-plugins the uddeimlib.php is NEEDED.
+
+for the backend styling there is a new admin.uddeim5.css file,
+which takes the new backend styling and now is placed in an
+admin folder within the templates folder.
+
+if you want to create your own admin css within a special
+template schema you must also name it admin.uddeim5.css
+(the script first looks in the template folders)
 
 Also all old modules and plugins have been removed. Included 
 modules and plugins have been tested to run on Joomla 5.
