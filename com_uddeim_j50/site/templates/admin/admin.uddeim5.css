@@ -84,7 +84,7 @@ table.adminlist #limit {
     font-size: 1.2em;
 }
 .adminlist.uddfilter input {
-    margin: -4px 0 0 8px;
+    float: right;
 }
 .adminlist.uddfilter #limit {
     display: inline;
