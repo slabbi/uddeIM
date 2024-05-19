@@ -265,7 +265,7 @@ DEFINE ('_UDDEADM_RECAPTCHAPUB_EXP', 'Pour utiliser reCaptcha, vous devez indiqu
 DEFINE ('_UDDEADM_CAPTCHA_INTERNAL', 'Interne');
 DEFINE ('_UDDEADM_CAPTCHA_RECAPTCHA', 'reCaptcha');
 DEFINE ('_UDDEADM_CAPTCHATYPE_HEAD', 'Service Captcha');
-DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'SpÃ©cifiez le service Captcha que vous souhaitez utiliser: Service intÃ©grÃ© ou reCaptcha (infos <a href="http://recaptcha.net" target="_new">reCaptcha</a>)');
+DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'SpÃ©cifiez le service Captcha que vous souhaitez utiliser: Service intÃ©grÃ© ou reCaptcha (infos <a href="https://www.google.com/recaptcha/about/" target="_new">reCaptcha</a>)');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_6', '...par dÃ©faut pour le service captcha');
 DEFINE ('_UDDEADM_AUP', 'AlphaUserPoints');
 DEFINE ('_UDDEADM_CHECKFILESFOLDER', 'Veuillez dÃ©placer le dossier <i>\uddeimfiles</i> dans <i>\images\uddeimfiles</i>. Consultez la documentation pour plus de renseignements.');
