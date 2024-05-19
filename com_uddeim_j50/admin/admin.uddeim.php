@@ -1387,7 +1387,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 				$dir = $pathtouser."/templates";
 				if ($hd = opendir($dir)) {
 					while ($sz = readdir($hd)) { 
-						if (!preg_match("/\./",$sz) && !preg_match("/images/",$sz))
+						if (!preg_match("/\./",$sz) && !preg_match("/images|admin|licenses/i",$sz))
 							$tdirs[] = $sz;
 					}
 					closedir($hd);
