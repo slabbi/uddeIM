@@ -1832,7 +1832,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			<?php uddeIMadmSelect($config->pubmodeshowallusers, 'config_pubmodeshowallusers', Array('2'=>_UDDEADM_MODESHOWALLUSERS_2, '1'=>_UDDEADM_MODESHOWALLUSERS_1, '0'=>_UDDEADM_MODESHOWALLUSERS_0), !$config->pubfrontend, _UDDEADM_PUBMODESHOWALLUSERS_HEAD, _UDDEADM_PUBMODESHOWALLUSERS_EXP); ?>
 			<?php uddeIMadmSelect($config->pubrealnames, 'config_pubrealnames', Array('1'=>_UDDEADM_REALNAMES, '0'=>_UDDEADM_USERNAMES), !$config->pubfrontend, _UDDEADM_PUBNAMESTEXT, _UDDEADM_PUBNAMESDESC); ?>
 			<?php uddeIMadmSelect($config->pubhideallusers, 'config_pubhideallusers', Array('3'=>_UDDEADM_HIDEALLUSERS_3, '2'=>_UDDEADM_HIDEALLUSERS_2, '1'=>_UDDEADM_HIDEALLUSERS_1, '0'=>_UDDEADM_HIDEALLUSERS_0), !$config->pubfrontend, _UDDEADM_PUBHIDEALLUSERS_HEAD, _UDDEADM_PUBHIDEALLUSERS_EXP); ?>
-			<?php uddeIMadmText($config->pubhideusers, 10, 'config_pubhideusers', !$config->pubfrontend, _UDDEADM_PUBHIDEUSERS_HEAD, _UDDEADM_PUBHIDEUSERS_EXP, 'ID'); ?>
+			<?php uddeIMadmText($config->pubhideusers, 11, 'config_pubhideusers', !$config->pubfrontend, _UDDEADM_PUBHIDEUSERS_HEAD, _UDDEADM_PUBHIDEUSERS_EXP, 'ID'); ?>
 			<?php uddeIMadmYesNo($config->pubemail, 'config_pubemail', !$config->pubemail, _UDDEADM_PUBEMAIL_HEAD, _UDDEADM_PUBEMAIL_EXP); ?>
 			<?php uddeIMadmYesNo($config->pubreplies, 'config_pubreplies', !$config->pubfrontend, _UDDEADM_PUBREPLYS_HEAD, _UDDEADM_PUBREPLYS_EXP); ?>
 			<?php uddeIMadmYesNo($config->modpubusers, 'config_modpubusers', !$config->pubfrontend, _UDDEADM_MODPUBUSERS_HEAD, _UDDEADM_MODNEWUSERS_EXP); ?>
