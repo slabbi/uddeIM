@@ -255,13 +255,13 @@ DEFINE ('_UDDEIM_WAITDAYS2H', ' Stunden warten bis Sie Nachrichten senden könne
 
 // New: 2.0
 DEFINE ('_UDDEADM_RECAPTCHAPRV_HEAD', 'reCaptcha private key');
-DEFINE ('_UDDEADM_RECAPTCHAPRV_EXP', 'When you want to use reCaptcha, enter your private key here.');
+DEFINE ('_UDDEADM_RECAPTCHAPRV_EXP', 'geben Sie bitte hier Ihren reCaptcha <b>privat key</b> ein.');
 DEFINE ('_UDDEADM_RECAPTCHAPUB_HEAD', 'reCaptcha public key');
-DEFINE ('_UDDEADM_RECAPTCHAPUB_EXP', 'When you want to use reCaptcha, enter your public key here.');
+DEFINE ('_UDDEADM_RECAPTCHAPUB_EXP', 'geben Sie bitte hier Ihren reCaptcha <b>public key</b> ein.');
 DEFINE ('_UDDEADM_CAPTCHA_INTERNAL', 'Internal');
 DEFINE ('_UDDEADM_CAPTCHA_RECAPTCHA', 'reCaptcha');
 DEFINE ('_UDDEADM_CAPTCHATYPE_HEAD', 'Captcha service');
-DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'Which captcha service do you want to use: The build-in service or reCaptcha (see <a href="http://recaptcha.net" target="_new">reCaptcha</a> for more information)?');
+DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'Welchen Captcha service möchten Sie verwenden: den internen Service oder reCaptcha (see <a href="https://www.google.com/recaptcha/about/" target="_new">reCaptcha</a> für weitere Informationen)?'); 
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_6', '...set default for captcha service');
 DEFINE ('_UDDEADM_AUP', 'AlphaUserPoints');
 DEFINE ('_UDDEADM_CHECKFILESFOLDER', 'Bitte <i>\uddeimfiles</i> nach <i>\images\uddeimfiles</i> verschieben (siehe Dokumentation)!');
