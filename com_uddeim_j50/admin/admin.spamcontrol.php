@@ -135,7 +135,7 @@ function uddeIMshowSpamControl($option, $task, $act, $config) {
 		<td align="right"><?php echo $the_username; ?></td>
 		<td><?php echo $the_name; ?></td>
 		<td>
-			<input type="submit" class="btn btn-success" value="<?php echo _UDDEADM_ADMIN_FILTER; ?>" />
+			<input type="submit" class="btn btn-sm btn-secondary" value="<?php echo _UDDEADM_ADMIN_FILTER; ?>" />
 		</td>
 	</tr>
 	</table>
