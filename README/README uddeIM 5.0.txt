@@ -15,10 +15,10 @@ library, is gone.
 Caution: if you use cb-plugins the uddeimlib.php is NEEDED.
 
 for the backend styling there is a new admin.uddeim5.css file,
-which takes the new backend styling and now is placed in an
+which takes the new backend styling and now is placed in an 
 admin folder within the templates folder.
 
-if you want to create your own admin css within a special
+if you want to create your own admin css within a special 
 template schema you must also name it admin.uddeim5.css
 (the script first looks in the template folders)
 
