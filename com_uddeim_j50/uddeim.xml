@@ -7,7 +7,7 @@
     <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
     <authorEmail>ssl@gmx.de</authorEmail>
     <authorUrl>https://github.com/slabbi/uddeIM</authorUrl>
-    <version>5.3.5</version>
+    <version>5.4</version>
     <description>uddeIM Instant Messages for Joomla_5</description>
 	<files folder="site">
 		<folder>views</folder>
