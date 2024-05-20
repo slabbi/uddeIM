@@ -353,7 +353,7 @@ function uddeIMcreateCFGstring($config) {
 	$cf.=" return true;\n";
 	$cf.="} else {\n";
 	$cf.=" define('_uddeConfig', 1);\n";
-	$cf.=" class uddeimconfigclass {\n";
+	$cf.=" class uddeimconfigclass extends stdClass {\n";
 	$cf.="  var \$version = '2.8';\n";		// this is the version number of the configuration file
 	$cf.="  var \$cryptkey = '".$config->cryptkey."';\n";
 	$cf.="  var \$datumsformat = '".$config->datumsformat."';\n";
