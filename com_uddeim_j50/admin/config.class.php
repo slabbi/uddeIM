@@ -23,7 +23,7 @@ if (defined('_uddeConfig')) {
 } else {
  define('_uddeConfig', 1);
 
- class uddeimconfigclass {
+ class uddeimconfigclass extends stdClass {
   var $version = '2.8';
   var $cryptkey = 'uddeIMOpensslKey';
   var $datumsformat = 'j M, H:i';
