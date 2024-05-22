@@ -3,7 +3,7 @@
 // @title         udde Instant Messages (uddeIM)
 // @description   Instant Messages System for Joomla 5
 // @author        Stephan Slabihoud, Benjamin Zweifel
-// @copyright     © 2007-2024 Stephan Slabihoud, © 2024 v5 joomod.de, © 2006 Benjamin Zweifel
+// @copyright     Â© 2007-2024 Stephan Slabihoud, Â© 2024 v5 joomod.de, Â© 2006 Benjamin Zweifel
 // @license       GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 //                This program is free software: you may redistribute it and/or modify under the
 //                terms of the GNU General Public License as published by the Free Software Foundation,
@@ -281,7 +281,7 @@ function uddeIMarchive($myself, $item_id, $limit, $limitstart, $cryptpass, $conf
 		$shownav = $pageNav->writePagesLinks($referlink);
 		$shownav = uddeIMarrowReplace($shownav, $config->templatedir);
 		echo "<div id='uddeim-pagenav'>".$shownav."<br />";
-		echo "[<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=archive&Itemid=".$item_id."&limitstart=0&limit=".$totalarchive.$addlink.$addlink2)."'>"._UDDEIM_SHOWALL."</a>]";
+		echo "<a class='btn btn-sm btn-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=archive&Itemid=".$item_id."&limitstart=0&limit=".$totalarchive.$addlink.$addlink2)."'>"._UDDEIM_SHOWALL."</a>";
 		echo "</div>\n";
 	}
 
