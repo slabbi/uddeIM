@@ -2684,11 +2684,11 @@ function uddeIMcompleteUserName($myself, $config){
 
 				$hide = "";
 				if ($config->hideusers && !uddeIMisAdmin($my_gid) && !uddeIMisAdmin2($my_gid, $config))
-					$hide = "AND u.id NOT IN (".uddeIMquoteSmart($config->hideusers).") ";
+					$hide = " AND u.id NOT IN (".uddeIMquoteSmart($config->hideusers).")";
 
 				$hide2 = "";
 				if ($config->blockgroups && uddeIMisReggedOnly($my_gid))
-					$hide2 = "AND g.id NOT IN (".uddeIMquoteSmart($config->blockgroups).") ";
+					$hide2 = " AND g.id NOT IN (".uddeIMquoteSmart($config->blockgroups).")";
 
 				$query = sprintf( 'SELECT DISTINCT u.id,u.%1$s AS displayname FROM (`#__users` AS u INNER JOIN `#__user_usergroup_map` AS um ON u.id=um.user_id)
 								INNER JOIN `#__usergroups` AS g ON um.group_id=g.id
@@ -2699,14 +2699,14 @@ function uddeIMcompleteUserName($myself, $config){
 			    $my_gid = 0;
 				$hide = "";
 				if ($config->hideusers && !uddeIMisAdmin($my_gid) && !uddeIMisAdmin2($my_gid, $config))
-					$hide = "AND a.id NOT IN (".uddeIMquoteSmart($config->hideusers).") ";
+					$hide = " AND a.id NOT IN (".uddeIMquoteSmart($config->hideusers).")";
 
 				$hide2 = "";
 				if ($config->pubblockgroups)
-					$hide2 = "AND a.gid NOT IN (".uddeIMquoteSmart($config->pubblockgroups).") ";
+					$hide2 = " AND a.gid NOT IN (".uddeIMquoteSmart($config->pubblockgroups).")";
 
                 $query = sprintf( 'SELECT a.%1$s AS displayname FROM `#__users` AS a, `#__uddeim_emn` AS b
-                                   WHERE a.id=b.userid AND b.public=1 AND a.block=0 '.$hide.$hide2.'ORDER BY a.%1$s'   // no limit to get full list
+                                   WHERE a.id=b.userid AND b.public=1 AND a.block=0'.$hide.$hide2.' ORDER BY a.%1$s'   // no limit to get full list
 								   , $db->quoteName( $fieldToUse ) // ok
 									//, $db->Quote( ($config->pubsearchinstring ? '%' : '').$input.'%' )   AND a.%1$s LIKE %2$s  no mor used
 								);
