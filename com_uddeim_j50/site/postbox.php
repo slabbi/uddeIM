@@ -844,7 +844,7 @@ if (0) {
 		$shownav = $pageNav->writePagesLinks($referlink);
 		$shownav = uddeIMarrowReplace($shownav, $config->templatedir);
 		echo "<div id='uddeim-pagenav'>".$shownav."<br />";
-		echo "[<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postboxuser&Itemid=".$item_id."&recip=".$userid."&limitstart=0&limit=".$totalpostbox)."'>"._UDDEIM_SHOWALL."</a>]";
+		echo "<a class='btn btn-sm btn-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postboxuser&Itemid=".$item_id."&recip=".$userid."&limitstart=0&limit=".$totalpostbox)."'>"._UDDEIM_SHOWALL."</a>";
 		echo "</div>\n";
 	}
 
