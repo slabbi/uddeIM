@@ -6,11 +6,56 @@
  * @copyright 2024
  * License: GNU General Public License version 2
 -----------------------------------------------------------------------------------------------*/
+#uddeim-pagenav .btn.btn-info {
+  float: left;
+  margin-left: 1%;
+}
+/*spamcontrol*/
+.uddeim-messageactionlink-spam {
+    float: inline-end!important;
+    font-variant: all-petite-caps;
+    white-space:nowrap;
+}
+li.uddeim-messageactionlink-spam a:not(:hover) {
+  background: #DB7093!important;
+  font-weight: bold !important;
+}
+li.uddeim-messageactionlink-spam {
+    position: relative;
+    left: -100%;
+    margin-top: -81px;
+}
+li.uddeim-messageactionlink-spam.unreport {
+    left: -75%;
+    margin-top: -27px;
+}
+.uddeim-messageactionlink-spam.unreport {
+    color:royalblue!important;
+}
+
+.uddeim-messagefrom-spam {
+    display: table-cell;
+    font-variant: all-petite-caps;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.innermost .uddeim-messagefrom-spam {
+    font-size: 1em;
+    float: left;
+    position: relative;
+    left: -60%;
+    margin-top: -82px;
+}
+.innermost .uddeim-messagefrom {
+    position: absolute;
+    margin-top: -20px;
+}
+
 .cbImgAvatar {
-    max-width: 40px;
+    max-width: 50px;
 }
 .cbImgPictInitial.cbImgAvatar {
-    width: 40px;
+    width: 50px;
 }
 .uddeim-password {
     display: inline-block;
@@ -287,9 +332,9 @@ img[src*="icon_down"], img[src*="icon_up"] {
 }
 
 #uddeim #uddeim-m .uddeim-messageheader table td {
-  vertical-align: middle;
+  vertical-align: text-top;  /*middle*/
   font-weight: bold;
-  width: 100px;
+  /*width: 100px;*/
 }
 
 #uddeim #uddeim-m table.innermost td ul {
@@ -307,7 +352,7 @@ img[src*="icon_down"], img[src*="icon_up"] {
 
 #uddeim #uddeim-m table.innermost td ul li a {
   background: #34495e;
-  color: #fff;
+  color: #fff!important;
   display: block;
   overflow: hidden;
   padding: 7px 10px;
@@ -365,7 +410,7 @@ img[src*="icon_down"], img[src*="icon_up"] {
   -moz-box-shadow: 0 -3px 0 0 rgba(0, 0, 0, 0.2) inset;
   -webkit-box-shadow: 0 -3px 0 0 rgba(0, 0, 0, 0.2) inset;
   color: #fff;
-  font-weight: bold;
+  /*font-weight: bold;*/
   padding: 5px 10px;
 }
 
@@ -536,8 +581,8 @@ img[src*="icon_down"], img[src*="icon_up"] {
 #uddeim-pagenav ul li {
   border: 1px solid #ddd;
   display: inline-block;
-  margin: 0 5px;
-  padding: 2px 8px;
+  margin: 0;
+  padding: 2px 3px;
 }
 
 #uddeim-pagenav ul li span {

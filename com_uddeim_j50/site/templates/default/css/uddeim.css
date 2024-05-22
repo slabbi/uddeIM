@@ -1,9 +1,27 @@
 /* *******************************************************************
 /* Author         © 2009 Shawn M. Sloan (http://www.tcplc.com)
 /*				  © 2007-2012 Stephan Slabihoud
-/*                © 2023-2420 joomod.de
 /* ******************************************************************* */
-
+#uddeim-pagenav .btn.btn-info {
+    color: #fff !important;
+}
+/*spamcontrol*/
+.uddeim-messageactionlink-spam {
+    float: inline-end;
+    font-variant: all-petite-caps;
+    white-space:nowrap;
+}
+li.uddeim-messageactionlink-spam a {
+    font-weight: bold !important;
+}
+.uddeim-messageactionlink-spam.unreport,.uddeim-messageactionlink-spam.unreport a {
+    color:royalblue!important;
+}
+.uddeim-messagefrom-spam {
+    font-variant: all-petite-caps;
+    font-weight: bold;
+    white-space: nowrap;
+}
 /* new J5 autocomplete */
 #input_to_name_autocomplete-list,#autocompleter-choices {
     position: absolute;
@@ -297,7 +315,6 @@ div.uddeim-messageheader div.uddeim-messagefrom-spam {
 	float: left;
 	vertical-align: top;
 	margin-left: 10px;
-	color: #000000;	
 }
 
 #uddeim-m div.uddeim-messageheader div.uddeim-messagefrom a {
@@ -364,9 +381,6 @@ span.uddeim-clear {
 	display: block;
 }
 
-
-
-
 /* Message Display */
 /* Body */
 
@@ -414,8 +428,6 @@ div.uddeim-replyquote {
 	margin-top: 8px;
 	border-left: 1px solid grey;
 }
-
-
 
 /* Compose, Writeform */
 
@@ -467,8 +479,6 @@ div.uddeim-replyquote {
     background-color: white !important;
 }
 
-
-
 div.uddeim-messageattachments {
 /*	position: relative !important;
 	background: #C2C2FF !important;
@@ -489,8 +499,6 @@ div.uddeim-messageattachments tr {
 div.uddeim-attachmentbox {
 	padding: 10px 5px 10px 5px !important;
 }
-
-
 
 #uddeim-bbemobox table {
 	width: 300px;
@@ -534,10 +542,6 @@ div.uddeim-attachmentbox {
 	padding: 3px;
 }
 
-
-
-
-
 /* Settings page */
 
 #uddeim-set-emn {
@@ -578,8 +582,6 @@ div.uddeim-attachmentbox {
 	margin-top: 8px;
 }
 
-
-
 /* Settings: Sound */
 
 #uddeim-set-sound {
@@ -592,14 +594,6 @@ div.uddeim-attachmentbox {
 #uddeim-set-sound h4 {
 	margin-top: 8px;
 }
-
-
-
-
-
-
-
-
 
 /* Bottomlines (within uddeim-m) */
 
@@ -616,10 +610,6 @@ div.uddeim-attachmentbox {
     text-align: center;
 }
 
-
-
-
-
 /* Bottomborder */
 
 #uddeim-bottomborder {
@@ -634,9 +624,6 @@ div.uddeim-attachmentbox {
 	margin: 0;
 	padding:0px 10px 0px 10px;	
 }
-
-
-
 
 .uddeim-bottomborder a {
 }
@@ -658,10 +645,6 @@ div.uddeim-attachmentbox {
 	margin-left: 15px;
 }
 
-
-
-
-
 /* Others */
 
 .uddeim-warning {
@@ -670,11 +653,6 @@ div.uddeim-attachmentbox {
 	font-weight: bold;
 	padding: 1px 3px 1px 3px;
 }
-
-
-
-
-
 
 /* Systemmessage */
 

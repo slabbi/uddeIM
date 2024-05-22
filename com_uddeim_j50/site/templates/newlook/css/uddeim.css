@@ -5,6 +5,29 @@
  * @copyright Dec 2023
  * License: GNU General Public License version 2
 -----------------------------------------------------------------------------------------------*/
+#uddeim-pagenav .btn.btn-info {
+  float: left;
+  margin: -30px 0 15px 1%;
+}
+/*spamcontrol*/
+.uddeim-messageactionlink-spam {
+    float: inline-end;
+    font-variant: all-petite-caps;
+    white-space:nowrap;
+}
+.uddeim-messageactionlink-spam.unreport,.uddeim-messageactionlink-spam.unreport a {
+    color:royalblue!important;
+}
+.uddeim-messagefrom-spam {
+    display:table-cell;
+    font-variant: all-petite-caps;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.innermost .uddeim-messagefrom-spam {
+    float: right;
+    font-size: .8em;
+}
 .cbImgAvatar {
     max-width: 40px;
     margin-right: 8px !important;

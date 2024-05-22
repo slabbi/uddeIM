@@ -6,6 +6,34 @@
  * @copyright  2024
  * License: GNU General Public License version 2
 -----------------------------------------------------------------------------------------------*/
+#uddeim-pagenav .btn.btn-info {
+  float: left;
+  margin-left: 1%;
+}
+/*spamcontrol*/
+.uddeim-messageactionlink-spam {
+    float: inline-end!important;
+    font-variant: all-petite-caps;
+    white-space:nowrap;
+}
+.uddeim-messageactionlink-spam.unreport {
+    color:skyblue!important;
+}
+.uddeim-messageactionlink-spam a:not(:hover) {
+  background: #DB7093 !important;
+}
+.uddeim-messagefrom-spam {
+    display: table-cell;
+    font-variant: all-petite-caps;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.innermost .uddeim-messagefrom-spam {
+    font-size: .9em;
+}
+#uddeim img.cbThumbPict {
+  padding: 1px;
+}
 .cbImgAvatar {
   max-width: 40px;
 }
@@ -310,7 +338,7 @@ li.menu-inbox img[src$="postbox.gif"] {
 
 #uddeim #uddeim-m table.innermost td ul li a {
   background: #34495e;
-  color: #fff;
+  color: #fff!important;
   display: block;
   overflow: hidden;
   padding: 7px 10px;
@@ -364,7 +392,7 @@ li.menu-inbox img[src$="postbox.gif"] {
   background: #34495e;
   border: 0;
   color: #fff;
-  font-weight: bold;
+  /*font-weight: bold;*/
   padding: 5px 10px;
 }
 
@@ -539,8 +567,8 @@ li.menu-inbox img[src$="postbox.gif"] {
 #uddeim-pagenav ul li {
 	border: 1px solid #24272E;
 	display: inline-block;
-	margin: 0 5px;
-	padding: 2px 8px;
+	margin: 0;
+	padding: 2px 3px;
 }
 
 #uddeim-pagenav ul li span {

@@ -10,7 +10,27 @@
 /* *******************************************************************
 /* This is the CSS file for the 'monogram' template
 /* ******************************************************************* */
-
+#uddeim-pagenav .btn.btn-info {
+    color: #fff !important;
+    margin-top: -142px;
+}
+/*spamcontrol*/
+.uddeim-messageactionlink-spam {
+    float: inline-end;
+    font-variant: all-petite-caps;
+    white-space:nowrap;
+}
+li.uddeim-messageactionlink-spam a {
+    font-weight: bold !important;
+}
+.uddeim-messageactionlink-spam.unreport,.uddeim-messageactionlink-spam.unreport a {
+    color:royalblue!important;
+}
+.uddeim-messagefrom-spam {
+    font-variant: all-petite-caps;
+    font-weight: bold;
+    white-space: nowrap;
+}
 /* Main container uddeim */
 .cbImgAvatar {
     max-width: 50px;
@@ -288,7 +308,6 @@ div.uddeim-messageheader div.uddeim-messagefrom-spam {
 	float: left;
 	vertical-align: top;
 	margin-left: 10px;
-	color: #000000;	
 }
 
 #uddeim-m div.uddeim-messageheader div.uddeim-messagefrom a {
