@@ -742,7 +742,7 @@ function uddeIMpruneFiles($myself, $item_id, $my_gid, $task, $config) {
 function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $tobedeletedsent, $forceembedded, $item_id, $messageid, $copytome, $addccinfo, $sendeform_showallusers, $cryptpass, $backto, $config) {
 	$database = uddeIMgetDatabase();
 
-	$to_name = stripslashes($to_name);
+	$to_name = stripslashes($to_name ?? '');
 
 	// I could have modified this function to process mails to public users but instead of adding
 	// several exceptions it is better to have an own function for this purpose.
@@ -2091,7 +2091,7 @@ function uddeIMnewMessage($myself, $item_id, $to_id, $recip, $runame, $pmessage,
 	// which page did refer to this page?
 	// because we want to send back the user where (s)he came from
 	$tbackto = uddeIMmosGetParam( $_SERVER, 'HTTP_REFERER', null );
-	if(stristr($tbackto, "com_pms")) {
+	if(stristr($tbackto ?? '', "com_pms")) {
 		$tbackto="";
 	}
 
