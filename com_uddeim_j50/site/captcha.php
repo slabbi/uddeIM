@@ -3,7 +3,7 @@
 // @title         udde Instant Messages (uddeIM)
 // @description   Instant Messages System for Joomla 5
 // @author        Stephan Slabihoud, Benjamin Zweifel
-// @copyright     © 2007-2024 Stephan Slabihoud, © 2024 v5 joomod.de, © 2006 Benjamin Zweifel
+// @copyright     Â© 2007-2024 Stephan Slabihoud, Â© 2024 v5 joomod.de, Â© 2006 Benjamin Zweifel
 // @license       GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 //                This program is free software: you may redistribute it and/or modify under the
 //                terms of the GNU General Public License as published by the Free Software Foundation,
@@ -16,19 +16,21 @@
 //                Redistributing this file is only allowed when keeping the header unchanged.
 // ********************************************************************************************
 
-defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
+define("_JEXEC", 1 );
+define( 'JPATH_BASE', realpath(dirname(__FILE__).'/../..' ));
 
-session_start();
-				
-//if(session_id() == "") {
-//	// session exists
-//} else {
-//	if (!function_exists("session_regenerate_id")) {
-//		session_start();
-//	} else {
-//		session_regenerate_id();
-//	}
-//}
+if (!(defined('_JEXEC'))) { die( 'Direct Access to this location is not allowed.' ); }
+
+require_once ( JPATH_BASE .'/includes/defines.php' );
+require_once ( JPATH_BASE .'/includes/framework.php' );
+
+$container = \Joomla\CMS\Factory::getContainer();
+$container->alias(\Joomla\Session\SessionInterface::class, 'session.web.site');
+
+$app = $container->get(\Joomla\CMS\Application\SiteApplication::class);
+
+\Joomla\CMS\Factory::$application = $app;
+$app->createExtensionNamespaceMap();
 
 /*
 * File: CaptchaSecurityImages.php - Class: CaptchaSecurityImages
@@ -57,8 +59,8 @@ class CaptchaSecurityImages {
 	var $font = 'monofont.ttf';
 
 	function generateCode($characters) {
-		/* list all possible characters, similar looking characters and vowels have been removed */
-		$possible = '23456789bcdfghjkmnpqrstvwxyz';
+		/* list all possible characters, similar looking characters have been removed */
+		$possible = '23456789bcdefghjkmnpqrstvwxyzABCEFGHKMNPRSTUVWXYZ';
 		$code = '';
 		$i = 0;
 		while ($i < $characters) { 
@@ -70,8 +72,12 @@ class CaptchaSecurityImages {
 
 	function __construct($width='120',$height='40',$characters='6') {
 		$code = $this->generateCode($characters);
-		/* font size will be 75% of the image height */
-		$font_size = $height * 0.75;
+
+		$session = Joomla\CMS\Factory::getApplication()->getSession();
+        	$session->set('security_code', strtolower($code)); just save lower case
+		
+		/* font size will be 80% of the image height */
+		$font_size = $height * 0.8;
 		$image = @imagecreate($width, $height) or die('Cannot initialize new GD image stream');
 		/* set the colours */
 		$background_color = imagecolorallocate($image, 255, 255, 255);
@@ -86,33 +92,19 @@ class CaptchaSecurityImages {
 			imageline($image, mt_rand(0,$width), mt_rand(0,$height), mt_rand(0,$width), mt_rand(0,$height), $noise_color);
 		}
 		/* create textbox and add text */
-	    $thispath = dirname(__FILE__) . '/';
-		$textbox = imagettfbbox($font_size, 0, $thispath.$this->font, $code) or die('Error in imagettfbbox function');
-		$x = ($width - $textbox[4])/2;
-		$y = ($height - $textbox[5])/2;
-		imagettftext($image, $font_size, 0, $x, $y, $text_color, $thispath.$this->font , $code) or die('Error in imagettftext function');
+	    	$thispath = dirname(__FILE__) . '/';
+		$textbox = imageftbbox($font_size, 0, $thispath.$this->font, $code) or die('Error in imageftbbox function');
+		$x = intval(($width - $textbox[4])/2);
+		$y = intval(($height - $textbox[5])/2);
+		imagefttext($image, $font_size, 0, $x, $y, $text_color, $thispath.$this->font , $code) or die('Error in imagefttext function');
 		/* output captcha image to browser */
 		header('Content-Type: image/jpeg');
 		imagejpeg($image);
 		imagedestroy($image);
-
-//		$old = "";
-//		if (!session_id()) {
-//			$old = session_name();
-//			session_name("uddeim");
-//			session_start();
-//		}
-		$_SESSION['security_code'] = $code;
-//		if ($old)
-//			session_name($old);
 	}
 }
-
-//unset($_SESSION['security_code']);
-
-//define("_VALID_MOS", 1 );
  
 require(dirname(__FILE__)."/../../administrator/components/com_uddeim/config.class.php");
 $config = new uddeimconfigclass();
 
-$captcha = new CaptchaSecurityImages($config->captchalen * 20, 32, $config->captchalen);
+$captcha = new CaptchaSecurityImages($config->captchalen * 20, 30, $config->captchalen);
