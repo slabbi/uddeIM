@@ -28,23 +28,12 @@ function uddeIMcheckCAPTCHA($my_gid, $config) {
 		($config->usecaptcha==2 && !uddeIMisSpecial($my_gid) && !uddeIMisSpecial2($my_gid, $config)) ) {				// CAPTCHA enabled for public frontend and registered users (note: 0 is not required since this is done in public.php)
 
 		if ($config->captchatype==0) {
-			if (class_exists('Joomla\CMS\Factory')) {
-				// CAPTCHA15
-				$session = Factory::getSession();
-				$_SESSION['security_code'] = $session->get('security_code');	// so I do not need to modify saveMessage code
-			} else {
-				// CAPTCHA10
-				session_start();
-			}
+			$session = Factory::getApplication()->getSession();
+			$_SESSION['security_code'] = $session->get('security_code');	// so I do not need to modify saveMessage code
 
 			if( $_SESSION['security_code'] == $_POST['security_code'] && !empty($_SESSION['security_code'] ) ) {
-				// CAPTCHA is correct, so unset security code
-				if (class_exists('Joomla\CMS\Factory')) {
-					$session = Factory::getSession();
-					$session->set('security_code', null);
-				} else {
-					unset($_SESSION['security_code']);
-				}
+			// CAPTCHA is correct, so unset security code
+				$session->set('security_code', null);				 
 			} else {
 				return false;
 			}
@@ -1584,11 +1573,11 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 					echo "<tr><td valign=left colspan=2>"._UDDEIM_TOOMANYRECIPIENTS."</td></tr>";
 				} elseif ($dwf_errorcode==7) {
 					if ($config->captchatype==0) {
-						echo "<tr><td valign=left colspan=2>"._UDDEIM_WRONGCAPTCHA."</td></tr>";
+						echo "<tr><td valign=left colspan=2><b>"._UDDEIM_WRONGCAPTCHA."</b></td></tr>";
 					} elseif ($config->captchatype==1) {
-						echo "<tr><td valign=left colspan=2><span style='background-color: #ff0000;'>"._UDDEIM_WRONGCAPTCHA."</span></td></tr>";
+						echo "<tr><td valign=left colspan=2><b><span style='background-color: #ff9999;'>"._UDDEIM_WRONGCAPTCHA."</b></span></td></tr>";
 					} elseif ($config->captchatype==2) {
-						echo "<tr><td valign=left colspan=2><span style='background-color: #ff0000;'>"._UDDEIM_WRONGCAPTCHA."</span></td></tr>";
+						echo "<tr><td valign=left colspan=2><b><span style='background-color: #ff9999;'>"._UDDEIM_WRONGCAPTCHA."</b></span></td></tr>";
 					}
 				} elseif ($dwf_errorcode==8) {
 					echo "<tr><td valign=left colspan=2>"._UDDEIM_NOPUBLICMSG."</td></tr>";
@@ -1640,11 +1629,11 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 			if ($dwf_errorcode) {
 				echo "<table width='100%' cellspacing='0' cellpadding='0'>";
 				if ($dwf_errorcode==7) {
-					echo "<tr><td valign=left colspan=2>"._UDDEIM_WRONGCAPTCHA."</td></tr>";
+					echo "<tr><td valign=left colspan=2><b>"._UDDEIM_WRONGCAPTCHA."</b></td></tr>";
 				} elseif ($dwf_errorcode==13) {
-					echo "<tr><td valign=left colspan=2>"._UDDEIM_ERRORINEMAIL."</td></tr>";
+					echo "<tr><td valign=left colspan=2><b>"._UDDEIM_ERRORINEMAIL."</b></td></tr>";
 				} elseif ($dwf_errorcode==14) {
-					echo "<tr><td valign=left colspan=2>"._UDDEIM_YOUHAVETOWAIT."</td></tr>";
+					echo "<tr><td valign=left colspan=2><b>"._UDDEIM_YOUHAVETOWAIT."</b></td></tr>";
 				}
 				echo "</table>";
 				echo "<br />";
@@ -1722,29 +1711,22 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 		($config->usecaptcha==2 && !uddeIMisSpecial($my_gid) && !uddeIMisSpecial2($my_gid, $config)) ) {	// CAPTCHA enabled for public frontend and registered users (note: 0 is not required since this is done in public.php)
 		// CAPTCHA
 		if ($config->captchatype==0) {
-			if($dwf_errorcode==7) {
-				$errorstyle='style="background-color: #ff0000;" ';
-			} else {
-				$errorstyle='';
-			}
+			$errorstyle = $dwf_errorcode==7 ? 'style="border: 2px solid red;" ' : '';  //background-color: #ff9999;" ';
+			
 			echo "<div class='uddeim-captcha'>";
-			echo "<label for='security_code'>"._UDDEIM_SECURITYCODE." </label><input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
+			echo "<label for='security_code'>"._UDDEIM_SECURITYCODE." </label>&nbsp;<input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
 
-			if (class_exists('Joomla\CMS\Factory')) {
-				// CAPTCHA15
-				echo "<img style='vertical-align:middle;' src='".$pathtosite."/components/com_uddeim/captcha15.php' alt='' /><br />";
-			} else {
-				// CAPTCHA10
-				echo "<img style='vertical-align:middle;' src='".$pathtosite."/components/com_uddeim/captcha.php' alt='' /><br />";
-			}
+			echo "<img style='vertical-align:bottom;' src='".$pathtosite."/components/com_uddeim/captcha.php?clen=".$config->captchalen."' alt='' /><br />";
 			echo "</div>";
-		} elseif ($config->captchatype==1) {
+		} 
+		elseif ($config->captchatype==1) {
 			$pathtouser  = uddeIMgetPath('user');
 			require_once($pathtouser."/recaptchalib.php");
 			echo "<div class='uddeim-captcha'>";
 		    echo recaptcha_get_html($config->recaptchapub);
 			echo "</div>";
-		} elseif ($config->captchatype==2) {
+		} 
+		elseif ($config->captchatype==2) {
 			echo "<div class='uddeim-captcha'>";
             echo '<div class="g-recaptcha" data-sitekey="'. $config->recaptchapub .'"></div>';
             echo '<script type="text/javascript"';
