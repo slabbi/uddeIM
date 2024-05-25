@@ -29,7 +29,7 @@ function uddeIMshowUploadButtons($config) {
 	$temp = sprintf(_UDDEIM_ATTACHMENTS2, $temp2);
 	echo "<p>".$temp."</p>";
 	for ($i=1;$i<=$config->maxattachments;$i++) {
-		echo "<input class='uddeim-attachment' type='file' name='uddeimfile[]' /><br />";
+		echo "<input class='uddeim-attachment' type='file' name='uddeimfile[]' /><br /><br />";
 	}
 	echo "</div>";
 }
@@ -102,7 +102,7 @@ function uddeIMhandleAttachments(&$uploadfile_temppathname, &$uploadfile_origina
 					$uploadfile_temppathname[$key] = $uploaddir.'/'.$filename.'_'.$id.'.'.$ext;
 				}
 
-                echo $name.' '.$temp.' '.$ext.' '.$filename;
+                echo $name.' '.$temp['dirname'].' '.$filename.' '.$$ext;
 
 
 				if (!move_uploaded_file($tmp_name, $uploadfile_temppathname[$key])) {
@@ -206,14 +206,8 @@ function uddeIMshowAttachments($box, $item_id, $messageid, $config) {
 		foreach ($value as $key => $row) {
 			$pic = '<img src="'.$pathtosite.'/components/com_uddeim/templates/'.$config->templatedir.'/images/disk.gif" alt="'. _UDDEIM_DOWNLOAD .'" title="'. _UDDEIM_DOWNLOAD .'" />';
 
-			if (!$config->unprotectdownloads) {
-				if (class_exists('JHTML')) {
-					// $link = "<a href='index.php?option=com_uddeim&task=".$temp."&Itemid=".$item_id."&messageid=".$row->mid."&fileid=".$row->id."&no_html=1'>";
-					$link = "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$temp."&Itemid=".$item_id."&messageid=".$row->mid."&fileid=".$row->id."&no_html=1")."'>";
-				} else {
-					// $link = "<a href='index2.php?option=com_uddeim&task=".$temp."&Itemid=".$item_id."&messageid=".$row->mid."&fileid=".$row->id."&no_html=1'>";
-					$link = "<a href='".uddeIMsefRelToAbs("index2.php?option=com_uddeim&task=".$temp."&Itemid=".$item_id."&messageid=".$row->mid."&fileid=".$row->id."&no_html=1")."'>";
-				}
+			if (!$config->unprotectdownloads) {					
+				$link = "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$temp."&Itemid=".$item_id."&messageid=".$row->mid."&fileid=".$row->id."&no_html=1")."'>"; 
 			} else {
 				$link = "<a href='".$pathtosite."/images/uddeimfiles/".$row->tempname."'>";
 			}
