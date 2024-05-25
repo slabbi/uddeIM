@@ -108,3 +108,5 @@ require(dirname(__FILE__)."/../../administrator/components/com_uddeim/config.cla
 $config = new uddeimconfigclass();
 
 $captcha = new CaptchaSecurityImages($config->captchalen * 20, 30, $config->captchalen);
+
+
