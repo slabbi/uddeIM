@@ -19,6 +19,7 @@
 		<filename>autoload.php</filename>
 		<filename>bbparser.php</filename>
 		<filename>captcha.php</filename>
+		<filename>captcha15.php</filename>
 		<filename>cb_extra.php</filename>
 		<filename>crypt.class.php</filename>
 		<filename>getpiclink.php</filename>
