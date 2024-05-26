@@ -235,12 +235,12 @@ function uddeIMpublicSaveMessage($fromname, $fromemail, $to_name, $to_id, $pmess
 	// CAPTCHA (first check for all other errors and then the CAPTCHA)
 	if ($config->usecaptcha>=1) {		// CAPTCHA is enabled for public frontend
 		if ($config->captchatype==0) {
-				// CAPTCHA15
-				$session = Factory::getSession();
+				// CAPTCHA
+				$session = Factory::getApplication()->getSession();
 				$_SESSION['security_code'] = $session->get('security_code');	// so I do not need to modify saveMessage code
 
 
-			if( $_SESSION['security_code'] == $_POST['security_code'] && !empty($_SESSION['security_code'] ) ) {
+			if( $_SESSION['security_code'] == strtolower($_POST['security_code']) && !empty($_SESSION['security_code'] ) ) {
 				// CAPTCHA is correct, so unset security code
 				$session->set('security_code', null);
 
@@ -753,11 +753,11 @@ function uddeIMdrawPublicWriteform($item_id, $backto, $fromname, $fromemail, $re
 		echo "<tr><td valign=left colspan=2>"._UDDEIM_TOOMANYRECIPIENTS."</td></tr>";
 	} elseif ($dwf_errorcode==7) {
 		if ($config->captchatype==0) {
-			echo "<tr><td valign=left colspan=2>"._UDDEIM_WRONGCAPTCHA."</td></tr>";
+			echo "<tr><td valign=left colspan=2><b>"._UDDEIM_WRONGCAPTCHA."</b></td></tr>";
 		} elseif ($config->captchatype==1) {
-			echo "<tr><td valign=left colspan=2><span style='background-color: #ff0000;'>"._UDDEIM_WRONGCAPTCHA."</span></td></tr>";
+			echo "<tr><td valign=left colspan=2><b><span style='background-color: #ff0000;'>"._UDDEIM_WRONGCAPTCHA."</b></span></td></tr>";
 		} elseif ($config->captchatype==2) {
-			echo "<tr><td valign=left colspan=2><span style='background-color: #ff0000;'>"._UDDEIM_WRONGCAPTCHA."</span></td></tr>";
+			echo "<tr><td valign=left colspan=2><b><span style='background-color: #ff0000;'>"._UDDEIM_WRONGCAPTCHA."</b></span></td></tr>";
 		}
 	} elseif ($dwf_errorcode==8) {
 		echo "<tr><td valign=left colspan=2>"._UDDEIM_NOPUBLICMSG."</td></tr>";
@@ -831,15 +831,12 @@ function uddeIMdrawPublicWriteform($item_id, $backto, $fromname, $fromemail, $re
 	if ($config->usecaptcha>=1) {
 		if ($config->captchatype==0) {
 			// CAPTCHA
-			if($dwf_errorcode==7) {
-				$errorstyle='style="background-color: #ff0000;" ';
-			} else {
-				$errorstyle='';
-			}
+			$errorstyle= $dwf_errorcode==7 ? 'style="border: 2px solid red;" ' : '';  //background-color: #ff0000
+		
 			echo "<div class='uddeim-captcha'>";
-			echo "<label for='security_code'>Security Code: </label><input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
-            // CAPTCHA15
-			echo "<img style='vertical-align:middle;' src='".$pathtosite."/components/com_uddeim/captcha15.php' /><br />";
+			echo "<label for='security_code'>Security Code: </label>&nbsp;<input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
+            // CAPTCHA IMG
+			echo "<img style='vertical-align:bottom;' src='".$pathtosite."/components/com_uddeim/captcha.php' /><br />";
             echo "</div>";
 
 		} elseif ($config->captchatype==1) {
