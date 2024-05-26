@@ -12,8 +12,10 @@
 
 
 function autocomplete(inp, arr, seperror='', sep=',', start=0, instr=0) {
-    /*the autocomplete function takes three arguments,
-    the text field element, the optional start counter (letters) and an array of possible autocompleted values:*/
+    /*the autocomplete function takes these arguments,
+    the text field element, the optional start counter (letters) and inString setting
+    additional an array of possible autocompleted values and seperator error string*/
+    
     var currentFocus;
     /*execute a function when someone writes in the text field:*/
     inp.addEventListener("input", function(e) {
@@ -24,7 +26,8 @@ function autocomplete(inp, arr, seperror='', sep=',', start=0, instr=0) {
             if (!val) { return false;}
             currentFocus = -1;
             /*check if the correct seperator is used */
-            if ((sep == ',' && val.indexOf(';')) || (sep == ';' && val.indexOf(','))){
+            var notsep = (sep == ',') ? ';' : ',';
+            if (val.indexOf(notsep) > 0){
                 alert(seperror);
             }
             if (val.indexOf(sep)) {
