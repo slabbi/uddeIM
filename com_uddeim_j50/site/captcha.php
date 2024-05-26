@@ -74,7 +74,7 @@ class CaptchaSecurityImages {
 		$code = $this->generateCode($characters);
 
 		$session = Joomla\CMS\Factory::getApplication()->getSession();
-        	$session->set('security_code', strtolower($code)); just save lower case
+        	$session->set('security_code', strtolower($code)); //just save lower case
 		
 		/* font size will be 80% of the image height */
 		$font_size = $height * 0.8;
