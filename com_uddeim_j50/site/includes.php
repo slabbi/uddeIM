@@ -31,7 +31,7 @@ function uddeIMcheckCAPTCHA($my_gid, $config) {
 				$session = Factory::getApplication()->getSession(); 
 				$_SESSION['security_code'] = $session->get('security_code');	// so I do not need to modify saveMessage code
 			
-			if( $_SESSION['security_code'] == $_POST['security_code'] && !empty($_SESSION['security_code'] ) ) {
+			if( $_SESSION['security_code'] == strtolower($_POST['security_code']) && !empty($_SESSION['security_code'] ) ) {
 				// CAPTCHA is correct, so unset security code
 				$session->set('security_code', null);				
 			} else {
