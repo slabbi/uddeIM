@@ -57,7 +57,8 @@ $app->createExtensionNamespaceMap();
 class CaptchaSecurityImages {
 
 	var $font = 'monofont.ttf';
-
+	public $img; 
+	
 	function generateCode($characters) {
 		/* list all possible characters, similar looking characters have been removed */
 		$possible = '23456789bcdefghjkmnpqrstvwxyzABCEFGHKMNPRSTUVWXYZ';
@@ -97,16 +98,25 @@ class CaptchaSecurityImages {
 		$x = intval(($width - $textbox[4])/2);
 		$y = intval(($height - $textbox[5])/2);
 		imagefttext($image, $font_size, 0, $x, $y, $text_color, $thispath.$this->font , $code) or die('Error in imagefttext function');
-		/* output captcha image to browser */
-		header('Content-Type: image/jpeg');
+		
+		/* output captcha image to base54 string */
+		//header('Content-Type: image/jpeg');
+		ob_start();
 		imagejpeg($image);
+		$img_data = ob_get_contents ();
+        	ob_end_clean();
 		imagedestroy($image);
+		$this->img = base64_encode($img_data);
 	}
+
+	public function __toString() {
+        return $this->img;
+    	}
 }
  
 require(dirname(__FILE__)."/../../administrator/components/com_uddeim/config.class.php");
 $config = new uddeimconfigclass();
 
 $captcha = new CaptchaSecurityImages($config->captchalen * 20, 30, $config->captchalen);
-
+echo strval($captcha); 
 
