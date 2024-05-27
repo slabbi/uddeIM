@@ -830,14 +830,20 @@ function uddeIMdrawPublicWriteform($item_id, $backto, $fromname, $fromemail, $re
 
 	if ($config->usecaptcha>=1) {
 		if ($config->captchatype==0) {
-			// CAPTCHA
-			$errorstyle= $dwf_errorcode==7 ? 'style="border: 2px solid red;" ' : '';  //background-color: #ff0000
-		
+		// CAPTCHA
+			$errorstyle= $dwf_errorcode==7 ? 'style="border: 2px solid red;" ' : '';  //background-color: #ff0000		
 			echo "<div class='uddeim-captcha'>";
 			echo "<label for='security_code'>Security Code: </label>&nbsp;<input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
-            // CAPTCHA IMG
-			echo "<img style='vertical-align:bottom;' src='".$pathtosite."/components/com_uddeim/captcha.php' /><br />";
-            echo "</div>";
+            	// CAPTCHA IMG
+			echo "<img id='capimg' style='vertical-align:bottom;' alt='' src='' /> <i class='fas fa-lg fa-rotate' style='color:#777;' onclick='newcapimg()'></i><br />";
+            	//load img
+			echo "<script type='text/javascript'>
+                	window.onload = newcapimg();
+                	function newcapimg() {
+                	fetch('/components/com_uddeim/captcha.php').then(response => response.text()) .then(text => {document.getElementById('capimg').src='data:image/jpg;base64,' + text;}) .catch(error => console.error(error));}
+                	</script>";
+			
+			echo "</div>";
 
 		} elseif ($config->captchatype==1) {
 			$pathtouser  = uddeIMgetPath('user');
