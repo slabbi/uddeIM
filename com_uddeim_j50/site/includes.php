@@ -705,7 +705,7 @@ function uddeIMprintMenu($myself, $uddeaction, $item_id, $config) {
 	if (uddeIMcheckKU() && in_array($config->showmenulink, array(15, 16))) {
 		$cnt = "";
 		echo "<li class='menu-forum'>";
-		echo "<a href='index.php?option=com_kunena'>"; //".uddeIMsefRelToAbs("
+		echo "<a href='".$pathtosite."/index.php?option=com_kunena'>"; //".uddeIMsefRelToAbs("
 		if ($config->showmenuicons==1 || $config->showmenuicons==2)
 			echo "<img src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/icon_next.gif' border='0' alt='"._UDDEIM_KUNENA_LINK."' />";
 		if ($config->showmenuicons==0 || $config->showmenuicons==1)
@@ -1716,7 +1716,18 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 			echo "<div class='uddeim-captcha'>";
 			echo "<label for='security_code'>"._UDDEIM_SECURITYCODE." </label>&nbsp;<input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
 
-			echo "<img style='vertical-align:bottom;' src='".$pathtosite."/components/com_uddeim/captcha.php' alt='' /><br />";
+			echo "<img id='capimg' alt='' style='vertical-align:bottom;' src='' /> <i class='fas fa-lg fa-rotate' style='color:#777;' onclick='newcapimg()'></i><br />";
+			
+            		echo "<script type='text/javascript'>
+                	window.onload = newcapimg();
+                	function newcapimg() {
+                	fetch('/components/com_uddeim/captcha.php').then(response => response.text()) .then(text => {document.getElementById('capimg').src='data:image/jpg;base64,' + text;}) .catch(error => console.error(error));}
+                	</script>";
+			
+            		/* function newjqimg() {  //old jquery script
+                	jQuery.get('/components/com_uddeim/captcha.php',function( data ) {jQuery('#capimg').attr('src', 'data:image/jpg;base64,' + data);});}
+                	jQuery(window).on('load', newcapimg());*/
+			
 			echo "</div>";
 		} 
 		elseif ($config->captchatype==1) {
