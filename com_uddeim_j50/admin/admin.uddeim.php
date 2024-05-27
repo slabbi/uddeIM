@@ -1178,7 +1178,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 	$is_nb	 = uddeIMcheckNB();
 	$is_js	 = uddeIMcheckJS();
 	$is_cm	 = uddeIMcheckCM();
-	$is_cbc = is_object(Joomla\CMS\Plugin\PluginHelper::getPlugin('captcha', 'cbantispambot'));
+	$is_cbc = 0; //is_object(Joomla\CMS\Plugin\PluginHelper::getPlugin('captcha', 'cbantispambot'));
 
 
 
