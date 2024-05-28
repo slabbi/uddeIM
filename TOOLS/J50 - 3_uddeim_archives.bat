@@ -1,5 +1,5 @@
 set path=%path%;"C:\Program Files\7-Zip"
-set uddeim=uddeIM_5.3
+set uddeim=uddeIM_5.4
 
 cd %uddeIM%_j50_unzip1st\
 rd /s /q 	cb2_plug_pms_uddeim_j50

@@ -1,5 +1,5 @@
 set path=%path%;"C:\Program Files (x86)\WinZip"
-set uddeim=uddeIM_5.3
+set uddeim=uddeIM_5.4
 
 md %uddeIM%_j50_unzip1st
 rem xcopy /e "..\github\uddeIM-github\3rd party"						"%uddeIM%_j50_unzip1st\3rd party\"
