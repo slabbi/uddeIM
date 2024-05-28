@@ -569,7 +569,7 @@ function uddeIMpublicNewMessage($item_id, $to_id, $recip, $runame, $pmessage, $c
 	// which page did refer to this page?
 	// because we want to send back the user where (s)he came from
 	$tbackto = uddeIMmosGetParam( $_SERVER, 'HTTP_REFERER', null );
-	if(stristr($tbackto, "com_pms")) {
+	if(stristr($tbackto ?? '', "com_pms")) {
 		$tbackto="";
 	}
 	uddeIMdrawPublicWriteform($item_id, $tbackto, "", "", $recipname, $pmessage, 0, $config); // isreply, errorcode, sysmsg
