@@ -29,7 +29,7 @@ DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Translated by Florent Nouvellon, Jyhell
 
 // New: 5.4
 DEFINE ('_UDDEIM_CHARS', 'caractère');
-DEFINE ('_UDDEADM_CAPTCHA_CBANTISPAM', 'CB AntiSpam 5.0');
+DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /robotsprotection');
 // New: 5.3
 DEFINE ('_UDDEADM_REVIEWBACKUP', 'Important : lors de l\'installation, un nouveau <b>fichier de configuration</b> (config.class.php) a été créé - l\'ancien fichier a été enregistré sous config.class_bak.php. Il peut être renommé pour remplacer le nouveau, mais il est <b>recommandé</b> d\'éditer la configuration manuellement, pour voir les changements');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...définir par défaut le lien pour le Auto completer et saveconfigdb');
@@ -263,10 +263,10 @@ DEFINE ('_UDDEADM_RECAPTCHAPRV_HEAD', 'Clé privée reCaptcha');
 DEFINE ('_UDDEADM_RECAPTCHAPRV_EXP', 'Pour utiliser reCaptcha, vous devez indiquer votre clé privée.');
 DEFINE ('_UDDEADM_RECAPTCHAPUB_HEAD', 'Clé publique reCaptcha');
 DEFINE ('_UDDEADM_RECAPTCHAPUB_EXP', 'Pour utiliser reCaptcha, vous devez indiquer la clé publique.');
-DEFINE ('_UDDEADM_CAPTCHA_INTERNAL', 'Interne');
+DEFINE ('_UDDEADM_CAPTCHA_INTERNAL', 'UddeIM code graphique');
 DEFINE ('_UDDEADM_CAPTCHA_RECAPTCHA', 'reCaptcha');
 DEFINE ('_UDDEADM_CAPTCHATYPE_HEAD', 'Service Captcha');
-DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'Spécifiez le service Captcha que vous souhaitez utiliser: Service intégré ou reCaptcha (infos <a href="https://www.google.com/recaptcha/about/" target="_new">reCaptcha</a>)<br>CB Antispam not ready');
+DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'Spécifiez le service Captcha que vous souhaitez utiliser: Service intégré ou reCaptcha (infos <a href="https://www.google.com/recaptcha/about/" target="_new">reCaptcha</a>)<br><b>NUM</b>= Problème de calcul plus champ caché (protection robot)');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_6', '...par défaut pour le service captcha');
 DEFINE ('_UDDEADM_AUP', 'AlphaUserPoints');
 DEFINE ('_UDDEADM_CHECKFILESFOLDER', 'Veuillez déplacer le dossier <i>\uddeimfiles</i> dans <i>\images\uddeimfiles</i>. Consultez la documentation pour plus de renseignements.');
