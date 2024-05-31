@@ -24,7 +24,7 @@ DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Deutsches Sprachfile erstellt von <a hr
 
 // New: 5.4
 DEFINE ('_UDDEIM_CHARS', 'Zeichen');
-DEFINE ('_UDDEADM_CAPTCHA_CBANTISPAM', 'CB AntiSpam 5.0');
+DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /Robotschutz');
 // New: 5.3
 DEFINE ('_UDDEADM_REVIEWBACKUP', 'Wichtig: bei der Installation wurde eine neue <b>Config Datei</b> (config.class.php) erstellt - die alte Datei wurde als config.class_bak.php gesichert. Sie kann wieder zurückbenannt werden um die Neue zu ersetzen (Neuerungen werden ergänzt), aber es wird <b>empfohlen</b> die Einstellungen wieder manuell anzupassen um die Neuerungen zu erkennen');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...setze Standardeinstellungen für Autocompleter und saveconfigdb');
@@ -259,10 +259,10 @@ DEFINE ('_UDDEADM_RECAPTCHAPRV_HEAD', 'reCaptcha private key');
 DEFINE ('_UDDEADM_RECAPTCHAPRV_EXP', 'geben Sie bitte hier Ihren reCaptcha <b>privat key</b> ein.');
 DEFINE ('_UDDEADM_RECAPTCHAPUB_HEAD', 'reCaptcha public key');
 DEFINE ('_UDDEADM_RECAPTCHAPUB_EXP', 'geben Sie bitte hier Ihren reCaptcha <b>public key</b> ein.');
-DEFINE ('_UDDEADM_CAPTCHA_INTERNAL', 'Intern UddeIM');
+DEFINE ('_UDDEADM_CAPTCHA_INTERNAL', 'UddeIM Grafikcode');
 DEFINE ('_UDDEADM_CAPTCHA_RECAPTCHA', 'reCaptcha');
 DEFINE ('_UDDEADM_CAPTCHATYPE_HEAD', 'Captcha service');
-DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'Welchen Captcha service möchten Sie verwenden: den internen Service oder reCaptcha (see <a href="https://www.google.com/recaptcha/about/" target="_new">reCaptcha</a> für weitere Informationen)?<br>CB Antispam in Entwicklung'); 
+DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'Welchen Captcha service möchten Sie verwenden: den internen Service oder reCaptcha (see <a href="https://www.google.com/recaptcha/about/" target="_new">reCaptcha</a> für weitere Informationen)?<br><b>NUM=</b> Rechenaufgabe plus verstecktes Feld (Robotschutz)');  
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_6', '...set default for captcha service');
 DEFINE ('_UDDEADM_AUP', 'AlphaUserPoints');
 DEFINE ('_UDDEADM_CHECKFILESFOLDER', 'Bitte <i>\uddeimfiles</i> nach <i>\images\uddeimfiles</i> verschieben (siehe Dokumentation)!');
