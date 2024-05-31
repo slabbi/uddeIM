@@ -1178,10 +1178,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 	$is_nb	 = uddeIMcheckNB();
 	$is_js	 = uddeIMcheckJS();
 	$is_cm	 = uddeIMcheckCM();
-	$is_cbc = 0; //is_object(Joomla\CMS\Plugin\PluginHelper::getPlugin('captcha', 'cbantispambot'));
-
-
-
+	
 	if(!$config->emn_body_nomessage)
 		$config->emn_body_nomessage=_UDDEIM_EMN_BODY_NOMESSAGE;
 	
@@ -1875,8 +1872,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 
 			<?php uddeIMadmSelect($config->usecaptcha, 'config_usecaptcha', Array('4'=>_UDDEADM_CAPTCHAF4, '3'=>_UDDEADM_CAPTCHAF3, '2'=>_UDDEADM_CAPTCHAF2, '1'=>_UDDEADM_CAPTCHAF1, '0'=>_UDDEADM_CAPTCHAF0), false, _UDDEADM_USECAPTCHA_HEAD, _UDDEADM_USECAPTCHA_EXP, $adminstyle); ?>
 			<?php uddeIMadmText($config->captchalen, 4, 'config_captchalen', !$config->usecaptcha, _UDDEADM_CAPTCHALEN_HEAD, _UDDEADM_CAPTCHALEN_EXP); ?>
-			<?php $caparr = $is_cbc ? Array('0'=>_UDDEADM_CAPTCHA_INTERNAL, '2'=>_UDDEADM_CAPTCHA_RECAPTCHA2, '3'=>_UDDEADM_CAPTCHA_CBANTISPAM) : Array('0'=>_UDDEADM_CAPTCHA_INTERNAL, '2'=>_UDDEADM_CAPTCHA_RECAPTCHA2); 
-			      uddeIMadmSelect($config->captchatype, 'config_captchatype', $caparr, !$config->usecaptcha, _UDDEADM_CAPTCHATYPE_HEAD, _UDDEADM_CAPTCHATYPE_EXP); ?>
+			<?php uddeIMadmSelect($config->captchatype, 'config_captchatype', Array('0'=>_UDDEADM_CAPTCHA_INTERNAL, '1'=>_UDDEADM_CAPTCHA_NUM, '2'=>_UDDEADM_CAPTCHA_RECAPTCHA2), !$config->usecaptcha, _UDDEADM_CAPTCHATYPE_HEAD, _UDDEADM_CAPTCHATYPE_EXP); ?>
 			<?php uddeIMadmText($config->recaptchapub, 40, 'config_recaptchapub', !$config->usecaptcha, _UDDEADM_RECAPTCHAPUB_HEAD, _UDDEADM_RECAPTCHAPUB_EXP); ?>
 			<?php uddeIMadmText($config->recaptchaprv, 40, 'config_recaptchaprv', !$config->usecaptcha, _UDDEADM_RECAPTCHAPRV_HEAD, _UDDEADM_RECAPTCHAPRV_EXP); ?>
 			<?php uddeIMadmYesNo($config->csrfprotection, 'config_csrfprotection', false, _UDDEADM_CSRFPROTECTION_HEAD, _UDDEADM_CSRFPROTECTION_EXP); ?>
