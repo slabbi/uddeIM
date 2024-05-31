@@ -37,16 +37,20 @@ function uddeIMcheckCAPTCHA($my_gid, $config) {
 			} else {
 				return false;
 			}
-		} elseif ($config->captchatype==1) {
-			$pathtouser  = uddeIMgetPath('user');
-			require_once($pathtouser."/recaptchalib.php");
-			$resp = recaptcha_check_answer ($config->recaptchaprv,
-                                      $_SERVER["REMOTE_ADDR"],
-                                      $_POST["recaptcha_challenge_field"],
-                                      $_POST["recaptcha_response_field"]);		
-			if (!$resp->is_valid)
-				return false;
-		} elseif ($config->captchatype==2) {
+		} 
+		elseif ($config->captchatype==1) {
+			//$pathtouser  = uddeIMgetPath('user');
+			//require_once($pathtouser."/recaptchalib.php");
+			//$resp = recaptcha_check_answer ($config->recaptchaprv,
+                                      //$_SERVER["REMOTE_ADDR"],
+                                      //$_POST["recaptcha_challenge_field"],
+                                      //$_POST["recaptcha_response_field"]);		
+			//if (!$resp->is_valid)
+			$capinput = Factory::getApplication()->getInput()->get('eccl', '', 'RAW');
+            			if (!CheckCaptcha($capinput,$config->timedelay))
+                		return false;
+		} 
+		elseif ($config->captchatype==2) {
 			if (isset($_POST['g-recaptcha-response'])) {
 				$pathtouser  = uddeIMgetPath('user');
 				require_once($pathtouser."/autoload.php");
@@ -1731,10 +1735,10 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 			echo "</div>";
 		} 
 		elseif ($config->captchatype==1) {
-			$pathtouser  = uddeIMgetPath('user');
-			require_once($pathtouser."/recaptchalib.php");
-			echo "<div class='uddeim-captcha'>";
-		    echo recaptcha_get_html($config->recaptchapub);
+			//$pathtouser  = uddeIMgetPath('user');
+			//require_once($pathtouser."/recaptchalib.php");
+			echo "<div class='uddeim-captcha alert alert-link alert-light' style='display:inline-block;'>"._UDDEIM_SECURITYCODE."*&nbsp;&nbsp;";
+		        echo numericcaptcha($dwf_errorcode);
 			echo "</div>";
 		} 
 		elseif ($config->captchatype==2) {
@@ -1840,3 +1844,97 @@ function uddeIMreplySuggestion($decryptedmessage, $displaymessage, $fromname, $t
 	}
 	return $replytomessage;
 }
+
+/*
+** numeric captcha solution and hidden field based on
+** EasyCalcCheck Plus / Captcha - ECC © Viktor Vogel <admin@kubik-rubik.de>
+*/
+
+function numericcaptcha($errorcode){
+    global $hiddenField;
+
+    $session     = Factory::getApplication()->getSession();
+    $maxValue    = 20;  //$config->maxValue;
+    $id = $name = 'eccl';
+
+$session->set('initTimeStamp', time(), 'eccl');
+$session->set('spamCheckNumber1', mt_rand(0, $maxValue), 'eccl');
+$session->set('spamCheckNumber2', mt_rand(0, $maxValue), 'eccl');
+
+    $hiddenId    = createRandomString();
+    $session->set('hiddenId', $hiddenId, 'eccl');
+    Factory::getApplication()->getDocument()->getWebAssetManager()->addInlineStyle('#' . $hiddenId . ' {display: none;}');
+    $hiddenFieldOutput = '<input type="text" name="' . $hiddenId . '" id="' . $hiddenId . '" size="3" class="inputbox" value="" placeholder="' . formatNumbersSpellout(mt_rand(0, $maxValue)) . ' + ' . formatNumbersSpellout(mt_rand(0, $maxValue)) . '"/>';
+
+$spamCheckNumber1 = $session->get('spamCheckNumber1', 0, 'eccl');
+$spamCheckNumber2 = $session->get('spamCheckNumber2', 0, 'eccl');
+$random = random_int(1, 3);
+$spamCheckNumber1 = $random > 1 ? formatNumbersSpellout($spamCheckNumber1) : (string)$spamCheckNumber1;
+$random = random_int(1, 3);
+$spamCheckNumber2 = $random > 1 ? formatNumbersSpellout($spamCheckNumber2) : (string)$spamCheckNumber2;
+
+$inputstyle = $errorcode == 7 ? 'style="font-weight:bold;text-indent:.5em;border:2px solid red;"' : 'style="font-weight:bold;text-indent:.5em;"';
+$spamCheckField = '<input type="text" name="' . $name . '" id="' . $id . '" size="auto" '.$inputstyle.' class="inputbox validate-numeric required" value="" required="required" placeholder="' . $spamCheckNumber1 . ' + ' . $spamCheckNumber2 . '"/>';
+
+return $spamCheckField.$hiddenFieldOutput;
+
+}
+
+function formatNumbersSpellout(int $number) {
+        if (class_exists('NumberFormatter')) {
+            $formatter = new NumberFormatter(Factory::getApplication()->getLanguage()->getTag(), NumberFormatter::SPELLOUT);
+            return $formatter->format($number);
+        }
+        return $number;
+    }
+
+function createRandomString(): string {
+        $charactersArray = array_merge(range('a', 'z'), range('A', 'Z'));
+        $randomString = $charactersArray[mt_rand(0, count($charactersArray) - 1)];
+        $randomString .= Joomla\CMS\User\UserHelper::genRandomPassword(mt_rand(6, 12));
+        return $randomString;
+    }
+
+function CheckCaptcha($result = null,$timeLockSeconds = 5): bool {
+        if (!performChecks($result,$timeLockSeconds)) {
+            Factory::getApplication()->enqueueMessage(_UDDEIM_WRONGCAPTCHA, 'error');
+            return false;
+        }
+        return true;
+    }
+function performChecks($result,$timeLockSeconds): bool {
+        global $hiddenField;
+
+        if (is_null($result))
+            return false;
+
+        $session     = Factory::getApplication()->getSession();
+        $initTimeStamp = $session->get('initTimeStamp', null, 'eccl');
+        $session->clear('initTimeStamp', 'eccl');
+
+        //check Timestamp
+        if (is_null($initTimeStamp) || time() - $timeLockSeconds <= (int)$initTimeStamp)
+            return false;
+
+        //check hiddenfield
+        if ($hiddenField) {
+            $hiddenId = $this->session->get('hiddenId', false, 'eccl');
+            $hiddenFieldValue = Factory::getApplication()->getInput()->get($hiddenId, '', 'RAW');
+
+            if (!empty($hiddenFieldValue))
+                return false;
+        }
+
+        //check Captcha
+        $spamCheckNumber1 = (int)$session->get('spamCheckNumber1', null, 'eccl');
+        $spamCheckNumber2 = (int)$session->get('spamCheckNumber2', null, 'eccl');
+        $session->clear('spamCheckNumber1', 'eccl');
+        $session->clear('spamCheckNumber2', 'eccl');
+
+        if (is_null($spamCheckNumber1) || is_null($spamCheckNumber2))
+                return false;
+        if ($spamCheckNumber1 + $spamCheckNumber2 !== (int)$result)
+                return false;
+
+        return true;
+    }
