@@ -1715,10 +1715,11 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 		($config->usecaptcha==2 && !uddeIMisSpecial($my_gid) && !uddeIMisSpecial2($my_gid, $config)) ) {	// CAPTCHA enabled for public frontend and registered users (note: 0 is not required since this is done in public.php)
 		// CAPTCHA
 		if ($config->captchatype==0) {			
-			$errorstyle= $dwf_errorcode==7 ? 'style="border: 2px solid red;" ' : '';  //background-color: #ff0000;
+			$errorstyle= $dwf_errorcode==7 ? 'style="border: 2px solid red;height:30px;" ' : 'style="height:30px;"';  //background-color: #ff0000;
 			
 			echo "<div class='uddeim-captcha'>";
-			echo "<label for='security_code'>"._UDDEIM_SECURITYCODE." </label>&nbsp;<input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
+			echo "<label for='security_code'>"._UDDEIM_SECURITYCODE." </label>&nbsp;
+   				<input id='security_code' name='security_code' type='text' ".$errorstyle." />&nbsp;";
 
 			echo "<img id='capimg' alt='' style='vertical-align:bottom;' src='' /> <i class='fas fa-lg fa-rotate' style='color:#777;' onclick='newcapimg()'></i><br />";
 			
