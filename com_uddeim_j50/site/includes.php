@@ -1851,18 +1851,17 @@ function uddeIMreplySuggestion($decryptedmessage, $displaymessage, $fromname, $t
 */
 
 function numericcaptcha($errorcode){
-    global $hiddenField;
 
     $session     = Factory::getApplication()->getSession();
-    $maxValue    = 20;  //$config->maxValue;
+    $maxValue    = 20; //may be set up to 50
+    $hiddenId    = createRandomString();
     $id = $name = 'eccl';
 
 $session->set('initTimeStamp', time(), 'eccl');
 $session->set('spamCheckNumber1', mt_rand(0, $maxValue), 'eccl');
-$session->set('spamCheckNumber2', mt_rand(0, $maxValue), 'eccl');
+$session->set('spamCheckNumber2', mt_rand(0, $maxValue), 'eccl');    
+$session->set('hiddenId', $hiddenId, 'eccl');
 
-    $hiddenId    = createRandomString();
-    $session->set('hiddenId', $hiddenId, 'eccl');
     Factory::getApplication()->getDocument()->getWebAssetManager()->addInlineStyle('#' . $hiddenId . ' {display: none;}');
     $hiddenFieldOutput = '<input type="text" name="' . $hiddenId . '" id="' . $hiddenId . '" size="3" class="inputbox" value="" placeholder="' . formatNumbersSpellout(mt_rand(0, $maxValue)) . ' + ' . formatNumbersSpellout(mt_rand(0, $maxValue)) . '"/>';
 
@@ -1903,7 +1902,6 @@ function CheckCaptcha($result = null,$timeLockSeconds = 5): bool {
         return true;
     }
 function performChecks($result,$timeLockSeconds): bool {
-        global $hiddenField;
 
         if (is_null($result))
             return false;
@@ -1917,13 +1915,11 @@ function performChecks($result,$timeLockSeconds): bool {
             return false;
 
         //check hiddenfield
-        if ($hiddenField) {
             $hiddenId = $this->session->get('hiddenId', false, 'eccl');
             $hiddenFieldValue = Factory::getApplication()->getInput()->get($hiddenId, '', 'RAW');
 
             if (!empty($hiddenFieldValue))
                 return false;
-        }
 
         //check Captcha
         $spamCheckNumber1 = (int)$session->get('spamCheckNumber1', null, 'eccl');
