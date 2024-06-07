@@ -372,7 +372,7 @@ function uddeIMshowOutmessage($myself, $item_id, $messageid, $isforward, $cryptp
 
 			$replyid = $displaymessage->replyid;
 			if ($replyid) {
-				$msgnavigation .= _UDDEIM_PMNAV_THISISARESPONSE;
+				$msgnavigationstr = _UDDEIM_PMNAV_THISISARESPONSE;
 
 				$orig = uddeIMselectInboxMessage($myself, $replyid, $config, 0);
 				$temp = Array();
@@ -382,9 +382,9 @@ function uddeIMshowOutmessage($myself, $item_id, $messageid, $isforward, $cryptp
 
 				if (!empty($orig)) {		// the message should be stored in the outbox
 					if ($orig->cryptmode==2 || $orig->cryptmode==4) {	// Message is encrypted, so go to enter password page
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showpass&Itemid=".$item_id."&messageid=".$replyid)."'>".$pic."</a>";
+						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showpass&Itemid=".$item_id."&messageid=".$replyid)."'>".$msgnavigationstr." ".$pic."</a>";
 					} else {					// normal message
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=show&Itemid=".$item_id."&messageid=".$replyid)."'>".$pic."</a>";
+						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=show&Itemid=".$item_id."&messageid=".$replyid)."'>".$msgnavigationstr." ".$pic."</a>";
 					}
 				} else {
 					$msgnavigation .= " ".$picdel;
@@ -393,20 +393,20 @@ function uddeIMshowOutmessage($myself, $item_id, $messageid, $isforward, $cryptp
 
 			$repls = uddeIMselectMessageReplies($displaymessage->id, 'inbox', $myself);
 			if (!empty($repls)) {
-				$msgnavigation .= "<br />";
-				$msgnavigation .= _UDDEIM_PMNAV_THEREARERESPONSES;
+				$msgnavigation .= $replyid ? "&emsp;" : "";
+				$msgnavigationstr = _UDDEIM_PMNAV_THEREARERESPONSES;
 				foreach($repls as $repl) {
 					if ($repl->cryptmode==2 || $repl->cryptmode==4) {	// Message is encrypted, so go to enter password page
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showpass&Itemid=".$item_id."&messageid=".$repl->id)."'>".$pic."</a>";
+						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showpass&Itemid=".$item_id."&messageid=".$repl->id)."'>".$msgnavigationstr." ".$pic."</a>";
 					} else {					// normal message
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=show&Itemid=".$item_id."&messageid=".$repl->id)."'>".$pic."</a>";
+						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=show&Itemid=".$item_id."&messageid=".$repl->id)."'>".$msgnavigationstr." ".$pic."</a>";
 					}
 					$msgnavigation .= " ";
 				}
 			}
 		}
 
-		$headerstring.="<tr><td valign='bottom'><div class='uddeim-messagefrom'>".trim($msgnavigation)."</div></td></tr>";
+		$headerstring.="<tr><td valign='bottom'><div class='uddeim-messagefrom btn badge bg-info'>".trim($msgnavigation)."</div></td></tr>";
 		$headerstring.="</table>";
 
 		if (!$isforward) {
