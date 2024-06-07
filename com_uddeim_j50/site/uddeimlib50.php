@@ -58,17 +58,17 @@ function uddetime($timezone = 0) {
 }
 
 function uddeIMisAdmin($my_gid) {
-    $new = array_intersect($my_gid, array(7,8));
+    $new = is_array($my_gid) ? array_intersect($my_gid, array(7,8)) : 0;
     return !empty($new);
 }
 
 function uddeIMisManager($my_gid) {
-    $new = array_intersect($my_gid, array(6,7,8));
+    $new = is_array($my_gid) ? array_intersect($my_gid, array(6,7,8)) : 0;
     return !empty($new);
 }
 
 function uddeIMisSpecial($my_gid) {
-    $new = array_intersect($my_gid, array(3,4,5,6,7,8));
+    $new = is_array($my_gid) ? array_intersect($my_gid, array(3,4,5,6,7,8)) : 0;
     return !empty($new);
 }
 
@@ -79,7 +79,7 @@ function uddeIMisAllNotAdmin($my_gid) {
 }
 
 function uddeIMisReggedOnly($my_gid) {
-    $new = array_intersect($my_gid, array(2));
+    $new = is_array($my_gid) ? array_intersect($my_gid, array(2)) : 0;
     return !empty($new);
 }
 
