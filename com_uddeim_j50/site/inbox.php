@@ -465,7 +465,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 
 			$replyid = $displaymessage->replyid;
 			if ($replyid) {
-				$msgnavigation .= _UDDEIM_PMNAV_THISISARESPONSE;
+				$msgnavigationstr = _UDDEIM_PMNAV_THISISARESPONSE;
 				$copy2me = ($displaymessage->toid==$displaymessage->fromid && $displaymessage->fromid==$myself);
 
 				if ($copy2me) // this is a copy2me message, so the original is also stored in inbox
@@ -485,9 +485,9 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 					if ($copy2me) // this is a copy2me message, so the original is also stored in inbox
 						$goto = "show";
 					if ($orig[0]->cryptmode==2 || $orig[0]->cryptmode==4) {	// Message is encrypted, so go to enter password page
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."pass&Itemid=".$item_id."&messageid=".$replyid)."'>".$pic."</a>";
+						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."pass&Itemid=".$item_id."&messageid=".$replyid)."'>".$msgnavigationstr." ".$pic."</a>";
 					} else {					// normal message
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."&Itemid=".$item_id."&messageid=".$replyid)."'>".$pic."</a>";
+						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."&Itemid=".$item_id."&messageid=".$replyid)."'>".$msgnavigationstr." ".$pic."</a>";
 					}
 				} else {
 					$msgnavigation .= " ".$picdel;
@@ -496,8 +496,8 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 
 			$repls = uddeIMselectMessageReplies($displaymessage->id, 'outbox', $myself);
 			if (!empty($repls)) {
-				$msgnavigation .= "<br />";
-				$msgnavigation .= _UDDEIM_PMNAV_THEREARERESPONSES;
+				$msgnavigation .= $replyid ? "&emsp;" : "";
+				$msgnavigationstr = _UDDEIM_PMNAV_THEREARERESPONSES;
 				foreach($repls as $repl) {
 					$goto = "showout";
 					$c2me = "";
@@ -506,9 +506,9 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 						$c2me = " "._UDDEIM_PMNAV_COPY2ME;		// BUGBUG
 					}
 					if ($repl->cryptmode==2 || $repl->cryptmode==4) {	// Message is encrypted, so go to enter password page
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."pass&Itemid=".$item_id."&messageid=".$repl->id)."'>".$pic."</a>".$c2me;
+						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."pass&Itemid=".$item_id."&messageid=".$repl->id)."'>".$msgnavigationstr." ".$pic."</a>".$c2me;
 					} else {					// normal message
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."&Itemid=".$item_id."&messageid=".$repl->id)."'>".$pic."</a>".$c2me;
+						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."&Itemid=".$item_id."&messageid=".$repl->id)."'>".$msgnavigationstr." ".$pic."</a>".$c2me;
 					}
 					$msgnavigation .= " ";
 				}
@@ -516,7 +516,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 		}
 
 		$headerstring.="<tr>";
-		$headerstring.="<td valign='bottom'><div class='uddeim-messagefrom'>".trim($msgnavigation)."</div></td>";
+		$headerstring.="<td valign='bottom'><div class='uddeim-messagefrom btn badge bg-info'>".trim($msgnavigation)."</div></td>";
 
 		$headerstring.="<td valign='bottom'>";
 		if ($config->reportspam) {		// uddeIMcheckPlugin('spamcontrol') &&  not required since uddeIMcheckConfig sets this 0 if plugin is missing
