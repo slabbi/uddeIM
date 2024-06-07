@@ -212,14 +212,14 @@ function uddeIMcreateLists($myself, $item_id, $listid, $limit, $limitstart, $con
 	echo "<br />";
 	echo "<table border='0' cellspacing='10' cellpadding='0'><tr><td valign='top' nowrap='nowrap'>";
 	echo uddeIMselectComboSelectionlist( $myself, $my_gid, $lids, $config );
-	echo "</td><td valign='middle'>";
-	echo "<input type='button' name='buttonadd' class='button' value='&nbsp;&laquo;&nbsp;' onclick='uddeIMaddToSelection( \"listsform\", \"userlist\", \"selectionlist\", ".$config->maxonlists." );' /><br />";
-	echo "<input type='button' name='buttonadd' class='button' value='&nbsp;&raquo;&nbsp;' onclick='uddeIMremoveFromSelection( \"listsform\", \"selectionlist\", \"userlist\", ".$config->maxonlists." );' />";
+	echo "</td><td valign='middle' style='padding:0 8px;'>";
+	echo "<input type='button' name='buttonadd' class='btn btn-sm btn-outline-primary' value='&nbsp;&laquo;&nbsp;' onclick='uddeIMaddToSelection( \"listsform\", \"userlist\", \"selectionlist\", ".$config->maxonlists." );' /><br />";
+	echo "<input type='button' name='buttonadd' class='btn btn-sm btn-outline-danger' value='&nbsp;&raquo;&nbsp;' onclick='uddeIMremoveFromSelection( \"listsform\", \"selectionlist\", \"userlist\", ".$config->maxonlists." );' />";
 	echo "</td><td valign='top'>";
 	echo uddeIMselectComboUserlist( $myself, $my_gid, $lids, $config );
 	echo "</td></tr></table>";
 	echo "<br />";
-	echo "<input type='submit' name='reply' class='button' value='"._UDDEIM_SAVE."' />";
+	echo "<input type='submit' name='reply' class='button btn btn-sm btn-primary' value='"._UDDEIM_SAVE."' />";
 	echo "<br /><br />";
 	echo "</form>";
 
@@ -333,7 +333,7 @@ function uddeIMselectComboSelectionlist( $myself, $my_gid, $lids, $config ) {
 	if ($lids)
 		$temp = "AND id IN (".$lids.") ";
 
-	$ret = '<select multiple="multiple" name="selectionlist" class="inputbox" ondblclick="selectionlistdblclick(this.selectedIndex, \'listsform\', \'selectionlist\', \'userlist\', '.$config->maxonlists.')" size="10">';	
+	$ret = '<select multiple="multiple" name="selectionlist" class="inputbox form-select" style="background-color:floralwhite;min-width:10em" ondblclick="selectionlistdblclick(this.selectedIndex, \'listsform\', \'selectionlist\', \'userlist\', '.$config->maxonlists.')" size="10">';	
 	$database->setQuery( "SELECT id,name,username FROM `#__users` WHERE block=0 ".$temp."ORDER BY ".($config->realnames ? "name" : "username") );
 	$users = $database->loadObjectList(); 
 	if ( count( $users ) )  {
@@ -352,7 +352,7 @@ function uddeIMselectComboUserlist( $myself, $my_gid, $lids, $config ) {
 	
 	getAdditonalGroups($add_special, $add_admin, $config);
 
-	$ret = '<select multiple="multiple" name="userlist" class="inputbox" ondblclick="userlistdblclick(this.selectedIndex, \'listsform\', \'userlist\', \'selectionlist\', '.$config->maxonlists.')" size="10">';
+	$ret = '<select multiple="multiple" name="userlist" class="inputbox form-select" ondblclick="userlistdblclick(this.selectedIndex, \'listsform\', \'userlist\', \'selectionlist\', '.$config->maxonlists.')" size="10">';
 
 	if (($config->restrictcon==1 && uddeIMisReggedOnly($my_gid)) ||
 		($config->restrictcon==2 && uddeIMisAllNotAdmin($my_gid) && !uddeIMisAdmin2($my_gid, $config)) ||
