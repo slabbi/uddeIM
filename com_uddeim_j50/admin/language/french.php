@@ -575,7 +575,7 @@ DEFINE ('_UDDEIM_THISISAFORWARD', 'La redirection du message envoyé a ');
 DEFINE ('_UDDEADM_COLSROWS_HEAD', 'Boîte de messagerie (colonne/ligne)');
 DEFINE ('_UDDEADM_COLSROWS_EXP', 'Cela déterminera les colonnes et lignes de la boîte de messagerie (les valeurs par défaut sont 60/10).');
 DEFINE ('_UDDEADM_WIDTH_HEAD', 'Boite de messagerie (largeur)');
-DEFINE ('_UDDEADM_WIDTH_EXP', 'Cela déterminera la taille de la boîte de messagerie en px (par défaut 0). Si la valeur est a 0, la taille sera déterminée par le style CSS qui est utilisé.');
+DEFINE ('_UDDEADM_WIDTH_EXP', 'Cela déterminera la taille de la boîte de messagerie.<br>valeurs <b>jusqu\'à 100</b> in <b>%</b>, valeurs > 100 in px<br>(par défaut 0). Si la valeur est a 0, la taille sera déterminée par le style CSS qui est utilisé.');
 DEFINE ('_UDDEADM_CBE', 'CB Valide');
 
 // New: 1.4
