@@ -569,7 +569,7 @@ DEFINE ('_UDDEIM_THISISAFORWARD', 'Autoforward of a message originally sent to '
 DEFINE ('_UDDEADM_COLSROWS_HEAD', 'Message box (cols/rows)');
 DEFINE ('_UDDEADM_COLSROWS_EXP', 'This specifies the columns and rows of the message box (default values are 60/10).');
 DEFINE ('_UDDEADM_WIDTH_HEAD', 'Message box (width)');
-DEFINE ('_UDDEADM_WIDTH_EXP', 'This specifies the width of the message box in px (default is 0). If this value is 0, the width specified in the CSS style is used.');
+DEFINE ('_UDDEADM_WIDTH_EXP', 'This specifies the width of the message box.<br>values <b>up to 100</b> in <b>%</b>, values over 100 in px<br>(default is 0). If this value is 0, the width specified in the CSS style is used.');
 DEFINE ('_UDDEADM_CBE', 'CB Enhanced');
 
 // New: 1.4
