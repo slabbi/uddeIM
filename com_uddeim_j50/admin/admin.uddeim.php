@@ -1429,7 +1429,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					<?php echo _UDDEADM_COLSROWS_EXP; ?>
 				</td>
 			</tr>
-			<?php uddeIMadmText($config->width, 4, 'config_width', false, _UDDEADM_WIDTH_HEAD, _UDDEADM_WIDTH_EXP,'px'); ?>
+			<?php uddeIMadmText($config->width, 4, 'config_width', false, _UDDEADM_WIDTH_HEAD, _UDDEADM_WIDTH_EXP,'% | px'); ?>
 
 			<?php uddeIMadmSelect($config->modeshowallusers, 'config_modeshowallusers', Array('2'=>_UDDEADM_MODESHOWALLUSERS_2, '1'=>_UDDEADM_MODESHOWALLUSERS_1, '0'=>_UDDEADM_MODESHOWALLUSERS_0), false, _UDDEADM_MODESHOWALLUSERS_HEAD, _UDDEADM_MODESHOWALLUSERS_EXP, $adminstyle); ?>
 			<?php uddeIMadmSelect($config->restrictallusers, 'config_restrictallusers', Array('0'=>_UDDEADM_RESTRALLUSERS_0, '1'=>_UDDEADM_RESTRALLUSERS_1, '2'=>_UDDEADM_RESTRALLUSERS_2), false, _UDDEADM_RESTRALLUSERS_HEAD, _UDDEADM_RESTRALLUSERS_EXP); ?>
