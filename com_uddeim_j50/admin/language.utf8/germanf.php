@@ -581,7 +581,7 @@ DEFINE ('_UDDEIM_THISISAFORWARD', 'Nachricht wurde automatisch weitergeleitet vo
 DEFINE ('_UDDEADM_COLSROWS_HEAD', 'Eingabefeld (Spalten/Zeilen)');
 DEFINE ('_UDDEADM_COLSROWS_EXP', 'Hier werden die Spalten und Zeilen des Eingabefelds festgelegt (Standardwerte sind 60/10).');
 DEFINE ('_UDDEADM_WIDTH_HEAD', 'Eingabefeld (Breite)');
-DEFINE ('_UDDEADM_WIDTH_EXP', 'Hier wird die Breite des Eingabefelds in px festgelegt (Standardwerte ist 0). Wenn dieser Wert 0 ist, wird die Breite aus der CSS-Datei verwendet.');
+DEFINE ('_UDDEADM_WIDTH_EXP', 'Hier wird die Breite des Eingabefelds festgelegt.<br>Werte <b>bis 100</b> in <b>%</b>, Werte über 100 in px<br> (Standardwert ist 0). Wenn dieser Wert 0 ist, wird die Breite aus der CSS-Datei verwendet.');
 DEFINE ('_UDDEADM_CBE', 'CB Enhanced');
 
 // New: 1.4
