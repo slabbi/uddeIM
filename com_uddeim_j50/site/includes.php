@@ -1672,7 +1672,8 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 
 	$thestyle = "";
 	if ($config->width)
-		$thestyle .= "width: ".(int)$config->width."px; ";
+		$thestyle .= "width: ".(int)$config->width;
+		$thestyle .= (int)$config->width > 100 ? "px" : "%";
 
 	if ($dwf_errorcode==4 || $dwf_errorcode==21)
 		$thestyle .= "background-color: #ff0000; ";
