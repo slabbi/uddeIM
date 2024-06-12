@@ -87,10 +87,23 @@ $uddmy_gid = uddeIMgetGID((int)$udduserid);	// ARRAY(!))
 // first try to find a published link
 $udditem_id = uddeIMgetItemid($uddconfig);
 
+if ($uddshowicons > 1) {
+$fa_inbox   = '<i class="fas fa-file-import"></i>&hairsp;&nbsp;';
+$fa_outbox  = '<i class="fas fa-file-export"></i>&nbsp;';
+$fa_postbox = '<i class="far fa-comments"></i>&nbsp;';
+$fa_archive = '<i class="far fa-folder-open"></i>&hairsp;&nbsp;';
+$fa_trash   = '<i class="far fa-trash-can"></i>&ensp;';
+$fa_contact = '<i class="far fa-address-book"></i>&ensp;';
+$fa_setting = '<i class="fas fa-user-gear"></i>&nbsp;';
+$fa_compose = '<i class="fas fa-user-pen"></i>&nbsp;';
+$fa_newmes  = '<i class="fas fa-star"></i>&nbsp;';
+
+} elseif ($uddshowicons) {
 //$iconpath = $uddpathtosite.'/components/com_uddeim/templates/'.$uddconfig->templatedir.'/images';
 $iconpath = $uddpathtosite.'/components/com_uddeim/templates/default/images';
-$iconout = "<img src='".$iconpath."/menu_outbox.gif' alt='"._UDDEIM_OUTBOX."' />";
-$iconin = "<img src='".$iconpath."/menu_inbox.gif' alt='"._UDDEIM_INBOX."' />";
+$iconout = "<img src='".$iconpath."/menu_outbox.gif' style='vertical-align:top;' />";
+$iconin = "<img src='".$iconpath."/menu_inbox.gif' style='vertical-align:top;' />";
+}
 
 $uddout = "<div id='uddeim-module' class='uddmod'>";
 
@@ -102,7 +115,7 @@ if ( $uddshownew ) {
 	if ($uddresult>0) {
 		$uddout .= "<p class='uddeim-module-head'>";
         if ($uddshowicons)
-        $uddout .= '<img src="'.$iconpath.'/new_im.gif" alt="new" title="'._UDDEMODULE_NEWMESSAGES.'">&nbsp;';
+        $uddout .= ($fa_newmes ?? '<img src="'.$iconpath.'/new_im.gif" alt="new" title="'._UDDEMODULE_NEWMESSAGES.'">').'&nbsp;';
 		$uddout .= '<span>'._UDDEMODULE_NEWMESSAGES.': <b>'.$uddresult.'</b></span>'; //_UDDEMODULE_NEWMESSAGES." ".$uddresult;
 		$uddout .= "</p>";
 	}
@@ -116,7 +129,7 @@ if ( $uddshowinbox ) {
 
     if (!$usepostbox){
 	$uddout .= "<p class='uddeim-module-body'>";
-	$uddout .= $uddshowicons ? $iconin : '';
+	$uddout .= $uddshowicons ? ($fa_inbox ?? "<img src='".$iconpath."/menu_inbox.gif' alt='"._UDDEIM_INBOX."' />") : ''; 
 	$uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=inbox".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_INBOX.'">';
 	$uddout .= _UDDEIM_INBOX.": ".$uddresultin;
 	$uddout .= '</a>';
@@ -132,7 +145,7 @@ if ( $uddshowoutbox || $usepostbox ) {
 
     if (!$usepostbox){
 	$uddout .= "<p class='uddeim-module-body'>";
-	$uddout .= $uddshowicons ? $iconout : '';
+	$uddout .= $uddshowicons ? ($fa_outbox ?? "<img src='".$iconpath."/menu_outbox.gif' alt='"._UDDEIM_OUTBOX."' />") : '';
 	$uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=outbox".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_OUTBOX.'">';
 	$uddout .= _UDDEIM_OUTBOX.": ".$uddresultout;
 	$uddout .= '</a>';
@@ -142,9 +155,9 @@ if ( $uddshowoutbox || $usepostbox ) {
 
 if ($usepostbox){
     $uddout .= "<p class='uddeim-module-body'>";
-    $uddout .= $uddshowicons ? "<img src='".$iconpath."/menu_postbox.gif' alt='"._UDDEIM_POSTBOX."' style='margin-left:-4px;' /> " : "";
+    $uddout .= $uddshowicons ? ($fa_postbox ?? "<img src='".$iconpath."/menu_postbox.gif' alt='"._UDDEIM_POSTBOX."' style='margin-left:-4px;' /> ") : ""; 
     $uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=postbox".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_POSTBOX.'">';
-    $uddout .= _UDDEIM_POSTBOX."<span style='display: block;font-variant-position:super;text-align:center;'>".($uddshowicons ? $iconin : '&darr;')."&hairsp;".$uddresultin."&ensp;".($uddshowicons ? $iconout : '&uarr;')."&hairsp;".$uddresultout."</span>";
+    $uddout .= _UDDEIM_POSTBOX."<span style='display: block;font-variant-position:super;text-align:center;margin-bottom:-8px;'>".($uddshowicons==1 ? $iconin : '&darr;')."&thinsp;".$uddresultin."&ensp;".($uddshowicons==1 ? $iconout : '&uarr;')."&thinsp;".$uddresultout."</span>";
     $uddout .= '</a>';
 	$uddout .= "</p>";
 }
@@ -160,7 +173,7 @@ if ( $uddshowtrashcan ) {
 	$uddresult=(int)$udddatabase->loadResult();
 
 	$uddout .= "<p class='uddeim-module-body'>";
-	$uddout .= $uddshowicons ? "<img src='".$iconpath."/menu_trashcan.gif' alt='"._UDDEIM_TRASHCAN."' /> " : "";
+	$uddout .= $uddshowicons ? ($fa_trash ?? "<img src='".$iconpath."/menu_trashcan.gif' alt='"._UDDEIM_TRASHCAN."' /> ") : ""; 
 	$uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=trashcan".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_TRASHCAN.'">';
 	$uddout .= _UDDEIM_TRASHCAN.": ".$uddresult;
 	$uddout .= '</a>';
@@ -174,7 +187,7 @@ if ( $uddshowarchive && $uddconfig->allowarchive) {
 	$uddresult=(int)$udddatabase->loadResult();
 
 	$uddout .= "<p class='uddeim-module-body'>";
-	$uddout .= $uddshowicons ? "<img src='".$iconpath."/menu_archive.gif' alt='"._UDDEIM_ARCHIVE."' /> " : "";
+	$uddout .= $uddshowicons ? ($fa_archive ?? "<img src='".$iconpath."/menu_archive.gif' alt='"._UDDEIM_ARCHIVE."' /> ") : ""; 
 	$uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=archive".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_ARCHIVE.'">';
 	$uddout .= _UDDEIM_ARCHIVE.": ".$uddresult;
 	$uddout .= '</a>';
@@ -187,7 +200,7 @@ if( ($uddconfig->enablelists==1) ||                                             
 	// ok contact lists are enabled
 	if ( $uddshowcontacts ) {
 		$uddout .= "<p class='uddeim-module-body'>";
-		$uddout .= $uddshowicons ? "<img src='".$iconpath."/menu_book.gif' alt='"._UDDEIM_LISTS."' /> " : "";
+		$uddout .= $uddshowicons ? ($fa_contact ?? "<img src='".$iconpath."/menu_book.gif' alt='"._UDDEIM_LISTS."' /> ") : "";
 		$uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=showlists".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_LISTS.'">';
 		$uddout .= _UDDEIM_LISTS;
 		$uddout .= '</a>';
@@ -197,7 +210,7 @@ if( ($uddconfig->enablelists==1) ||                                             
 
 if ( $uddshowsettings ) {
 	$uddout .= "<p class='uddeim-module-body'>";
-	$uddout .= $uddshowicons ? "<img src='".$iconpath."/menu_settings.gif' alt='"._UDDEIM_SETTINGS."' /> " : "";
+	$uddout .= $uddshowicons ? ($fa_setting ?? "<img src='".$iconpath."/menu_settings.gif' alt='"._UDDEIM_SETTINGS."' /> ") : ""; 
 	$uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=settings".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_SETTINGS.'">';
 	$uddout .= _UDDEIM_SETTINGS;
 	$uddout .= '</a>';
@@ -206,7 +219,7 @@ if ( $uddshowsettings ) {
 
 if ( $uddshowcompose ) {
 	$uddout .= "<p class='uddeim-module-body'>";
-	$uddout .= $uddshowicons ? "<img src='".$iconpath."/menu_new.gif' alt='"._UDDEIM_COMPOSE."' /> " : "";
+	$uddout .= $uddshowicons ? ($fa_compose ?? "<img src='".$iconpath."/menu_new.gif' alt='"._UDDEIM_COMPOSE."' /> ") : "";  
 	$uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=new".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_COMPOSE.'">';
 	$uddout .= _UDDEIM_COMPOSE;
 	$uddout .= '</a>';
