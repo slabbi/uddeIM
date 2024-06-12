@@ -16,6 +16,11 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
+				<field name="uddshowicons" type="radio" default="0" class="btn-group btn-group-yesno" label="Show Icons" description="Show menu icons before descriptions">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+					<option value="2">use Fontawesome</option>
+				</field>
 				<field name="uddshownew" type="radio" default="1" class="btn-group btn-group-yesno" label="Show New Status" description="Show number of new mesages">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
@@ -44,11 +49,7 @@
 				<field name="uddshowcontacts" type="radio" default="1" class="btn-group" label="Show Contacts" description="Show link to contacts">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
-				</field>
-                <field name="uddshowicons" type="radio" default="0" class="btn-group btn-group-yesno" label="Show Icons" description="Show menu icons before descriptions">
-					<option value="1">Yes</option>
-					<option value="0">No</option>
-				</field>
+				</field>                
 				<field name="uddshowsettings" type="radio" default="1" class="btn-group btn-group-yesno" label="Show Settings" description="Show link to settings">
 					<option value="1">Yes</option>
 					<option value="0">No</option>
