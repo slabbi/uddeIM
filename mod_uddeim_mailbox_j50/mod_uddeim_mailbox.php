@@ -96,7 +96,7 @@ $fa_trash   = '<i class="far fa-trash-can"></i>&ensp;';
 $fa_contact = '<i class="far fa-address-book"></i>&ensp;';
 $fa_setting = '<i class="fas fa-user-gear"></i>&nbsp;';
 $fa_compose = '<i class="fas fa-user-pen"></i>&nbsp;';
-$fa_newmes  = '<i class="far fa-star"></i>&nbsp;';
+$fa_newmes  = '<i class="far fa-envelope"></i>&nbsp;';
 
 } elseif ($uddshowicons) {
 //$iconpath = $uddpathtosite.'/components/com_uddeim/templates/'.$uddconfig->templatedir.'/images';
