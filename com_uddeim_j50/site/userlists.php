@@ -125,7 +125,7 @@ function uddeIMshowLists($myself, $item_id, $limit, $limitstart, $config) {
 		echo "<tr><th style='text-align:center;' class='sectiontablefooter'>";
 		echo '<a href="#" onclick="listsDelete(\''.$muldel.'\'); return false;"><img src="'.$pathtosite.'/components/com_uddeim/templates/'.$config->templatedir.'/images/trash.gif" alt="'._UDDEIM_TRASHCHECKED.'" title="'._UDDEIM_TRASHCHECKED.'" /></a></th>';
         echo "<th class='sectiontablefooter'>&nbsp;</th>";
-        echo "<th class='sectiontablefooter'><a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=createlists&Itemid=".$item_id)."'>"._UDDEIM_LISTSNEW."</a></th>";
+        echo "<th class='sectiontablefooter'><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=createlists&Itemid=".$item_id)."'>"._UDDEIM_LISTSNEW."</a></th>";
 		echo "<th class='sectiontablefooter'>&nbsp;</th>";
 		if (uddeIMisAdmin($my_gid) || uddeIMisAdmin2($my_gid, $config)) 		// admins can create global user lists
 			echo "<th class='sectiontablefooter'>&nbsp;</th>";
