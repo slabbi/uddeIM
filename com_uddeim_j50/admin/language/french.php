@@ -27,7 +27,15 @@ defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Translated by Florent Nouvellon, Jyhelle, Baboon, Sarki pour <a href="http://www.joomlatutos.com/" target="_blank">Joomlatutos.com</a>, xillibit pour <a href="http://www.kunena.org" target="_blank">Kunena</a> et lavsteph pour <a href="http://www.aide-joomla.com/" target="_blank">Aide-Joomla.com</a>');
 
+// New: 5.5
+DEFINE ('_UDDEIM_MENUINFO', '<b>Remarque :</b><br>pour qu\'UddeIM fonctionne correctement, vous devez créer <b>minimum 1 entrée de menu</b> - si vous n\'en avez pas besoin, vous pouvez la rendre invisible');
 // New: 5.4
+DEFINE ('_UDDEIM_STATUS_UNREAD_POSTBOX', 'contient des messages non lus');
+DEFINE ('_UDDEIM_STATUS_UNFLAGGED_POSTBOX', 'ouvre la conversation &rarr; seuls les messages uniques peuvent être signalés');
+DEFINE ('_UDDEIM_STATUS_FLAGGED_POSTBOX', 'contient des messages importants !');
+DEFINE ('_UDDEIM_FLAG_HINT','seuls les messages uniques peuvent être signalés');
+DEFINE ('_UDDEIM_STATUS_SENT', 'envoyé');
+DEFINE ('_UDDEIM_STATUS_SENT_UNREAD', 'envoyé [non lu]');
 DEFINE ('_UDDEIM_CHARS', 'caractère');
 DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /robotsprotection');
 // New: 5.3
@@ -575,7 +583,7 @@ DEFINE ('_UDDEIM_THISISAFORWARD', 'La redirection du message envoyé a ');
 DEFINE ('_UDDEADM_COLSROWS_HEAD', 'Boîte de messagerie (colonne/ligne)');
 DEFINE ('_UDDEADM_COLSROWS_EXP', 'Cela déterminera les colonnes et lignes de la boîte de messagerie (les valeurs par défaut sont 60/10).');
 DEFINE ('_UDDEADM_WIDTH_HEAD', 'Boite de messagerie (largeur)');
-DEFINE ('_UDDEADM_WIDTH_EXP', 'Cela déterminera la taille de la boîte de messagerie.<br>valeurs <b>jusqu\'à 100</b> in <b>%</b>, valeurs > 100 in px<br>(par défaut 0). Si la valeur est a 0, la taille sera déterminée par le style CSS qui est utilisé.');
+DEFINE ('_UDDEADM_WIDTH_EXP', 'Cela déterminera la taille de la boîte de messagerie en px (par défaut 0). Si la valeur est a 0, la taille sera déterminée par le style CSS qui est utilisé.');
 DEFINE ('_UDDEADM_CBE', 'CB Valide');
 
 // New: 1.4

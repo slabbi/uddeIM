@@ -371,7 +371,7 @@ switch ($task) {
 		$config->postboxfull = (int)uddeIMmosGetParam ($_POST, 'config_postboxfull', 0);
 		$config->postboxavatars = (int)uddeIMmosGetParam ($_POST, 'config_postboxavatars', 0);
 		$config->replytext = (int)uddeIMmosGetParam ($_POST, 'config_replytext', 1);
-                $config->saveconfigdb = (int)uddeIMmosGetParam ($_POST, 'config_saveconfigdb', 0);
+        $config->saveconfigdb = (int)uddeIMmosGetParam ($_POST, 'config_saveconfigdb', 0);
 
 		$oldsetting_allowarchive=uddeIMmosGetParam ($_POST, 'oldsetting_allowarchive', 0);
 		$oldsetting_longwaitingemail= uddeIMmosGetParam ($_POST, 'oldsetting_longwaitingemail', 0);
@@ -1284,6 +1284,10 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
         ?>
 	</td></tr>
     <tr>
+    <td colspan="3">                                            
+        <span class="alert alert-info" style="display:<?php echo (uddeIMgetItemidComponent('com_uddeim',$config) ? 'none' : 'block'); ?>"><?php echo _UDDEIM_MENUINFO; ?></span>
+    </td></tr>
+    <tr>
     <td colspan="3">
         <?php
             if ( $plugin_spamcontrol || $plugin_mcp )
@@ -1429,7 +1433,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 					<?php echo _UDDEADM_COLSROWS_EXP; ?>
 				</td>
 			</tr>
-			<?php uddeIMadmText($config->width, 4, 'config_width', false, _UDDEADM_WIDTH_HEAD, _UDDEADM_WIDTH_EXP,'% | px'); ?>
+			<?php uddeIMadmText($config->width, 4, 'config_width', false, _UDDEADM_WIDTH_HEAD, _UDDEADM_WIDTH_EXP,'px'); ?>
 
 			<?php uddeIMadmSelect($config->modeshowallusers, 'config_modeshowallusers', Array('2'=>_UDDEADM_MODESHOWALLUSERS_2, '1'=>_UDDEADM_MODESHOWALLUSERS_1, '0'=>_UDDEADM_MODESHOWALLUSERS_0), false, _UDDEADM_MODESHOWALLUSERS_HEAD, _UDDEADM_MODESHOWALLUSERS_EXP, $adminstyle); ?>
 			<?php uddeIMadmSelect($config->restrictallusers, 'config_restrictallusers', Array('0'=>_UDDEADM_RESTRALLUSERS_0, '1'=>_UDDEADM_RESTRALLUSERS_1, '2'=>_UDDEADM_RESTRALLUSERS_2), false, _UDDEADM_RESTRALLUSERS_HEAD, _UDDEADM_RESTRALLUSERS_EXP); ?>

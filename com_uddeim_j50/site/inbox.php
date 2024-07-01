@@ -19,7 +19,7 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 function uddeIMshowInbox($myself, $item_id, $limit, $limitstart, $cryptpass, $config, $filter_user, $filter_unread, $filter_flagged, $sort_mode) {
-	global $uddeicons_flagged, $uddeicons_unflagged, $uddeicons_onlinepic, $uddeicons_offlinepic, $uddeicons_readpic, $uddeicons_unreadpic;
+	global $uddeicons_flagged, $uddeicons_unflagged, $uddeicons_onlinepic, $uddeicons_offlinepic, $uddeicons_readpic, $uddeicons_unreadpic, $uddeicons_sentunread;
 	
 	$pathtosite = uddeIMgetPath('live_site');
 
@@ -184,15 +184,19 @@ function uddeIMshowInbox($myself, $item_id, $limit, $limitstart, $cryptpass, $co
 		$flagcell = "";
 		if($config->allowflagged) {
 			if($themessage->flagged)
-				$flagcell="<br /><br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=unflag&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_flagged."</a>";
+                $flagcell = "<a href='javascript:uddeIMflgSwitch(\"unflag\",\"".$themessage->id."\");'>".$uddeicons_flagged."</a><br />";
+                //$flagcell="<br /><br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=unflag&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_flagged."</a>";
 			else
-				$flagcell="<br /><br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=flag&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_unflagged."</a>";
+                $flagcell = "<a href='javascript:uddeIMflgSwitch(\"flag\",\"".$themessage->id."\");'>".$uddeicons_unflagged."</a><br />";
+                //$flagcell="<br /><br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=flag&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_unflagged."</a>";
 		}
 
 		if($themessage->toread)
-			$readcell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=markunread&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_readpic."</a>";
+            $readcell = "<a href='javascript:uddeIMtoggleread(0,false,\"markunread\",\"".$themessage->id."\");'>".$uddeicons_readpic."</a><br />";
+            //$readcell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=markunread&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_readpic."</a>";
 		else
-			$readcell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=markread&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_unreadpic."</a>";
+            $readcell = "<a href='javascript:uddeIMtoggleread(0,false,\"markread\",\"".$themessage->id."\");'>".$uddeicons_unreadpic."</a><br />";
+            //$readcell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=markread&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_unreadpic."</a>";
 
 		if ($config->showlistattachment) {
 			$cnt = uddeIMgetAttachmentCount($themessage->id);
@@ -484,11 +488,11 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 					$c2me = "";
 					if ($copy2me) // this is a copy2me message, so the original is also stored in inbox
 						$goto = "show";
-					if ($orig[0]->cryptmode==2 || $orig[0]->cryptmode==4) {	// Message is encrypted, so go to enter password page
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."pass&Itemid=".$item_id."&messageid=".$replyid)."'>".$msgnavigationstr." ".$pic."</a>";
-					} else {					// normal message
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."&Itemid=".$item_id."&messageid=".$replyid)."'>".$msgnavigationstr." ".$pic."</a>";
-					}
+					if ($orig[0]->cryptmode==2 || $orig[0]->cryptmode==4)	// Message is encrypted, so go to enter password page
+						$goto .= 'pass';
+
+						$msgnavigation .= " <a class='btn btn-sm btn-outline-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."&Itemid=".$item_id."&messageid=".$replyid)."'>".$msgnavigationstr." ".$pic."</a>";
+
 				} else {
 					$msgnavigation .= " ".$picdel;
 				}
@@ -496,7 +500,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 
 			$repls = uddeIMselectMessageReplies($displaymessage->id, 'outbox', $myself);
 			if (!empty($repls)) {
-				$msgnavigation .= $replyid ? "&emsp;" : "";
+
 				$msgnavigationstr = _UDDEIM_PMNAV_THEREARERESPONSES;
 				foreach($repls as $repl) {
 					$goto = "showout";
@@ -505,18 +509,18 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 						$goto = "show";
 						$c2me = " "._UDDEIM_PMNAV_COPY2ME;		// BUGBUG
 					}
-					if ($repl->cryptmode==2 || $repl->cryptmode==4) {	// Message is encrypted, so go to enter password page
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."pass&Itemid=".$item_id."&messageid=".$repl->id)."'>".$msgnavigationstr." ".$pic."</a>".$c2me;
-					} else {					// normal message
-						$msgnavigation .= " <a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."&Itemid=".$item_id."&messageid=".$repl->id)."'>".$msgnavigationstr." ".$pic."</a>".$c2me;
-					}
+					if ($repl->cryptmode==2 || $repl->cryptmode==4) 	// Message is encrypted, so go to enter password page
+						$goto .= 'pass';
+
+						$msgnavigation .= " <a class='btn btn-sm btn-outline-secondary' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=".$goto."&Itemid=".$item_id."&messageid=".$repl->id)."'>".$msgnavigationstr." ".$pic."</a>".$c2me;
+
 					$msgnavigation .= " ";
 				}
 			}
 		}
 
 		$headerstring.="<tr>";
-		$headerstring.="<td valign='bottom'><div class='uddeim-messagefrom btn badge bg-info'>".trim($msgnavigation)."</div></td>";
+		$headerstring.="<td valign='bottom'><div class='uddeim-messagefrom'>".trim($msgnavigation)."</div></td>";
 
 		$headerstring.="<td valign='bottom'>";
 		if ($config->reportspam) {		// uddeIMcheckPlugin('spamcontrol') &&  not required since uddeIMcheckConfig sets this 0 if plugin is missing

@@ -155,3 +155,91 @@ function uddeIMtoggleLayer2(itemID) {
 	document.getElementById('uddeimdivlayerpreview_'+itemID).style.display = 'inline';
   }
 }
+
+function uddeIMtoggleread(i_val=0,toggle=false,task='',message=0,recip=0) {
+
+var preview = document.getElementById('uddeimdivlayerpreview_'+i_val);
+
+if (toggle) {
+var layer = document.getElementById('uddeimdivlayer_'+i_val);
+
+if (layer.style.display=='none') {
+	    preview.style.display = 'none';
+	    layer.style.display = 'inline';
+    } else {
+	    layer.style.display = 'none';
+	    preview.style.display = 'inline';
+    }
+}
+
+if (message > 0) {
+const params = new URLSearchParams({
+    'task': task,
+    'recip': recip,
+    'ret': 'postboxclick',
+    'messageid': message
+});
+
+fetch('index.php?option=com_uddeim&'+params)
+.then(i=>i.ok)
+.then(function() {
+var a = document.querySelector('a[href*="toggleread"][href*="' + message + '"]');
+var i = document.querySelector('a[href*="' + message + '"] img.readp');
+
+if (task == 'markread') {
+a.href =a.href.replace('markread','markunread');
+i.src =i.src.replace('new_im.gif','nonew_im.gif');
+i.setAttribute('title',_read);
+i.setAttribute('alt',_read);
+}
+else {
+a.href =a.href.replace('markunread','markread');
+i.src =i.src.replace('nonew_im.gif','new_im.gif');
+i.setAttribute('title',_unread);
+i.setAttribute('alt',_unread);
+}
+if (i_val){  /*not set in inbox*/
+if(task == 'markread')
+preview.querySelector('a').href ='javascript:uddeIMtoggleread("' +i_val+ '",true);';
+else
+preview.querySelector('a').href = 'javascript:uddeIMtoggleread("' +i_val+ '",true,"' +message+ '","' +recip+ '","markread");';
+}
+})
+.catch(error => {
+    alert('url error');
+});
+}
+}
+
+
+function uddeIMflgSwitch(flag,message=0,recip=0) {
+const params = new URLSearchParams({
+    'task': flag,
+    'messageid': message,
+    'recip': recip,
+    'ret': 'postboxclick'
+});
+
+fetch('index.php?option=com_uddeim&'+params)
+.then(i=>i.ok)
+.then(function() {
+var a = document.querySelector('a[href*="flgSwitch"][href*="' + message + '"]');
+var i = document.querySelector('a[href*="' + message + '"] img.flagp');
+
+if (flag == 'unflag') {
+a.href = a.href.replace('unflag', 'flag');
+i.src = i.src.replace('staron','staroff');
+i.setAttribute('title',_unflagged);
+i.setAttribute('alt',_unflagged);
+}
+else {
+a.href = a.href.replace('flag', 'unflag');
+i.src = i.src.replace('staroff','staron');
+i.setAttribute('title',_flagged);
+i.setAttribute('alt',_flagged);
+}
+})
+.catch(error => {
+    alert('url error');
+});
+}

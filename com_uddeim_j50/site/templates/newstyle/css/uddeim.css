@@ -6,9 +6,47 @@
  * @copyright 2024
  * License: GNU General Public License version 2
 -----------------------------------------------------------------------------------------------*/
+/*new 5.4 */
+.uddeim-messagefrom .btn-sm{
+    line-height: 10px;
+    font-size: 1em;
+    font-weight: 600;
+    margin: -6px 5px 0 0;
+}
+.uddeim-replyquote {
+    font-size: 0.9em;
+    font-style: italic;
+    line-height: 1.3em;
+    letter-spacing: .01em;
+    border-left: 1px solid gray;
+    padding-left: 10px;
+    background-color: snow;
+    color:#777;
+    margin-top:1em;
+}
+tr:hover .uddeim-replyquote{
+    background-color: #FFF;
+}
+.uddeim-replyquote br {
+    display: block!important;
+}
+#uddeim #uddeim-overview table tr:hover {
+    background-color: #F9F9F9;
+    color:#000;
+}
 #uddeim-pagenav .btn.btn-info {
   float: left;
   margin-left: 1%;
+}
+#uddeim-m .btn.btn-info {
+    color: #fff!important;
+}
+#uddeim-m .img-thumbnail.cbImgAvatar {
+    max-width: 50px;
+    min-width: 40px;
+ }
+.uddeim-messagefrom .btn-sm img {
+    margin: 0 3px !important;
 }
 /*spamcontrol*/
 .uddeim-messageactionlink-spam {
@@ -137,7 +175,7 @@ img[src*="icon_down"], img[src*="icon_up"] {
   font-size: 14px;
   line-height: 1;
   margin: 0;
-  padding: 10px;
+  padding: 10px 8px;
   outline: none;
   text-decoration: none;
 }

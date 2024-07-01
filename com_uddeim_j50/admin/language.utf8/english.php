@@ -21,7 +21,15 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'English language file by <a href="http://slabihoud.de/software/" target="_new">uddeIM HQ (Stephan Slabihoud)</a>');	// Enter your credits line here, e.g. 'Translation by <a href="http://domain.com" target="_new">John Doe</a>'
+// New: 5.5
+DEFINE ('_UDDEIM_MENUINFO', '<b>Notice:</b><br>for UddeIM to work properly, you need to create <b>minimum 1 Menu entry</b> - if you don\'t need it, you can make it invisible');
 // New: 5.4
+DEFINE ('_UDDEIM_STATUS_UNREAD_POSTBOX', 'contains unread messages');
+DEFINE ('_UDDEIM_STATUS_UNFLAGGED_POSTBOX', 'opens conversation &rarr; only single messages can be flagged');
+DEFINE ('_UDDEIM_STATUS_FLAGGED_POSTBOX', 'contains important messages !');
+DEFINE ('_UDDEIM_FLAG_HINT','only single messages can be flagged');
+DEFINE ('_UDDEIM_STATUS_SENT', 'sent');
+DEFINE ('_UDDEIM_STATUS_SENT_UNREAD', 'sent [unread]');
 DEFINE ('_UDDEIM_CHARS', 'chars');
 DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /robot field');
 // New: 5.3
@@ -116,7 +124,7 @@ DEFINE ('_UDDEADM_CFGFILE_CONVERTING_13', '...set default for replys (options)')
 // New: 2.9
 DEFINE ('_UDDEADM_KUNENA20', 'Kunena 2.0+');
 DEFINE ('_UDDEADM_POSTBOXFULL_HEAD', 'Full message text');
-DEFINE ('_UDDEADM_POSTBOXFULL_EXP', 'Show full message text of none, first or all messages.');
+DEFINE ('_UDDEADM_POSTBOXFULL_EXP', 'Show full message text of none, first or all <b>read</b> messages.');
 DEFINE ('_UDDEADM_POSTBOXFULL_0', 'None');
 DEFINE ('_UDDEADM_POSTBOXFULL_1', 'First');
 DEFINE ('_UDDEADM_POSTBOXFULL_2', 'All');
@@ -569,7 +577,7 @@ DEFINE ('_UDDEIM_THISISAFORWARD', 'Autoforward of a message originally sent to '
 DEFINE ('_UDDEADM_COLSROWS_HEAD', 'Message box (cols/rows)');
 DEFINE ('_UDDEADM_COLSROWS_EXP', 'This specifies the columns and rows of the message box (default values are 60/10).');
 DEFINE ('_UDDEADM_WIDTH_HEAD', 'Message box (width)');
-DEFINE ('_UDDEADM_WIDTH_EXP', 'This specifies the width of the message box.<br>values <b>up to 100</b> in <b>%</b>, values over 100 in px<br>(default is 0). If this value is 0, the width specified in the CSS style is used.');
+DEFINE ('_UDDEADM_WIDTH_EXP', 'This specifies the width of the message box in px (default is 0). If this value is 0, the width specified in the CSS style is used.');
 DEFINE ('_UDDEADM_CBE', 'CB Enhanced');
 
 // New: 1.4

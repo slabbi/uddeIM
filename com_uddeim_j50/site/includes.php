@@ -262,13 +262,12 @@ function uddeIMisBanned($userid, $config) {
 }
 
 function uddeIMblockUserUdde($myself, $item_id, $recip, $ret, $config) {
-	$addlink = "";
-	if ($recip)
-		$addlink = "&recip=".(int)$recip;
-	
-	$task = "inbox";
-	if ($ret=="postboxuser" && $config->enablepostbox)
-		$task = "postboxuser";
+
+    $task = ($ret=="postboxuser" && $config->enablepostbox)
+		    ? "postboxuser"
+            : "inbox";
+
+    $addlink = $recip ? "&recip=".(int)$recip : "";
 
 	if (!$config->blocksystem) {
 		$mosmsg = _UDDEIM_BLOCKSDISABLED;
@@ -291,13 +290,12 @@ function uddeIMblockUserUdde($myself, $item_id, $recip, $ret, $config) {
 }
 
 function uddeIMunblockUserUdde($myself, $item_id, $recip, $ret, $config) {
-	$addlink = "";
-	if ($recip)
-		$addlink = "&recip=".(int)$recip;
-	
-	$task = "inbox";
-	if ($ret=="postboxuser" && $config->enablepostbox)
-		$task = "postboxuser";
+
+    $task = ($ret=="postboxuser" && $config->enablepostbox)
+		    ? "postboxuser"
+            : "inbox";
+
+    $addlink = $recip ? "&recip=".(int)$recip : "";
 
 	if (!$config->blocksystem) {
 		$mosmsg = _UDDEIM_BLOCKSDISABLED;
@@ -308,15 +306,18 @@ function uddeIMunblockUserUdde($myself, $item_id, $recip, $ret, $config) {
 }
 
 function uddeIMmarkUnread($myself, $messageid, $limit, $limitstart, $item_id, $recip, $ret, $config) {
-	$addlink = "";
-	if ($recip)
-		$addlink = "&recip=".(int)$recip;
 
-	$task = "inbox";
-	if ($ret=="postboxuser" && $config->enablepostbox)
-		$task = "postboxuser";
+    uddeIMupdateToread($myself, $messageid, 0);		// previously it set also "totrash=0" which is not required
 
-	uddeIMupdateToread($myself, $messageid, 0);		// previously it set also "totrash=0" which is not required
+    if ($ret=="postboxclick")
+    return;
+
+    $task = ($ret == 'postboxuser' && $config->enablepostbox)
+            ? 'postboxuser'
+            : 'inbox';
+
+    $addlink = $recip ? "&recip=".(int)$recip : "";
+
 	if(!$limit && !$limitstart) {
 		$redirecturl="index.php?option=com_uddeim&task=".$task."&Itemid=".$item_id.$addlink;
 	} else {
@@ -326,15 +327,18 @@ function uddeIMmarkUnread($myself, $messageid, $limit, $limitstart, $item_id, $r
 }
 
 function uddeIMmarkRead($myself, $messageid, $limit, $limitstart, $item_id, $recip, $ret, $config) {
-	$addlink = "";
-	if ($recip)
-		$addlink = "&recip=".(int)$recip;
 
-	$task = "inbox";
-	if ($ret=="postboxuser")
-		$task = "postboxuser";
+    uddeIMupdateToread($myself, $messageid, 1);
 
-	uddeIMupdateToread($myself, $messageid, 1);
+    if ($ret=="postboxclick")
+    return;
+
+	$task = ($ret == 'postboxuser' && $config->enablepostbox)
+            ? 'postboxuser'
+            : 'inbox';
+
+    $addlink = $recip ? "&recip=".(int)$recip : "";
+
 	if(!$limit && !$limitstart) {
 		$redirecturl="index.php?option=com_uddeim&task=".$task."&Itemid=".$item_id.$addlink;
 	} else {
@@ -344,17 +348,21 @@ function uddeIMmarkRead($myself, $messageid, $limit, $limitstart, $item_id, $rec
 }
 
 function uddeIMmarkUnflagged($myself, $messageid, $limit, $limitstart, $item_id, $recip, $ret, $config) {
-	$addlink = "";
-	if ($recip)
-		$addlink = "&recip=".(int)$recip;
 
-	$task="inbox";
+    uddeIMupdateFlagged($myself, $messageid, 0);
+
+    if ($ret=="postboxclick")
+    return;
+
 	if ($ret=="postboxuser" && $config->enablepostbox)
 		$task = "postboxuser";
-	if($ret=='archive' && $config->allowarchive)
+	elseif($ret=='archive' && $config->allowarchive)
 		$task = "archive";
+    else
+        $task="inbox";
 
-	uddeIMupdateFlagged($myself, $messageid, 0);
+    $addlink = $recip ? "&recip=".(int)$recip : "";
+
 	if(!$limit && !$limitstart) {
 		$redirecturl="index.php?option=com_uddeim&task=".$task."&Itemid=".$item_id.$addlink;
 	} else {
@@ -364,17 +372,21 @@ function uddeIMmarkUnflagged($myself, $messageid, $limit, $limitstart, $item_id,
 }
 
 function uddeIMmarkFlagged($myself, $messageid, $limit, $limitstart, $item_id, $recip, $ret, $config) {
-	$addlink = "";
-	if ($recip)
-		$addlink = "&recip=".(int)$recip;
 
-	$task="inbox";
+    uddeIMupdateFlagged($myself, $messageid, 1);
+
+    if ($ret=="postboxclick")
+    return;
+
 	if ($ret=="postboxuser" && $config->enablepostbox)
 		$task = "postboxuser";
-	if($ret=='archive' && $config->allowarchive)
+	elseif($ret=='archive' && $config->allowarchive)
 		$task = "archive";
+    else
+        $task="inbox";
 
-	uddeIMupdateFlagged($myself, $messageid, 1);
+    $addlink = $recip ? "&recip=".(int)$recip : "";
+
 	if(!$limit && !$limitstart) {
 		$redirecturl="index.php?option=com_uddeim&task=".$task."&Itemid=".$item_id.$addlink;
 	} else {
@@ -1672,8 +1684,7 @@ function uddeIMdrawWriteform($myself, $my_gid, $item_id, $backto, $recipname, $p
 
 	$thestyle = "";
 	if ($config->width)
-		$thestyle .= "width: ".(int)$config->width;
-		$thestyle .= (int)$config->width > 100 ? "px" : "%";
+		$thestyle .= "width: ".(int)$config->width."px; ";
 
 	if ($dwf_errorcode==4 || $dwf_errorcode==21)
 		$thestyle .= "background-color: #ff0000; ";

@@ -15,7 +15,7 @@
 //                Other licenses may be found in LICENSES folder.
 //                Redistributing this file is only allowed when keeping the header unchanged.
 // ********************************************************************************************
-// version 5.3
+// version 5.4.4
 // ***************************************************************************
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
@@ -43,10 +43,10 @@ function uddeIMselectPostbox($myself, $limitstart, $limit, $config, $filter_user
 	else
 		$sort .= " DESC";		// 0 = DESC
 
-	$sql = "SELECT count(id) AS cnt, MIN(toread) AS toread, MAX(flagged) AS flagged, MAX(datum) AS datum, id, displayname FROM (
-			(SELECT a.toid AS id, 1 AS toread, 0 AS flagged, a.datum AS datum, b.".($config->realnames ? "name" : "username")." AS displayname FROM `#__uddeim` AS a LEFT JOIN `#__users` AS b ON a.toid=b.id WHERE a.fromid=".(int)$myself." AND a.totrashoutbox=0 )
-			UNION 
-			(SELECT a.fromid AS id, toread, flagged, a.datum AS datum, b.".($config->realnames ? "name" : "username")." AS displayname FROM `#__uddeim` AS a LEFT JOIN `#__users` AS b ON a.fromid=b.id WHERE a.toid=".(int)$myself." AND a.totrash=0 AND a.archived=0 AND a.delayed=0 )
+	$sql = "SELECT count(id) AS cnt, MIN(toread) AS toread, MAX(readid) AS readid, MAX(flagged) AS flagged, MAX(flagid) AS flagid, MAX(datum) AS datum, id, displayname FROM (
+			(SELECT a.toid AS id, 1 AS toread, 0 AS readid, 0 AS flagged, 0 AS flagid, a.datum AS datum, b.".($config->realnames ? "name" : "username")." AS displayname FROM `#__uddeim` AS a LEFT JOIN `#__users` AS b ON a.toid=b.id WHERE a.fromid=".(int)$myself." AND a.totrashoutbox=0 )
+			UNION
+			(SELECT a.fromid AS id, toread, CASE WHEN a.toread=0 THEN a.id ELSE 0 END AS readid, flagged, CASE WHEN a.flagged=1 THEN a.id ELSE 0 END AS flagid, a.datum AS datum, b.".($config->realnames ? "name" : "username")." AS displayname FROM `#__uddeim` AS a LEFT JOIN `#__users` AS b ON a.fromid=b.id WHERE a.toid=".(int)$myself." AND a.totrash=0 AND a.archived=0 AND a.delayed=0 )
 			) AS comb_table".$filter." GROUP BY id".$sort." LIMIT ".(int)$limitstart.", ".(int)$limit;
 	$database->setQuery($sql);
 	$value = $database->loadObjectList();
@@ -113,10 +113,6 @@ function uddeIMgetPostboxUserCount($myself, $userid, $filter_user=0, $filter_unr
 	$total = (int)$database->loadResult();
 	return $total;
 }
-
-
-
-
 
 
 
@@ -290,16 +286,13 @@ function uddeIMshowPostbox($myself, $item_id, $limit, $limitstart, $cryptpass, $
 			}
 		}
 
-		$readcell = $uddeicons_unreadpic;
-		if ($themessage->toread)
-			$readcell = $uddeicons_readpic;
+		$readcell = $themessage->toread ? $uddeicons_readpic :
+                    "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postboxuser&Itemid=".$item_id."&recip=".$userid."&ret=postboxuser#m".$themessage->readid)."'>".$uddeicons_unreadpic."</a>";
 
-		$flagcell = "";
-		if($config->allowflagged) {
-			$flagcell = "<br />".$uddeicons_unflagged;
-			if($themessage->flagged)
-				$flagcell = "<br />".$uddeicons_flagged;
-		}
+		$flagcell= !$config->allowflagged ? "" :
+                    "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postboxuser&Itemid=".$item_id."&recip=".$userid."&ret=postboxuser#m".$themessage->flagid)."'>"
+                    .($themessage->flagged ? $uddeicons_flagged : $uddeicons_unflagged)."</a><br />";                              //&limit=".$limit."&limitstart=".$limitstart."
+		            //alt:  $flagcell = "<br />".$uddeicons_unflagged;
 
 		$datumcell=uddeDate($themessage->datum, $config, uddeIMgetUserTZ());
 
@@ -387,17 +380,8 @@ function uddeIMshowPostbox($myself, $item_id, $limit, $limitstart, $cryptpass, $
 
 
 
-
-
-
-
-
-
-
-
-
 function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, $cryptpass, $config, $filter_user, $filter_unread, $filter_flagged, $sort_mode) {
-	global $uddeicons_delayedpic, $uddeicons_flagged, $uddeicons_unflagged, $uddeicons_onlinepic, $uddeicons_offlinepic, $uddeicons_readpic, $uddeicons_unreadpic;
+	global $uddeicons_delayedpic, $uddeicons_flagged, $uddeicons_unflagged, $uddeicons_onlinepic, $uddeicons_offlinepic, $uddeicons_readpic, $uddeicons_unreadpic, $uddeicons_sentunread;
 	
 	$pathtosite = uddeIMgetPath('live_site');
 
@@ -437,9 +421,6 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 		$limitreached.= ".";		// so inbox is unlimited
 	}
 
-	
-
-
 	$totalpostbox = uddeIMgetPostboxUserCount($myself, $userid, $filter_user, $filter_unread, $filter_flagged);
 
 	// now load messages as required
@@ -471,7 +452,6 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 	}
 
 	uddeIMaddScript($pathtosite."/components/com_uddeim/js/uddeimtools.js");
-
 
 
 	if ($config->blocksystem) {
@@ -537,14 +517,18 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 		if ($isinbox) {
 			if($config->allowflagged) {
 				if($themessage->flagged)
-					$flagcell="<br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=unflag&recip=".$userid."&ret=postboxuser&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_flagged."</a>";
+                    $flagcell = "<a href='javascript:uddeIMflgSwitch(\"unflag\",\"".$themessage->id."\",\"".$userid."\");'>".$uddeicons_flagged."</a><br />";
+					//$flagcell="<br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=unflag&recip=".$userid."&ret=postboxuser&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_flagged."</a>";
 				else
-					$flagcell="<br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=flag&recip=".$userid."&ret=postboxuser&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_unflagged."</a>";
+                    $flagcell = "<a href='javascript:uddeIMflgSwitch(\"flag\",\"".$themessage->id."\",\"".$userid."\");'>".$uddeicons_unflagged."</a><br />";
+                    //$flagcell="<br /><a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=flag&recip=".$userid."&ret=postboxuser&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_unflagged."</a>";
 			}
 			if($themessage->toread)
-				$readcell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=markunread&recip=".$userid."&ret=postboxuser&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_readpic."</a>";
+                $readcell = "<a href='javascript:uddeIMtoggleread(\"".$i."\",false,\"markunread\",\"".$themessage->id."\",\"".$userid."\");'>".$uddeicons_readpic."</a><br />";
+                //$readcell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=markunread&recip=".$userid."&ret=postboxuser&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_readpic."</a>";
 			else
-				$readcell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=markread&recip=".$userid."&ret=postboxuser&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_unreadpic."</a>";
+                $readcell = "<a href='javascript:uddeIMtoggleread(\"".$i."\",false,\"markread\",\"".$themessage->id."\",\"".$userid."\");'>".$uddeicons_unreadpic."</a><br />";
+                //$readcell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=markread&recip=".$userid."&ret=postboxuser&Itemid=".$item_id."&messageid=".$themessage->id."&limit=".$limit."&limitstart=".$limitstart)."'>".$uddeicons_unreadpic."</a>";
 
 			if ($config->showlistattachment) {
 				$cnt = uddeIMgetAttachmentCount($themessage->id);
@@ -593,7 +577,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 				if ($themessage->toread)
 					$readcell=$uddeicons_readpic;
 				else
-					$readcell=$uddeicons_unreadpic;
+					$readcell=$uddeicons_sentunread; //$uddeicons_unreadpic;
 			}
 
 			if ($config->showlistattachment) {
@@ -638,8 +622,6 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 			}
 		}
 
-		
-
 
 		if ($isinbox) {
 			if ($config->actionicons) {
@@ -660,8 +642,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 			}
 		}
 
-		
-		
+
 		// CRYPT
 		$cm = uddeIMgetMessage($themessage->message, $cryptpass, $themessage->cryptmode, $themessage->crypthash, $config->cryptkey);
 		$teasermessage=$cm;
@@ -686,7 +667,9 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 				$showemail .= "</a>";
 			} else {							// normal message
 				// $messagecell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=show&Itemid=".$item_id."&messageid=".$themessage->id)."'>".$teasermessage."</a>";
-				$messagecell="<a href='javascript:uddeIMtoggleLayer2(\"".$i."\");'>".$teasermessage."</a>";
+				$messagecell = $themessage->toread ?
+                               "<a href='javascript:uddeIMtoggleread(\"".$i."\",true);'>".$teasermessage."</a>"
+                             : "<a href='javascript:uddeIMtoggleread(\"".$i."\",true,\"markread\",\"".$themessage->id."\",\"".$userid."\");'>".$teasermessage."</a>";
 				$showemail  = "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=show&Itemid=".$item_id."&messageid=".$themessage->id)."'>";
 				$showemail .= "<img src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/restore.gif' alt='"._UDDEIM_DOREPLY."' title='"._UDDEIM_DOREPLY."' />";;
 				$showemail .= "</a>";
@@ -700,7 +683,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 				$showemail .= "</a>";
 			} else {	// normal message
 				// $messagecell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showout&Itemid=".$item_id."&messageid=".$themessage->id)."'>".$teasermessage."</a>";
-				$messagecell="<a href='javascript:uddeIMtoggleLayer2(\"".$i."\");'>".$teasermessage."</a>";
+				$messagecell="<a href='javascript:uddeIMtoggleread(\"".$i."\",true);'>".$teasermessage."</a>";
 				$showemail  = "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showout&Itemid=".$item_id."&messageid=".$themessage->id)."'>";
 				$showemail .= "<img src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/page_white_magnify.gif' alt='"._UDDEIM_DISPLAY."' title='"._UDDEIM_DISPLAY."' />";;
 				$showemail .= "</a>";
@@ -713,7 +696,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 		$delcell="<input type='checkbox' name='arcmes[]' value='".$themessage->id."' />";
 
 		//echo "<tr class='sectiontableentry1'>";
-		echo "<tr class='uddeim-messagebody2header'>";
+		echo "<tr class='uddeim-messagebody2header' id='m".$themessage->id."'>";
 		echo "<td style='padding:4px; border-bottom:none; border-right:none; width:32px; text-align:center; vertical-align:top'>".$delcell."</td>";		// checkcell
 		echo "<td style='padding:4px; border-bottom:none; border-right:none; width:32px; text-align:center; vertical-align:top'>".
 						$readcell.$attachcell.$flagcell.
@@ -771,35 +754,25 @@ if (0) {
 			echo "</tr>";
 }
 
-
 			echo "<tr class='uddeim-messagebody2body'>";
 			echo "<td colspan='4' style='padding:8px; border-top:none; border-right:none;'>";
 				// echo "<div style='text-align:right;'><a href='javascript:uddeIMtoggleLayer2(\"".$i."\");'>"._UDDEADM_SPAMCONTROL_SHOWHIDE."</a></div>";
 
-				if ($config->postboxfull==0) {
-					$st_preview = "display:inline;";
-					$st_normal = "display:none;";
-				}
-				if ($config->postboxfull==1) {
-					if ($i==1) {
-						$st_preview = "display:none;";
-						$st_normal = "display:inline;";
-					} else {
-						$st_preview = "display:inline;";
-						$st_normal = "display:none;";
-					}
-				}
-				if ($config->postboxfull==2) {
+			if (($config->postboxfull==2 && $themessage->toread) ||
+                ($i==1 && $config->postboxfull==1 && $themessage->toread)) {
 					$st_preview = "display:none;";
 					$st_normal = "display:inline;";
-				}
+			} else {
+                    $st_preview = "display:inline;";
+					$st_normal = "display:none;";
+            }
 				
 				echo "<div id='uddeimdivlayerpreview_".$i."' style='".$st_preview."'>";
-				echo "<div class='uddeim-messagebody2'>".$messagecell."</div>";
+                echo "<div class='uddeim-messagebody2'>".$messagecell."</div>";
 				echo "</div>\n";
 
 				echo "<div id='uddeimdivlayer_".$i."' style='".$st_normal."'>";
-				$messagecell="<a href='javascript:uddeIMtoggleLayer2(\"".$i."\");'>".uddeIMreplyquoteMarkup($bodystring,$config->quotedivider)."</a>";
+				    $messagecell="<a href='javascript:uddeIMtoggleread(\"".$i."\",true);'>".uddeIMreplyquoteMarkup($bodystring,$config->quotedivider)."</a>";
 				echo "<div class='uddeim-messagebody2'>".$messagecell."</div>";
 				// UDDEIMFILE
 				if( $config->enableattachment )	{ // Always show attachments when attachments are enabled
@@ -815,10 +788,7 @@ if (0) {
 				echo $newemail."<br />".$showemail;
 			echo "</td>\n";
 			echo "</tr>\n";
-//		}
-		
 
-		
 		$i++;
 		$k++;
 		if ($k > 2)
@@ -873,11 +843,7 @@ if (0) {
 	//	uddeIMprintFilter($myself, 'postboxuser', $totalpostbox, $item_id, $config, $filter_user, $filter_unread, $filter_flagged);
 
 	echo "</div>\n<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'standard', $limitreached, $config)."</div>\n";
-//	echo "</div>\n<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'standard', $showinboxlimit_borderbottom, $config)."</div>\n";
 }
-
-
-
 
 
 
@@ -963,26 +929,15 @@ function uddeIMdoOutboxHeader($myself, $displaymessage, $config) {
 			$temp .= " &lt;<a href='mailto:".$displaymessage->publicemail."'>".$displaymessage->publicemail."</a>&gt;";
 			
 	} else {
-		// show links ???
-//		$temp = $toname;
-//		if ($config->showcblink && $displaymessage->toname) {
+
 		$temp = uddeIMgetPicOnly($displaymessage->fromid, $config, false);
-//		}
+
 		// display email address
 		if ($displaymessage->toname==NULL && !$displaymessage->toid && $displaymessage->publicemail!=NULL)
 			$temp .= " &lt;<a href='mailto:".$displaymessage->publicemail."'>".$displaymessage->publicemail."</a>&gt;";
 	}
 
 	$headerstring.=$temp;
-
-	// is this user currently online?
-	/*if ($config->showonline && $displaymessage->toname) {
-		$isonline = uddeIMisOnline($displaymessage->toid);
-		if($isonline)
-			$headerstring.="&nbsp;".$uddeicons_onlinepic;
-		else
-			$headerstring.="&nbsp;".$uddeicons_offlinepic;
-	}*/
 
     //showonline (in outbox) should be corresponding to avatar ($displaymessage->fromid)
     if ($config->showonline && $displaymessage->fromid == $myself)

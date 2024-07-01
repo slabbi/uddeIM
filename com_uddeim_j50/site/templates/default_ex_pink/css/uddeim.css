@@ -1,10 +1,44 @@
 /* *******************************************************************
    default_ex_pink css, by Stephan Slabihoud
    ******************************************************************* */
-#uddeim-pagenav .btn.btn-info {
-    color: #fff !important;
-    margin-top: -142px;
+/*new 5.4 */
+.uddeim-messagefrom .btn-sm{
+    line-height: 10px;
+    font-size: .9em;
+    font-weight: 600;
+    margin: -45px 5px 0 0;
 }
+.uddeim-replyquote {
+    font-size: 0.9em;
+    font-style: italic;
+    line-height: 1.3em;
+    letter-spacing: .01em;
+    border-left: 1px solid gray;
+    padding-left: 10px;
+    background-color: snow;
+    color:#777;
+    margin-top:1em;
+}
+tr:hover .uddeim-replyquote{
+    background-color: #FFF;
+}
+.uddeim-replyquote br {
+    display: block!important;
+}
+#uddeim #uddeim-overview table tr:hover {
+    background-color: #F9F9F9;
+    color:#000;
+}
+#uddeim-pagenav .btn.btn-info {
+    float:left;
+}
+#uddeim-m .btn.btn-info {
+    color: #fff!important;
+}
+#uddeim-m .img-thumbnail.cbImgAvatar {
+    max-width: 50px;
+    min-width: 40px;
+ }
 /*spamcontrol*/
 .uddeim-messageactionlink-spam {
     float: inline-end;
@@ -121,11 +155,12 @@ img[src*="icon_down"], img[src*="icon_up"] {
 }
 #uddeim-navbar2 li a {
 	margin:0 !important;
-	padding: 7px 6px 4px 6px !important;
+	padding: 7px 4px 4px 6px !important;
 	background:transparent url(menubg.png) no-repeat scroll left 0px !important;
 	text-decoration: none !important;
 	color:#ffffff !important;
 	margin-left: -2px !important;
+    white-space: nowrap;
 }
 #uddeim-navbar2 ul li img {
 	margin: 0 4px 4px 0 !important;
@@ -143,7 +178,7 @@ img[src*="icon_down"], img[src*="icon_up"] {
 #uddeim-navbar2 li a:hover,
 #uddeim-navbar2 li.uddeim-activemenu span {
 	margin:0 !important;
-	padding: 7px 6px 4px 6px !important;
+	padding: 7px 4px 4px 6px !important;
 	background:transparent url(menubg.png) no-repeat scroll left -35px !important;
 	text-decoration: none !important;
 	color:#ffffff !important;
@@ -502,14 +537,15 @@ div.uddeim-replyquote {
 
 #uddeim-writeform input.button {
 	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";
-	font-size: 11px;
+	font-size: 1em;
 	background: none;
 	background-color: #cccccc;
 	color: #000000;
 	border: 1px solid #c0c0c0;
-
 }
-
+#uddeim-writeform input.button:hover{
+    background-color: white;
+}
 
 
 div.uddeim-messageattachments {

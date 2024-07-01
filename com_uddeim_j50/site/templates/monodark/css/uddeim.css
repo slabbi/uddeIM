@@ -6,9 +6,52 @@
  * @copyright  2024
  * License: GNU General Public License version 2
 -----------------------------------------------------------------------------------------------*/
+/*new 5.4 */
+.uddeim-messagefrom .btn-sm{
+    line-height: 10px;
+    font-size: .9em;
+    margin: -60px 5px 0 0;
+}
+.uddeim-replyquote {
+    font-size: 0.9em;
+    font-style: italic;
+    line-height: 1.3em;
+    letter-spacing: .01em;
+    border-left: 1px solid gray;
+    padding-left: 10px;
+    background-color: snow;
+    color:#777;
+    margin-top:1em;
+}
+tr:hover .uddeim-replyquote{
+    background-color: #FFF;
+}
+.uddeim-replyquote br {
+    display: block!important;
+}
+#uddeim #uddeim-overview table tr:hover {
+    background-color: #F9F9F9;
+    color:#000;
+}
 #uddeim-pagenav .btn.btn-info {
   float: left;
   margin-left: 1%;
+}
+#uddeim-m .btn.btn-info {
+    color: #fff!important;
+}
+#uddeim-m .img-thumbnail.cbImgAvatar {
+    max-width: 50px;
+    min-width: 40px;
+ }
+ #uddeim #uddeim-overview table td a[href*="#m"]{
+    margin-right:4px
+}
+.uddeim-messagefrom .btn-sm img {
+    margin: 0 3px !important;
+}
+.uddeim-sendbutton .btn-primary {
+    text-shadow: none;
 }
 /*spamcontrol*/
 .uddeim-messageactionlink-spam {
@@ -89,6 +132,7 @@ img[src*="icon_down"], img[src*="icon_up"] {
 #uddeim #uddeim-navbar2 {
   display: block;
   margin-bottom: 20px;
+  margin-left:8px;
 }
 
 #uddeim #uddeim-navbar2 ul {
@@ -273,7 +317,7 @@ li.menu-inbox img[src$="postbox.gif"] {
 
 #uddeim #uddeim-overview tr:hover td,
 #uddeim #uddeim-overview tr:hover a {
-  color: gainsboro;
+  /*color: gainsboro;*/
 }
 #uddeim #uddeim-overview table tr:not(.uddeim-messagebody2header):hover td:nth-child(4) {
   /*color: #fff;*/
@@ -293,7 +337,7 @@ li.menu-inbox img[src$="postbox.gif"] {
 
 /* View message */
 #uddeim #uddeim-m {
-  color: gainsboro !important;
+  /*color: gainsboro !important;*/
 }
 
 #uddeim .uddeim-messageheader {

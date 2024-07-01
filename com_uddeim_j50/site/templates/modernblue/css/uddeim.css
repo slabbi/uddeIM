@@ -1,10 +1,43 @@
 /* *******************************************************************
 /* modernblue css, by Stephan Slabihoud
 /* ******************************************************************* */
-#uddeim-pagenav .btn.btn-info {
-    color: #fff !important;
-    margin-top: -142px;
+/*new 5.4 */
+.uddeim-messagefrom .btn-sm{
+    line-height: 10px;
+    font-size: .9em;
+    margin: -45px 5px 0 0;
 }
+.uddeim-replyquote {
+    font-size: 0.9em;
+    font-style: italic;
+    line-height: 1.3em;
+    letter-spacing: .01em;
+    border-left: 1px solid gray;
+    padding-left: 10px;
+    background-color: snow;
+    color:#777;
+    margin-top:1em;
+}
+tr:hover .uddeim-replyquote{
+    background-color: #FFF;
+}
+.uddeim-replyquote br {
+    display: block!important;
+}
+#uddeim #uddeim-overview table tr:hover {
+    background-color: #F9F9F9;
+    color:#000;
+}
+#uddeim-pagenav .btn.btn-info {
+    float:left;
+}
+#uddeim-m .btn.btn-info {
+    color: #fff!important;
+}
+#uddeim-m .img-thumbnail.cbImgAvatar {
+    max-width: 50px;
+    min-width: 40px;
+ }
 /*spamcontrol*/
 .uddeim-messageactionlink-spam {
     float: inline-end;
@@ -72,6 +105,9 @@ img[src*="icon_down"], img[src*="icon_up"] {
 #uddeim a:hover {
 	color: #225577;
 }
+#uddeim a[onclick^="inboxDelete"] img {
+    width: 22px;
+}
 
 
 /* Topborder */
@@ -110,7 +146,7 @@ img[src*="icon_down"], img[src*="icon_up"] {
 	display: inline !important;
 	font-weight: bold !important;
 	background: none !important;
-	padding: 4px 5px 3px 5px !important;
+	/*padding: 4px 5px 3px 5px !important;*/
 	padding-left: 5px !important;
 	margin-left: 0 !important;
 }
@@ -119,6 +155,7 @@ img[src*="icon_down"], img[src*="icon_up"] {
 	font-size: 12px !important;
 	font-weight: bold !important;
 	text-decoration: none !important;
+    white-space: nowrap;
 }
 #uddeim-navbar2 li a:hover {
 	color: #ffffff !important;
@@ -484,14 +521,15 @@ div.uddeim-replyquote {
 
 #uddeim-writeform input.button {
 	font-family: Arial, Helv, Helvetica, "MS Sans Serif", "Sans Serif";
-	font-size: 11px;
+	font-size: 1em;
 	background: none;
 	background-color: #cccccc;
 	color: #000000;
 	border: 1px solid #c0c0c0;
-
 }
-
+#uddeim-writeform input.button:hover{
+    background-color: white;
+}
 
 
 div.uddeim-messageattachments {

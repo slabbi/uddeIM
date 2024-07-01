@@ -235,14 +235,26 @@ if(!$config->templatedir) {
 	$config->templatedir="default";
 }
 
+if($task =='postbox') {
+$unflagtitle = _UDDEIM_STATUS_UNFLAGGED_POSTBOX;
+$flagtitle  = _UDDEIM_STATUS_FLAGGED_POSTBOX;
+$unreadstr  = _UDDEIM_STATUS_UNREAD_POSTBOX;
+} else {
+$unflagtitle = _UDDEIM_STATUS_UNFLAGGED;
+$flagtitle  = _UDDEIM_STATUS_FLAGGED;
+$unreadstr  = _UDDEIM_STATUS_UNREAD;
+}
+
 // change image config values to image links
-$uddeicons_flagged    = "<img alt='"._UDDEIM_STATUS_FLAGGED  ."' title='"._UDDEIM_STATUS_FLAGGED  ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/staron.gif' />";
-$uddeicons_unflagged  = "<img alt='"._UDDEIM_STATUS_UNFLAGGED."' title='"._UDDEIM_STATUS_UNFLAGGED."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/staroff.gif' />";
+$uddeicons_flagged    = "<img class ='flagp' alt='"._UDDEIM_STATUS_FLAGGED  ."' title='".$flagtitle."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/staron.gif' />";
+$uddeicons_unflagged  = "<img class ='flagp' alt='"._UDDEIM_STATUS_UNFLAGGED."' title='".$unflagtitle."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/staroff.gif' />";
+$uddeicons_readpic    = "<img class ='readp' alt='"._UDDEIM_STATUS_READ     ."' title='"._UDDEIM_STATUS_READ     ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/nonew_im.gif' border='0' />";
+$uddeicons_unreadpic  = "<img class ='readp' alt='"._UDDEIM_STATUS_UNREAD   ."' title='".$unreadstr ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/new_im.gif' border='0' />";
+$uddeicons_sentunread = "<img class ='readp' alt='"._UDDEIM_STATUS_SENT  . "' title='"._UDDEIM_STATUS_SENT_UNREAD ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/outnew_im.gif' border='0' />";
+$uddeicons_sentpic    = "<img class ='readp' alt='"._UDDEIM_STATUS_SENT  . "' title='"._UDDEIM_STATUS_SENT ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/nonew_im.gif' border='0' />";
+$uddeicons_delayedpic = "<img alt='"._UDDEIM_STATUS_DELAYED  ."' title='"._UDDEIM_STATUS_DELAYED  ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/delayed_im.gif' border='0' />";
 $uddeicons_onlinepic  = "<img alt='"._UDDEIM_STATUS_ONLINE   ."' title='"._UDDEIM_STATUS_ONLINE   ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/icon_online.gif' />";
 $uddeicons_offlinepic = "<img alt='"._UDDEIM_STATUS_OFFLINE  ."' title='"._UDDEIM_STATUS_OFFLINE  ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/icon_offline.gif' />";
-$uddeicons_readpic    = "<img alt='"._UDDEIM_STATUS_READ     ."' title='"._UDDEIM_STATUS_READ     ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/nonew_im.gif' border='0' />";
-$uddeicons_unreadpic  = "<img alt='"._UDDEIM_STATUS_UNREAD   ."' title='"._UDDEIM_STATUS_UNREAD   ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/new_im.gif' border='0' />";
-$uddeicons_delayedpic = "<img alt='"._UDDEIM_STATUS_DELAYED  ."' title='"._UDDEIM_STATUS_DELAYED  ."' src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/delayed_im.gif' border='0' />";
 $GLOBALS['uddeicons_flagged']    = $uddeicons_flagged;
 $GLOBALS['uddeicons_unflagged']  = $uddeicons_unflagged;
 $GLOBALS['uddeicons_onlinepic']  = $uddeicons_onlinepic;
@@ -250,6 +262,8 @@ $GLOBALS['uddeicons_offlinepic'] = $uddeicons_offlinepic;
 $GLOBALS['uddeicons_readpic']    = $uddeicons_readpic;
 $GLOBALS['uddeicons_unreadpic']  = $uddeicons_unreadpic;
 $GLOBALS['uddeicons_delayedpic'] = $uddeicons_delayedpic;
+$GLOBALS['uddeicons_sentunread'] = $uddeicons_sentunread;
+$GLOBALS['uddeicons_sentpic'] = $uddeicons_sentpic;
 
 // browser switch
 $used_browser = uddeIMmosGetParam($_SERVER, 'HTTP_USER_AGENT', null);
@@ -309,6 +323,13 @@ if (uddeIMcheckJversion()>=4) {  //true on joomla5
 // now start the output
 if (!$omitDefaultOutput){
 	echo "\n<!-- ".$versionstring." output below -->\n";
+
+    echo "<script type=text/javascript>  //language defines for JS toggle
+        var _read ='"._UDDEIM_STATUS_READ."'
+        var _unread ='"._UDDEIM_STATUS_UNREAD."'
+        var _flagged ='"._UDDEIM_STATUS_FLAGGED."'
+        var _unflagged ='"._UDDEIM_STATUS_UNFLAGGED."'
+        </script>\n";
 
     $css = "";
     if(file_exists($pathtouser.'/templates/'.$config->templatedir.'/css/uddeim.css')) {

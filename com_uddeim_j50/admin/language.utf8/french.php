@@ -27,33 +27,41 @@ defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Translated by Florent Nouvellon, Jyhelle, Baboon, Sarki pour <a href="http://www.joomlatutos.com/" target="_blank">Joomlatutos.com</a>, xillibit pour <a href="http://www.kunena.org" target="_blank">Kunena</a> et lavsteph pour <a href="http://www.aide-joomla.com/" target="_blank">Aide-Joomla.com</a>');
 
+// New: 5.5
+DEFINE ('_UDDEIM_MENUINFO', '<b>Remarque :</b><br>pour qu\'UddeIM fonctionne correctement, vous devez crÃ©er <b>minimum 1 entrÃ©e de menu</b> - si vous n\'en avez pas besoin, vous pouvez la rendre invisible');
 // New: 5.4
-DEFINE ('_UDDEIM_CHARS', 'caractère');
-DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /robotsprotection');
+DEFINE ('_UDDEIM_STATUS_UNREAD_POSTBOX', 'contient des messages non lus');
+DEFINE ('_UDDEIM_STATUS_UNFLAGGED_POSTBOX', 'ouvre la conversation &rarr; seuls les messages uniques peuvent Ãªtre signalÃ©s');
+DEFINE ('_UDDEIM_STATUS_FLAGGED_POSTBOX', 'contient des messages importants !');
+DEFINE ('_UDDEIM_FLAG_HINT','seuls les messages uniques peuvent Ãªtre signalÃ©s');
+DEFINE ('_UDDEIM_STATUS_SENT', 'envoyÃ©');
+DEFINE ('_UDDEIM_STATUS_SENT_UNREAD', 'envoyÃ© [non lu]');
+DEFINE ('_UDDEIM_CHARS', 'caractÃ¨re');
+DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /robot-protection');
 // New: 5.3
-DEFINE ('_UDDEADM_REVIEWBACKUP', 'Important : lors de l\'installation, un nouveau <b>fichier de configuration</b> (config.class.php) a été créé - l\'ancien fichier a été enregistré sous config.class_bak.php. Il peut être renommé pour remplacer le nouveau, mais il est <b>recommandé</b> d\'éditer la configuration manuellement, pour voir les changements');
+DEFINE ('_UDDEADM_REVIEWBACKUP', 'Important : lors de l\'installation, un nouveau <b>fichier de configuration</b> (config.class.php) a Ã©tÃ© crÃ©Ã© - l\'ancien fichier a Ã©tÃ© enregistrÃ© sous config.class_bak.php. Il peut Ãªtre renommÃ© pour remplacer le nouveau, mais il est <b>recommandÃ©</b> d\'Ã©diter la configuration manuellement, pour voir les changements');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...dÃ©finir par dÃ©faut le lien pour le Auto complÃ©ter et saveconfigdb');
-DEFINE ('_UDDEADM_CFGFILE_CONVERTING_0', 'la mise à jour attend min. configuration v2.6 ou supérieure');
+DEFINE ('_UDDEADM_CFGFILE_CONVERTING_0', 'la mise Ã jour attend min. configuration v2.6 ou supÃ©rieure');
 DEFINE ('_UDDEADM_SAVECONFIGDB_HEAD', 'enregistrez toujours la configuration dans la db');
-DEFINE ('_UDDEADM_SAVECONFIGDB_EXP', 'sauvegardez toujours la configuration à chaque sauvegarde dans la base de données');
+DEFINE ('_UDDEADM_SAVECONFIGDB_EXP', 'sauvegardez toujours la configuration Ã chaque sauvegarde dans la base de donnÃ©es');
 
 // New: 5.0
 DEFINE ('_UDDEIM_MESSAGE_REPLY_INFO', ' (avec Infomail)');
-DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Message et infomail envoyés à ');
-DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Message envoyé, mais Infomail a échoué');
-DEFINE ('_UDDEADM_CONFIGNOTE', 'REMARQUE : en raison des paramètres du cache, les modifications peuvent ne pas être visibles après l\'enregistrement et le rechargement.');
+DEFINE ('_UDDEIM_MESSAGEINFO_SENT', 'Message et infomail envoyÃ©s Ã ');
+DEFINE ('_UDDEIM_MESSAGEINFO_ERROR', 'Message envoyÃ©, mais Infomail a Ã©chouÃ©');
+DEFINE ('_UDDEADM_CONFIGNOTE', 'REMARQUE : en raison des paramÃ¨tres du cache, les modifications peuvent ne pas Ãªtre visibles aprÃ¨s l\'enregistrement et le rechargement.');
 DEFINE ('_UDDEADM_KUNENA6', 'Kunena 6.0+');
 DEFINE ('_UDDEADM_KUNENA5', 'Kunena 5.0+');
 DEFINE ('_UDDEADM_AUTOCOMPLETER_0', 'Ne pas charger');
-DEFINE ('_UDDEADM_AUTOCOMPLETER_1', 'JS W3, insensible à la casse');
-DEFINE ('_UDDEADM_AUTOCOMPLETER_2', 'JS light, sensible à la casse');
-DEFINE ('_UDDEADM_AUTOCOMPLETER_3', 'UddeIM JS, chercher à nom');
-DEFINE ('_UDDEADM_AUTOCOMPLETER_EXP', '(<b>Utiliser la saisie semi-automatique</b> doit être activé)<br><i>Ne pas charger</i> no Auto complÃ©ter.<br>W3 - insensible à la casse, <b>plusieurs</b> entrées<br>light - sensible à la casse');
+DEFINE ('_UDDEADM_AUTOCOMPLETER_1', 'JS W3, insensible Ã la casse');
+DEFINE ('_UDDEADM_AUTOCOMPLETER_2', 'JS light, sensible Ã la casse');
+DEFINE ('_UDDEADM_AUTOCOMPLETER_3', 'UddeIM JS, chercher Ã nom');
+DEFINE ('_UDDEADM_AUTOCOMPLETER_EXP', '(<b>Utiliser la saisie semi-automatique</b> doit Ãªtre activÃ©)<br><i>Ne pas charger</i> no Auto complÃ©ter.<br>W3 - insensible Ã la casse, <b>plusieurs</b> entrÃ©es<br>light - sensible Ã la casse');
 DEFINE ('_UDDEADM_AUTOCOMPLETER_HEAD', 'Auto complÃ©ter');
-DEFINE ('_UDDEADM_AUTOCOMPLETESTART_HEAD', 'commencer à lettre');
+DEFINE ('_UDDEADM_AUTOCOMPLETESTART_HEAD', 'commencer Ã lettre');
 DEFINE ('_UDDEADM_AUTOCOMPLETESTART_EXP', 'nombre de lettres pour commencer autocompleter');
-DEFINE ('_UDDEIM_DOREPLY', 'répondre');
-DEFINE ('_UDDEADM_SEPERROR', 'le séparateur requis pour plusieurs noms est ');
+DEFINE ('_UDDEIM_DOREPLY', 'rÃ©pondre');
+DEFINE ('_UDDEADM_SEPERROR', 'le sÃ©parateur requis pour plusieurs noms est ');
 DEFINE ('_UDDEADM_SEP', ' [virgule]');
 DEFINE ('_UDDEADM_SEP1', ' [point-virgule]');
 DEFINE ('_UDDEIM_TODP_TITLE_CC', 'Un ou plus de destinataires');
@@ -72,7 +80,7 @@ DEFINE ('_UDDEADM_CFGFILE_CONVERTING_16', '...dÃ©finir par dÃ©faut le lien p
 // New: 3.6
 DEFINE ('_UDDEIM_KUNENA_LINK', 'Forum');
 DEFINE ('_UDDEIM_PM_USER', 'Envoyer un message privÃ©');
-DEFINE ('_UDDEIM_PM_USER_DESC', 'Envoyer un message privÃ© Ã  cet utilisateur');
+DEFINE ('_UDDEIM_PM_USER_DESC', 'Envoyer un message privÃ© Ã cet utilisateur');
 DEFINE ('_UDDEIM_PM_INBOX', 'Afficher la boÃ®te de rÃ©ception privÃ©e');
 DEFINE ('_UDDEIM_PM_INBOX_DESC', 'Afficher les messages privÃ©s reÃ§us');
 DEFINE ('_UDDEIM_PM_OUTBOX', 'Afficher la boÃ®te d\'envoi privÃ©e');
@@ -266,7 +274,7 @@ DEFINE ('_UDDEADM_RECAPTCHAPUB_EXP', 'Pour utiliser reCaptcha, vous devez indiqu
 DEFINE ('_UDDEADM_CAPTCHA_INTERNAL', 'UddeIM code graphique');
 DEFINE ('_UDDEADM_CAPTCHA_RECAPTCHA', 'reCaptcha');
 DEFINE ('_UDDEADM_CAPTCHATYPE_HEAD', 'Service Captcha');
-DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'SpÃ©cifiez le service Captcha que vous souhaitez utiliser: Service intÃ©grÃ© ou reCaptcha (infos <a href="https://www.google.com/recaptcha/about/" target="_new">reCaptcha</a>)<br><b>NUM</b>= Problème de calcul plus champ caché (protection robot)');
+DEFINE ('_UDDEADM_CAPTCHATYPE_EXP', 'SpÃ©cifiez le service Captcha que vous souhaitez utiliser: Service intÃ©grÃ© ou reCaptcha (infos <a href="https://www.google.com/recaptcha/about/" target="_new">reCaptcha</a>)<br><b>NUM</b>= ProblÃ¨me de calcul plus champ cachÃ© (protection robot)');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_6', '...par dÃ©faut pour le service captcha');
 DEFINE ('_UDDEADM_AUP', 'AlphaUserPoints');
 DEFINE ('_UDDEADM_CHECKFILESFOLDER', 'Veuillez dÃ©placer le dossier <i>\uddeimfiles</i> dans <i>\images\uddeimfiles</i>. Consultez la documentation pour plus de renseignements.');
@@ -575,7 +583,7 @@ DEFINE ('_UDDEIM_THISISAFORWARD', 'La redirection du message envoyÃ© a ');
 DEFINE ('_UDDEADM_COLSROWS_HEAD', 'BoÃ®te de messagerie (colonne/ligne)');
 DEFINE ('_UDDEADM_COLSROWS_EXP', 'Cela dÃ©terminera les colonnes et lignes de la boÃ®te de messagerie (les valeurs par dÃ©faut sont 60/10).');
 DEFINE ('_UDDEADM_WIDTH_HEAD', 'Boite de messagerie (largeur)');
-DEFINE ('_UDDEADM_WIDTH_EXP', 'Cela dÃ©terminera la taille de la boÃ®te de messagerie.<br>valeurs <b>jusqu\'à 100</b> in <b>%</b>, valeurs > 100 in px<br>(par dÃ©faut 0). Si la valeur est a 0, la taille sera dÃ©terminÃ©e par le style CSS qui est utilisÃ©.');
+DEFINE ('_UDDEADM_WIDTH_EXP', 'Cela dÃ©terminera la taille de la boÃ®te de messagerie en px (par dÃ©faut 0). Si la valeur est a 0, la taille sera dÃ©terminÃ©e par le style CSS qui est utilisÃ©.');
 DEFINE ('_UDDEADM_CBE', 'CB Valide');
 
 // New: 1.4
@@ -831,7 +839,7 @@ DEFINE ('_UDDEIM_RECIPIENTSFOUND', 'Destinataires trouvÃ©s');
 DEFINE ('_UDDEADM_MAILSYSTEM_MOSMAIL', 'utiliser Joomla Mail');
 DEFINE ('_UDDEADM_MAILSYSTEM_PHPMAIL', 'PHP Mail (default)');
 DEFINE ('_UDDEADM_MAILSYSTEM_HEAD', 'SystÃ¨me de courrier');
-DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'SÃ©lectionnez le systÃ¨me de courrier pour que uddeIM puisse envoyer des notifications.<br><b>forcer \r\n</b> est utilisÃ© Ã la place du saut de ligne \n par dÃ©faut, si l\'envoi d\'e-mails Ã©choue<br><b>Débogage</b> comme dans la description sÃ©lectionnÃ©e');
+DEFINE ('_UDDEADM_MAILSYSTEM_EXP', 'SÃ©lectionnez le systÃ¨me de courrier pour que uddeIM puisse envoyer des notifications.<br><b>forcer \r\n</b> est utilisÃ© Ã la place du saut de ligne \n par dÃ©faut, si l\'envoi d\'e-mails Ã©choue<br><b>DÃ©bogage</b> comme dans la description sÃ©lectionnÃ©e');
 DEFINE ('_UDDEADM_SHOWGROUPS_HEAD', 'Afficher les groupes sous Joomla');
 DEFINE ('_UDDEADM_SHOWGROUPS_EXP', 'Afficher les groupes sous Joomla dans une liste.');
 DEFINE ('_UDDEADM_ALLOWFORWARDS_HEAD', 'Transfert des messages');
@@ -968,7 +976,7 @@ DEFINE ('_UDDEIM_TRASHCAN', 'Corbeille');
 DEFINE ('_UDDEIM_FROM', 'Conversation avec');
 DEFINE ('_UDDEIM_FROM_IN', 'Message de');
 DEFINE ('_UDDEIM_FROM_SMALL', 'de');
-DEFINE ('_UDDEIM_TO', 'Message à');
+DEFINE ('_UDDEIM_TO', 'Message Ã');
 DEFINE ('_UDDEIM_TO_SMALL', 'Ã ');
 DEFINE ('_UDDEIM_OUTBOX_WARNING', ' La boÃ®te dÂ´envoi contient tous les messages envoyÃ©s qui ne sont pas encore supprimÃ©s. Vous pouvez les modifier tant qu\'ils ne sont pas encore lus. Ils ne peuvent pas Ãªtre lus par leurs destinataires pendant lÂ´Ã©dition. ');
 

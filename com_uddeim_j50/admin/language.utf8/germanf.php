@@ -22,8 +22,15 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Deutsches Sprachfile erstellt von <a href="http://slabihoud.de/software/" target="_new">uddeIM HQ (Stephan Slabihoud)</a>');	// Enter your credits line here, e.g. 'Translation by <a href="http://domain.com" target="_new">John Doe</a>'
-
+// New: 5.5
+DEFINE ('_UDDEIM_MENUINFO', '<b>Hinweis:</b><br>für eine einwandfreie Funktion von UddeIM muß zwingend <b>mindestens 1 Menueintrag</b> erstellt werden - dieser kann dann aber bei Bedarf auch unsichtbar gemacht werden');
 // New: 5.4
+DEFINE ('_UDDEIM_STATUS_UNREAD_POSTBOX', 'enthält ungelese Nachrichten');
+DEFINE ('_UDDEIM_STATUS_UNFLAGGED_POSTBOX', 'öffnet die Unterhaltung &rarr; Nachrichten können nur einzeln markiert werden');
+DEFINE ('_UDDEIM_STATUS_FLAGGED_POSTBOX', 'enthält wichtige Nachrichten !');
+DEFINE ('_UDDEIM_FLAG_HINT','es können nur einzelne Nachrichten als Wichtig markiert werden');
+DEFINE ('_UDDEIM_STATUS_SENT', 'gesendet');
+DEFINE ('_UDDEIM_STATUS_SENT_UNREAD', 'gesendet [ungelesen]');
 DEFINE ('_UDDEIM_CHARS', 'Zeichen');
 DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /Robotschutz');
 // New: 5.3
@@ -120,7 +127,7 @@ DEFINE ('_UDDEADM_CFGFILE_CONVERTING_13', '...setze Standardeinstellungen für a
 // New: 2.9
 DEFINE ('_UDDEADM_KUNENA20', 'Kunena 2.0+');
 DEFINE ('_UDDEADM_POSTBOXFULL_HEAD', 'Vollständiger Text');
-DEFINE ('_UDDEADM_POSTBOXFULL_EXP', 'Zeige vollständigen Text von keiner, der ersten oder allen Nachrichten.');
+DEFINE ('_UDDEADM_POSTBOXFULL_EXP', 'Zeige vollständigen Text von keiner, der ersten oder allen <b>gelesenen</b> Nachrichten.');
 DEFINE ('_UDDEADM_POSTBOXFULL_0', 'Keine Nachricht');
 DEFINE ('_UDDEADM_POSTBOXFULL_1', 'Erste Nachricht');
 DEFINE ('_UDDEADM_POSTBOXFULL_2', 'Alle Nachrichten');
@@ -140,10 +147,6 @@ DEFINE ('_UDDEIM_FILTEREDUSERS', 'Unterhaltungen gefiltert');
 DEFINE ('_UDDEIM_NOMESSAGES_FILTERED_POSTBOX', ' keine Unterhaltungen mit dem gew. Filter');
 DEFINE ('_UDDEIM_NOMESSAGES_POSTBOX', 'keine Unterhaltungen vorhanden.');
 DEFINE ('_UDDEIM_DISPLAY', 'anzeigen');
-DEFINE ('_UDDEIM_STATUS_UNREAD_POSTBOX', 'enthält ungelese Nachrichten');
-DEFINE ('_UDDEIM_STATUS_UNFLAGGED_POSTBOX', 'öffnet die Unterhaltung &rarr; Nachrichten können nur einzeln markiert werden');
-DEFINE ('_UDDEIM_STATUS_FLAGGED_POSTBOX', 'enthält wichtige Nachrichten !');
-DEFINE ('_UDDEIM_FLAG_HINT','es können nur einzelne Nachrichten als Wichtig markiert werden');
 DEFINE ('_UDDEIM_HELP_POSTBOX', '<b>Unterhaltungen</b> beinhaltet alle EIN- und AUS- gegangenen Nachrichten.<br><small>Statusänderungen wie un/gelesen, Wichtig oder Archiv können <b>nur</b> bei <b>einzelnen Nachrichten</b> vorgenommen werden</small>');
 DEFINE ('_UDDEIM_HELP_PREAD', 'alle Nachrichten wurden gelesen (der Status kann <b>in der Unterhaltung</b> geändert werden).');
 DEFINE ('_UDDEIM_HELP_PUNREAD', 'mind. eine Nachricht ist noch nicht gelesen (der Status kann <b>in der Unterhaltung</b> geändert werden).');
@@ -581,7 +584,7 @@ DEFINE ('_UDDEIM_THISISAFORWARD', 'Nachricht wurde automatisch weitergeleitet vo
 DEFINE ('_UDDEADM_COLSROWS_HEAD', 'Eingabefeld (Spalten/Zeilen)');
 DEFINE ('_UDDEADM_COLSROWS_EXP', 'Hier werden die Spalten und Zeilen des Eingabefelds festgelegt (Standardwerte sind 60/10).');
 DEFINE ('_UDDEADM_WIDTH_HEAD', 'Eingabefeld (Breite)');
-DEFINE ('_UDDEADM_WIDTH_EXP', 'Hier wird die Breite des Eingabefelds festgelegt.<br>Werte <b>bis 100</b> in <b>%</b>, Werte über 100 in px<br> (Standardwert ist 0). Wenn dieser Wert 0 ist, wird die Breite aus der CSS-Datei verwendet.');
+DEFINE ('_UDDEADM_WIDTH_EXP', 'Hier wird die Breite des Eingabefelds in px festgelegt (Standardwerte ist 0). Wenn dieser Wert 0 ist, wird die Breite aus der CSS-Datei verwendet.');
 DEFINE ('_UDDEADM_CBE', 'CB Enhanced');
 
 // New: 1.4
@@ -705,8 +708,6 @@ DEFINE ('_UDDEIM_STATUS_READ', 'gelesen');
 DEFINE ('_UDDEIM_STATUS_UNREAD', 'ungelesen');
 DEFINE ('_UDDEIM_STATUS_ONLINE', 'Online');
 DEFINE ('_UDDEIM_STATUS_OFFLINE', 'Offline');
-DEFINE ('_UDDEIM_STATUS_SENT', 'gesendet');
-DEFINE ('_UDDEIM_STATUS_SENT_UNREAD', 'gesendet - ungelesen');
 DEFINE ('_UDDEADM_CBGALLERY_HEAD', 'CB Avatare aus Galerie anzeigen');
 DEFINE ('_UDDEADM_CBGALLERY_EXP', 'Standardmäßig zeigt uddeIM nur Avatare an, die Benutzer selbst hochgeladen haben. Wenn diese Option aktiviert wird, werden auch Avatare aus der CB Galerie angezeigt.');
 DEFINE ('_UDDEADM_UNBLOCKCB_HEAD', 'CB Verbindungen freigeben');

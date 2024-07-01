@@ -1,6 +1,14 @@
 <?php
 
+// New: 5.5
+DEFINE ('_UDDEIM_MENUINFO', '<b>Notice:</b><br>for UddeIM to work properly, you need to create <b>minimum 1 Menu entry</b> - if you don\'t need it, you can make it invisible');
 // New: 5.4
+DEFINE ('_UDDEIM_STATUS_UNREAD_POSTBOX', 'contains unread messages');
+DEFINE ('_UDDEIM_STATUS_UNFLAGGED_POSTBOX', 'opens conversation &rarr; only single messages can be flagged');
+DEFINE ('_UDDEIM_STATUS_FLAGGED_POSTBOX', 'contains important messages !');
+DEFINE ('_UDDEIM_FLAG_HINT','only single messages can be flagged');
+DEFINE ('_UDDEIM_STATUS_SENT', 'sent');
+DEFINE ('_UDDEIM_STATUS_SENT_UNREAD', 'sent [unread]');
 DEFINE ('_UDDEIM_CHARS', 'chars');
 DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /robot field');
 // New: 5.3
