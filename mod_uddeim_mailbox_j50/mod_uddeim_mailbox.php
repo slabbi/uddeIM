@@ -87,7 +87,7 @@ $uddmy_gid = uddeIMgetGID((int)$udduserid);	// ARRAY(!))
 // first try to find a published link
 $udditem_id = uddeIMgetItemid($uddconfig);
 
-if ($uddshowicons > 1) {
+if ($uddshowicons == 3) {
 $fa_inbox   = '<i class="fas fa-file-import"></i>&hairsp;&nbsp;';
 $fa_outbox  = '<i class="fas fa-file-export"></i>&nbsp;';
 $fa_postbox = '<i class="far fa-comments"></i>&nbsp;';
@@ -99,8 +99,7 @@ $fa_compose = '<i class="fas fa-user-pen"></i>&nbsp;';
 $fa_newmes  = '<i class="far fa-envelope"></i>&nbsp;';
 
 } elseif ($uddshowicons) {
-//$iconpath = $uddpathtosite.'/components/com_uddeim/templates/'.$uddconfig->templatedir.'/images';
-$iconpath = $uddpathtosite.'/components/com_uddeim/templates/default/images';
+$iconpath = $uddpathtosite.'/components/com_uddeim/templates/'.($uddshowicons == 2 ? $uddconfig->templatedir : 'default').'/images';
 $iconout = "<img src='".$iconpath."/menu_outbox.gif' style='vertical-align:top;' />";
 $iconin = "<img src='".$iconpath."/menu_inbox.gif' style='vertical-align:top;' />";
 }
