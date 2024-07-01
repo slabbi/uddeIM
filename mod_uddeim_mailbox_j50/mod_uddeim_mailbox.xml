@@ -16,10 +16,11 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="uddshowicons" type="radio" default="0" class="btn-group btn-group-yesno" label="Show Icons" description="Show menu icons before descriptions">
-					<option value="1">Yes</option>
+				<field name="uddshowicons" type="list" default="0" label="Show Icons" description="Show menu icons before descriptions - notice: not all templates haves usable icons">
 					<option value="0">No</option>
-					<option value="2">use Fontawesome</option>
+                    			<option value="1">default icons</option>
+                    			<option value="2">template icons</option>
+                    			<option value="3">Fontawesome</option>
 				</field>
 				<field name="uddshownew" type="radio" default="1" class="btn-group btn-group-yesno" label="Show New Status" description="Show number of new mesages">
 					<option value="1">Yes</option>
