@@ -1239,7 +1239,7 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 					$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, totrashoutbox, totrashdateoutbox, cryptmode, crypthash) VALUES (".(int)$savetoid.", ".(int)$savefromid.", '". $cm ."', ".$savedatum.", 1,".$savedatum.",".$themode.",'".md5($thepass)."')";
 				} elseif ($config->cryptmode==3) {
 					$cm = uddeIMencrypt($savemessage2,"",CRYPT_MODE_STOREBASE64);
-					$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, totrashoutbox, totrashdateoutbox, cryptmode, crypthash) VALUES (".(int)$savetoid.", ".(int)$savefromid.", '". $cm ."', ".$savedatum.", 1,".$savedatum.", 3)";
+					$sql="INSERT INTO `#__uddeim` (fromid, toid, message, datum, totrashoutbox, totrashdateoutbox, cryptmode, crypthash) VALUES (".(int)$savetoid.", ".(int)$savefromid.", '". $cm ."', ".$savedatum.", 1,".$savedatum.", 3, '')";
 				} elseif ($config->cryptmode==4) {
 					// no password entered, then fallback to obfuscating
 					$themode=1;
