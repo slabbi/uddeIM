@@ -7,7 +7,7 @@
 	<license>GNU/GPL version 2</license>
 	<authorEmail>ssl@gmx.de</authorEmail>
 	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
-	<version>5.1</version>
+	<version>5.5</version>
 	<description>uddeIM Mailbox module</description>
 	<files>
 		<filename module="mod_uddeim_mailbox">mod_uddeim_mailbox.php</filename>
@@ -16,7 +16,7 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="uddshowicons" type="list" default="0" label="Show Icons" description="Show menu icons before descriptions - notice: not all templates haves usable icons">
+				<field name="uddshowicons" type="list" default="0" label="Show Icons" description="Show menu icons before descriptions - notice: 'new'xxx templates have no usable gif.icons, so fontawesome is used">
 					<option value="0">No</option>
                     			<option value="1">default icons</option>
                     			<option value="2">template icons</option>
