@@ -87,7 +87,8 @@ $uddmy_gid = uddeIMgetGID((int)$udduserid);	// ARRAY(!))
 // first try to find a published link
 $udditem_id = uddeIMgetItemid($uddconfig);
 
-if ($uddshowicons == 3) {
+			//use fontawesome for new templates without usable gifs.
+if ($uddshowicons == 3 || ($uddshowicons == 2 && substr($uddconfig->templatedir,0,3) == 'new')) {
 $fa_inbox   = '<i class="fas fa-file-import"></i>&hairsp;&nbsp;';
 $fa_outbox  = '<i class="fas fa-file-export"></i>&nbsp;';
 $fa_postbox = '<i class="far fa-comments"></i>&nbsp;';
@@ -154,7 +155,7 @@ if ( $uddshowoutbox || $usepostbox ) {
 
 if ($usepostbox){
     $uddout .= "<p class='uddeim-module-body'>";
-    $uddout .= $uddshowicons ? ($fa_postbox ?? "<img src='".$iconpath."/menu_postbox.gif' alt='"._UDDEIM_POSTBOX."' style='margin-left:-4px;' /> ") : ""; 
+    $uddout .= $uddshowicons ? ($fa_postbox ?? "<img src='".$iconpath."/menu_postbox.gif' alt='"._UDDEIM_POSTBOX."' style='margin-left:-3px;' /> ") : ""; 
     $uddout .= '<a href="'.uddeIMsefRelToAbs( "index.php?option=com_uddeim&task=postbox".($udditem_id ? "&Itemid=".$udditem_id : "") ).'" title="'._UDDEIM_POSTBOX.'">';
     $uddout .= _UDDEIM_POSTBOX."<span style='display: block;font-variant-position:super;text-align:center;margin-bottom:-8px;'>".($uddshowicons==1 ? $iconin : '&darr;')."&thinsp;".$uddresultin."&ensp;".($uddshowicons==1 ? $iconout : '&uarr;')."&thinsp;".$uddresultout."</span>";
     $uddout .= '</a>';
