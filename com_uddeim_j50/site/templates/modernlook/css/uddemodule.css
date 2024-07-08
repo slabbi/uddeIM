@@ -1,11 +1,15 @@
 /*-----------------------------------------------------------------------------------------------
- * newlook ( Theme for the uddeIM 5.0 )
+ * modernlook ( Theme for the uddeIM 5.0 )
  * Current version: 1.0
  * Author: joomod.de
  * @copyright Dec 2023
  * License: GNU General Public License version 2
 -----------------------------------------------------------------------------------------------*/
 
+.uddeim-module-body img {
+  max-height: 18px;
+  margin-left: 0 !important;
+}
 #uddeim-module {
 /* container of the module */
 	font-size:	1em;
