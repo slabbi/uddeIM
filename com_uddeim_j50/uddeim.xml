@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="5.0" method="upgrade">
     <name>uddeIM</name>
-    <creationDate>2024-06-01</creationDate>
+    <creationDate>2024-07-01</creationDate>
     <author>Stephan Slabihoud, v5 joomod.de</author>
     <copyright>This is free software and you may redistribute it under the GPL. uddeIM comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt. For icons credits and license, see LICENSE folder. Where noted, other copyrights apply for code portions. This version is based on uddeIM 0.5b which has been written by Benjamin Zweifel in 2006.</copyright>
     <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
     <authorEmail>ssl@gmx.de</authorEmail>
     <authorUrl>https://github.com/slabbi/uddeIM</authorUrl>
-    <version>5.4</version>
+    <version>5.5</version>
     <description>uddeIM Instant Messages for Joomla_5</description>
 	<files folder="site">
 		<folder>views</folder>
