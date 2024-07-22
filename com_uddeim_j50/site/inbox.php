@@ -616,7 +616,7 @@ function uddeIMshowMessage($myself, $item_id, $messageid, $isforward, $cryptpass
 		if(!$trashmessage) { // but only if not already moved to trash
 
 			// which page did refer to this "show Message" page? we want to send back the user where he came from
-			$tbackto = uddeIMmosGetParam($_SERVER, 'HTTP_REFERER', null);
+			$tbackto = uddeIMmosGetParam($_SERVER, 'HTTP_REFERER', '');
 			if(stristr($tbackto, "com_uddeim")) {
 				$tbackto="";
 			}
