@@ -1,0 +1,29 @@
+this is the "classic" com_search component for Joomla5
+- without the basic search plugins 
+  (content, contacts, categories, newsfeed, tags)
+- but including the uddeim_searchbot plugin
+
+as the new smart-search (com-finder) component is not usefull for a
+PM system (to keep privacy search is only done within user's pms, so
+smart search would have to index pms for each user seperatly,
+it is best way to use the "old" com_search to integrate a PM search
+
+to use, the module and the plug_uddeim_searchbot must be enabled!
+
+Warning:  
+as some extensions comes with no longer valid search plugins
+be shure to DISABLE ALL search plugins other than UddeIM_searchbot 
+ 
+
+looking for the basic plugins?
+https://github.com/joomla-extensions/search/releases/
+
+be careful:
+***********
+the original com_search src has still two J5 errors:
+
+1. administrator/tmpl/searches/default.php line 60:
+   replace \JFilterOutput::  with \Joomla\CMS\Filter\OutputFilter::
+
+2. components/com_search/src/Controller/DisplayController.php  line 82:
+   replace \JFilterInput::  with \Joomla\CMS\Filter\InputFilter::
