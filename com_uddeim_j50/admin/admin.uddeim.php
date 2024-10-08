@@ -184,7 +184,7 @@ switch ($task) {
 		$config->emn_body_withmessage = uddeIMmosGetParam($_POST,'config_emn_body_withmessage', '');	
 		$config->emn_forgetmenot = uddeIMmosGetParam($_POST,'config_emn_forgetmenot', '');	
 		$config->export_format = uddeIMmosGetParam($_POST,'config_export_format', '');				
-		$config->showtitle = stripslashes(uddeIMmosGetParam($_POST,'config_showtitle', ''));			
+		$config->showtitle = stripslashes(uddeIMmosGetParam($_POST,'config_showtitle', ''));
 		$config->templatedir = uddeIMmosGetParam($_POST,'config_templatedir');					
 		$config->quotedivider = uddeIMmosGetParam ($_POST, 'config_quotedivider', '__________');
 
@@ -258,6 +258,7 @@ switch ($task) {
 		$config->notifydefault = (int) uddeIMmosGetParam ($_POST, 'config_notifydefault', 0);
 		$config->popupdefault = (int) uddeIMmosGetParam ($_POST, 'config_popupdefault', 0);
 		$config->allowsysgm = (int)uddeIMmosGetParam ($_POST, 'config_allowsysgm', 0);
+        $config->allowurltext = (int)uddeIMmosGetParam ($_POST, 'config_allowurltext', 0);
 		$config->emailwithmessage = (int)uddeIMmosGetParam ($_POST, 'config_emailwithmessage', 0);
 		$config->firstwordsinbox = (int)uddeIMmosGetParam ($_POST, 'config_firstwordsinbox', 40);
 		$config->longwaitingdays = (int)uddeIMmosGetParam ($_POST, 'config_longwaitingdays', 75);
@@ -293,7 +294,6 @@ switch ($task) {
 		$config->realnames = (int)uddeIMmosGetParam ($_POST, 'config_realnames', 0);
 		$config->cryptmode = (int)uddeIMmosGetParam ($_POST, 'config_cryptmode', 0);
 		$config->modeshowallusers = (int)uddeIMmosGetParam ($_POST, 'config_modeshowallusers', 0);
-		$config->useautocomplete = (int)uddeIMmosGetParam ($_POST, 'config_useautocomplete', 0);
 		$config->allowmultipleuser = (int)uddeIMmosGetParam ($_POST, 'config_allowmultipleuser', 0);
 		$config->connexallowmultipleuser = (int)uddeIMmosGetParam ($_POST, 'config_connexallowmultipleuser', 0);
 		$config->allowmultiplerecipients = (int)uddeIMmosGetParam ($_POST, 'config_allowmultiplerecipients', 0);
@@ -301,7 +301,6 @@ switch ($task) {
 		$config->allowforwards = (int)uddeIMmosGetParam ($_POST, 'config_allowforwards', 1);
 		$config->showgroups = (int)uddeIMmosGetParam ($_POST, 'config_showgroups', 0);
 		$config->mailsystem = (int)uddeIMmosGetParam ($_POST, 'config_mailsystem', 0);
-		$config->searchinstring = (int)uddeIMmosGetParam ($_POST, 'config_searchinstring', 1);
 		$config->maxrecipients = (int)uddeIMmosGetParam ($_POST, 'config_maxrecipients', 0);
 		$config->languagecharset = (int)uddeIMmosGetParam ($_POST, 'config_languagecharset', 0);
 		$config->usecaptcha = (int)uddeIMmosGetParam ($_POST, 'config_usecaptcha', 0);
@@ -328,7 +327,9 @@ switch ($task) {
 		$config->timezone = (float)uddeIMmosGetParam ($_POST, 'config_timezone', 0, _MOS_ALLOWRAW);	// otherwise we will not get a float
 		$config->pubuseautocomplete = (int)uddeIMmosGetParam ($_POST, 'config_pubuseautocomplete', 0);
 		$config->pubsearchinstring = (int)uddeIMmosGetParam ($_POST, 'config_pubsearchinstring', 1);
-		$config->autocompleter = (int)uddeIMmosGetParam ($_POST, 'config_autocompleter', 0);
+        $config->useautocomplete = (int)uddeIMmosGetParam ($_POST, 'config_useautocomplete', 0);
+        $config->searchinstring = (int)uddeIMmosGetParam ($_POST, 'config_searchinstring', 1);
+        $config->autocompleter = (int)uddeIMmosGetParam ($_POST, 'config_autocompleter', 1);
         $config->autocompletestart = (int)uddeIMmosGetParam ($_POST, 'config_autocompletestart', 1);
         $config->autoresponder = (int)uddeIMmosGetParam ($_POST, 'config_autoresponder', 0);
 		$config->autoforward = (int)uddeIMmosGetParam ($_POST, 'config_autoforward', 0);
@@ -1775,6 +1776,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
                 $df[ 'd.m. H:i' ] =    '05.08. 22:40';
                 $df[ 'j.m.y H:i' ] =   '5.08.07 22:40';
                 $df[ 'd.m.y H:i' ] =   '05.08.07 22:40';
+                $df[ 'd.m.Y, H:i' ] =  '05.08.2007, 22:40';
 				$df[ 'j M, H:i' ] =    '5 Aug, 22:40';
 				$df[ 'j. M H:i' ] =    '5. Aug 22:40';
 				$df[ 'j. M, H:i' ] =   '5. Aug, 22:40';
@@ -1795,6 +1797,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 				$ldf[ 'j F, H:i' ] =        '5 August, 22:40';
 				$ldf[ 'j. F H:i' ] =        '5. August 22:40';
 				$ldf[ 'j. F, H:i' ] =       '5. August, 22:40';
+                $ldf[ 'd.M. Y, H:i' ] =     '05.Aug. 2007, 22:40';
 				$ldf[ 'j F Y, H:i' ] =      '5 August 2007, 22:40';
 				$ldf[ 'j. F Y H:i' ] =      '5. August 2007 22:40';
 				$ldf[ 'j. F Y, H:i' ] =     '5. August 2007, 22:40';
@@ -1866,15 +1869,16 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			?>
 
 			<?php uddeIMadmSelect($config->allowsysgm, 'config_allowsysgm', Array('2'=>_UDDEADM_ALLOWTOALL2_2, '1'=>_UDDEADM_ALLOWTOALL2_1, '0'=>_UDDEADM_ALLOWTOALL2_0), false, _UDDEADM_ALLOWTOALL2_HEAD, _UDDEADM_ALLOWTOALL2_EXP); ?>
-			<?php uddeIMadmYesNo($config->showgroups, 'config_showgroups', !$config->allowsysgm, _UDDEADM_SHOWGROUPS_HEAD, _UDDEADM_SHOWGROUPS_EXP); ?>
-
-			<?php uddeIMadmText($config->groupsadmin, 20, 'config_groupsadmin', false, _UDDEADM_GROUPSADMIN_HEAD, _UDDEADM_GROUPSADMIN_EXP); ?>
+            <?php uddeIMadmYesNo($config->showgroups, 'config_showgroups', !$config->allowsysgm, _UDDEADM_SHOWGROUPS_HEAD, _UDDEADM_SHOWGROUPS_EXP); ?>
+            <?php uddeIMadmText($config->groupsadmin, 20, 'config_groupsadmin', false, _UDDEADM_GROUPSADMIN_HEAD, _UDDEADM_GROUPSADMIN_EXP); ?>
 			<?php uddeIMadmText($config->groupsspecial, 20, 'config_groupsspecial', false, _UDDEADM_GROUPSSPECIAL_HEAD, _UDDEADM_GROUPSSPECIAL_EXP); ?>
 
 			<?php uddeIMadmSelect($config->mailsystem, 'config_mailsystem', Array('1'=>_UDDEADM_MAILSYSTEM_MOSMAIL, '0'=>_UDDEADM_MAILSYSTEM_PHPMAIL, '4'=>'php mail - force \r\n [header]', '2'=>'php mail [debug on Error]', '3'=>'php mail Info [debug All]'), false, _UDDEADM_MAILSYSTEM_HEAD, _UDDEADM_MAILSYSTEM_EXP); ?>
 			<?php uddeIMadmText($config->sysm_username, 20, 'config_sysm_username', false, _UDDEADM_SYSM_USERNAME_HEAD, _UDDEADM_SYSM_USERNAME_EXP); ?>
 
-			<?php uddeIMadmSelect($config->usecaptcha, 'config_usecaptcha', Array('4'=>_UDDEADM_CAPTCHAF4, '3'=>_UDDEADM_CAPTCHAF3, '2'=>_UDDEADM_CAPTCHAF2, '1'=>_UDDEADM_CAPTCHAF1, '0'=>_UDDEADM_CAPTCHAF0), false, _UDDEADM_USECAPTCHA_HEAD, _UDDEADM_USECAPTCHA_EXP, $adminstyle); ?>
+            <?php uddeIMadmYesNo($config->allowurltext, 'config_allowurltext', false, _UDDEADM_ALLOWURLTEXT_HEAD, _UDDEADM_ALLOWURLTEXT_EXP); ?>
+
+            <?php uddeIMadmSelect($config->usecaptcha, 'config_usecaptcha', Array('4'=>_UDDEADM_CAPTCHAF4, '3'=>_UDDEADM_CAPTCHAF3, '2'=>_UDDEADM_CAPTCHAF2, '1'=>_UDDEADM_CAPTCHAF1, '0'=>_UDDEADM_CAPTCHAF0), false, _UDDEADM_USECAPTCHA_HEAD, _UDDEADM_USECAPTCHA_EXP, $adminstyle); ?>
 			<?php uddeIMadmText($config->captchalen, 4, 'config_captchalen', !$config->usecaptcha, _UDDEADM_CAPTCHALEN_HEAD, _UDDEADM_CAPTCHALEN_EXP); ?>
 			<?php uddeIMadmSelect($config->captchatype, 'config_captchatype', Array('0'=>_UDDEADM_CAPTCHA_INTERNAL, '1'=>_UDDEADM_CAPTCHA_NUM, '2'=>_UDDEADM_CAPTCHA_RECAPTCHA2), !$config->usecaptcha, _UDDEADM_CAPTCHATYPE_HEAD, _UDDEADM_CAPTCHATYPE_EXP); ?>
 			<?php uddeIMadmText($config->recaptchapub, 40, 'config_recaptchapub', !$config->usecaptcha, _UDDEADM_RECAPTCHAPUB_HEAD, _UDDEADM_RECAPTCHAPUB_EXP); ?>
@@ -1889,7 +1893,7 @@ function uddeIMshowSettings($option, $task, $usedlanguage, $pathtoadmin, $pathto
 			<?php uddeIMadmYesNo($config->encodeheader, 'config_encodeheader', false, _UDDEADM_ENCODEHEADER_HEAD, _UDDEADM_ENCODEHEADER_EXP); ?>
 			<?php uddeIMadmSelect($config->languagecharset, 'config_languagecharset', Array('1'=>_UDDEADM_LANGUAGECHARSET_UTF8, '0'=>_UDDEADM_LANGUAGECHARSET_DEFAULT), false, _UDDEADM_LANGUAGECHARSET_HEAD, _UDDEADM_LANGUAGECHARSET_EXP); ?>
 
-			<?php uddeIMadmSelect($config->autocompleter, 'config_autocompleter', Array('0'=>_UDDEADM_AUTOCOMPLETER_0, '1'=>_UDDEADM_AUTOCOMPLETER_1, '2'=>_UDDEADM_AUTOCOMPLETER_2), false, _UDDEADM_AUTOCOMPLETER_HEAD, _UDDEADM_AUTOCOMPLETER_EXP, $adminstyle); ?>
+			<?php uddeIMadmSelect($config->autocompleter, 'config_autocompleter', Array('1'=>_UDDEADM_AUTOCOMPLETER_1, '2'=>_UDDEADM_AUTOCOMPLETER_2), false, _UDDEADM_AUTOCOMPLETER_HEAD, _UDDEADM_AUTOCOMPLETER_EXP, $adminstyle); ?>
             <?php uddeIMadmSelect($config->autocompletestart, 'config_autocompletestart', Array('1'=>1, '2'=>2, '3'=>3), false, _UDDEADM_AUTOCOMPLETESTART_HEAD, _UDDEADM_AUTOCOMPLETESTART_EXP); ?>
 
 			<?php
@@ -2275,7 +2279,7 @@ function uddeIMadmYesNo($value, $postvar, $condition, $head, $exp, $style='') {
 	//$local[] = $tm->makeOption( '1', _UDDEADM_YES );
 	//$local[] = $tm->makeOption( '0', _UDDEADM_NO );
 	//echo $tm->RadioList( $local, $postvar, 'class="inputbox" size="2"', $value );
-	echo $tm->yesnoButton( $postvar, $value ); 
+	echo $tm->yesnoButton( $postvar, $value);  //include $condition to set disabled
 	echo '</td>';
 	echo '<td align="left" valign="top" width="40%"'.$style.'>';
 	echo uddeIMprintCond($condition, $exp, "gray");
@@ -2725,14 +2729,21 @@ function uddeIMconvertConfiguration($option, $task, $pathtoadmin, $expectedversi
 	if ($config->version=="2.6") {
 		echo _UDDEADM_CFGFILE_CONVERTING_18."<br />";
         uddeIMsaveConfig($pathtoadmin, $config, $bak = '_2.6');
-		$config->autocompleter = $config->autocompleter ?? 0;  //some config_2.6 may include autocompleter
+		$config->autocompleter = $config->autocompleter ?? 1;  //some config_2.6 may include autocompleter
         $config->autocompletestart = $config->autocompletestart ?? 1;           //and autocompletestart
         $config->saveconfigdb = 0;  //new setting to always backup config
-        $config->version=="2.8";
+        $config->allowurltext = 0; //new setting to allow text in compose link
+        $config->version=="2.9";
         //uddeIMsaveConfig($pathtoadmin, $config);
         //uddeIMsaveSettings($option, $task, $pathtoadmin, $config)
         //uddeIMbackupRestoreConfig($option, $task, 'backup', $pathtoadmin, $config, true); //true means: "during save, no redirect"
 	}
+    if ($config->version=="2.8") {
+        echo _UDDEADM_CFGFILE_CONVERTING_19."<br />";
+       uddeIMsaveConfig($pathtoadmin, $config, $bak = '_2.8');
+       $config->allowurltext = 0; //new setting to allow text in compose link
+       $config->version=="2.9";
+    }
 
 	echo "</p>";
 
@@ -2798,6 +2809,7 @@ function uddeIMbackupRestoreConfig($option, $task, $act, $pathtoadmin, $config, 
 		$backup['notifydefault'] 				= $config->notifydefault;
 		$backup['popupdefault'] 				= $config->popupdefault;
 		$backup['allowsysgm'] 					= $config->allowsysgm;
+        $backup['allowurltext'] 				= $config->allowurltext;
 		$backup['emailwithmessage'] 			= $config->emailwithmessage;
 		$backup['firstwordsinbox'] 				= $config->firstwordsinbox;
 		$backup['longwaitingdays'] 				= $config->longwaitingdays;

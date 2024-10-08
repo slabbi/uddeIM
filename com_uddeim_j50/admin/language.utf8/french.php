@@ -26,7 +26,10 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Translated by Florent Nouvellon, Jyhelle, Baboon, Sarki pour <a href="http://www.joomlatutos.com/" target="_blank">Joomlatutos.com</a>, xillibit pour <a href="http://www.kunena.org" target="_blank">Kunena</a> et lavsteph pour <a href="http://www.aide-joomla.com/" target="_blank">Aide-Joomla.com</a>');
-
+// New: 5.6
+DEFINE ('_UDDEADM_ALLOWURLTEXT_HEAD', 'autoriser texte dans lien de composition');
+DEFINE ('_UDDEADM_ALLOWURLTEXT_EXP', 'un lien de composition peut accepter un texte prÃ©dÃ©fini dans le lien<br>[...&task=new&recip=xxx<b>&pm=</b>some text]');
+DEFINE ('_UDDEADM_CFGFILE_CONVERTING_19', 'ajouter et dÃ©finir des valeurs par dÃ©faut pour allowurltext');
 // New: 5.5
 DEFINE ('_UDDEIM_MENUINFO', '<b>Remarque :</b><br>pour qu\'UddeIM fonctionne correctement, vous devez crÃ©er <b>minimum 1 entrÃ©e de menu</b> - si vous n\'en avez pas besoin, vous pouvez la rendre invisible');
 // New: 5.4
@@ -40,7 +43,7 @@ DEFINE ('_UDDEIM_CHARS', 'caractÃ¨re');
 DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /robot-protection');
 // New: 5.3
 DEFINE ('_UDDEADM_REVIEWBACKUP', 'Important : lors de l\'installation, un nouveau <b>fichier de configuration</b> (config.class.php) a Ã©tÃ© crÃ©Ã© - l\'ancien fichier a Ã©tÃ© enregistrÃ© sous config.class_bak.php. Il peut Ãªtre renommÃ© pour remplacer le nouveau, mais il est <b>recommandÃ©</b> d\'Ã©diter la configuration manuellement, pour voir les changements');
-DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...dÃ©finir par dÃ©faut le lien pour le Auto complÃ©ter et saveconfigdb');
+DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...dÃ©finir par dÃ©faut le lien pour le Auto complÃ©ter, saveconfigdb et allowurltext');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_0', 'la mise Ã jour attend min. configuration v2.6 ou supÃ©rieure');
 DEFINE ('_UDDEADM_SAVECONFIGDB_HEAD', 'enregistrez toujours la configuration dans la db');
 DEFINE ('_UDDEADM_SAVECONFIGDB_EXP', 'sauvegardez toujours la configuration Ã chaque sauvegarde dans la base de donnÃ©es');
@@ -56,8 +59,8 @@ DEFINE ('_UDDEADM_AUTOCOMPLETER_0', 'Ne pas charger');
 DEFINE ('_UDDEADM_AUTOCOMPLETER_1', 'JS W3, insensible Ã la casse');
 DEFINE ('_UDDEADM_AUTOCOMPLETER_2', 'JS light, sensible Ã la casse');
 DEFINE ('_UDDEADM_AUTOCOMPLETER_3', 'UddeIM JS, chercher Ã nom');
-DEFINE ('_UDDEADM_AUTOCOMPLETER_EXP', '(<b>Utiliser la saisie semi-automatique</b> doit Ãªtre activÃ©)<br><i>Ne pas charger</i> no Auto complÃ©ter.<br>W3 - insensible Ã la casse, <b>plusieurs</b> entrÃ©es<br>light - sensible Ã la casse');
-DEFINE ('_UDDEADM_AUTOCOMPLETER_HEAD', 'Auto complÃ©ter');
+DEFINE ('_UDDEADM_AUTOCOMPLETER_EXP', '<b>Utiliser la saisie semi-automatique</b> doit Ãªtre activÃ© [Affichage, externes]<br>W3<br>insensible Ã la casse, <b>plusieurs</b> entrÃ©es<br>light<br>sensible Ã la casse');
+DEFINE ('_UDDEADM_AUTOCOMPLETER_HEAD', 'Auto complÃ©ter (Script)');
 DEFINE ('_UDDEADM_AUTOCOMPLETESTART_HEAD', 'commencer Ã lettre');
 DEFINE ('_UDDEADM_AUTOCOMPLETESTART_EXP', 'nombre de lettres pour commencer autocompleter');
 DEFINE ('_UDDEIM_DOREPLY', 'rÃ©pondre');

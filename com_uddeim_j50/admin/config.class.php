@@ -24,7 +24,7 @@ if (defined('_uddeConfig')) {
  define('_uddeConfig', 1);
 
  class uddeimconfigclass extends stdClass {
-  var $version = '2.8';
+  var $version = '2.9';
   var $cryptkey = 'uddeIMOpensslKey';
   var $datumsformat = 'j M, H:i';
   var $ldatumsformat = 'j F Y, H:i';
@@ -69,6 +69,7 @@ if (defined('_uddeConfig')) {
   var $notifydefault = 0;
   var $popupdefault = 0;
   var $allowsysgm = 0;
+  var $allowurltext = 0;
   var $emailwithmessage = 0;
   var $firstwordsinbox = 40;
   var $longwaitingdays = 75;
@@ -111,7 +112,6 @@ if (defined('_uddeConfig')) {
   var $allowforwards = 1;
   var $showgroups = 0;
   var $mailsystem = 0;
-  var $searchinstring = 1;
   var $maxrecipients = 0;
   var $languagecharset = 1;
   var $usecaptcha = 0;
@@ -139,7 +139,8 @@ if (defined('_uddeConfig')) {
   var $pubuseautocomplete = 0;
   var $pubsearchinstring = 1;
   var $useautocomplete = 0;
-  var $autocompleter = 0;
+  var $searchinstring = 1;
+  var $autocompleter = 1;
   var $autocompletestart = 1;
   var $autoresponder = 0;
   var $autoforward = 0;

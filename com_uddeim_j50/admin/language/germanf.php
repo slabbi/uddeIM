@@ -21,7 +21,10 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Deutsches Sprachfile erstellt von <a href="http://slabihoud.de/software/" target="_new">uddeIM HQ (Stephan Slabihoud)</a>');	// Enter your credits line here, e.g. 'Translation by <a href="http://domain.com" target="_new">John Doe</a>'
-
+// New: 5.6
+DEFINE ('_UDDEADM_ALLOWURLTEXT_HEAD', 'Text in <i>Nachricht an</i> Link');
+DEFINE ('_UDDEADM_ALLOWURLTEXT_EXP', 'ein <i>Nachricht an</i> Link darf auch vordefinierten Text enthalten<br>[...&task=new&recip=xxx<b>&pm=</b>some text]');
+DEFINE ('_UDDEADM_CFGFILE_CONVERTING_19', 'neue Variable: Standardwert für allowurltext');
 // New: 5.5
 DEFINE ('_UDDEIM_MENUINFO', '<b>Hinweis:</b><br>für eine einwandfreie Funktion von UddeIM muß zwingend <b>mindestens 1 Menueintrag</b> erstellt werden - dieser kann dann aber bei Bedarf auch unsichtbar gemacht werden');
 // New: 5.4
@@ -35,7 +38,7 @@ DEFINE ('_UDDEIM_CHARS', 'Zeichen');
 DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /Robotschutz');
 // New: 5.3
 DEFINE ('_UDDEADM_REVIEWBACKUP', 'Wichtig: bei der Installation wurde eine neue <b>Config Datei</b> (config.class.php) erstellt - die alte Datei wurde als config.class_bak.php gesichert. Sie kann wieder zurückbenannt werden um die Neue zu ersetzen (Neuerungen werden ergänzt), aber es wird <b>empfohlen</b> die Einstellungen wieder manuell anzupassen um die Neuerungen zu erkennen');
-DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...setze Standardeinstellungen für Autocompleter und saveconfigdb');
+DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...setze Standardeinstellungen für Autocompleter, saveconfigdb und allowurltext');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_0', 'ein Update benötigt config v2.6 oder höher');
 DEFINE ('_UDDEADM_SAVECONFIGDB_HEAD', 'Konfiguration auch in der Datenbank speichern');
 DEFINE ('_UDDEADM_SAVECONFIGDB_EXP', 'die Konfiguration bei jedem Speichern auch in der Datenbank sichern');
@@ -52,8 +55,8 @@ DEFINE ('_UDDEADM_AUTOCOMPLETER_0', 'nicht laden');
 DEFINE ('_UDDEADM_AUTOCOMPLETER_1', 'JS W3, Groß = Klein');
 DEFINE ('_UDDEADM_AUTOCOMPLETER_2', 'JS light, Groß <> Klein');
 DEFINE ('_UDDEADM_AUTOCOMPLETER_3', 'UddeIM JS, sucht im Namen');
-DEFINE ('_UDDEADM_AUTOCOMPLETER_EXP', '(<b>Empfängernamen vorschlagen</b> muß aktiviert sein)<br><i>nicht laden</i> = keine Funktion.<br>W3 = unabhängig ob Groß- oder Kleinschreibung<br> + <b>Mehrfacheingabe möglich</b><br>light = Groß-/Kleinschreibung wird beachtet');
-DEFINE ('_UDDEADM_AUTOCOMPLETER_HEAD', 'Autocompleter');
+DEFINE ('_UDDEADM_AUTOCOMPLETER_EXP', '<b>Empfängernamen vorschlagen</b> muß aktiviert werden [Darstellung, Public]<br>W3<br>Groß-/Kleinschreibung ist egal<br> + <b>Mehrfacheingabe möglich</b><br>light<br>Groß-/Kleinschreibung wird beachtet');
+DEFINE ('_UDDEADM_AUTOCOMPLETER_HEAD', 'Autocompleter (Script)');
 DEFINE ('_UDDEADM_AUTOCOMPLETESTART_HEAD', 'beginne bei Buchstabe');
 DEFINE ('_UDDEADM_AUTOCOMPLETESTART_EXP', 'Anzahl der Buchstaben, die Autocompleter öffnet');
 DEFINE ('_UDDEADM_SEPERROR', 'erforderliches Trennzeichen für Mehrfacheingabe ist ');

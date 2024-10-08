@@ -346,7 +346,7 @@ function uddeIMcheckPMStype() {
 	return $mypmstype;
 }
 
-function uddeIMcreateCFGstring($config) {
+function uddeIMcreateCFGstring($config,$bakver='') {
 	$cf="<?php\n";
 	$cf.="defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );\n";
 	$cf.="if (defined('_uddeConfig')) {\n";
@@ -354,11 +354,11 @@ function uddeIMcreateCFGstring($config) {
 	$cf.="} else {\n";
 	$cf.=" define('_uddeConfig', 1);\n";
 	$cf.=" class uddeimconfigclass extends stdClass {\n";
-	$cf.="  var \$version = '2.8';\n";		// this is the version number of the configuration file
+	$cf.="  var \$version = '".($bakver ? substr($bakver,1) : '2.9')."';\n";   // this is the version number of the configuration file
 	$cf.="  var \$cryptkey = '".$config->cryptkey."';\n";
 	$cf.="  var \$datumsformat = '".$config->datumsformat."';\n";
 	$cf.="  var \$ldatumsformat = '".$config->ldatumsformat."';\n";  
-	$cf.="  var \$emn_sendermail = '".$config->emn_sendermail."';\n";   
+	$cf.="  var \$emn_sendermail = '".$config->emn_sendermail."';\n";
 	$cf.="  var \$emn_sendername = '".$config->emn_sendername."';\n";  
 	$cf.="  var \$sysm_username = '".$config->sysm_username."';\n";
 	$cf.="  var \$charset = '".uddeIMgetCharsetalias($config->charset)."';\n";
@@ -400,6 +400,7 @@ function uddeIMcreateCFGstring($config) {
 	$cf.="  var \$notifydefault = ".(int)$config->notifydefault.";\n";
 	$cf.="  var \$popupdefault = ".(int)$config->popupdefault.";\n";
 	$cf.="  var \$allowsysgm = ".(int)$config->allowsysgm.";\n";
+    $cf.="  var \$allowurltext = ".(int)$config->allowurltext.";\n";
 	$cf.="  var \$emailwithmessage = ".(int)$config->emailwithmessage.";\n";
 	$cf.="  var \$firstwordsinbox = ".(int)$config->firstwordsinbox.";\n";
 	$cf.="  var \$longwaitingdays = ".(int)$config->longwaitingdays.";\n";
@@ -442,7 +443,6 @@ function uddeIMcreateCFGstring($config) {
 	$cf.="  var \$allowforwards = ".(int)$config->allowforwards.";\n";
 	$cf.="  var \$showgroups = ".(int)$config->showgroups.";\n";
 	$cf.="  var \$mailsystem = ".(int)$config->mailsystem.";\n";
-	$cf.="  var \$searchinstring = ".(int)$config->searchinstring.";\n";
 	$cf.="  var \$maxrecipients = ".(int)$config->maxrecipients.";\n";
 	$cf.="  var \$languagecharset = ".(int)$config->languagecharset.";\n";
 	$cf.="  var \$usecaptcha = ".(int)$config->usecaptcha.";\n";
@@ -470,6 +470,7 @@ function uddeIMcreateCFGstring($config) {
 	$cf.="  var \$pubuseautocomplete = ".(int)$config->pubuseautocomplete.";\n";
 	$cf.="  var \$pubsearchinstring = ".(int)$config->pubsearchinstring.";\n";
     $cf.="  var \$useautocomplete = ".(int)$config->useautocomplete.";\n";
+    $cf.="  var \$searchinstring = ".(int)$config->searchinstring.";\n";
     $cf.="  var \$autocompleter = ".(int)$config->autocompleter.";\n";
     $cf.="  var \$autocompletestart = ".(int)$config->autocompletestart.";\n";
 	$cf.="  var \$autoresponder = ".(int)$config->autoresponder.";\n";
@@ -525,7 +526,7 @@ function uddeIMcreateCFGstring($config) {
 }
 
 function uddeIMsaveConfig($pathtoadmin, $config, $bak = '') {
-	$cf = uddeIMcreateCFGstring($config);
+	$cf = uddeIMcreateCFGstring($config,$bak);
 
 	$configdatei = "/administrator/components/com_uddeim/config.class".$bak.".php";
 

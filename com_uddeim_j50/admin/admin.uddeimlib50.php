@@ -109,8 +109,8 @@ if (!class_exists('mosHTML')) {
             $temp .= '</fieldset>';
             return $temp;
         }
-        static function yesnoButton($tag_name, $selected=null, $key='value'){
-            $temp = '<fieldset id="jform_'.$tag_name.'" class="radio btn-group">';
+        static function yesnoButton($tag_name, $selected=null, $condition=false, $key='value'){
+            $temp = '<fieldset id="jform_'.$tag_name.'" class="radio btn-group"' .($condition ? 'disabled="disabled"' : ''). '>';
             $temp .= '<input type="radio" id="'.$tag_name.'0" value="0" name="'.$tag_name.'" '.(!$selected ? 'checked="checked"' : '').' />';
             $temp .= '<label class="btn btn-outline-danger" for="'.$tag_name.'0" >'._UDDEADM_NO.'</label>';
             $temp .= '<input type="radio" id="'.$tag_name.'1" value="1" name="'.$tag_name.'" '.($selected ? 'checked="checked"' : '').' />';

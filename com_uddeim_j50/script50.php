@@ -133,7 +133,7 @@ function uddeIM_com_install() {
 
 	// set initial values
 	$config->cryptkey = 'uddeIMOpensslKey';
-	$config->version = '2.8';
+	$config->version = '2.9';
 	$config->datumsformat = 'j M, H:i';
 	$config->ldatumsformat = 'j F Y, H:i';
 	$config->emn_sendermail = 'webmaster';
@@ -180,6 +180,7 @@ function uddeIM_com_install() {
 	$config->notifydefault = 0;
 	$config->popupdefault = 0;
 	$config->allowsysgm = 0;
+    $config->allowurltext = 0;
 	$config->emailwithmessage = 0;
 	$config->firstwordsinbox = 40;
 	$config->longwaitingdays = 75;
@@ -215,7 +216,6 @@ function uddeIM_com_install() {
 	$config->realnames = 0;
 	$config->cryptmode = 0;
 	$config->modeshowallusers = 1;
-	$config->useautocomplete = 0;
 	$config->allowmultipleuser = 1;
 	$config->connexallowmultipleuser = 1;
 	$config->allowmultiplerecipients = 1;
@@ -223,7 +223,6 @@ function uddeIM_com_install() {
 	$config->allowforwards = 1;
 	$config->showgroups = 0;
 	$config->mailsystem = 0;
-	$config->searchinstring = 1;
 	$config->maxrecipients = 0;
 	$config->languagecharset = 0;
 	$config->usecaptcha = 0;
@@ -250,8 +249,10 @@ function uddeIM_com_install() {
 	$config->timezone = 0;
 	$config->pubsearchinstring = 1;
 	$config->pubuseautocomplete = 0;
-	$config->autocompleter = 0;
-    $config->autocompletestart = 1; 
+    $config->searchinstring = 1;
+    $config->useautocomplete = 0;
+	$config->autocompleter = 1;
+    $config->autocompletestart = 1;
 	$config->autoresponder = 0;
 	$config->autoforward = 0;
 	$config->rows = 10;

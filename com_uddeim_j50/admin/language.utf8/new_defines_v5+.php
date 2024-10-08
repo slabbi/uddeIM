@@ -1,5 +1,8 @@
 <?php
-
+// New: 5.6
+DEFINE ('_UDDEADM_ALLOWURLTEXT_HEAD', 'allow text in compose link');
+DEFINE ('_UDDEADM_ALLOWURLTEXT_EXP', 'a compose link may accept predefined text in the link<br>[...&task=new&recip=xxx<b>&pm=</b>some text]');
+DEFINE ('_UDDEADM_CFGFILE_CONVERTING_19', 'add and set default values for allowurltext');
 // New: 5.5
 DEFINE ('_UDDEIM_MENUINFO', '<b>Notice:</b><br>for UddeIM to work properly, you need to create <b>minimum 1 Menu entry</b> - if you don\'t need it, you can make it invisible');
 // New: 5.4
@@ -13,7 +16,7 @@ DEFINE ('_UDDEIM_CHARS', 'chars');
 DEFINE ('_UDDEADM_CAPTCHA_NUM', 'UddeIM NUM /robot field');
 // New: 5.3
 DEFINE ('_UDDEADM_REVIEWBACKUP', 'Important: during installation a new <b>Config File</b> (config.class.php) was created - the old file was saved as config.class_bak.php. It may be renamed to replace the new one, but it is <b>recommanded</b> to edit the configuration manually, to see the changes');
-DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...set default values for Autocompleter and saveconfigdb');
+DEFINE ('_UDDEADM_CFGFILE_CONVERTING_18', '...set default values for Autocompleter, saveconfigdb and allowurltext');
 DEFINE ('_UDDEADM_CFGFILE_CONVERTING_0', 'update expects min. config v2.6 or higher');
 DEFINE ('_UDDEADM_SAVECONFIGDB_HEAD', 'always save Configuration to db');
 DEFINE ('_UDDEADM_SAVECONFIGDB_EXP', 'always backup the configuration on each saving to the db');

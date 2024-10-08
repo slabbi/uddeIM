@@ -20,10 +20,10 @@ defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 // some global variables
 global $versionstring, $checkversion, $checkhotfix, $configversion;
-$versionstring	= "uddeIM 5.5";						// version string for about boxes
-$checkversion	= "5.5";							// version as above for check for update - this is the version we have
+$versionstring	= "uddeIM 5.6";						// version string for about boxes
+$checkversion	= "5.6";							// version as above for check for update - this is the version we have
 $checkhotfix	= "0";								// version as above for check for update - this is the version we have
-$configversion	= "2.8";							// this is the version number of the configuration file we expect to load
+$configversion	= "2.9";							// this is the version number of the configuration file we expect to load
 
 function uddeIMgetVersionArray() {
 	global $versionstring, $checkversion, $checkhotfix;
@@ -89,12 +89,12 @@ function uddeIMcheckJversion() {					// borrowed from Cummunity Builder, -1 = Ma
 // $groupsadmin
 // $groupsspecial
 function uddeIMisAdmin2($my_gid, $config) {
-	$new = array_intersect($my_gid, explode(",", $config->groupsadmin ?? ''));
+	$new = is_array($my_gid) ? array_intersect($my_gid, explode(",", $config->groupsadmin ?? '')) : 0;
 	return !empty($new);
 }
 
 function uddeIMisSpecial2($my_gid, $config) {
-	$new = array_intersect($my_gid, explode(",", $config->groupsspecial ?? ''));
+	$new = is_array($my_gid) ? array_intersect($my_gid, explode(",", $config->groupsspecial ?? '')) : 0;
 	return !empty($new);
 }
 

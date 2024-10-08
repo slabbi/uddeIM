@@ -63,6 +63,8 @@ $config->flags = 0;
 $nouserlist = (int) uddeIMmosGetParam ( $_REQUEST, 'nouserlist', 0);		// suppress userlist (used for menu links only)
 if ($nouserlist) $config->flags |= ($nouserlist & 0x07);			// 0x01 = suppress user list, 0x02 = suppress connection list, 0x03 = supress both (+0x04=disable TO field)
 
+$task = uddeIMmosGetParam( $_REQUEST, 'task', '');
+
 if ($plugin=uddeIMcheckPlugin('postbox')) {
 	if ($config->enablepostbox) {
 		include_once($plugin);
@@ -84,14 +86,11 @@ if ($plugin=uddeIMcheckPlugin('attachment')) {
 }
 
 if ($plugin=uddeIMcheckPlugin('rss')) {
-	if ($config->enablerss) {
-		$task = uddeIMmosGetParam( $_REQUEST, 'task', '');
-		if ($task=="rss") {
+	if ($config->enablerss && $task=="rss") {
 			include_once($plugin);
 			if (uddeIMcheckVersionPlugin('rss'))
 				uddeIMrssFeedPlugin($versionstring, $userid, $config);
 			exit;
-		}
 	}
 } else {
 	$config->enablerss = 0;
@@ -99,7 +98,7 @@ if ($plugin=uddeIMcheckPlugin('rss')) {
 
 // check if public frontend is called
 if ($plugin=uddeIMcheckPlugin('pfrontend')) {
-	if ($config->pubfrontend && !$userid) {
+	if ($config->pubfrontend && !$userid && $task != 'ajaxGetNewMessages') { //not if called by ajax
 		include_once($plugin);
 		if (uddeIMcheckVersionPlugin('pfrontend'))
 			uddeIMpublicFrontendPlugin($versionstring, $pathtouser, $pathtosite, $config);
@@ -146,7 +145,6 @@ if (!$Itemid || !isset($Itemid) || empty( $Itemid )) {
 }
 
 $item_id	= (int) $Itemid;
-$task		= uddeIMmosGetParam( $_REQUEST, 'task', '');
 
 $view		= uddeIMmosGetParam( $_REQUEST, 'view', '');
 $id			= uddeIMmosGetParam( $_REQUEST, 'id', 0);
@@ -173,8 +171,12 @@ $ret		= uddeIMmosGetParam ( $_REQUEST, 'ret');
 
 $to_id		= (int)uddeIMmosGetParam ($_POST, 'to_id');
 $to_name	= uddeIMmosGetParam ($_POST, 'to_name');
-$pmessage	= strip_tags(uddeIMmosGetParam($_POST, 'pmessage', '', _MOS_ALLOWHTML));
 $cryptpass  = uddeIMmosGetParam ($_POST, 'cryptpass');
+$pmessage	= strip_tags(uddeIMmosGetParam($_POST, 'pmessage', '', _MOS_ALLOWHTML));
+//ability to send pretext with url if pmessage is not used
+if (!$pmessage && !empty($config->allowurltext))
+$pmessage   = uddeIMmosGetParam ( $_REQUEST, 'pm');
+
 
 $sendeform_showallusers = uddeIMmosGetParam ($_POST, 'sendeform_showallusers', '');
 $tobedeleted	= (int)uddeIMmosGetParam ($_POST, 'tobedeleted', 0);
