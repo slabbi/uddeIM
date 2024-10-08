@@ -250,7 +250,7 @@ if ($udd_cbenablepopup) {		// NEW MESSAGES, so do notification popups when enabl
 			if (document.getElementById('uddeim-nomessage'))            /* +uddChkval[0] checks if it is a number*/
 				document.getElementById('uddeim-nomessage').innerHTML = (+uddChkval[0] ? '"._UDDEMODULE_NEWMESSAGES." ' : '') + uddChkval;
 			if (document.getElementById('uddeim-noimage'))
-				document.getElementById('uddeim-noimage').src = '".$udd_uddeicons_modulenewmess."';
+				document.getElementById('uddeim-noimage').src = (+uddChkval[0] ? '".$udd_uddeicons_modulenewmess."' : '".$udd_uddeicons_modulenonewmess."'); //nonew if uddChkval not is a number
 		    } else {
 			if (document.getElementById('uddeim-nomessage'))
 				document.getElementById('uddeim-nomessage').innerHTML = '"._UDDEMODULE_NONEW."';
