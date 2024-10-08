@@ -663,7 +663,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 			if ($themessage->cryptmode==2 || $themessage->cryptmode==4) {	// Message is encrypted, so go to enter password page
 				$messagecell= "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showpass&Itemid=".$item_id."&messageid=".$themessage->id)."'>".$teasermessage."</a>";
 				$showemail  = "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=showpass&Itemid=".$item_id."&messageid=".$themessage->id)."'>";
-				$showemail .= "<img src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/restore.gif' alt='"._UDDEIM_DOREPLY."' title='"._UDDEIM_DOREPLY."' />";;
+				$showemail .= "<img src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/reply.gif' alt='"._UDDEIM_DOREPLY."' title='"._UDDEIM_DOREPLY."' />";;
 				$showemail .= "</a>";
 			} else {							// normal message
 				// $messagecell="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=show&Itemid=".$item_id."&messageid=".$themessage->id)."'>".$teasermessage."</a>";
@@ -671,7 +671,7 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
                                "<a href='javascript:uddeIMtoggleread(\"".$i."\",true);'>".$teasermessage."</a>"
                              : "<a href='javascript:uddeIMtoggleread(\"".$i."\",true,\"markread\",\"".$themessage->id."\",\"".$userid."\");'>".$teasermessage."</a>";
 				$showemail  = "<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=show&Itemid=".$item_id."&messageid=".$themessage->id)."'>";
-				$showemail .= "<img src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/restore.gif' alt='"._UDDEIM_DOREPLY."' title='"._UDDEIM_DOREPLY."' />";;
+				$showemail .= "<img src='".$pathtosite."/components/com_uddeim/templates/".$config->templatedir."/images/reply.gif' alt='"._UDDEIM_DOREPLY."' title='"._UDDEIM_DOREPLY."' />";;
 				$showemail .= "</a>";
 			}
 		}
