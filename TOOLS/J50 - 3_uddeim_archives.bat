@@ -1,5 +1,5 @@
 set path=%path%;"C:\Program Files\7-Zip"
-set uddeim=uddeIM_5.4
+set uddeim=uddeIM_5.6
 
 cd %uddeIM%_j50_unzip1st\
 rd /s /q 	cb2_plug_pms_uddeim_j50
@@ -13,6 +13,8 @@ rd /s /q 	mod_uddeim_j50
 rd /s /q 	mod_uddeim_mailbox_j50
 rd /s /q 	mod_uddeim_simple_notifier_j50
 rd /s /q 	mod_uddeim_statistics_j50
+
+rd /s /q 	pkg_uddeim_search_j50
 
 rd /s /q 	plug_uddeim_contentlink_j50
 rd /s /q 	plug_uddeim_hooks_j50

@@ -1,5 +1,5 @@
 set path=%path%;"C:\Program Files (x86)\WinZip"
-set uddeim=uddeIM_5.4
+set uddeim=uddeIM_5.6
 
 md %uddeIM%_j50_unzip1st
 rem xcopy /e "..\github\uddeIM-github\3rd party"						"%uddeIM%_j50_unzip1st\3rd party\"
@@ -17,6 +17,7 @@ xcopy /e "..\github\uddeIM-github\mod_uddeim_j50"						"%uddeIM%_j50_unzip1st\mo
 xcopy /e "..\github\uddeIM-github\mod_uddeim_mailbox_j50"				"%uddeIM%_j50_unzip1st\mod_uddeim_mailbox_j50\"
 xcopy /e "..\github\uddeIM-github\mod_uddeim_simple_notifier_j50"		"%uddeIM%_j50_unzip1st\mod_uddeim_simple_notifier_j50\"
 xcopy /e "..\github\uddeIM-github\mod_uddeim_statistics_j50"			"%uddeIM%_j50_unzip1st\mod_uddeim_statistics_j50\"
+xcopy /e "..\github\uddeIM-github\pkg_uddeim_search_j50"				"%uddeIM%_j50_unzip1st\pkg_uddeim_search_j50\"
 xcopy /e "..\github\uddeIM-github\plug_uddeim_contentlink_j50"			"%uddeIM%_j50_unzip1st\plug_uddeim_contentlink_j50\"
 xcopy /e "..\github\uddeIM-github\plug_uddeim_hooks_j50"				"%uddeIM%_j50_unzip1st\plug_uddeim_hooks_j50\"
 xcopy /e "..\github\uddeIM-github\plug_uddeim_searchbot_j50"			"%uddeIM%_j50_unzip1st\plug_uddeim_searchbot_j50\"
