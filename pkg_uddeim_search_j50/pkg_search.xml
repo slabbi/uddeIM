@@ -2,7 +2,7 @@
 <extension type="package" version="4.0" method="upgrade">
 	<name>pkg_search</name>
 	<packagename>search</packagename>
-	<creationDate>2023-06-21</creationDate>
+	<creationDate>2024-06-21</creationDate>
 	<packager>Joomla! Project</packager>
 	<copyright>(C) 2005 - 2023 Open Source Matters. All rights reserved.</copyright>
 	<packageremail>admin@joomla.org</packageremail>
@@ -10,7 +10,7 @@
 	<author>Joomla! Project</author>
 	<authorEmail>admin@joomla.org</authorEmail>
 	<authorUrl>www.joomla.org</authorUrl>
-	<version>4.1.0</version>
+	<version>5.1.0</version>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<scriptfile>script.php</scriptfile>
 	<description>PKG_SEARCH_XML_DESCRIPTION</description>
