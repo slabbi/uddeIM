@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="1.6.0" client="site" method="upgrade">
 	<name>uddeIM Notifier</name>
-	<creationDate>2017-10-01</creationDate>
+	<creationDate>2024-10-01</creationDate>
 	<author>Stephan Slabihoud</author>
 	<copyright>Stephan Slabihoud. This is free software and you may redistribute it under the GPL. uddeIM comes with absolutely no warranty. For details, see the license at http://www.gnu.org/licenses/gpl.txt.</copyright>
 	<license>GNU/GPL version 2</license>
 	<authorEmail>ssl@gmx.de</authorEmail>
 	<authorUrl>http://www.slabihoud.de/software/</authorUrl>
-	<version>5.1</version>
+	<version>5.6</version>
 	<description>uddeIM Notifier module</description>
 	<files>
       <filename module="mod_uddeim">mod_uddeim.php</filename>
