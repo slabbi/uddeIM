@@ -10,7 +10,7 @@
 	<author>Joomla! Project</author>
 	<authorEmail>admin@joomla.org</authorEmail>
 	<authorUrl>www.joomla.org</authorUrl>
-	<version>5.1.0</version>
+	<version>5.1</version>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<scriptfile>script.php</scriptfile>
 	<description>PKG_SEARCH_XML_DESCRIPTION</description>
