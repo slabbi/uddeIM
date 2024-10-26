@@ -7,7 +7,7 @@
     <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
     <authorEmail>ssl@gmx.de</authorEmail>
     <authorUrl>https://github.com/slabbi/uddeIM</authorUrl>
-    <version>5.6.1</version>
+    <version>5.6.2</version>
     <description>uddeIM Instant Messages for Joomla_5</description>
 	<files folder="site">
 		<folder>views</folder>
@@ -63,7 +63,7 @@
 		<menu img="class:uddeim-menuicon">COM_UDDEIM_MENU</menu>
         <submenu>
             <menu link="option=com_uddeim">UddeIM Config</menu>
-            <menu link="option=com_modules&amp;view=modules&amp;filter_module=0&amp;filter_search=uddeim&amp;client_id=0">UddeIM Modules</menu>
+            <menu link="option=com_modules&amp;view=modules&amp;filter[module]=0&amp;filter[search]=uddeim&amp;client_id=0">UddeIM Modules</menu>
         </submenu>
 		<files folder="admin">
 			<folder>sql</folder>
