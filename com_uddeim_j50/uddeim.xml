@@ -64,7 +64,7 @@
         <submenu>
             <menu link="option=com_uddeim">UddeIM Config</menu>
             <menu link="option=com_modules&amp;view=modules&amp;filter[module]=0&amp;filter[search]=uddeim&amp;client_id=0">UddeIM Modules</menu>
-	<!-- j5only <menu link="option=com_modules&amp;view=modules&amp;filter_module=0&amp;filter_search=uddeim&amp;client_id=0">UddeIM Modules</menu>-->
+	<!-- j5.0only <menu link="option=com_modules&amp;view=modules&amp;filter_module=0&amp;filter_search=uddeim&amp;client_id=0">UddeIM Modules</menu>-->
         </submenu>
 		<files folder="admin">
 			<folder>sql</folder>
