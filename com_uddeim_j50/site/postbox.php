@@ -809,9 +809,11 @@ if (0) {
 
 	// write the inbox navigation links
 	$pageNav = new uddeIMmosPageNav($totalpostbox, $limitstart, $limit);
-	$referlink = "index.php?option=com_uddeim&task=postboxuser&Itemid=".$item_id."&recip=".$userid;
+	$referlink = "index.php?option=com_uddeim&task=postboxuser&recip=".$userid."&Itemid=".$item_id;
 	if ($totalpostbox>$limit) {
 		$shownav = $pageNav->writePagesLinks($referlink);
+		//couldn't find where/why the recip is cut out, so we have to injet it again
+        $shownav = str_replace("postboxuser","postboxuser&recip=".$userid,$shownav);
 		$shownav = uddeIMarrowReplace($shownav, $config->templatedir);
 		echo "<div id='uddeim-pagenav'>".$shownav."<br />";
 		echo "<a class='btn btn-sm btn-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postboxuser&Itemid=".$item_id."&recip=".$userid."&limitstart=0&limit=".$totalpostbox)."'>"._UDDEIM_SHOWALL."</a>";
