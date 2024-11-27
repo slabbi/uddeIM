@@ -15,7 +15,7 @@
 //                Other licenses may be found in LICENSES folder.
 //                Redistributing this file is only allowed when keeping the header unchanged.
 // ********************************************************************************************
-// version 5.4.4
+// version 5.6.1
 // ***************************************************************************
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
