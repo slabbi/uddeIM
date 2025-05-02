@@ -19,7 +19,7 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 // v6: 	function sendNewSysMessage($fromid, $recipients, $message, $systemmsg=0, $validfor=0, $sendnotification=0, $forceembedded=0, $onerecipient=0)
-//			new parameter "$onerecipient", used when $recipients=="one"
+//			new parameter "$onerecipient", used when $recipients=="one" 
 
 $uddeim_isadmin = 0;
 if ( defined( 'JPATH_ADMINISTRATOR' ) ) {
