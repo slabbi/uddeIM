@@ -18,6 +18,9 @@
 
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
+// v6: 	function sendNewSysMessage($fromid, $recipients, $message, $systemmsg=0, $validfor=0, $sendnotification=0, $forceembedded=0, $onerecipient=0)
+//			new parameter "$onerecipient", used when $recipients=="one"
+
 $uddeim_isadmin = 0;
 if ( defined( 'JPATH_ADMINISTRATOR' ) ) {
 	require_once(JPATH_SITE.'/components/com_uddeim/uddeimlib50.php');
@@ -50,7 +53,7 @@ class uddeIMAPI {
 	}
 
 	function version() {
-		return 5;
+		return 6;
 	}
 
 	function mainVersion() {
@@ -274,7 +277,7 @@ class uddeIMAPI {
 	}
 
 		
-	function sendNewSysMessage($fromid, $recipients, $message, $systemmsg=0, $validfor=0, $sendnotification=0, $forceembedded=0) {
+	function sendNewSysMessage($fromid, $recipients, $message, $systemmsg=0, $validfor=0, $sendnotification=0, $forceembedded=0, $onerecipient=0) {
 		$database = uddeIMgetDatabase();
 
 		if ($systemmsg) {		// system message
@@ -307,6 +310,8 @@ class uddeIMAPI {
 		if (uddeIMcheckJversion()>=2) {		// J1.6
 			if ($recipients=="all") {
 				$sql="SELECT id FROM `#__users` WHERE block=0";
+			} elseif ($recipients=="one") {
+				$sql="SELECT id FROM `#__users` WHERE u.id=".(int)$onerecipient;	// hack to select one user only with the same ID
 			} elseif($recipients=="online") {
 				$sql="SELECT a.id, b.userid FROM `#__users` AS a, `#__session` AS b WHERE block=0 AND a.id=b.userid";
 			} elseif($recipients=="special") {
@@ -325,6 +330,8 @@ class uddeIMAPI {
 		} else {
 			if ($recipients=="all") {
 				$sql="SELECT id FROM `#__users` WHERE block=0";
+			} elseif ($recipients=="one") {
+				$sql="SELECT id FROM `#__users` WHERE u.id=".(int)$onerecipient;	// hack to select one user only with the same ID
 			} elseif($recipients=="online") {
 				$sql="SELECT a.id, b.userid FROM `#__users` AS a, `#__session` AS b WHERE block=0 AND a.id=b.userid";
 			} elseif($recipients=="special") {
