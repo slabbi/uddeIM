@@ -32,18 +32,30 @@ DEFINE ('_UDDEADM_CFGFILE_CONVERTING_16', '...установка дополни�
 
 // New: 3.6
 DEFINE ('_UDDEIM_KUNENA_LINK', 'Форум');
-DEFINE ('_UE_PM_USER', 'Отправить личное сообщение');
-DEFINE ('_UE_MENU_PM_USER_DESC', 'Отправить личное сообщение этому пользователю');
-DEFINE ('_UE_PM_INBOX', 'Показать входящие личные сообщения');
-DEFINE ('_UE_MENU_PM_INBOX_DESC', 'Показать полученные личные сообщения');
-DEFINE ('_UE_PM_OUTBOX', 'Показать исходящие личные сообщения');
-DEFINE ('_UE_MENU_PM_OUTBOX_DESC', 'Показать исходящие личные сообщения');
-DEFINE ('_UE_PM_TRASHBOX', 'Показать корзину');
-DEFINE ('_UE_MENU_PM_TRASHBOX_DESC', 'Показать личные сообщения в корзине');
-DEFINE ('_UE_PM_OPTIONS', 'Показать настройки СЛС');
-DEFINE ('_UE_MENU_PM_OPTIONS_DESC', 'Показать настройки СЛС');
-DEFINE ('_UE_PM_SENDMESSAGE', 'Сообщение отправлено');
-DEFINE ('_UE_PMSTAB', 'Отправить сообщение');
+DEFINE ('_UDDEIM_PM_USER', 'Отправить личное сообщение');
+DEFINE ('_UDDEIM_PM_USER_DESC', 'Отправить личное сообщение этому пользователю');
+DEFINE ('_UDDEIM_PM_INBOX', 'Показать входящие личные сообщения');
+DEFINE ('_UDDEIM_PM_INBOX_DESC', 'Показать полученные личные сообщения');
+DEFINE ('_UDDEIM_OUTBOX', 'Показать исходящие личные сообщения');
+DEFINE ('_UDDEIM_PM_OUTBOX_DESC', 'Показать исходящие личные сообщения');
+DEFINE ('_UDDEIM_PM_TRASHBOX', 'Показать корзину');
+DEFINE ('_UDDEIM_MENU_PM_TRASHBOX_DESC', 'Показать личные сообщения в корзине');
+DEFINE ('_UDDEIM_PM_OPTIONS', 'Показать настройки СЛС');
+DEFINE ('_UDDEIM_MENU_PM_OPTIONS_DESC', 'Показать настройки СЛС');
+DEFINE ('_UDDEIM_PM_ARCHIVE', 'Show private Archive');
+DEFINE ('_UDDEIM_PM_ARCHIVE_DESC', 'Show archived private messages');
+DEFINE ('_UDDEIM_PM_SENDMESSAGE', 'Сообщение отправлено');
+DEFINE ('_UDDEIM_PM_STAB', 'Отправить сообщение');
+DEFINE ('_UDDEIM_PM_PROFILEMSG', 'Quick message');
+DEFINE ('_UDDEIM_PM_SENTSUCCESS', 'Successfully sent.');
+DEFINE ('_UDDEIM_PM_SESSIONTIMEOUT', 'Session timeout.');
+DEFINE ('_UDDEIM_PM_NOTSENT', 'Message not sent.');
+DEFINE ('_UDDEIM_PM_TRYAGAIN', 'Try again.');
+DEFINE ('_UDDEIM_PM_EMPTYMESSAGE', 'Empty message.');
+DEFINE ('_UDDEIM_PM_EMAILFORMSUBJECT', 'Subject');
+DEFINE ('_UDDEIM_PM_EMAILFORMMESSAGE', 'Message');
+DEFINE ('_UDDEIM_PM_TABINBOX', 'Inbox');
+DEFINE ('_UDDEIM_PM_PMSLINK', 'Private Messaging');
 
 // New: 3.5
 DEFINE ('_UDDEADM_GROUPSADMIN_HEAD', 'Дополнительные группы администраторов');
