@@ -915,7 +915,7 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 		}
 
 		// now check group blocking
-		if (uddeIMisReggedOnly($my_gid)) {	// I am a registered user, so check if I am allowed to send to this group
+		 if (uddeIMisReggedOnly($my_gid) && !uddeIMisAdmin($my_gid)) {	// I am a registered user, so check if I am allowed to send to this group
 			$is_group_blocked = uddeIMisRecipientBlockedReg($myself, $to_id, $config);
 			if ($is_group_blocked) {
 				if (substr($to_name,0,1)!="(") {
