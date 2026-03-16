@@ -295,8 +295,8 @@ function uddeIMshowInbox($myself, $item_id, $limit, $limitstart, $cryptpass, $co
 	if ($totalinbox>$limit) {
 		$shownav = $pageNav->writePagesLinks($referlink);
 		$shownav = uddeIMarrowReplace($shownav, $config->templatedir);
-		echo "<div id='uddeim-pagenav'>".$shownav."<br />";
-		echo "<a class='btn btn-sm btn-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=inbox&Itemid=".$item_id."&limitstart=0&limit=".$totalinbox.$addlink.$addlink2)."'>"._UDDEIM_SHOWALL."</a>";
+		echo "<div id='uddeim-pagenav'>".$shownav;
+		echo "<a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=inbox&Itemid=".$item_id."&limitstart=0&limit=".$totalinbox.$addlink.$addlink2)."'>"._UDDEIM_SHOWALL."</a>";
 		echo "</div>\n";
 	} else {
 		echo "<div id='uddeim-pagenav'></div>\n";
