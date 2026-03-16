@@ -1,6 +1,10 @@
 /* *******************************************************************
 /* monoblue css, by mono, changed by benjamin
 /* ******************************************************************* */
+/*test*/
+#uddeim-pagenav nav {display:inline-block;}
+#uddeim-pagenav a.btn {margin: -4px 0 0 30px;}
+#uddeim-bottomborder {padding: 8px 5px;box-shadow: 0px 0px 5px 1px silver;margin-top: 25px;}
 /*new 5.4 */
 .uddeim-messagefrom .btn-sm{
     line-height: 10px;
