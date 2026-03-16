@@ -199,8 +199,8 @@ function uddeIMshowTrashCan($myself, $item_id, $limit, $limitstart, $cryptpass, 
 	if($total>$limit) {
 		$shownav = $pageNav->writePagesLinks($referlink);
 		$shownav = uddeIMarrowReplace($shownav, $config->templatedir, $pathtouser);
-		echo "<div id='uddeim-pagenav'>".$shownav."<br />";
-		echo "<a class='btn btn-sm btn-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=trashcan&Itemid=".$item_id."&limitstart=0&limit=".$total)."'>"._UDDEIM_SHOWALL."</a>";
+		echo "<div id='uddeim-pagenav'>".$shownav;
+		echo "<a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=trashcan&Itemid=".$item_id."&limitstart=0&limit=".$total)."'>"._UDDEIM_SHOWALL."</a>";
 		echo "</div>\n";
 	}
 
