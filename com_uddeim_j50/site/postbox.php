@@ -346,8 +346,8 @@ function uddeIMshowPostbox($myself, $item_id, $limit, $limitstart, $cryptpass, $
 	if ($totalpostbox>$limit) {
 		$shownav = $pageNav->writePagesLinks($referlink);
 		$shownav = uddeIMarrowReplace($shownav, $config->templatedir);
-		echo "<div id='uddeim-pagenav'>".$shownav."<br />";
-		echo "<a class='btn btn-sm btn-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postbox&Itemid=".$item_id."&limitstart=0&limit=".$totalpostbox.$addlink.$addlink2)."'>"._UDDEIM_SHOWALL."</a>";
+		echo "<div id='uddeim-pagenav'>".$shownav;
+		echo "<a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postbox&Itemid=".$item_id."&limitstart=0&limit=".$totalpostbox.$addlink.$addlink2)."'>"._UDDEIM_SHOWALL."</a>";
 		echo "</div>\n";
 	}
 
@@ -815,8 +815,8 @@ if (0) {
 		//couldn't find where/why the recip is cut out, so we have to injet it again
         $shownav = str_replace("postboxuser","postboxuser&recip=".$userid,$shownav);
 		$shownav = uddeIMarrowReplace($shownav, $config->templatedir);
-		echo "<div id='uddeim-pagenav'>".$shownav."<br />";
-		echo "<a class='btn btn-sm btn-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postboxuser&Itemid=".$item_id."&recip=".$userid."&limitstart=0&limit=".$totalpostbox)."'>"._UDDEIM_SHOWALL."</a>";
+		echo "<div id='uddeim-pagenav'>".$shownav;
+		echo "<a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=postboxuser&Itemid=".$item_id."&recip=".$userid."&limitstart=0&limit=".$totalpostbox)."'>"._UDDEIM_SHOWALL."</a>";
 		echo "</div>\n";
 	}
 
