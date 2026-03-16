@@ -753,15 +753,15 @@ function uddeIMcontentBottomborder($myself, $item_id, $uddemenucontent, $message
 				$showsettings = 1;
 		}
 		if ($showsettings) {
-			$zurueck="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=settings&Itemid=".$item_id)."'>"._UDDEIM_SETTINGS."</a> ";
+			$zurueck="<a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=settings&Itemid=".$item_id)."'>"._UDDEIM_SETTINGS."</a> ";
 		}
 	}
 
 	if($config->showabout && $uddemenucontent!="about") {
-		$zurueck.="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=about&Itemid=".$item_id)."'>"._UDDEIM_ABOUT."</a> ";
+		$zurueck.="<a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=about&Itemid=".$item_id)."'>"._UDDEIM_ABOUT."</a> ";
 	}
 	if($config->showhelp && $uddemenucontent!="help") {
-		$zurueck.="<a href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=help&Itemid=".$item_id)."'>"._UDDEIM_HELP."</a> ";
+		$zurueck.="<a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=help&Itemid=".$item_id)."'>"._UDDEIM_HELP."</a> ";
 	}
 
 	// BUGBUG this is displayed when $config->showinboxlimit is enabled: Planned for future:
