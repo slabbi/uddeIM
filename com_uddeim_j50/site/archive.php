@@ -280,8 +280,8 @@ function uddeIMarchive($myself, $item_id, $limit, $limitstart, $cryptpass, $conf
 	if ($totalarchive>$limit) {
 		$shownav = $pageNav->writePagesLinks($referlink);
 		$shownav = uddeIMarrowReplace($shownav, $config->templatedir);
-		echo "<div id='uddeim-pagenav'>".$shownav."<br />";
-		echo "<a class='btn btn-sm btn-info' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=archive&Itemid=".$item_id."&limitstart=0&limit=".$totalarchive.$addlink.$addlink2)."'>"._UDDEIM_SHOWALL."</a>";
+		echo "<div id='uddeim-pagenav'>".$shownav;
+		echo "<a class='btn' href='".uddeIMsefRelToAbs("index.php?option=com_uddeim&task=archive&Itemid=".$item_id."&limitstart=0&limit=".$totalarchive.$addlink.$addlink2)."'>"._UDDEIM_SHOWALL."</a>";
 		echo "</div>\n";
 	}
 
