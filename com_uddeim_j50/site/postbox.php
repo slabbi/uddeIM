@@ -653,6 +653,8 @@ function uddeIMshowPostboxUser($myself, $userid, $item_id, $limit, $limitstart, 
 		$teasermessage=uddeIMteaser(stripslashes($teasermessage ?? ''), $config->firstwordsinbox, $config->quotedivider, $config->languagecharset);
 		$teasermessage=htmlspecialchars($teasermessage, ENT_QUOTES, $config->charset);
 		$teasermessage=str_replace("&amp;#", "&#", $teasermessage);
+		$teasermessage=str_replace("&#60;", "", $teasermessage);	// filter "<"
+		$teasermessage=str_replace("&#62;", "", $teasermessage);	// filter ">"
 		$teasermessage=str_replace("&amp;&lt;/br&gt;", " ", $teasermessage);
 
 		$safemessage=htmlspecialchars(stripslashes($cm ?? ''), ENT_QUOTES, $config->charset);
