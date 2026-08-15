@@ -1451,11 +1451,12 @@ function uddeIMtoPublicSaveMessage($myself, $pmessage, $tobedeleted, $tobedelete
 	if ($config->maxlength>0)		// because if 0 do not use any maxlength
 		$savemessage=uddeIM_utf8_substr($config->languagecharset, $savemessage, 0, $config->maxlength);
 
+	// maybe its an reply to a message from a public user - https://github.com/slabbi/uddeIM/issues/128
+	$replyid = $messageid;
+
 	uddeIMemit("onSavePublicMessage", Array( "fromid" => $myself, "toid" => $savetoid, "replyid" => $replyid ) );
 	// we have all we need, now save it
 	// CRYPT
-	// maybe its an reply to a message from a public user
-	$replyid = $messageid;
 	$fromname=addslashes(strip_tags($var_toname));
 	$fromemail=addslashes(strip_tags($var_tomail));
 	if ($config->cryptmode==1) {

@@ -33,6 +33,7 @@ require_once( uddeIMgetPath('admin')."/admin.shared.php" );
 require_once( uddeIMgetPath('user') ."/includes.php" );
 require_once( uddeIMgetPath('user') ."/includes.db.php" );
 require_once( uddeIMgetPath('user') ."/crypt.class.php" );
+require_once( uddeIMgetPath('user') ."/attachment.php" );			// https://github.com/slabbi/uddeIM/issues/133 Issue 2
 
 class uddeIMAPI {
   
@@ -157,12 +158,13 @@ class uddeIMAPI {
 	}
 	
 	function sendNewMessageDelayed($fromid, $toid, $message, $sendnotification=0, $updatelastsent=0) {
-		$messageid = sendNewMessage($fromid, $toid, $message, $sendnotification, $updatelastsent);
+		$messageid = $this->sendNewMessage($fromid, $toid, $message, $sendnotification, $updatelastsent);		// https://github.com/slabbi/uddeIM/issues/130
 		uddeIMupdateDelayed($fromid, $messageid, 1);
 		return $messageid;
 	}
 	
 	function sendNewMessage($fromid, $toid, $message, $sendnotification=0, $updatelastsent=0) {
+		$item_id = (int) uddeIMgetItemid($this->config);		// https://github.com/slabbi/uddeIM/issues/134
 
 		if ($this->config->cryptmode>=1)
 			$savemessage = strip_tags($message);
@@ -197,7 +199,7 @@ class uddeIMAPI {
 		// ##################################################################################################
 		if ($this->config->autoforward==1 || 
 		   ($this->config->autoforward==2 && (uddeIMisAdmin($gid)   || uddeIMisAdmin2($gid, $this->config))) ||
-		   ($this->config->autoforward==3 && (uddeIMisSpecial($gid) || uddeIMisSpecial2($my_gid, $this->config))) ) {
+		   ($this->config->autoforward==3 && (uddeIMisSpecial($gid) || uddeIMisSpecial2($gid, $this->config))) ) {			// https://github.com/slabbi/uddeIM/issues/135
 			$ison = uddeIMgetEMNautoforward($toid);						// recipient has autoforward enabled
 			if ($ison==1) {
 				$autoforwardid = uddeIMgetEMNautoforwardid($toid);	// new recipient
@@ -265,7 +267,7 @@ class uddeIMAPI {
 		$uploadfile_original[] = $originalname;
 		$uploadfile_id[] = $id;
 		$uploadfile_size[] = filesize($file);
-		$savedatum = uddetime($config->timezone);
+		$savedatum = uddetime($this->config->timezone);			// https://github.com/slabbi/uddeIM/issues/133 Issue 1
 		uddeIMsaveAttachments($messageID, $uploadfile_temppathname, $uploadfile_original, $uploadfile_id, $uploadfile_size, $savedatum, NULL);
 	}
 
@@ -279,6 +281,7 @@ class uddeIMAPI {
 		
 	function sendNewSysMessage($fromid, $recipients, $message, $systemmsg=0, $validfor=0, $sendnotification=0, $forceembedded=0, $onerecipient=0) {
 		$database = uddeIMgetDatabase();
+		$item_id = (int) uddeIMgetItemid($this->config);		// https://github.com/slabbi/uddeIM/issues/131
 
 		if ($systemmsg) {		// system message
 			$sendername = $this->config->sysm_username;
@@ -306,12 +309,12 @@ class uddeIMAPI {
 			$savemessage = addslashes(strip_tags($message));   // original 0.6+
 		}
 
-		getAdditonalGroups($add_special, $add_admin, $config);
+		getAdditonalGroups($add_special, $add_admin, $this->$config);		// https://github.com/slabbi/uddeIM/issues/132 Issue 1
 		if (uddeIMcheckJversion()>=2) {		// J1.6
 			if ($recipients=="all") {
 				$sql="SELECT id FROM `#__users` WHERE block=0";
 			} elseif ($recipients=="one") {
-				$sql="SELECT id FROM `#__users` WHERE u.id=".(int)$onerecipient;	// hack to select one user only with the same ID
+				$sql="SELECT id FROM `#__users` WHERE id=".(int)$onerecipient;	// hack to select one user only with the same ID - https://github.com/slabbi/uddeIM/issues/132 Issue 2
 			} elseif($recipients=="online") {
 				$sql="SELECT a.id, b.userid FROM `#__users` AS a, `#__session` AS b WHERE block=0 AND a.id=b.userid";
 			} elseif($recipients=="special") {
