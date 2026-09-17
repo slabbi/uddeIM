@@ -58,7 +58,7 @@ class com_uddeimInstallerScript extends \stdClass
 
         if ( $type=='update' ) {
         //save old config
-        rename(JPATH_SITE.'/administrator/components/com_uddeim/config.class.php',JPATH_SITE.'/administrator/components/com_uddeim/config.class_bak.php');
+        copy(JPATH_SITE.'/administrator/components/com_uddeim/config.class.php',JPATH_SITE.'/administrator/components/com_uddeim/config.class_bak.php');
             $oldRelease = $this->getParam('version');
             $rel = $oldRelease . ' to ' . $this->release;
             if ( version_compare( $this->release, $oldRelease, 'lt' ) ) {		// lt/le
