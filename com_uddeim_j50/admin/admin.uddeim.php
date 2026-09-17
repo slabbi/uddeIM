@@ -2967,9 +2967,10 @@ function uddeIMversioncheck($option, $task, $checkversion, $checkhotfix) {
 	echo "<div style='text-align:left'>";
 	echo "<p><b>"._UDDEADM_VERSIONCHECK."</b></p>";
 
-	$premium = "";
-
-	if (uddeIMcheckVersionPlugin('postbox'))
+	$premium = "1";
+	
+//included since version 5
+/*	if (uddeIMcheckVersionPlugin('postbox'))
 		$premium .= "1";
 	else
 		$premium .= "0";
@@ -2998,10 +2999,12 @@ function uddeIMversioncheck($option, $task, $checkversion, $checkhotfix) {
 		$premium .= "1";
 	else
 		$premium .= "0";
-
+*/
+	
 	$admin = uddeIMgetMailFrom();
 	$parm = "?ver=".$current_major.".".$current_minor."&hotfix=".$current_hotfix."&premium=".$premium."&admin=".urlencode($admin)."&site=".urlencode($live_site);
-	$handle = @fopen("http://www.slabihoud.de/checkuddeimupdate.php".$parm, "rb");
+	//$handle = @fopen("http://www.slabihoud.de/checkuddeimupdate.php".$parm, "rb");
+	$handle = "";
 	if ($handle) {
 		$version_info = "";
 		while (!feof($handle))
@@ -3061,7 +3064,7 @@ function uddeIMversioncheck($option, $task, $checkversion, $checkhotfix) {
 			echo implode("&nbsp;|&nbsp;", $bar)."</p>";
 		}
 	} else {
-   		echo "<b><span style='color: red;'>"._UDDEADM_VERSIONCHECK_ERROR." $configdatei</span></b>";
+   		echo "<b><span style='color: red;'>"._UDDEADM_VERSIONCHECK_ERROR."</span></b>";
     }
 	echo "<p><b><a href=".uddeIMredirectIndex()."?option=com_uddeim>"._UDDEADM_CONTINUE."</a></b></p>";
 	echo "</div>";
