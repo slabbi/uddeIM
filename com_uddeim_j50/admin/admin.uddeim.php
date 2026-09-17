@@ -2733,7 +2733,7 @@ function uddeIMconvertConfiguration($option, $task, $pathtoadmin, $expectedversi
         $config->autocompletestart = $config->autocompletestart ?? 1;           //and autocompletestart
         $config->saveconfigdb = 0;  //new setting to always backup config
         $config->allowurltext = 0; //new setting to allow text in compose link
-        $config->version=="2.9";
+        $config->version ="2.9";
         //uddeIMsaveConfig($pathtoadmin, $config);
         //uddeIMsaveSettings($option, $task, $pathtoadmin, $config)
         //uddeIMbackupRestoreConfig($option, $task, 'backup', $pathtoadmin, $config, true); //true means: "during save, no redirect"
@@ -2742,7 +2742,7 @@ function uddeIMconvertConfiguration($option, $task, $pathtoadmin, $expectedversi
         echo _UDDEADM_CFGFILE_CONVERTING_19."<br />";
        uddeIMsaveConfig($pathtoadmin, $config, $bak = '_2.8');
        $config->allowurltext = 0; //new setting to allow text in compose link
-       $config->version=="2.9";
+       $config->version ="2.9";
     }
 
 	echo "</p>";
