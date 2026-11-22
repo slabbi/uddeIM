@@ -132,7 +132,12 @@ function uddeIMsendmail($fromname, $frommail, $toname, $tomail, $subject, $messa
 	$header .= $addheaders;
 
 	if ($config->mailsystem==1) {			// mosMail
-		$ret = uddeIMmosMail($frommail, $fromname, $tomail, $subject, $message, false, NULL, NULL, NULL, $replyto, NULL);
+		try {
+			$ret = uddeIMmosMail($frommail, $fromname, $tomail, $subject, $message, false, NULL, NULL, NULL, $replyto, NULL);
+		} catch (\Exception $e) {
+			// Notification failure must not abort a successfully stored internal message.
+			$ret = false;
+		}
 	} else {								//php mail
 		if ($replyto)
 			$header .= "Reply-To: ".$replyto."\n";
@@ -909,7 +914,7 @@ function uddeIMdispatchEMN($var_msgid, $item_id, $cryptmode, $var_fromid, $var_t
         return $mailphp.$lasterror;
 	}
     else {
-        $mailphp.$lasterror;
+        return $mailphp; // Propagate failure status to the message sender UI.
         }
 }
 
