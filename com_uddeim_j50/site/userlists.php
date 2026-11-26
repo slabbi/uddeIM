@@ -335,7 +335,7 @@ function uddeIMselectComboSelectionlist($myself, $my_gid, $lids, $config) {
         name="selectionlist[]"
         class="inputbox form-select"
         style="background-color:ghostwhite;min-width:12em"
-        ondblclick="moveSelectedOptions(\'selectionlist\', \'userlist\')"
+        ondblclick="userlistdblclick( this, \'listsform\', \'selectionlist\', \'userlist\', '.$config->maxonlists.' )"
         size="10">';
 
     // FIX: Left box shows users NOT in the list (the available pool)
@@ -403,7 +403,7 @@ function uddeIMselectComboUserlist($myself, $my_gid, $lids, $config) {
         name="userlist[]"
         class="inputbox form-select" 
 		style="background-color:ivory;min-width:12em" 
-        ondblclick="moveSelectedOptions(\'userlist\', \'selectionlist\')"
+        ondblclick="selectionlistdblclick( this, \'listsform\', \'userlist\', \'selectionlist\', '.$config->maxonlists.' )"
         size="10">';
 
     if ($users) {
