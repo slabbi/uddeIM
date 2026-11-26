@@ -12,6 +12,14 @@
     font-size: .9em;
     margin: -45px 5px 0 0;
 }
+ #uddeim-bottomborder .btn {
+    background: none;
+    border: none;
+    padding: 0 10px 5px 10px;
+    margin: 0;
+    text-shadow: none;
+    font-size: .9em;
+}
 .uddeim-replyquote {
     font-size: 0.9em;
     font-style: italic;
