@@ -1370,6 +1370,8 @@ function uddeIMreplaceListsWithNames(&$thelist, $myself, $config) {
 		return 0;	// error
 
 	foreach ($objs as $key => $obj) {
+		$obj = trim($obj);                 //remove any leading whitespace
+        $objs[$key] = $obj;
 		if (substr($obj,0,1)=="#") {				// its a list
 			$listname = substr($obj,1);				// remove leading "#"
 			// also show global lists
