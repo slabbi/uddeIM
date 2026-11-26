@@ -278,7 +278,7 @@ li.menu-inbox img[src$="postbox.gif"] {
   border-top: 1px solid #2e333b;
 }
 
-#uddeim #uddeim-overview table th a {
+#uddeim #uddeim-overview table th a:not(:hover) {
   color: #fff;
 }
 
@@ -648,7 +648,10 @@ li.menu-inbox img[src$="postbox.gif"] {
 
 #uddeim #uddeim-bottomborder a {
   display: inline-block;
-  color: gainsboro;
+  color: #88898e;
+  background: #222;
+  border-color: #4b5258;
+  text-shadow: none;
   padding-right: 15px;
 }
 
