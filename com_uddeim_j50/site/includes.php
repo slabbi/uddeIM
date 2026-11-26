@@ -771,7 +771,8 @@ function uddeIMcontentBottomborder($myself, $item_id, $uddemenucontent, $message
 
 	// BUGBUG this is displayed when $config->showinboxlimit is enabled: Planned for future:
 	// New setting: "Show inbox/archive statusline" and $config->showinboxlimit should display a percent bar at the top in "uddeim-toplines"
-	if($messagetotal && $messagetotal!='none' && $config->showinboxlimit) {
+	 //new  show userlist limit
+	if($messagetotal && $messagetotal!='none' && ($config->showinboxlimit || $uddemenucontent == 'userlist')) {
 		$zurueck.="<span class='uddeim-limit-bb'>".$messagetotal."</span>";
 	}
 	return $zurueck;
