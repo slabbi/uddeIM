@@ -21,6 +21,10 @@
 defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'English language file by <a href="http://slabihoud.de/software/" target="_new">uddeIM HQ (Stephan Slabihoud)</a>');	// Enter your credits line here, e.g. 'Translation by <a href="http://domain.com" target="_new">John Doe</a>'
+// New: 5.6.4
+DEFINE ('_UDDEIM_USERLIST_UNAVAILABLE','One or more selected recipients are unavailable.');
+DEFINE ('_UDDEIM_USERLIST_LIMIT','Recipient list exceeds the current maximum of ');
+DEFINE ('_UDDEIM_USERLIST_NOCHANGE',' No changes were saved.');
 // New: 5.6
 DEFINE ('_UDDEADM_ALLOWURLTEXT_HEAD', 'allow text in compose link');
 DEFINE ('_UDDEADM_ALLOWURLTEXT_EXP', 'a compose link may accept predefined text in the link<br>[...&task=new&recip=xxx<b>&pm=</b>some text]');
