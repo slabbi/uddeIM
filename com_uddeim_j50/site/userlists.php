@@ -233,7 +233,7 @@ function uddeIMcreateLists($myself, $item_id, $listid, $limit, $limitstart, $con
 	$temp = _UDDEIM_LISTSLIMIT_2." ".$config->maxonlists;
 	echo "</div>\n";
 	echo "</div>\n";
-	echo "<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'standard', $temp, $config)."</div>\n";
+	echo "<div id='uddeim-bottomborder'>".uddeIMcontentBottomborder($myself, $item_id, 'userlist', $temp, $config)."</div>\n";
 }
 
 function uddeIMsaveLists($myself, $item_id, $listid, $listname, $listdesc, $listids, $listglobal, $config) {
@@ -334,7 +334,7 @@ function uddeIMselectComboSelectionlist($myself, $my_gid, $lids, $config) {
         id="selectionlist"
         name="selectionlist[]"
         class="inputbox form-select"
-        style="background-color:floralwhite;min-width:10em"
+        style="background-color:ghostwhite;min-width:12em"
         ondblclick="moveSelectedOptions(\'selectionlist\', \'userlist\')"
         size="10">';
 
@@ -381,29 +381,28 @@ function uddeIMselectComboUserlist($myself, $my_gid, $lids, $config) {
 
     $database = uddeIMgetDatabase();
 
-    $where = "";
+    $users = "";
 
     // FIX: Right box shows only users IN the list (the selected side)
     if (!empty($lids)) {
-        $where = "AND id IN (" . $lids . ")";
-    }
-
+            
     $query = "
         SELECT id,
         " . ($config->realnames ? "name" : "username") . " AS displayname
         FROM #__users
-        WHERE block = 0
-        $where
+        WHERE block = 0 
+        AND id IN (" . $lids . ") 
         ORDER BY displayname";
 
     $database->setQuery($query);
-
     $users = $database->loadObjectList();
+	}
 
     $ret = '<select multiple="multiple"
         id="userlist"
         name="userlist[]"
-        class="inputbox form-select"
+        class="inputbox form-select" 
+		style="background-color:ivory;min-width:12em" 
         ondblclick="moveSelectedOptions(\'userlist\', \'selectionlist\')"
         size="10">';
 
