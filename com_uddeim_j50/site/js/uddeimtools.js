@@ -89,6 +89,10 @@ function uddeIMaddToSelection( frmName, srcListName, tgtListName, maxOnList ) {
 			tgtList.options[tgtList.length] = opt;
 			srcList.options[i] = null;
 		}
+		else if (tgtList.length>=maxOnList) {
+            alert("maximum of " + maxOnList + " list entries reached");
+            break;
+            }
 	}
 
 	// now remove these entries from the source list
