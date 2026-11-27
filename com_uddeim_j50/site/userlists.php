@@ -264,17 +264,38 @@ function uddeIMsaveLists($myself, $item_id, $listid, $listname, $listdesc, $list
 	// Always default to our manually populated hidden field!
 	$listids = isset($_POST['listids']) ? $_POST['listids'] : '';
 
-	$raw = ($listids !== '') ? explode(',', $listids) : [];
+	//$raw = ($listids !== '') ? explode(',', $listids) : [];
+	$raw = is_string($listids) && $listids !== '' ? explode(',', $listids) : [];
 	$ar_ids2 = [];
-	$cnt = 0;
+	//$cnt = 0;
 	
 	foreach ($raw as $value) {
+		$value = trim($value);
+		if ($value === '' || !ctype_digit($value)) continue;
 		$id = (int)$value;
-		if ($id <= 0) continue;
-		$cnt++;
-		if ($cnt > $config->maxonlists) break;
-		$ar_ids2[] = $id;
+		if ($id > 0 && !in_array($id, $ar_ids2, true)) {
+			$ar_ids2[] = $id;
+		}
+		//if ($id <= 0) continue;
+		//$cnt++;
+		//if ($cnt > $config->maxonlists) break;
+		//$ar_ids2[] = $id;		
 	}
+
+	// Reject an update instead of dropping existing members when maxonlists is lowered BEFORE any database write.
+    if ( count($ar_ids2) > (int)$config->maxonlists) {
+		echo '<div class="alert alert-warning" role="alert">'._UDDEIM_USERLIST_LIMIT.(int)$config->maxonlists._UDDEIM_USERLIST_NOCHANGE.'</div>';
+		return;
+	}
+	// Resolve user IDs against the unblocked Joomla users. An unresolved ID must not be counted as a list member.
+     if ($ar_ids2) {
+		$database->setQuery('SELECT id FROM `#__users` WHERE block = 0 AND id IN (' . implode(',', $ar_ids2) . ')');
+		$eligible_ids = array_map('intval', $database->loadColumn());
+		if (array_diff($ar_ids2, $eligible_ids)) {
+			echo '<div class="alert alert-warning" role="alert">'._UDDEIM_USERLIST_UNAVAILABLE._UDDEIM_USERLIST_NOCHANGE.'</div>';
+			return;
+		}
+ 	}
 
 	if (!uddeIMisAdmin($my_gid) && !uddeIMisAdmin2($my_gid, $config) &&
 		(($config->restrictcon==1 && uddeIMisReggedOnly($my_gid)) ||
