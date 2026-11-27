@@ -840,6 +840,27 @@ function uddeIMsaveMessage($myself, $to_name, $to_id, $pmessage, $tobedeleted, $
 	else
 		$anames = explode(",", $to_name);
 
+	// Deduplicate by the resolved Joomla user ID, not by a display-name string.
+	// A list recipient may also have been entered explicitly as a second name.
+	// Preserve unresolved names so the existing recipient error is still shown.
+	$uniqueNames = array();
+	$seenRecipientIDs = array();
+	foreach ($anames as $nameCandidate) {
+		$nameCandidateTrimmed = trim($nameCandidate);
+		if ($nameCandidateTrimmed !== '') {
+			$foundRecipientID = uddeIMgetIDfromName($nameCandidateTrimmed, $config, true);
+			if (!$foundRecipientID && $config->realnames)
+				$foundRecipientID = uddeIMgetIDfromUsername($nameCandidateTrimmed, true);
+			if ($foundRecipientID) {
+				if (isset($seenRecipientIDs[(int)$foundRecipientID]))
+					continue;
+				$seenRecipientIDs[(int)$foundRecipientID] = true;
+			}
+		}
+		$uniqueNames[] = $nameCandidate;
+	}
+	$anames = $uniqueNames;
+
 	// expand always, so the next condition may be fulfilled
 	if( ( $config->allowmultiplerecipients && count($anames)>$config->maxrecipients && $config->maxrecipients>0) ||
 		(!$config->allowmultiplerecipients && count($anames)>1)	) { // too many recipients
