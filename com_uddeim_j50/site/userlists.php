@@ -455,7 +455,7 @@ function uddeIMdeleteListsMultiple($myself, $item_id, $arcmes, $limit, $limitsta
 	$lg = 0;
 	if (uddeIMisAdmin($my_gid) || uddeIMisAdmin2($my_gid, $config)) { $lg = true; }
 
-	$n = count($arcmes);
+	$n = is_array($arcmes) ? count($arcmes) : 0;
 	if (!$n) {
 		echo _UDDEIM_NOLISTSELECTED."<br /><a href='javascript:history.go(-1)'>"._UDDEIM_BACK."</a>";
 		return;
