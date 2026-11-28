@@ -1,5 +1,6 @@
 <?php
 // New: 5.6.4
+DEFINE ('_UDDEIM_LISTSLIMIT_3', 'The maximum of list entries has been exceeded: max.');
 DEFINE ('_UDDEIM_USERLIST_UNAVAILABLE','One or more selected recipients are unavailable.');
 DEFINE ('_UDDEIM_USERLIST_LIMIT','Recipient list exceeds the current maximum of ');
 DEFINE ('_UDDEIM_USERLIST_NOCHANGE',' - No changes were saved.');
