@@ -190,7 +190,7 @@ function uddeIMcreateLists($myself, $item_id, $listid, $limit, $limitstart, $con
 	if ($lids) { $total = substr_count($lids, ",")+1; }
 	$limmessage = "";
 	if ($total>=$config->maxonlists) {
-	    $limmessage = $total>$config->maxonlists ? _UDDEIM_LISTSLIMIT_3.$config->maxonlists."!"
+	    $limmessage = $total>$config->maxonlists ? _UDDEIM_LISTSLIMIT_3.$config->maxonlists."!"._UDDEIM_LISTSLIMIT_TRUNC
                                                  : _UDDEIM_LISTSLIMIT_1.$config->maxonlists.")";
 		echo "<div id='uddeim-toplines'><p>".$limmessage."</p></div>\n";
 	}
