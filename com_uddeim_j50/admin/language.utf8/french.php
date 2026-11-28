@@ -28,7 +28,7 @@ defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Translated by Florent Nouvellon, Jyhelle, Baboon, Sarki pour <a href="http://www.joomlatutos.com/" target="_blank">Joomlatutos.com</a>, xillibit pour <a href="http://www.kunena.org" target="_blank">Kunena</a> et lavsteph pour <a href="http://www.aide-joomla.com/" target="_blank">Aide-Joomla.com</a>');
 // New: 5.6.4
 DEFINE ('_UDDEIM_LISTSLIMIT_TRUNC', ' Certaines entrées seront perdues lors de l\'enregistrement.');
-DEFINE ('_UDDEIM_LISTSLIMIT_3', 'Le nombre maximal d\'entrées dans la liste a été dépassé : max.');
+DEFINE ('_UDDEIM_LISTSLIMIT_3', 'Avertissement: Le nombre maximal d\'entrées dans la liste a été dépassé : max.');
 DEFINE ('_UDDEIM_USERLIST_UNAVAILABLE','Un ou plusieurs destinataires ne sont plus disponibles.');
 DEFINE ('_UDDEIM_USERLIST_LIMIT','La liste des destinataires dépasse le maximum autorisé de ');
 DEFINE ('_UDDEIM_USERLIST_NOCHANGE',' Les modifications n\'ont PAS été enregistrées.');
