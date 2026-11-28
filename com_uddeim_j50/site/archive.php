@@ -470,7 +470,10 @@ function uddeIMarchiveDownload($myself, $item_id, $arcmes, $limit, $limitstart, 
 	$var_fromname = $config->emn_sendername;
 	$var_frommail = $config->emn_sendermail;
 
-	if(uddeIMsendmail($var_fromname, $var_frommail, $var_toname, $var_tomail, $subject, $exportstring, $var_frommail, "", "", $config)) {
+	//if(uddeIMsendmail($var_fromname, $var_frommail, $var_toname, $var_tomail, $subject, $exportstring, $var_frommail, "", "", $config)) {
+	//return message always gives a result, so always export would be true
+	$mailResult = uddeIMsendmail($var_fromname, $var_frommail, $var_toname, $var_tomail, $subject, $exportstring, $var_frommail, "", "", $config);
+    if (strncmp($mailResult, '1 - ', 4) === 0) {
 		$mosmsg = _UDDEIM_EXPORT_MAILED;
 	} else {
 		$mosmsg = _UDDEIM_EXPORT_COULDNOTSEND;
