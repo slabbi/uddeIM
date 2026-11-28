@@ -188,12 +188,19 @@ function uddeIMcreateLists($myself, $item_id, $listid, $limit, $limitstart, $con
 
 	$total = 0;
 	if ($lids) { $total = substr_count($lids, ",")+1; }
+	$limmessage = "";
 	if ($total>=$config->maxonlists) {
-		echo "<div id='uddeim-toplines'><p>"._UDDEIM_LISTSLIMIT_1." ".$config->maxonlists.").</p></div>\n";
+	    $limmessage = $total>$config->maxonlists ? _UDDEIM_LISTSLIMIT_3.$config->maxonlists."!"
+                                                 : _UDDEIM_LISTSLIMIT_1.$config->maxonlists.")";
+		echo "<div id='uddeim-toplines'><p>".$limmessage."</p></div>\n";
 	}
 
 	echo "<br />";
-	echo "<form name='listsform' id='listsform' method='post' action='".uddeIMsefRelToAbs( "index.php?option=com_uddeim&listid=".$listid."&Itemid=".$item_id."&task=savelists" )."' onsubmit='return uddeIMpresaveList(\"listsform\");'>";
+	//echo "<form name='listsform' id='listsform' method='post' action='".uddeIMsefRelToAbs( "index.php?option=com_uddeim&listid=".$listid."&Itemid=".$item_id."&task=savelists" )."' onsubmit='return uddeIMpresaveList(\"listsform\");'>";
+	//include limit warning for js use
+	echo "<form name='listsform' id='listsform' data-uddeim-list-limit-message='".htmlspecialchars($limmessage, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8')."' 
+	       method='post' action='".uddeIMsefRelToAbs( "index.php?option=com_uddeim&listid=".$listid."&Itemid=".$item_id."&task=savelists" )."' 
+		   onsubmit='return uddeIMpresaveList(\"listsform\");'>"; 
 	echo _UDDEIM_LISTSNAMEWO."<br />";
 	echo "<input type='text' name='listname' size='20' maxlength='40' value='".htmlspecialchars($lname, ENT_QUOTES, 'UTF-8')."' /><br />";
 	echo _UDDEIM_LISTSDESC."<br />";
