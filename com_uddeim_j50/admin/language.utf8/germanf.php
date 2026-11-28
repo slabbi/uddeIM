@@ -23,6 +23,7 @@ defined('_JEXEC') or die( 'Direct Access to this location is not allowed.' );
 
 DEFINE ('_UDDEADM_TRANSLATORS_CREDITS', 'Deutsches Sprachfile erstellt von <a href="http://slabihoud.de/software/" target="_new">uddeIM HQ (Stephan Slabihoud)</a>');	// Enter your credits line here, e.g. 'Translation by <a href="http://domain.com" target="_new">John Doe</a>'
 // New: 5.6.4
+DEFINE ('_UDDEIM_LISTSLIMIT_3', 'Die max. Anzahl für Listeneinträge wurde überschritten: max.'); 
 DEFINE ('_UDDEIM_USERLIST_UNAVAILABLE','Ein oder Mehrere Empfänger sind nicht mehr verfügbar.');
 DEFINE ('_UDDEIM_USERLIST_LIMIT','Die Empfängerliste überschreitet das erlaubte Maximum von ');
 DEFINE ('_UDDEIM_USERLIST_NOCHANGE',' Die Änderungen wurden NICHT gespeichert.');
