@@ -90,7 +90,7 @@ function uddeIMaddToSelection( frmName, srcListName, tgtListName, maxOnList ) {
 			srcList.options[i] = null;
 		}
 		else if (tgtList.length>=maxOnList) {
-            alert("maximum of " + maxOnList + " list entries reached");
+            alert(form.getAttribute("data-uddeim-list-limit-message") || "maximum of " + maxOnList + " list entries reached");
             break;
             }
 	}
