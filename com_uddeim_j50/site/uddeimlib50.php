@@ -311,7 +311,7 @@ function uddeIMgetDBprefix() {
 
 function uddeIMgetUserID() {
     $user = Factory::getApplication()->getIdentity();
-    return $user->id;
+    return (int) ($user->id ?? 0);
 }
 
 function uddeIMgetGroupID() {	// 1=public, 2=registered, 3=special
